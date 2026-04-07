@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>215 Best Free Self-Hosting Guides in 2026 | Freemium.Services</title>
+<meta name="description" content="Step-by-step guides to self-host the best SaaS alternatives. Docker, Kubernetes, VPS, and bare metal — take full control of your stack.">
+<meta name="keywords" content="self hosting guide 2026, self hosted alternatives, docker self host, open source saas alternatives">
+<link rel="canonical" href="https://freemium.services/category/self-hosting">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@graph":[
+  {"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://freemium.services"},{"@type":"ListItem","position":2,"name":"Self-Hosting Guides","item":"https://freemium.services/category/self-hosting"}]},
+  {"@type":"CollectionPage","name":"215 Best Free Self-Hosting Guides in 2026","description":"Step-by-step guides to self-host the best SaaS alternatives. Docker, Kubernetes, VPS, and bare metal — take full control of your stack.","url":"https://freemium.services/category/self-hosting"},
+  {"@type":"FAQPage","mainEntity":[{"@type":"Question","name":"What do I need to self-host a tool?","acceptedAnswer":{"@type":"Answer","text":"A VPS or server with Docker installed is all you need for most tools. A $6/month Hetzner or DigitalOcean VPS handles most self-hosted apps. For AI workloads needing GPU, consider TurboQuant DePIN edge nodes — dramatically cheaper than AWS."}},{"@type":"Question","name":"Is self-hosting secure?","acceptedAnswer":{"@type":"Answer","text":"Self-hosting can be more secure than SaaS because your data never leaves your infrastructure. Use a reverse proxy (Nginx/Caddy), keep Docker images updated, use strong secrets, and enable firewall rules. Most guides on this directory cover security setup."}},{"@type":"Question","name":"How much does self-hosting cost vs SaaS?","acceptedAnswer":{"@type":"Answer","text":"Typically 90% cheaper. A $10/month VPS can run n8n, Metabase, a Postgres database, and more — replacing $200+/month in SaaS subscriptions. With TurboQuant DePIN compute, AI inference costs drop another 10x vs AWS."}}]}
+]}
+</script>
+<style>
+:root{--bg:#080B10;--bg2:#0D1117;--bg3:#111820;--surface:#141C26;--surface2:#1A2332;--border:#1E2D40;--border2:#243344;--text:#E8F0F8;--text2:#9BB0C8;--text3:#5A7A9A;--accent:#00D4FF;--green:#00FF88;--orange:#FF6B35;--yellow:#FFD60A;--font-display:'Syne',sans-serif;--font-mono:'Space Mono',monospace;--font-body:'DM Sans',sans-serif;--radius:8px;--radius2:12px}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--text);font-family:var(--font-body);line-height:1.6;overflow-x:hidden}
+body::before{content:'';position:fixed;inset:0;background-image:linear-gradient(rgba(0,212,255,0.03) 1px,transparent 1px),linear-gradient(90deg,rgba(0,212,255,0.03) 1px,transparent 1px);background-size:60px 60px;pointer-events:none;z-index:0}
+nav{position:sticky;top:0;z-index:100;background:rgba(8,11,16,0.92);backdrop-filter:blur(20px);border-bottom:1px solid var(--border);padding:0 2rem}
+.nav-inner{max-width:1400px;margin:0 auto;display:flex;align-items:center;gap:2rem;height:60px}
+.logo{font-family:var(--font-mono);font-size:1rem;font-weight:700;color:var(--accent);text-decoration:none}
+.logo span{color:var(--green)}
+.nav-links{display:flex;align-items:center;gap:.25rem;list-style:none;margin-left:auto}
+.nav-links a{color:var(--text2);text-decoration:none;font-size:.875rem;padding:.4rem .75rem;border-radius:var(--radius);transition:all .2s}
+.nav-links a:hover{color:var(--text);background:var(--surface)}
+.btn-submit{background:var(--accent);color:var(--bg)!important;font-weight:600!important;padding:.4rem 1rem!important;border-radius:var(--radius)}
+.container{max-width:1400px;margin:0 auto;padding:0 2rem}
+.page-hero{padding:3rem 2rem 2rem;position:relative;z-index:1}
+.breadcrumb{display:flex;align-items:center;gap:.5rem;font-family:var(--font-mono);font-size:.75rem;color:var(--text3);margin-bottom:1.5rem}
+.breadcrumb a{color:var(--text3);text-decoration:none}.breadcrumb a:hover{color:var(--accent)}
+.page-hero h1{font-family:var(--font-display);font-size:clamp(1.8rem,4vw,3rem);font-weight:800;letter-spacing:-1px;margin-bottom:1rem}
+.page-hero p{color:var(--text2);max-width:600px;line-height:1.7;margin-bottom:2rem}
+.hero-meta{display:flex;gap:2rem;flex-wrap:wrap}
+.meta-item{display:flex;align-items:center;gap:.5rem;font-family:var(--font-mono);font-size:.8rem;color:var(--text3)}
+.meta-icon{color:var(--accent)}
+.tools-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:1.25rem;margin-bottom:3rem}
+.tool-card{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius2);padding:1.5rem;text-decoration:none;color:var(--text);display:flex;flex-direction:column;gap:1rem;transition:all .25s;position:relative;overflow:hidden}
+.tool-card::after{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--accent),var(--green));transform:scaleX(0);transform-origin:left;transition:transform .3s}
+.tool-card:hover{border-color:var(--border2);transform:translateY(-2px);box-shadow:0 8px 40px rgba(0,0,0,.4)}
+.tool-card:hover::after{transform:scaleX(1)}
+.tool-header{display:flex;align-items:center;gap:1rem}
+.tool-logo{width:44px;height:44px;border-radius:var(--radius);background:var(--surface2);border:1px solid var(--border);display:flex;align-items:center;justify-content:center;font-size:1.4rem;flex-shrink:0}
+.tool-name{font-family:var(--font-display);font-size:1rem;font-weight:700}
+.tool-tagline{font-size:.8rem;color:var(--text3)}
+.tool-stars{font-family:var(--font-mono);font-size:.75rem;color:var(--yellow)}
+.tool-desc{font-size:.875rem;color:var(--text2);line-height:1.6;flex:1}
+.tool-footer{display:flex;gap:.5rem;flex-wrap:wrap}
+.tag{display:inline-flex;padding:.25rem .6rem;border-radius:100px;font-size:.72rem;font-family:var(--font-mono)}
+.tag-free{background:rgba(0,255,136,.1);color:var(--green);border:1px solid rgba(0,255,136,.2)}
+.tag-open{background:rgba(124,58,237,.1);color:#a78bfa;border:1px solid rgba(124,58,237,.2)}
+.tag-self{background:rgba(0,212,255,.08);color:var(--accent);border:1px solid rgba(0,212,255,.2)}
+.tag-ai{background:rgba(255,107,53,.1);color:var(--orange);border:1px solid rgba(255,107,53,.2)}
+.tq-banner{background:linear-gradient(135deg,rgba(0,212,255,.08),rgba(0,255,136,.05));border:1px solid rgba(0,212,255,.2);border-radius:16px;padding:2rem;margin:3rem 0;text-align:center}
+.tq-banner h2{font-family:var(--font-display);font-size:1.6rem;font-weight:800;margin-bottom:.75rem}
+.tq-banner p{color:var(--text2);max-width:500px;margin:0 auto 1.5rem;line-height:1.7}
+.btn-primary{display:inline-flex;padding:.75rem 1.5rem;border-radius:var(--radius);background:var(--accent);color:var(--bg);font-weight:700;text-decoration:none;transition:all .2s}
+.btn-primary:hover{background:#00b8d9}
+.faq-section{margin-top:3rem;padding-top:3rem;border-top:1px solid var(--border)}
+.faq-section h2{font-family:var(--font-display);font-size:1.4rem;font-weight:800;margin-bottom:1.5rem}
+.faq-item{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:1.25rem;margin-bottom:.75rem;cursor:pointer;transition:border-color .2s}
+.faq-item.open,.faq-item:hover{border-color:var(--accent)}
+.faq-q{font-family:var(--font-display);font-size:.95rem;font-weight:700;display:flex;justify-content:space-between;gap:1rem}
+.faq-icon{color:var(--accent);font-size:1.2rem;flex-shrink:0;transition:transform .2s}
+.faq-item.open .faq-icon{transform:rotate(45deg)}
+.faq-a{font-size:.875rem;color:var(--text2);line-height:1.7;margin-top:.75rem;display:none}
+.faq-item.open .faq-a{display:block}
+footer{background:var(--bg2);border-top:1px solid var(--border);padding:2rem;margin-top:5rem}
+.footer-bottom{max-width:1400px;margin:0 auto;display:flex;justify-content:space-between;flex-wrap:wrap;gap:1rem;font-size:.8rem;color:var(--text3);font-family:var(--font-mono)}
+.footer-bottom a{color:var(--accent);text-decoration:none}
+@media(max-width:600px){.tools-grid{grid-template-columns:1fr}.page-hero{padding:2rem 1rem 1rem}}
+</style>
+</head>
+<body>
+<nav><div class="nav-inner">
+  <a href="/" class="logo">freemium<span>.services</span></a>
+  <ul class="nav-links">
+    <li><a href="/category/ai-tools.html">AI Tools</a></li>
+    <li><a href="/category/open-source.html">Open Source</a></li>
+    <li><a href="/category/self-hosting.html">Self-Hosting</a></li>
+    <li><a href="https://turboquant.network" rel="noopener" style="color:var(--accent)">TurboQuant &#8599;</a></li>
+    <li><a href="/submit.html" class="btn-submit">+ Submit Tool</a></li>
+  </ul>
+</div></nav>
+
+<div class="page-hero container">
+  <nav class="breadcrumb"><a href="/">Home</a><span>&rsaquo;</span><span>Self-Hosting Guides</span></nav>
+  <h1>🖥️ 215 Best Free Self-Hosting Guides in 2026</h1>
+  <p>Step-by-step guides to self-host the best SaaS alternatives. Docker, Kubernetes, VPS, and bare metal — take full control of your stack.</p>
+  <div class="hero-meta">
+    <div class="meta-item"><span class="meta-icon">&#9679;</span>215 tools listed</div>
+    <div class="meta-item"><span class="meta-icon">&#9679;</span>Updated daily</div>
+    <div class="meta-item"><span class="meta-icon">&#9679;</span>All verified</div>
+    <div class="meta-item"><span class="meta-icon">&#9679;</span>Self-host guides included</div>
+  </div>
+</div>
+
+<main class="container" style="position:relative;z-index:1;padding-bottom:2rem">
+  <div class="tools-grid">
+  <a href="/tools/n8n.html" class="tool-card">
+    <div class="tool-header">
+      <div class="tool-logo">🔁</div>
+      <div style="flex:1"><div class="tool-name">n8n</div><div class="tool-tagline">Automation</div></div>
+      <div class="tool-stars">&#9733; 47.2k</div>
+    </div>
+    <div class="tool-desc">Self-host your workflow automation. No usage limits, full data control. docker run in 60 seconds.</div>
+    <div class="tool-footer"><span class="tag tag-self">Self-Hostable</span><span class="tag tag-open">Open Source</span><span class="tag tag-free">Free</span></div>
+  </a>
+  <a href="/tools/open-webui.html" class="tool-card">
+    <div class="tool-header">
+      <div class="tool-logo">💬</div>
+      <div style="flex:1"><div class="tool-name">Open WebUI</div><div class="tool-tagline">AI Chat</div></div>
+      <div class="tool-stars">&#9733; 52k</div>
+    </div>
+    <div class="tool-desc">Self-hosted ChatGPT replacement. Connect to local Ollama or any OpenAI-compatible API.</div>
+    <div class="tool-footer"><span class="tag tag-self">Self-Hostable</span><span class="tag tag-open">MIT License</span><span class="tag tag-self">Local First</span></div>
+  </a>
+  <a href="/tools/onyx.html" class="tool-card">
+    <div class="tool-header">
+      <div class="tool-logo">🧠</div>
+      <div style="flex:1"><div class="tool-name">Onyx</div><div class="tool-tagline">Enterprise AI</div></div>
+      <div class="tool-stars">&#9733; 12.8k</div>
+    </div>
+    <div class="tool-desc">Self-hosted enterprise AI assistant. Connect your docs, Slack, Notion. Full data sovereignty.</div>
+    <div class="tool-footer"><span class="tag tag-self">Self-Hostable</span><span class="tag tag-open">Open Source</span><span class="tag tag-ai">AI-Powered</span></div>
+  </a>
+  <a href="/tools/meilisearch.html" class="tool-card">
+    <div class="tool-header">
+      <div class="tool-logo">🔍</div>
+      <div style="flex:1"><div class="tool-name">Meilisearch</div><div class="tool-tagline">Search</div></div>
+      <div class="tool-stars">&#9733; 47k</div>
+    </div>
+    <div class="tool-desc">Self-host your own Algolia alternative. Sub-50ms search, easy config, REST API.</div>
+    <div class="tool-footer"><span class="tag tag-self">Self-Hostable</span><span class="tag tag-open">MIT License</span><span class="tag tag-free">Free</span></div>
+  </a>
+  <a href="/tools/metabase.html" class="tool-card">
+    <div class="tool-header">
+      <div class="tool-logo">📊</div>
+      <div style="flex:1"><div class="tool-name">Metabase</div><div class="tool-tagline">Analytics</div></div>
+      <div class="tool-stars">&#9733; 38k</div>
+    </div>
+    <div class="tool-desc">Self-hosted BI and analytics. Point at your database, get beautiful dashboards instantly.</div>
+    <div class="tool-footer"><span class="tag tag-self">Self-Hostable</span><span class="tag tag-open">Open Source</span><span class="tag tag-free">Free Tier</span></div>
+  </a>
+  <a href="/tools/dify.html" class="tool-card">
+    <div class="tool-header">
+      <div class="tool-logo">🌊</div>
+      <div style="flex:1"><div class="tool-name">Dify</div><div class="tool-tagline">LLM Platform</div></div>
+      <div class="tool-stars">&#9733; 52k</div>
+    </div>
+    <div class="tool-desc">Self-host your own LLM app platform. Full RAG, agents, and workflow builder under your control.</div>
+    <div class="tool-footer"><span class="tag tag-self">Self-Hostable</span><span class="tag tag-open">Open Source</span><span class="tag tag-ai">AI-Powered</span></div>
+  </a></div>
+
+  <div class="tq-banner">
+    <h2>Scale on <span style="color:var(--accent)">TurboQuant Network</span></h2>
+    <p>Deploy your self-hosted self-hosting guides on decentralized DePIN edge compute. 10x cheaper than AWS with global distribution.</p>
+    <a href="https://turboquant.network" class="btn-primary" rel="noopener" target="_blank">Explore TurboQuant &rarr;</a>
+  </div>
+
+  <div class="faq-section">
+    <h2>&#10067; Self-Hosting Guides FAQ</h2>
+    
+  <div class="faq-item" onclick="this.classList.toggle('open')">
+    <div class="faq-q">What do I need to self-host a tool?<span class="faq-icon">+</span></div>
+    <div class="faq-a">A VPS or server with Docker installed is all you need for most tools. A $6/month Hetzner or DigitalOcean VPS handles most self-hosted apps. For AI workloads needing GPU, consider TurboQuant DePIN edge nodes — dramatically cheaper than AWS.</div>
+  </div>
+  <div class="faq-item" onclick="this.classList.toggle('open')">
+    <div class="faq-q">Is self-hosting secure?<span class="faq-icon">+</span></div>
+    <div class="faq-a">Self-hosting can be more secure than SaaS because your data never leaves your infrastructure. Use a reverse proxy (Nginx/Caddy), keep Docker images updated, use strong secrets, and enable firewall rules. Most guides on this directory cover security setup.</div>
+  </div>
+  <div class="faq-item" onclick="this.classList.toggle('open')">
+    <div class="faq-q">How much does self-hosting cost vs SaaS?<span class="faq-icon">+</span></div>
+    <div class="faq-a">Typically 90% cheaper. A $10/month VPS can run n8n, Metabase, a Postgres database, and more — replacing $200+/month in SaaS subscriptions. With TurboQuant DePIN compute, AI inference costs drop another 10x vs AWS.</div>
+  </div>
+  </div>
+</main>
+
+<footer><div class="footer-bottom">
+  <span>&#169; 2026 <a href="/">freemium.services</a> &middot; Powered by <a href="https://turboquant.network">TurboQuant Network</a></span>
+  <span><a href="/category/ai-tools.html">AI Tools</a> &middot; <a href="/category/self-hosting.html">Self-Hosting</a> &middot; <a href="/category/open-source.html">Open Source</a></span>
+</div></footer>
+</body>
+</html>

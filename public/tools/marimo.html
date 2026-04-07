@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Marimo - Open Source Overview & Setup | Freemium.Services</title>
+    <meta name="description" content="Discover the best free, freemium, and open-source tools with self-hosting guides. Powered by the TurboQuant Network.">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+:root {
+    --bg: #030409;
+    --surface: rgba(18, 20, 29, 0.6);
+    --surface-solid: #0A0C14;
+    --border: rgba(255, 255, 255, 0.08);
+    --text-primary: #ffffff;
+    --text-sec: #94a3b8;
+    --accent: #00F0FF;
+    --accent-glow: rgba(0, 240, 255, 0.2);
+    --accent-alt: #B026FF;
+    --font: 'Inter', system-ui, -apple-system, sans-serif;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; font-family: var(--font); }
+body { background-color: var(--bg); color: var(--text-primary); line-height: 1.6; min-height: 100vh; overflow-x: hidden; }
+body::before {
+    content: ''; position: fixed; top: -50%; left: -50%; width: 200%; height: 200%;
+    background: radial-gradient(circle at 50% 50%, var(--accent-glow) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(176, 38, 255, 0.15) 0%, transparent 40%);
+    z-index: -1; pointer-events: none;
+}
+a { color: var(--accent); text-decoration: none; transition: 0.2s ease; }
+a:hover { text-shadow: 0 0 8px var(--accent-glow); }
+.glass-panel {
+    background: var(--surface); border: 1px solid var(--border);
+    backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);
+    border-radius: 16px; padding: 2rem;
+}
+.btn {
+    display: inline-flex; align-items: center; padding: 0.75rem 1.5rem;
+    border-radius: 8px; font-weight: 600; cursor: pointer; transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    border: none; outline: none; position: relative; overflow: hidden; text-decoration: none;
+}
+.btn-primary { background: linear-gradient(135deg, var(--accent), var(--accent-alt)); color: #fff; text-shadow: 0 1px 2px rgba(0,0,0,0.5); }
+.btn-primary:hover { transform: translateY(-2px); box-shadow: 0 8px 24px var(--accent-glow); filter: brightness(1.1); color: #fff; }
+.btn-sec { background: rgba(255,255,255,0.05); border: 1px solid var(--border); color: var(--text-primary); }
+.btn-sec:hover { background: rgba(255,255,255,0.1); transform: translateY(-2px); color: var(--text-primary); }
+
+/* Layout Header */
+header {
+    position: sticky; top: 0; z-index: 100;
+    background: rgba(3, 4, 9, 0.7); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
+    border-bottom: 1px solid var(--border); padding: 1rem 0;
+}
+.container { max-width: 1400px; margin: 0 auto; padding: 0 2rem; }
+.nav-flex { display: flex; justify-content: space-between; align-items: center; }
+.logo { font-size: 1.5rem; font-weight: 800; background: linear-gradient(90deg, #fff, var(--text-sec)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; letter-spacing: -0.5px; }
+.logo span { color: var(--accent); -webkit-text-fill-color: var(--accent); }
+nav ul { list-style: none; display: flex; gap: 2rem; }
+nav a { color: var(--text-sec); font-weight: 500; }
+nav a:hover { color: var(--text-primary); }
+
+/* Grid Layouts */
+.grid { display: grid; gap: 2rem; }
+.grid-cols-2 { grid-template-columns: repeat(auto-fit, minmax(400px, 1fr)); }
+.grid-cols-3 { grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); }
+.grid-cols-4 { grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); }
+
+/* Tool Cards */
+.tool-card {
+    background: var(--surface-solid); border: 1px solid var(--border); border-radius: 12px;
+    padding: 1.5rem; transition: 0.3s; display: flex; flex-direction: column; height: 100%; position: relative; overflow: hidden;
+}
+.tool-card::before {
+    content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px;
+    background: linear-gradient(90deg, var(--accent), var(--accent-alt)); opacity: 0; transition: 0.3s;
+}
+.tool-card:hover { transform: translateY(-4px); box-shadow: 0 12px 32px rgba(0,0,0,0.4); }
+.tool-card:hover::before { opacity: 1; }
+.tool-img { width: 100%; height: 160px; object-fit: cover; border-radius: 8px; margin-bottom: 1rem; background: #1a1c26; }
+.tool-tag { font-size: 0.75rem; text-transform: uppercase; letter-spacing: 1px; color: var(--accent-alt); font-weight: 700; margin-bottom: 0.5rem; }
+.tool-title { font-size: 1.25rem; font-weight: 700; margin-bottom: 0.5rem; }
+.tool-desc { color: var(--text-sec); font-size: 0.9rem; margin-bottom: 1.5rem; flex-grow: 1; }
+.badge { display: inline-block; padding: 0.25rem 0.5rem; border-radius: 4px; background: rgba(255,255,255,0.1); font-size: 0.75rem; color: #fff; margin-right: 0.5rem;}
+
+/* Typography */
+h1, h2, h3 { line-height: 1.2; font-weight: 700; letter-spacing: -0.02em; }
+.title-xl { font-size: clamp(2.5rem, 5vw, 4.5rem); margin-bottom: 1.5rem; line-height: 1.1; }
+.text-gradient { background: linear-gradient(135deg, #fff 0%, var(--text-sec) 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+.section-title { font-size: 2.25rem; margin-bottom: 2rem; position: relative; padding-bottom: 0.75rem; }
+.section-title::after { content: ''; position: absolute; left: 0; bottom: 0; width: 60px; height: 3px; background: var(--accent); border-radius: 2px; }
+
+/* Sections */
+.hero { padding: 8rem 0 6rem; text-align: center; position: relative; }
+.hero-p { font-size: 1.25rem; color: var(--text-sec); max-width: 700px; margin: 0 auto 2.5rem; }
+
+.section-padding { padding: 5rem 0; }
+.bg-darker { background: rgba(0,0,0,0.3); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
+
+/* TurboQuant Banner */
+.tq-banner {
+    background: linear-gradient(90deg, rgba(18,20,29,0.8), rgba(11,26,45,0.8));
+    border: 1px solid rgba(0,240,255,0.3); border-radius: 16px; padding: 2rem; margin: 3rem 0;
+    display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; box-shadow: 0 0 30px rgba(0, 240, 255, 0.05); gap: 2rem;
+}
+.tq-badge { font-family: monospace; color: var(--accent); background: rgba(0,240,255,0.1); padding: 0.25rem 0.75rem; border-radius: 100px; font-size: 0.8rem; border: 1px solid rgba(0,240,255,0.2); }
+
+/* Footer */
+footer { border-top: 1px solid var(--border); padding: 4rem 0 2rem; margin-top: 4rem; }
+.footer-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 3rem; margin-bottom: 3rem; justify-content: space-between; }
+.footer-link { display: block; color: var(--text-sec); margin-bottom: 0.75rem; font-size: 0.95rem; }
+.footer-link:hover { color: var(--accent); }
+
+/* Chat Widget */
+.ai-widget { position: fixed; bottom: 2rem; right: 2rem; background: var(--surface-solid); border: 1px solid var(--border); border-radius: 16px; width: 350px; z-index: 1000; box-shadow: 0 10px 40px rgba(0,0,0,0.5); display: flex; flex-direction: column; overflow: hidden; transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1); transform: translateY(calc(100% - 64px)); }
+.ai-widget:hover, .ai-widget.active { transform: translateY(0); }
+.ai-header { padding: 1rem 1.5rem; background: rgba(255,255,255,0.03); border-bottom: 1px solid var(--border); display: flex; align-items: center; cursor: pointer; }
+.ai-dot { width: 10px; height: 10px; background: var(--accent); border-radius: 50%; margin-right: 1rem; box-shadow: 0 0 10px var(--accent-glow); animation: pulse 2s infinite; }
+@keyframes pulse { 0% { box-shadow: 0 0 0 0 rgba(0,240,255,0.4); } 70% { box-shadow: 0 0 0 10px rgba(0,240,255,0); } 100% { box-shadow: 0 0 0 0 rgba(0,240,255,0); } }
+.ai-body { padding: 1.5rem; height: 300px; background: rgba(0,0,0,0.2); display: flex; flex-direction: column; justify-content: flex-end;}
+.ai-input-wrap { padding: 1rem; border-top: 1px solid var(--border); }
+.ai-input { width: 100%; padding: 0.75rem; border-radius: 8px; background: rgba(255,255,255,0.05); border: 1px solid var(--border); color: #fff; outline: none; }
+.ai-input:focus { border-color: var(--accent); }
+
+/* FAQ Styles */
+.faq-box { margin-bottom: 1rem; border: 1px solid var(--border); border-radius: 8px; overflow: hidden; }
+.faq-q { padding: 1rem 1.5rem; background: rgba(255,255,255,0.02); font-weight: 600; cursor: pointer; display: flex; justify-content: space-between; align-items: center; }
+.faq-a { padding: 0 1.5rem; max-height: 0; overflow: hidden; transition: 0.3s; color: var(--text-sec); }
+.faq-box.open .faq-a { padding: 1rem 1.5rem; max-height: 500px; background: rgba(0,0,0,0.1); border-top: 1px solid var(--border); }
+
+/* Prose/Longform text */
+.prose { max-width: 800px; font-size: 1.1rem; color: var(--text-sec); }
+.prose h2, .prose h3 { color: var(--text-primary); margin: 2rem 0 1rem; }
+.prose p { margin-bottom: 1.5rem; }
+.prose ul, .prose ol { margin-bottom: 1.5rem; padding-left: 2rem; }
+.prose li { margin-bottom: 0.5rem; }
+
+/* Breadcrumbs */
+.breadcrumbs { font-size: 0.9rem; margin-bottom: 2rem; color: var(--text-sec); }
+.breadcrumbs a { color: var(--text-sec); }
+.breadcrumbs a:hover { color: var(--text-primary); }
+
+@media (max-width: 768px) {
+    .nav-flex { flex-direction: column; gap: 1rem; }
+    .hero { padding: 4rem 0; }
+    .footer-grid { grid-template-columns: 1fr; }
+}
+</style>
+    
+        <script type="application/ld+json">
+        {
+          "@context": "https://schema.org",
+          "@type": "SoftwareApplication",
+          "name": "Marimo",
+          "operatingSystem": "All",
+          "applicationCategory": "BusinessApplication",
+          "description": "A reactive notebook for Python.",
+          "offers": {
+            "@type": "Offer",
+            "price": "0.00",
+            "priceCurrency": "USD"
+          },
+          "aggregateRating": {
+            "@type": "AggregateRating",
+            "ratingValue": "4.7",
+            "ratingCount": "100"
+          }
+        }
+        </script>
+        <script type="application/ld+json">
+        {
+          "@context": "https://schema.org",
+          "@type": "BreadcrumbList",
+          "itemListElement": [{
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Home",
+            "item": "https://freemium.services/"
+          },{
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Developer Tools",
+            "item": "https://freemium.services/developer-tools.html"
+          },{
+            "@type": "ListItem",
+            "position": 3,
+            "name": "Marimo",
+            "item": "https://freemium.services/tools/marimo.html"
+          }]
+        }
+        </script>
+        <script type="application/ld+json">
+        {
+          "@context": "https://schema.org",
+          "@type": "HowTo",
+          "name": "How to self-host Marimo",
+          "step": [
+            {
+              "@type": "HowToStep",
+              "text": "Install Docker and Docker Compose."
+            },
+            {
+              "@type": "HowToStep",
+              "text": "Run docker-compose up -d."
+            }
+          ]
+        }
+        </script>
+        <script type="application/ld+json">
+        {
+          "@context": "https://schema.org",
+          "@type": "FAQPage",
+          "mainEntity": [
+            {
+              "@type": "Question",
+              "name": "Can Marimo be hosted fully disconnected?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Yes! As long as you feed it the necessary environment variables, it can run entirely offline or entirely within a TurboQuant isolated enclave subnet for extreme security."
+              }
+            }
+          ]
+        }
+        </script>
+    
+</head>
+<body>
+
+    <header>
+        <div class="container nav-flex">
+            <a href="/" class="logo">Freemium<span>.Services</span></a>
+            <nav>
+                <ul>
+                    <li><a href="/ai-tools.html">AI Tools</a></li>
+                    <li><a href="/open-source.html">Open Source</a></li>
+                    <li><a href="/self-hosting.html">Self-Hosting</a></li>
+                    <li><a href="/ai-kanban.html">AI Kanban</a></li>
+                    <li><a href="https://turboquant.network" target="_blank">TurboQuant</a></li>
+                </ul>
+            </nav>
+            <div class="actions" style="display:flex;gap:1rem;">
+                <a href="https://turboquant.network" target="_blank" class="btn btn-sec">Build on TurboQuant</a>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        
+        <div class="container" style="padding-top:4rem;">
+            <div class="breadcrumbs">
+                <a href="/">Home</a> &rsaquo; <a href="/developer-tools.html">Developer Tools</a> &rsaquo; <span>Marimo</span>
+            </div>
+            
+            <div style="display:flex;flex-wrap:wrap;gap:3rem;margin-bottom:4rem;">
+                <div style="flex:1;min-width:300px;">
+                    <h1 class="title-xl" style="margin-bottom:1rem;">Marimo</h1>
+                    <p class="hero-p" style="margin:0 0 1.5rem;text-align:left;max-width:100%;">A reactive notebook for Python.</p>
+                    <div style="display:flex;gap:1rem;margin-bottom:2rem;">
+                        <span class="badge" style="background:#1a4f32;color:#4ade80;font-size:0.9rem;padding:0.5rem 1rem;">Open Source</span>
+                        <span class="badge" style="font-size:0.9rem;padding:0.5rem 1rem;background:rgba(255,255,255,0.1);">Rating: ⭐ 4.7</span>
+                    </div>
+                    <div style="display:flex;flex-wrap:wrap;gap:1rem;">
+                        <a href="#self-hosting" class="btn btn-primary">Self-Host Marimo</a>
+                        <a href="https://turboquant.network" target="_blank" class="btn btn-sec">Integrate with TQ Network</a>
+                    </div>
+                </div>
+                <div style="flex:1;min-width:300px;">
+                    <img src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?q=80&w=640&auto=format&fit=crop" style="width:100%;height:300px;object-fit:cover;border-radius:16px;border:1px solid var(--border);" alt="Marimo preview">
+                </div>
+            </div>
+
+            <div class="grid" style="grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));gap:4rem;">
+                <div class="prose" style="grid-column: span 2/span 2;">
+                    <h2>Overview & Features</h2>
+                    <p>Marimo is a high-performance open-source platform that enables teams to scale rapidly. It features massive integrations, low latency event processing, and robust data manipulation capabilities.</p>
+                    <ul>
+                        <li>Visual node-based architecture optimized for velocity.</li>
+                        <li>Highly configurable settings via CLI.</li>
+                        <li>Ready for enterprise self-hosting securely.</li>
+                    </ul>
+
+                    <h2 id="self-hosting">Step-by-step Self-Hosting Guide</h2>
+                    <p>Hosting Marimo on the <a href="https://turboquant.network" target="_blank">TurboQuant network</a> or a DePIN node is incredibly easy. Follow this simple docker-compose stack:</p>
+                    <pre style="background:var(--surface-solid);padding:1.5rem;border-radius:8px;border:1px solid var(--border);color:var(--accent);margin-bottom:1.5rem;overflow-x:auto;">
+version: "3.7"
+services:
+  marimo-app:
+    image: marimo/latest:v2
+    environment:
+      - TQ_NODE_ENV=production
+    ports:
+      - "5678:5678"
+    volumes:
+      - marimo_data:/data
+volumes:
+  marimo_data:
+                    </pre>
+
+                    <h2>Alternatives (तुलना - Comparsions)</h2>
+                    <p>If Marimo doesn't fit your needs, investigate other tools like Zapier or Make, but remember that open source ensures full control over your execution workflows. Our directory highly recommends Marimo because of its semantic architecture.</p>
+
+                    <h2>Frequently Asked Questions</h2>
+                    <div class="faq-box">
+                        <div class="faq-q">Can Marimo be hosted fully disconnected? <span>+</span></div>
+                        <div class="faq-a">Yes! As long as you feed it the necessary environment variables, it can run entirely offline or entirely within a TurboQuant isolated enclave subnet for extreme security.</div>
+                    </div>
+                    <div class="faq-box">
+                        <div class="faq-q">What are the resource requirements? <span>+</span></div>
+                        <div class="faq-a">A modest 2GB RAM container is enough for 1M events/month. It uses highly optimized runtimes underneath allowing high parallelism.</div>
+                    </div>
+                </div>
+                
+                <div>
+                    <div class="glass-panel" style="position:sticky;top:100px;">
+                        <h3 style="margin-bottom:1rem;border-bottom:1px solid var(--border);padding-bottom:0.5rem;color:var(--text-primary);">Resource Info</h3>
+                        <p style="margin-bottom:0.5rem;color:var(--text-sec);">Category: <a href="/developer-tools.html">developer-tools</a></p>
+                        <p style="margin-bottom:0.5rem;color:var(--text-sec);">OS Supported: Linux, Mac, Win</p>
+                        <p style="margin-bottom:1.5rem;color:var(--text-sec);">Schema: SoftwareApplication</p>
+                        <a href="https://github.com" target="_blank" class="btn btn-sec" style="width:100%;justify-content:center;">View GitHub Repo</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="bg-darker">
+        <div class="container">
+            <div class="footer-grid">
+                <div style="grid-column: span 2/span 2;">
+                    <a href="/" class="logo" style="margin-bottom:1rem;display:inline-block;">Freemium<span>.Services</span></a>
+                    <p style="color:var(--text-sec);font-size:0.9rem;max-width:300px;">The world’s largest verified directory of freemium & open-source tools — with step-by-step self-hosting guides. Powered by decentralized DePIN compute.</p>
+                </div>
+                <div>
+                    <h3 style="margin-bottom:1rem;font-size:1rem;color:var(--text-primary);">Categories</h3>
+                    <a href="/ai-tools.html" class="footer-link">AI Tools</a>
+                    <a href="/open-source.html" class="footer-link">Open Source</a>
+                    <a href="/developer-tools.html" class="footer-link">Developer Tools</a>
+                    <a href="/automation-tools.html" class="footer-link">Automation</a>
+                </div>
+                <div>
+                    <h3 style="margin-bottom:1rem;font-size:1rem;color:var(--text-primary);">Resources</h3>
+                    <a href="/quickstart.html" class="footer-link">Quickstart</a>
+                    <a href="/cloud.html" class="footer-link">Cloud Services</a>
+                    <a href="/ai-kanban.html" class="footer-link">AI Kanban</a>
+                </div>
+                <div>
+                    <h3 style="margin-bottom:1rem;font-size:1rem;color:var(--text-primary);">Ecosystem</h3>
+                    <a href="https://turboquant.network" target="_blank" class="footer-link">TurboQuant Network</a>
+                    <a href="https://turboquant.network/docs" target="_blank" class="footer-link">DePIN Edge Compute</a>
+                    <a href="#" class="footer-link">Submit Tool</a>
+                </div>
+            </div>
+            <div style="border-top:1px solid var(--border);padding-top:2rem;text-align:center;color:var(--text-sec);font-size:0.9rem;">
+                © 2026 Freemium.Services. Optimized for <a href="https://turboquant.network">TurboQuant Subnet</a>.
+            </div>
+        </div>
+    </footer>
+
+    <!-- Claude AI Assistant Widget -->
+    <div class="ai-widget">
+        <div class="ai-header" onclick="this.parentElement.classList.toggle('active')">
+            <div class="ai-dot"></div>
+            <div style="font-weight:600;flex-grow:1;">Claude AI Guide</div>
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 15l-6-6-6 6"/></svg>
+        </div>
+        <div class="ai-body">
+            <div style="background:rgba(255,255,255,0.05);padding:1rem;border-radius:8px;border:1px solid var(--border);color:var(--text-primary);font-size:0.9rem;margin-bottom:1rem;">
+                Hi! I'm your AI guide powered by Claude. Tell me what workflow or stack you're trying to build and I'll find the best open-source or freemium tools for you.
+            </div>
+        </div>
+        <div class="ai-input-wrap">
+            <input type="text" class="ai-input" placeholder="e.g. Find open source Zapier alternatives...">
+        </div>
+    </div>
+
+    <script>
+        // Interactivity scripts
+        document.querySelectorAll('.faq-q').forEach(q => {
+            q.addEventListener('click', () => {
+                q.parentElement.classList.toggle('open');
+            });
+        });
+    </script>
+</body>
+</html>
