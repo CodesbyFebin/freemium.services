@@ -8,50 +8,52 @@
 <meta name="keywords" content="open source documentation, software tutorials 2026, self hosting wiki, n8n tutorial, docker guides, AI tools docs, developer wiki, freemium software docs">
 <link rel="canonical" href="https://freemium.services/docs">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400&family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
 <style>
 /* ═══════════════════════════════════════════
-   FREEMIUM.SERVICES DOCS — GitHub Pages Dark Style
+   FREEMIUM.SERVICES DOCS — Icemorphism Dark Style (Consistent with index.html)
    High contrast · WCAG AA · Accessible Focus States
    ═══════════════════════════════════════════ */
 
 :root {
-  /* GitHub dark palette */
-  --bg: #0d1117;
-  --bg2: #161b22;
-  --bg3: #1c2128;
-  --surface: #21262d;
-  --surface2: #30363d;
-  --border: #30363d;
-  --border2: #3d444d;
-  --text: #e6edf3;
-  --text2: #8b949e;
-  --text3: #6e7681;
+  /* Freemium.Services Icemorphism dark palette */
+  --bg: #080B10;
+  --bg2: #0D1117;
+  --bg3: #111820;
+  --surface: #141C26;
+  --surface2: #1A2332;
+  --border: #1E2D40;
+  --border2: #243344;
+  --text: #E8F0F8;
+  --text2: #9BB0C8;
+  --text3: #5A7A9A;
   --text4: #3d444d;
   /* Accent system */
-  --accent: #58a6ff;       /* GitHub blue */
-  --accent2: #388bfd;
-  --accent3: #a5d6ff;
-  --green: #3fb950;
-  --green2: #2ea043;
-  --amber: #e3b341;        /* amber for TQ */
+  --accent: #00D4FF;       /* Cyan */
+  --accent2: #0099CC;
+  --accent3: #00e5ff;
+  --green: #00FF88;
+  --green2: #00CC6A;
+  --amber: #FFD60A;        /* Yellow */
   --amber2: #d29922;
-  --red: #f85149;
-  --purple: #bc8cff;
-  --tq: #39d4ff;           /* TurboQuant cyan */
-  --tq2: #1fbad4;
+  --red: #FF3B5C;
+  --purple: #7C3AED;
+  --tq: #00D4FF;           /* TurboQuant cyan same as accent */
+  --tq2: #0099CC;
+  --glow: 0 0 40px rgba(0,212,255,0.15);
+  --glow-green: 0 0 40px rgba(0,255,136,0.15);
   /* Typography */
-  --font-display: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-  --font-mono: 'JetBrains Mono', 'SFMono-Regular', Consolas, 'Liberation Mono', monospace;
-  --font-body: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --font-display: 'Syne', sans-serif;
+  --font-mono: 'Space Mono', monospace;
+  --font-body: 'DM Sans', sans-serif;
   /* Layout */
   --sidebar-w: 270px;
   --header-h: 57px;
-  --radius: 6px;
-  --radius2: 8px;
-  --radius3: 12px;
-  --shadow: 0 8px 24px rgba(1,4,9,.8);
-  --shadow2: 0 1px 3px rgba(1,4,9,.6);
+  --radius: 8px;
+  --radius2: 12px;
+  --radius3: 16px;
+  --shadow: 0 8px 24px rgba(0,0,0,.8);
+  --shadow2: 0 1px 3px rgba(0,0,0,.6);
 }
 
 /* ─── RESET ─── */
@@ -63,6 +65,19 @@ body {
   font-family: var(--font-body);
   line-height: 1.7;
   overflow-x: hidden;
+}
+
+/* GRID BACKGROUND */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(0,212,255,0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0,212,255,0.03) 1px, transparent 1px);
+  background-size: 60px 60px;
+  pointer-events: none;
+  z-index: 0;
 }
 
 /* ─── SKIP TO CONTENT (accessibility) ─── */
@@ -529,22 +544,22 @@ ul.doc-list a:hover, ol.doc-list a:hover { text-decoration: underline; }
   line-height: 1.9;
   overflow-x: auto;
   white-space: pre;
-  color: #e6edf3;
+  color: var(--text);
 }
 
-/* GitHub syntax colors */
-.ln { color: var(--text4); user-select: none; width: 2.5rem; display: inline-block; text-align: right; margin-right: 1.1rem; }
-.c-comment { color: #6e7681; }
-.c-cmd { color: #e6edf3; }
-.c-key { color: #79c0ff; }
-.c-val { color: #a5d6a7; }
-.c-str { color: #a5d6ff; }
+/* Syntax colors */
+.ln { color: var(--border2); user-select: none; width: 2.5rem; display: inline-block; text-align: right; margin-right: 1.1rem; }
+.c-comment { color: #5A7A9A; }
+.c-cmd { color: var(--text); }
+.c-key { color: var(--accent); }
+.c-val { color: var(--green); }
+.c-str { color: var(--yellow); }
 .c-prompt { color: var(--green); font-weight: 600; }
 .c-out { color: var(--text3); }
 .c-success { color: var(--green); }
-.c-flag { color: var(--amber); }
-.c-url { color: var(--tq); }
-.c-highlight { background: rgba(227,179,65,.12); border-radius: 2px; padding: 0 2px; }
+.c-flag { color: var(--accent); }
+.c-url { color: var(--accent); }
+.c-highlight { background: rgba(0,212,255,0.1); border-radius: 2px; padding: 0 2px; }
 
 code.inline {
   font-family: var(--font-mono);
@@ -553,7 +568,7 @@ code.inline {
   border: 1px solid var(--border2);
   border-radius: 4px;
   padding: .1rem .35rem;
-  color: #ff7b72;
+  color: var(--orange);
 }
 
 /* ─── CALLOUT BOXES ─── */
