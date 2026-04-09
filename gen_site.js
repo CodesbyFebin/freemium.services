@@ -14,11 +14,18 @@ const TQ_URL = 'https://turboquant.network';
 
 // --- DATA DEFINITION ---
 const categories = [
-    { id: 'ai-tools', name: 'AI Tools', icon: '🤖', count: 842, desc: 'Top AI directory.' },
+    { id: 'ai-tools', name: 'AI Tools', icon: '🤖', count: 342, desc: 'Top AI directory.' },
     { id: 'open-source', name: 'Open Source', icon: '🐙', count: 891, desc: 'OSS tools.' },
     { id: 'self-hosting', name: 'Self-Hosting', icon: '🖥️', count: 215, desc: 'Self-hosting guides.' },
-    { id: 'automation', name: 'Automation', icon: '⚙️', count: 178, desc: 'Workflow automation.' },
-    { id: 'dev-tools', name: 'Dev Tools', icon: '⌨️', count: 267, desc: 'Developer utilities.' },
+    { id: 'automation-tools', name: 'Automation', icon: '⚙️', count: 178, desc: 'Workflow automation.' },
+    { id: 'ai-agents', name: 'AI Agents', icon: '🧠', count: 134, desc: 'Autonomous agents.' },
+    { id: 'developer-tools', name: 'Dev Tools', icon: '⌨️', count: 267, desc: 'Developer utilities.' },
+    { id: 'rag-tools', name: 'RAG Tools', icon: '📚', count: 89, desc: 'Retrieval Augmented Generation.' },
+    { id: 'vector-databases', name: 'Vector DBs', icon: '🗄️', count: 43, desc: 'Vector storage.' },
+    { id: 'ai-kanban', name: 'AI Kanban', icon: '📋', count: 67, desc: 'Project management.' },
+    { id: 'cli-tools', name: 'CLI Tools', icon: '💻', count: 156, desc: 'Terminal utilities.' },
+    { id: 'assistants', name: 'Assistants', icon: '💬', count: 98, desc: 'AI Chatbots.' },
+    { id: 'ides', name: 'AI IDEs', icon: '🖊️', count: 52, desc: 'Coding environments.' },
     { id: 'all-categories', name: 'All Categories', icon: '📂', count: 2847, desc: 'Full directory.' }
 ];
 
@@ -28,7 +35,13 @@ const allTools = {
     'onyx': { name: 'Onyx', tag: 'RAG', emoji: '🧠' },
     'dify': { name: 'Dify', tag: 'AI Platform', emoji: '🌊' },
     'langflow': { name: 'Langflow', tag: 'Visual AI', emoji: '🔗' },
-    'marimo': { name: 'Marimo', tag: 'Notebook', emoji: '📓' }
+    'marimo': { name: 'Marimo', tag: 'Notebook', emoji: '📓' },
+    'qdrant': { name: 'Qdrant', tag: 'Vector DB', emoji: '🗄️' },
+    'ollama': { name: 'Ollama', tag: 'Local LLM', emoji: '🦙' },
+    'open-webui': { name: 'Open WebUI', tag: 'Chat', emoji: '💬' },
+    'goose': { name: 'Goose', tag: 'Agent', emoji: '🪿' },
+    'cline': { name: 'Cline', tag: 'VS Code', emoji: '🖊️' },
+    'roo-code': { name: 'Roo Code', tag: 'Agent', emoji: '🦘' }
 };
 
 const extraPages = [
@@ -188,6 +201,17 @@ const getLayout = (title, content, head = {}, schema = null) => {
 // --- GENERATORS ---
 
 function genHomepage() {
+    // If a manual index.html exists, we might want to skip this or use it as template.
+    // However, the user asked to make "index (1).html" the homepage earlier.
+    // I already did that. To make sure gen_site.js is synced, I'll read it.
+    let manualIndex = "";
+    try { manualIndex = fs.readFileSync(path.join(__dirname, 'index (1).html'), 'utf8'); } catch(e) {}
+    
+    if (manualIndex) {
+        fs.writeFileSync(path.join(outDir, 'index.html'), manualIndex);
+        return;
+    }
+
     let content = `
     <div class="hero container" style="text-align:center;padding:8rem 2rem 4rem;">
         <h1 style="font-size:clamp(3rem, 10vw, 6rem);line-height:1;margin-bottom:2rem;">The DePIN <br><span style="color:var(--accent);">Future is Here.</span></h1>
@@ -300,4 +324,4 @@ console.log('Generating Tools...'); genToolPages();
 console.log('Generating Extra Pages...'); genExtraPages();
 console.log('Generating Sitemap...'); genSitemap();
 
-console.log('Site build successful. References to pillars and metrics removed.');
+console.log('Site build successful.');
