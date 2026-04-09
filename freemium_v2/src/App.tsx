@@ -11,6 +11,7 @@ import { cn } from './lib/utils';
 import { CATEGORIES, TOOLS, KNOWLEDGE_HUB, COMPARISONS, type Tool, type Category } from './lib/data';
 import ReactMarkdown from 'react-markdown';
 
+import { Analytics } from '@vercel/analytics/react';
 // ─── Design tokens ───────────────────────────────────────────────
 const C = {
   neon: '#00ffaa',
@@ -1803,6 +1804,7 @@ export default function App() {
           </main>
           <Footer />
           <ChatWidget />
+          <Analytics />
         </div>
       </Router>
     </HelmetProvider>
