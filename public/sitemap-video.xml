@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:video="http://www.google.com/schemas/sitemap-video/1.1">
+  <url>
+    <loc>https://freemium.services/streaming.html</loc>
+    <video:video>
+      <video:thumbnail_loc>https://freemium.services/assets/streaming-thumb.jpg</video:thumbnail_loc>
+      <video:title>Low-Latency Streaming Guide</video:title>
+      <video:description>Technical overview of decentralized streaming infrastructure.</video:description>
+      <video:player_loc>https://freemium.services/player?v=streaming</video:player_loc>
+    </video:video>
+  </url>
+</urlset>

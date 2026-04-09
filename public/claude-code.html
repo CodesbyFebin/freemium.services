@@ -1,0 +1,464 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Claude Code — Anthropic's AI Coding Agent: Setup, Free Tier & Alternatives (2026)</title>
+<meta name="description" content="Claude Code is Anthropic's terminal-native AI coding agent. Complete guide: installation, features, use cases, free tier, and comparisons with Cursor, Cline, and Copilot.">
+<meta name="keywords" content="Claude Code, Anthropic AI coding, Claude Code tutorial, Claude Code free, AI coding agent 2026, Claude Code vs Cursor, agentic coding CLI">
+<link rel="canonical" href="https://freemium.services/tools/claude-code">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@graph":[
+    {"@type":"SoftwareApplication","name":"Claude Code","url":"https://claude.ai/code","applicationCategory":"DeveloperApplication","operatingSystem":"Linux, macOS, Windows (WSL)","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"description":"Anthropic's terminal-native agentic AI coding assistant that reads codebases, writes code, runs tests, and manages Git autonomously.","publisher":{"@type":"Organization","name":"Anthropic","url":"https://anthropic.com"}},
+    {"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://freemium.services"},{"@type":"ListItem","position":2,"name":"AI Coding Agents","item":"https://freemium.services/category/ai-agents"},{"@type":"ListItem","position":3,"name":"Claude Code","item":"https://freemium.services/tools/claude-code"}]},
+    {"@type":"HowTo","name":"How to Install Claude Code","step":[{"@type":"HowToStep","name":"Install Node.js","text":"Ensure Node.js 18+ is installed on your system."},{"@type":"HowToStep","name":"Install Claude Code","text":"Run: npm install -g @anthropic-ai/claude-code"},{"@type":"HowToStep","name":"Authenticate","text":"Run: claude login — opens browser to authenticate with your Anthropic account."},{"@type":"HowToStep","name":"Navigate to project","text":"cd your-project && claude"},{"@type":"HowToStep","name":"Start coding","text":"Describe a task in natural language and Claude Code will implement it autonomously."}]},
+    {"@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Is Claude Code free?","acceptedAnswer":{"@type":"Answer","text":"Claude Code has a free tier via claude.ai. The npm CLI is free to install. Usage is billed through Anthropic — free tier available, Pro plan $20/mo for more capacity."}},{"@type":"Question","name":"How do I install Claude Code?","acceptedAnswer":{"@type":"Answer","text":"Run: npm install -g @anthropic-ai/claude-code then claude login. Requires Node.js 18+. Works on macOS, Linux, and Windows with WSL2."}},{"@type":"Question","name":"What makes Claude Code different from Copilot?","acceptedAnswer":{"@type":"Answer","text":"Claude Code is an autonomous agent that completes entire tasks — writing features, running tests, managing Git. GitHub Copilot is an inline autocomplete tool. Claude Code works at a much higher level of abstraction and autonomy."}}]}
+  ]
+}
+</script>
+<style>
+:root{--bg:#080B10;--bg2:#0D1117;--bg3:#111820;--surface:#141C26;--surface2:#1A2332;--border:#1E2D40;--border2:#243344;--text:#E8F0F8;--text2:#9BB0C8;--text3:#5A7A9A;--accent:#00D4FF;--green:#00FF88;--orange:#FF6B35;--yellow:#FFD60A;--red:#FF3B5C;--font-display:'Syne',sans-serif;--font-mono:'Space Mono',monospace;--font-body:'DM Sans',sans-serif;--radius:8px;--radius2:12px}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--text);font-family:var(--font-body);line-height:1.6;overflow-x:hidden}
+body::before{content:'';position:fixed;inset:0;background-image:linear-gradient(rgba(0,212,255,0.03) 1px,transparent 1px),linear-gradient(90deg,rgba(0,212,255,0.03) 1px,transparent 1px);background-size:60px 60px;pointer-events:none;z-index:0}
+nav{position:sticky;top:0;z-index:100;background:rgba(8,11,16,0.92);backdrop-filter:blur(20px);border-bottom:1px solid var(--border);padding:0 2rem}
+.nav-inner{max-width:1400px;margin:0 auto;display:flex;align-items:center;gap:1.5rem;height:60px}
+.logo{font-family:var(--font-mono);font-size:1rem;font-weight:700;color:var(--accent);text-decoration:none}
+.logo span{color:var(--green)}
+.nav-links{display:flex;align-items:center;gap:.25rem;list-style:none;margin-left:auto}
+.nav-links a{color:var(--text2);text-decoration:none;font-size:.875rem;padding:.4rem .75rem;border-radius:var(--radius);transition:all .2s}
+.nav-links a:hover{color:var(--text);background:var(--surface)}
+.btn-submit{background:var(--accent);color:var(--bg)!important;font-weight:600!important;border-radius:var(--radius)!important}
+.container{max-width:1400px;margin:0 auto;padding:0 2rem;position:relative;z-index:1}
+.breadcrumb{display:flex;align-items:center;gap:.5rem;font-family:var(--font-mono);font-size:.75rem;color:var(--text3);padding-top:2rem;margin-bottom:1.5rem}
+.breadcrumb a{color:var(--text3);text-decoration:none}.breadcrumb a:hover{color:var(--accent)}
+.tool-hero{display:grid;grid-template-columns:1fr 300px;gap:2.5rem;padding:2rem 0 3rem;align-items:start}
+.tool-logo-big{width:68px;height:68px;border-radius:16px;background:linear-gradient(135deg,rgba(124,58,237,.3),rgba(0,212,255,.2));border:1px solid rgba(0,212,255,.3);display:flex;align-items:center;justify-content:center;font-size:2.2rem;margin-bottom:1.25rem}
+.tool-hero h1{font-family:var(--font-display);font-size:2.4rem;font-weight:800;letter-spacing:-1.5px;margin-bottom:.5rem}
+.tool-hero-sub{font-size:1.05rem;color:var(--text2);margin-bottom:1.25rem;line-height:1.75;max-width:620px}
+.tag-row{display:flex;gap:.6rem;flex-wrap:wrap;margin-bottom:1.5rem}
+.tag{display:inline-flex;align-items:center;padding:.28rem .7rem;border-radius:100px;font-size:.75rem;font-family:var(--font-mono)}
+.tag-free{background:rgba(0,255,136,.1);color:var(--green);border:1px solid rgba(0,255,136,.2)}
+.tag-ai{background:rgba(255,107,53,.1);color:var(--orange);border:1px solid rgba(255,107,53,.2)}
+.tag-new{background:rgba(255,214,10,.1);color:var(--yellow);border:1px solid rgba(255,214,10,.2)}
+.tag-self{background:rgba(0,212,255,.08);color:var(--accent);border:1px solid rgba(0,212,255,.2)}
+.tag-open{background:rgba(124,58,237,.1);color:#a78bfa;border:1px solid rgba(124,58,237,.2)}
+.cta-row{display:flex;gap:.75rem;flex-wrap:wrap}
+.btn{display:inline-flex;align-items:center;gap:.4rem;padding:.65rem 1.4rem;border-radius:var(--radius);font-size:.875rem;font-weight:600;text-decoration:none;transition:all .25s;border:none;cursor:pointer}
+.btn-primary{background:var(--accent);color:var(--bg);box-shadow:0 0 24px rgba(0,212,255,.25)}
+.btn-primary:hover{background:#00b8d9;transform:translateY(-1px)}
+.btn-ghost{background:var(--surface);color:var(--text);border:1px solid var(--border2)}
+.btn-ghost:hover{border-color:var(--accent);color:var(--accent)}
+.stats-card{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius2);padding:1.5rem;position:sticky;top:76px}
+.stat-row{display:flex;justify-content:space-between;align-items:center;padding:.55rem 0;border-bottom:1px solid var(--border);font-size:.855rem}
+.stat-row:last-child{border-bottom:none}
+.sl{color:var(--text3);font-family:var(--font-mono);font-size:.72rem;text-transform:uppercase;letter-spacing:.5px}
+.sv{font-weight:600}.sv-green{color:var(--green)}.sv-yellow{color:var(--yellow)}
+.layout{display:grid;grid-template-columns:1fr 300px;gap:2.5rem;align-items:start}
+.main h2{font-family:var(--font-display);font-size:1.45rem;font-weight:800;letter-spacing:-.5px;margin:2.5rem 0 .9rem}
+.main h2:first-child{margin-top:0}
+.main h3{font-family:var(--font-display);font-size:1.05rem;font-weight:700;color:var(--accent);margin:1.5rem 0 .65rem}
+.main p{color:var(--text2);line-height:1.8;margin-bottom:.9rem}
+.main a{color:var(--accent);text-decoration:none}.main a:hover{text-decoration:underline}
+.main ul,.main ol{color:var(--text2);padding-left:1.5rem;margin-bottom:1rem;line-height:1.85}
+.main li{margin-bottom:.3rem}
+.info-box{background:rgba(0,212,255,.06);border:1px solid rgba(0,212,255,.25);border-left:3px solid var(--accent);border-radius:var(--radius);padding:.9rem 1.1rem;margin:1.25rem 0}
+.info-box p{color:var(--text2);font-size:.875rem;line-height:1.7;margin:0}
+.info-box strong{color:var(--accent)}
+.warning-box{background:rgba(255,214,10,.05);border:1px solid rgba(255,214,10,.2);border-left:3px solid var(--yellow);border-radius:var(--radius);padding:.9rem 1.1rem;margin:1.25rem 0}
+.warning-box p{color:var(--text2);font-size:.875rem;line-height:1.7;margin:0}
+.terminal{background:#050810;border:1px solid var(--border);border-radius:var(--radius2);overflow:hidden;margin:1.25rem 0}
+.tbar{background:var(--surface);padding:.55rem 1rem;display:flex;align-items:center;gap:.4rem;border-bottom:1px solid var(--border)}
+.td{width:11px;height:11px;border-radius:50%}
+.tr{background:#ff5f57}.ty{background:#febc2e}.tg{background:#28c840}
+.ttitle{margin-left:.5rem;font-family:var(--font-mono);font-size:.72rem;color:var(--text3)}
+.tbody{padding:1.1rem 1.4rem;font-family:var(--font-mono);font-size:.78rem;line-height:2}
+.tp{color:var(--green)}.tc{color:var(--text)}.to{color:var(--text3)}.tu{color:var(--accent)}.ts{color:var(--green)}.tk{color:#7dd3fc}
+.feat-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(195px,1fr));gap:.9rem;margin:1.25rem 0}
+.feat{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:1.1rem}
+.feat-ico{font-size:1.4rem;margin-bottom:.4rem}
+.feat h4{font-family:var(--font-display);font-size:.875rem;font-weight:700;margin-bottom:.3rem}
+.feat p{font-size:.78rem;color:var(--text2);line-height:1.55}
+.cmp-table{width:100%;border-collapse:collapse;font-size:.82rem;margin:1.25rem 0;border:1px solid var(--border);border-radius:var(--radius);overflow:hidden}
+.cmp-table th{background:var(--surface2);padding:.7rem .9rem;text-align:left;font-family:var(--font-mono);font-size:.7rem;color:var(--text3);text-transform:uppercase;letter-spacing:.8px;border-bottom:1px solid var(--border)}
+.cmp-table td{padding:.7rem .9rem;border-bottom:1px solid var(--border);color:var(--text2);vertical-align:middle}
+.cmp-table tr:last-child td{border-bottom:none}
+.cmp-table tr:hover td{background:rgba(255,255,255,.02)}
+.cmp-table a{color:var(--accent);text-decoration:none}
+.cy{color:var(--green)}.cn{color:var(--red)}.cp{color:var(--yellow)}
+.faq-item{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:1.1rem 1.25rem;margin-bottom:.65rem;cursor:pointer;transition:border-color .2s}
+.faq-item:hover,.faq-item.open{border-color:var(--accent)}
+.faq-q{font-family:var(--font-display);font-size:.88rem;font-weight:700;display:flex;justify-content:space-between;align-items:flex-start;gap:1rem}
+.faq-ico{color:var(--accent);font-size:1.1rem;flex-shrink:0;transition:transform .2s}
+.faq-item.open .faq-ico{transform:rotate(45deg)}
+.faq-a{font-size:.84rem;color:var(--text2);line-height:1.72;margin-top:.65rem;display:none}
+.faq-item.open .faq-a{display:block}
+code.inline{background:var(--surface2);padding:.1rem .35rem;border-radius:4px;font-family:var(--font-mono);font-size:.78rem;color:var(--accent)}
+.rating-row{display:flex;align-items:center;gap:.75rem;margin-bottom:.5rem}
+.rating-label{font-size:.78rem;color:var(--text3);width:110px;flex-shrink:0}
+.rating-track{flex:1;background:var(--surface2);border-radius:100px;height:5px;overflow:hidden}
+.rating-fill{height:100%;border-radius:100px;background:linear-gradient(90deg,var(--accent),var(--green))}
+.rating-val{font-family:var(--font-mono);font-size:.72rem;color:var(--text2);width:28px;text-align:right}
+.sidebar-sticky{position:sticky;top:76px}
+.sb{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius2);padding:1.1rem 1.25rem;margin-bottom:1.1rem}
+.sb h3{font-family:var(--font-mono);font-size:.7rem;color:var(--text3);text-transform:uppercase;letter-spacing:1px;margin-bottom:.9rem}
+.alt-item{display:flex;align-items:center;gap:.7rem;padding:.55rem 0;border-bottom:1px solid var(--border);text-decoration:none;color:var(--text);transition:color .2s}
+.alt-item:last-child{border-bottom:none}.alt-item:hover{color:var(--accent)}
+.alt-ico{font-size:1.1rem}.alt-name{font-size:.855rem;font-weight:600}.alt-meta{font-size:.72rem;color:var(--text3);font-family:var(--font-mono)}
+.tq-sb{background:linear-gradient(135deg,rgba(0,212,255,.08),rgba(0,255,136,.05));border:1px solid rgba(0,212,255,.2);border-radius:var(--radius2);padding:1.1rem 1.25rem;margin-bottom:1.1rem}
+.tq-sb h3{font-family:var(--font-display);font-size:.9rem;font-weight:700;margin-bottom:.4rem}
+.tq-sb p{font-size:.78rem;color:var(--text2);line-height:1.6;margin-bottom:.9rem}
+.btn-sm{display:inline-flex;padding:.38rem .85rem;border-radius:var(--radius);font-size:.78rem;font-weight:700;text-decoration:none;background:var(--accent);color:var(--bg);transition:background .2s}
+.btn-sm:hover{background:#00b8d9}
+footer{background:var(--bg2);border-top:1px solid var(--border);padding:2.5rem 2rem;margin-top:5rem}
+.foot-bottom{max-width:1400px;margin:0 auto;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem;font-size:.78rem;color:var(--text3);font-family:var(--font-mono)}
+.foot-bottom a{color:var(--accent);text-decoration:none}
+@media(max-width:960px){.tool-hero,.layout{grid-template-columns:1fr}.stats-card{position:static}.sidebar-sticky{position:static}}
+@media(max-width:600px){.tool-hero h1{font-size:1.8rem}.container{padding:0 1rem}}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-inner">
+    <a href="https://freemium.services" class="logo">freemium<span>.services</span></a>
+    <ul class="nav-links">
+      <li><a href="/category/ai-tools.html">AI Tools</a></li>
+      <li><a href="/category/ai-agents.html">AI Agents</a></li>
+      <li><a href="/category/ides.html">AI IDEs</a></li>
+      <li><a href="https://turboquant.network" rel="noopener" style="color:var(--accent)">TurboQuant ↗</a></li>
+      <li><a href="/submit.html" class="btn-submit">+ Submit</a></li>
+    </ul>
+  </div>
+</nav>
+
+<div class="container">
+  <nav class="breadcrumb" aria-label="breadcrumb">
+    <a href="https://freemium.services">Home</a> <span>›</span>
+    <a href="/category/ai-agents.html">AI Coding Agents</a> <span>›</span>
+    <span style="color:var(--text2)">Claude Code</span>
+  </nav>
+
+  <div class="tool-hero">
+    <div>
+      <div class="tool-logo-big">⚡</div>
+      <h1>Claude Code</h1>
+      <p class="tool-hero-sub">Anthropic's terminal-native AI coding agent. Reads your whole codebase, writes and edits code across files, runs tests, manages Git, searches the web — and ships features end-to-end with minimal human input.</p>
+      <div class="tag-row">
+        <span class="tag tag-free">✓ Free Tier</span>
+        <span class="tag tag-ai">Claude 4 Powered</span>
+        <span class="tag tag-new">🆕 2026</span>
+        <span class="tag tag-self">CLI / Terminal</span>
+      </div>
+      <div class="cta-row">
+        <a href="https://claude.ai/code" class="btn btn-primary" rel="noopener" target="_blank">⚡ Get Claude Code Free</a>
+        <a href="#install" class="btn btn-ghost">📦 Install Guide</a>
+        <a href="/compare/claude-code-vs-cursor.html" class="btn btn-ghost">⚖️ vs Cursor</a>
+      </div>
+    </div>
+
+    <div class="stats-card">
+      <div class="stat-row"><span class="sl">Publisher</span><span class="sv">Anthropic</span></div>
+      <div class="stat-row"><span class="sl">Model</span><span class="sv">Claude 4 Sonnet / Opus</span></div>
+      <div class="stat-row"><span class="sl">Free Tier</span><span class="sv sv-green">✓ Yes (claude.ai)</span></div>
+      <div class="stat-row"><span class="sl">Interface</span><span class="sv">CLI / Terminal</span></div>
+      <div class="stat-row"><span class="sl">Platforms</span><span class="sv">macOS · Linux · WSL</span></div>
+      <div class="stat-row"><span class="sl">Install</span><span class="sv">npm global</span></div>
+      <div class="stat-row"><span class="sl">Git Operations</span><span class="sv sv-green">✓ Full</span></div>
+      <div class="stat-row"><span class="sl">Test Execution</span><span class="sv sv-green">✓ Yes</span></div>
+      <div class="stat-row"><span class="sl">Web Search</span><span class="sv sv-green">✓ Built-in</span></div>
+      <div class="stat-row"><span class="sl">MCP Support</span><span class="sv sv-green">✓ Extensible</span></div>
+      <div class="stat-row"><span class="sl">SWE-Bench Rank</span><span class="sv sv-yellow">★ #1 (2026)</span></div>
+    </div>
+  </div>
+</div>
+
+<hr style="border:none;border-top:1px solid var(--border)">
+
+<div class="container" style="padding-top:3rem">
+  <div class="layout">
+
+    <!-- MAIN CONTENT -->
+    <div class="main">
+
+      <h2>What is Claude Code?</h2>
+      <p>Claude Code is <strong>Anthropic's agentic, terminal-native coding assistant</strong> — a CLI tool that functions as a senior AI software engineer working directly in your terminal. Unlike editor plugins that autocomplete lines, Claude Code understands your <em>entire codebase</em>, reasons about architecture, writes multi-file changes, executes your test suite, manages Git branches, and completes engineering tasks end-to-end.</p>
+      <p>Powered by <strong>Claude 4</strong> — Anthropic's most capable model family — Claude Code ranks first on the SWE-bench benchmark, the industry-standard test that measures AI performance on real GitHub issues from production codebases. For autonomous, complex coding tasks, it currently has no equal.</p>
+      <p>Claude Code integrates deeply with <a href="https://turboquant.network" rel="noopener">TurboQuant's edge compute network</a> for AI inference, enabling enterprise teams to route Claude Code tasks through distributed edge nodes for lower latency and better data sovereignty.</p>
+
+      <div class="info-box">
+        <p><strong>Free Tier:</strong> Claude Code is free to install via npm. Usage is authenticated through claude.ai — free tier available with reasonable monthly limits. Pro ($20/mo) and Team plans offer higher capacity. Enterprise API access available for large teams.</p>
+      </div>
+
+      <h2>Key Capabilities</h2>
+      <div class="feat-grid">
+        <div class="feat"><div class="feat-ico">🗂️</div><h4>Whole Codebase Context</h4><p>Reads and understands your full repository structure, dependencies, and patterns — not just the open file.</p></div>
+        <div class="feat"><div class="feat-ico">✍️</div><h4>Multi-File Editing</h4><p>Creates, edits, and refactors code across dozens of files simultaneously while maintaining consistency.</p></div>
+        <div class="feat"><div class="feat-ico">🧪</div><h4>Test-Driven Loop</h4><p>Runs your test suite, identifies failures, debugs root causes, writes fixes, and re-runs until green.</p></div>
+        <div class="feat"><div class="feat-ico">🔀</div><h4>Full Git Workflow</h4><p>Creates branches, commits with meaningful messages, resolves merge conflicts, and opens pull requests.</p></div>
+        <div class="feat"><div class="feat-ico">🌐</div><h4>Real-Time Web Search</h4><p>Searches documentation, Stack Overflow, and the web during tasks — no context-switching needed.</p></div>
+        <div class="feat"><div class="feat-ico">🔧</div><h4>MCP Extensions</h4><p>Connect to databases, APIs, Jira, Linear, Notion, and custom internal tools via Model Context Protocol.</p></div>
+      </div>
+
+      <h2 id="install">Installation Guide</h2>
+      <h3>Prerequisites</h3>
+      <ul>
+        <li>Node.js 18 or higher (check with <code class="inline">node --version</code>)</li>
+        <li>Anthropic account — free signup at <a href="https://claude.ai" rel="noopener">claude.ai</a></li>
+        <li>macOS, Linux, or Windows with WSL2</li>
+        <li>Git installed (for version control features)</li>
+      </ul>
+
+      <h3>Step 1 — Install via npm</h3>
+      <div class="terminal">
+        <div class="tbar"><div class="td tr"></div><div class="td ty"></div><div class="td tg"></div><span class="ttitle">bash — Install Claude Code globally</span></div>
+        <div class="tbody">
+          <div><span class="to"># Install Claude Code CLI globally</span></div>
+          <div><span class="tp">$</span> <span class="tc">npm install -g @anthropic-ai/claude-code</span></div>
+          <div><span class="to">added 52 packages in 4.2s — done</span></div>
+          <div>&nbsp;</div>
+          <div><span class="to"># Verify installation</span></div>
+          <div><span class="tp">$</span> <span class="tc">claude --version</span></div>
+          <div><span class="to">Claude Code v1.2.0 (Anthropic)</span></div>
+        </div>
+      </div>
+
+      <h3>Step 2 — Authenticate</h3>
+      <div class="terminal">
+        <div class="tbar"><div class="td tr"></div><div class="td ty"></div><div class="td tg"></div><span class="ttitle">bash — Login to Anthropic</span></div>
+        <div class="tbody">
+          <div><span class="tp">$</span> <span class="tc">claude login</span></div>
+          <div><span class="to">Opening browser to authenticate with Anthropic...</span></div>
+          <div><span class="to">Waiting for confirmation...</span></div>
+          <div><span class="ts">✓  Authenticated as your@email.com</span></div>
+          <div><span class="ts">✓  Free tier active — 5,000 tokens/day</span></div>
+        </div>
+      </div>
+
+      <h3>Step 3 — Start Your First Session</h3>
+      <div class="terminal">
+        <div class="tbar"><div class="td tr"></div><div class="td ty"></div><div class="td tg"></div><span class="ttitle">bash — First Claude Code session</span></div>
+        <div class="tbody">
+          <div><span class="tp">$</span> <span class="tc">cd my-project</span></div>
+          <div><span class="tp">$</span> <span class="tc">claude</span></div>
+          <div><span class="tk">━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</span></div>
+          <div><span class="tk">  Claude Code  ·  Anthropic  ·  v1.2.0</span></div>
+          <div><span class="tk">━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</span></div>
+          <div><span class="to">Indexing project structure...</span></div>
+          <div><span class="ts">✓  Found: TypeScript · React 19 · Vitest · 47 files</span></div>
+          <div>&nbsp;</div>
+          <div><span class="to">Claude: What would you like me to work on?</span></div>
+          <div>&nbsp;</div>
+          <div><span class="tp">You:</span> <span class="tc">Add JWT authentication — access + refresh tokens. Include middleware, tests, and update the API docs.</span></div>
+          <div>&nbsp;</div>
+          <div><span class="tk">Thinking... Planning implementation...</span></div>
+          <div><span class="ts">✓  Created src/auth/jwt.service.ts</span></div>
+          <div><span class="ts">✓  Created src/auth/auth.middleware.ts</span></div>
+          <div><span class="ts">✓  Created src/auth/refresh.service.ts</span></div>
+          <div><span class="ts">✓  Updated src/routes/api.ts</span></div>
+          <div><span class="ts">✓  Created tests/auth.test.ts (14 tests)</span></div>
+          <div><span class="ts">✓  Updated README.md — Auth section added</span></div>
+          <div><span class="to">Running vitest... 14/14 passing ✓</span></div>
+          <div><span class="ts">✓  Done. All tests green.</span></div>
+        </div>
+      </div>
+
+      <h3>Non-Interactive / Scripted Mode</h3>
+      <div class="terminal">
+        <div class="tbar"><div class="td tr"></div><div class="td ty"></div><div class="td tg"></div><span class="ttitle">bash — Automation examples</span></div>
+        <div class="tbody">
+          <div><span class="to"># Fix failing tests in CI pipeline</span></div>
+          <div><span class="tp">$</span> <span class="tc">claude --print "Run tests and fix all failures, then commit"</span></div>
+          <div>&nbsp;</div>
+          <div><span class="to"># Code review a PR</span></div>
+          <div><span class="tp">$</span> <span class="tc">claude --print "Review git diff HEAD~1 for security issues"</span></div>
+          <div>&nbsp;</div>
+          <div><span class="to"># Generate documentation</span></div>
+          <div><span class="tp">$</span> <span class="tc">claude --print "Generate JSDoc for all exported functions in src/"</span></div>
+          <div>&nbsp;</div>
+          <div><span class="to"># Refactor</span></div>
+          <div><span class="tp">$</span> <span class="tc">claude --print "Refactor database layer to use repository pattern"</span></div>
+        </div>
+      </div>
+
+      <div class="warning-box">
+        <p><strong>Note:</strong> Claude Code executes shell commands on your machine. Always review what it plans to do, especially for destructive operations. Use <code class="inline">claude --no-shell</code> to restrict command execution if needed.</p>
+      </div>
+
+      <h2>Claude Code vs. Other AI Coding Tools</h2>
+      <div style="overflow-x:auto">
+        <table class="cmp-table">
+          <thead>
+            <tr><th>Feature</th><th>Claude Code</th><th>Cursor</th><th><a href="/tools/cline.html">Cline</a></th><th>GitHub Copilot</th><th><a href="/tools/goose.html">Goose</a></th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Interface</td><td>CLI Terminal</td><td>IDE (VS Code fork)</td><td>VS Code extension</td><td>IDE plugin</td><td>CLI / Desktop</td></tr>
+            <tr><td>Free Tier</td><td><span class="cy">✓</span> Yes</td><td><span class="cy">✓</span> Limited</td><td><span class="cy">✓</span> Fully free</td><td><span class="cp">~</span> Limited</td><td><span class="cy">✓</span> Fully free</td></tr>
+            <tr><td>Open Source</td><td><span class="cn">✗</span></td><td><span class="cn">✗</span></td><td><span class="cy">✓</span> Apache 2.0</td><td><span class="cn">✗</span></td><td><span class="cy">✓</span> Apache 2.0</td></tr>
+            <tr><td>Autonomous Agent</td><td><span class="cy">✓✓</span> Best-in-class</td><td><span class="cp">~</span> Composer</td><td><span class="cy">✓</span> Strong</td><td><span class="cn">✗</span></td><td><span class="cy">✓</span> Strong</td></tr>
+            <tr><td>Full codebase read</td><td><span class="cy">✓</span></td><td><span class="cy">✓</span></td><td><span class="cy">✓</span></td><td><span class="cp">~</span></td><td><span class="cy">✓</span></td></tr>
+            <tr><td>Test execution</td><td><span class="cy">✓</span></td><td><span class="cp">~</span></td><td><span class="cy">✓</span></td><td><span class="cn">✗</span></td><td><span class="cy">✓</span></td></tr>
+            <tr><td>Git operations</td><td><span class="cy">✓</span> Full</td><td><span class="cp">~</span></td><td><span class="cy">✓</span></td><td><span class="cn">✗</span></td><td><span class="cy">✓</span></td></tr>
+            <tr><td>Web search</td><td><span class="cy">✓</span> Native</td><td><span class="cn">✗</span></td><td><span class="cp">~</span> Via MCP</td><td><span class="cn">✗</span></td><td><span class="cy">✓</span></td></tr>
+            <tr><td>MCP Extensions</td><td><span class="cy">✓</span></td><td><span class="cn">✗</span></td><td><span class="cy">✓</span></td><td><span class="cn">✗</span></td><td><span class="cy">✓</span></td></tr>
+            <tr><td>SWE-Bench Rank</td><td>#1 (2026)</td><td>N/A</td><td>N/A</td><td>N/A</td><td>N/A</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h2>Real-World Use Cases</h2>
+      <ul>
+        <li><strong>Full feature implementation</strong> — "Implement Stripe subscription billing with webhooks, tests, and API docs"</li>
+        <li><strong>Bug squashing sessions</strong> — "Find all race conditions in the job queue and fix them"</li>
+        <li><strong>Test coverage</strong> — "Write unit and integration tests for all untested modules — aim for 90% coverage"</li>
+        <li><strong>Legacy migration</strong> — "Migrate this Express.js app to Fastify, update all routes, and fix imports"</li>
+        <li><strong>Security audit</strong> — "Scan for SQL injection, XSS, and CSRF vulnerabilities, then patch them"</li>
+        <li><strong>Dependency upgrades</strong> — "Upgrade all packages to latest, fix breaking changes, run tests"</li>
+        <li><strong>Documentation</strong> — "Generate a complete API reference in OpenAPI 3.1 format from the route handlers"</li>
+        <li><strong>CI/CD automation</strong> — Use Claude Code in GitHub Actions to auto-fix failing tests on every PR</li>
+        <li><strong>Database migrations</strong> — Write safe, reversible schema migrations with zero-downtime strategies</li>
+      </ul>
+
+      <h2>MCP Integration — Extend Claude Code</h2>
+      <p>Claude Code supports <strong>Model Context Protocol (MCP)</strong> — Anthropic's open standard for connecting AI to external tools. This makes Claude Code extensible to your entire engineering stack:</p>
+      <ul>
+        <li><strong>Database access</strong> — Query and write to PostgreSQL, MySQL, or MongoDB directly from your coding session</li>
+        <li><strong>Issue trackers</strong> — Pull Jira tickets, Linear issues, or GitHub Issues as context for tasks</li>
+        <li><strong>Internal docs</strong> — Connect to <a href="/tools/onyx.html">Onyx</a>, Confluence, or Notion for knowledge retrieval</li>
+        <li><strong>TurboQuant MCP</strong> — Run AI inference tasks via <a href="https://turboquant.network" rel="noopener">TurboQuant's edge network</a> directly from Claude Code</li>
+        <li><strong>Observability</strong> — Connect to Datadog, Sentry, or Grafana for debugging with real production context</li>
+      </ul>
+
+      <h2>Ratings</h2>
+      <div style="margin:1.25rem 0">
+        <div class="rating-row"><span class="rating-label">Autonomy</span><div class="rating-track"><div class="rating-fill" style="width:98%"></div></div><span class="rating-val">4.9</span></div>
+        <div class="rating-row"><span class="rating-label">Code Quality</span><div class="rating-track"><div class="rating-fill" style="width:96%"></div></div><span class="rating-val">4.8</span></div>
+        <div class="rating-row"><span class="rating-label">Ease of Use</span><div class="rating-track"><div class="rating-fill" style="width:90%"></div></div><span class="rating-val">4.5</span></div>
+        <div class="rating-row"><span class="rating-label">Speed</span><div class="rating-track"><div class="rating-fill" style="width:88%"></div></div><span class="rating-val">4.4</span></div>
+        <div class="rating-row"><span class="rating-label">Value (Free)</span><div class="rating-track"><div class="rating-fill" style="width:96%"></div></div><span class="rating-val">4.8</span></div>
+        <div class="rating-row"><span class="rating-label">MCP Ecosystem</span><div class="rating-track"><div class="rating-fill" style="width:94%"></div></div><span class="rating-val">4.7</span></div>
+      </div>
+
+      <h2>Frequently Asked Questions</h2>
+
+      <div class="faq-item" onclick="this.classList.toggle('open')">
+        <div class="faq-q">Is Claude Code free to use?<span class="faq-ico">+</span></div>
+        <div class="faq-a">Yes. Claude Code is free to install and has a free tier via claude.ai with daily usage limits. The npm package itself costs nothing. You authenticate with your Anthropic account — free accounts get a reasonable daily quota, Pro ($20/mo) gives significantly more, and API-based access supports pay-per-use for teams. Most solo developers find the free tier sufficient for regular use.</div>
+      </div>
+
+      <div class="faq-item" onclick="this.classList.toggle('open')">
+        <div class="faq-q">How do I install Claude Code?<span class="faq-ico">+</span></div>
+        <div class="faq-a">Install with: <code class="inline">npm install -g @anthropic-ai/claude-code</code>. Requires Node.js 18+. Then run <code class="inline">claude login</code> to authenticate. Navigate to any project folder and run <code class="inline">claude</code> to start. See our complete installation walkthrough above for more detail.</div>
+      </div>
+
+      <div class="faq-item" onclick="this.classList.toggle('open')">
+        <div class="faq-q">How is Claude Code different from GitHub Copilot?<span class="faq-ico">+</span></div>
+        <div class="faq-a">They operate at completely different levels. Copilot autocompletes individual lines and small functions as you type. Claude Code is an autonomous agent — you give it a high-level task and it implements it across multiple files, runs tests, fixes failures, and commits the result without constant guidance. Claude Code is appropriate for tasks that would take a developer hours; Copilot is for moment-to-moment coding assistance.</div>
+      </div>
+
+      <div class="faq-item" onclick="this.classList.toggle('open')">
+        <div class="faq-q">Does Claude Code work with any programming language?<span class="faq-ico">+</span></div>
+        <div class="faq-a">Yes — Python, TypeScript, JavaScript, Rust, Go, Java, C++, Ruby, PHP, Swift, Kotlin, C#, and more. It also handles config files (YAML, JSON, TOML), SQL, shell scripts, Terraform, and Dockerfiles. Claude 4's training spans essentially all mainstream languages at a high level of proficiency.</div>
+      </div>
+
+      <div class="faq-item" onclick="this.classList.toggle('open')">
+        <div class="faq-q">Is my code sent to Anthropic's servers?<span class="faq-ico">+</span></div>
+        <div class="faq-a">Yes — Claude Code sends your code to the Anthropic API for processing. Anthropic's standard privacy policy applies. For Pro and API users, code is not used to train models by default. Enterprise customers can negotiate additional data privacy agreements. For fully local/private AI coding, alternatives like <a href="/tools/cline.html">Cline</a> or <a href="/tools/goose.html">Goose</a> paired with local <a href="/tools/ollama.html">Ollama</a> models work — though with reduced capability. TurboQuant's enterprise edge deployment also supports enhanced data sovereignty.</div>
+      </div>
+
+      <div class="faq-item" onclick="this.classList.toggle('open')">
+        <div class="faq-q">Can I use Claude Code in CI/CD pipelines?<span class="faq-ico">+</span></div>
+        <div class="faq-a">Yes. Claude Code supports non-interactive mode via <code class="inline">claude --print "your task"</code>. This makes it suitable for GitHub Actions, GitLab CI, or any pipeline. Common uses: auto-fix failing tests on PRs, generate changelogs, update documentation after code changes, or run security scans. Set your <code class="inline">ANTHROPIC_API_KEY</code> as a CI secret and use the API directly for automation.</div>
+      </div>
+
+      <div class="faq-item" onclick="this.classList.toggle('open')">
+        <div class="faq-q">How does Claude Code compare to Cursor?<span class="faq-ico">+</span></div>
+        <div class="faq-a">Claude Code and Cursor are complementary tools. Cursor (a full IDE fork of VS Code) is best for interactive, real-time pair programming — inline suggestions, tab completions, and quick edits. Claude Code is best for autonomous, multi-step task completion where you can walk away and return to completed work. Many professional developers use Cursor for day-to-day coding and Claude Code for larger, well-defined tasks. Claude Code also works IDE-agnostically from the terminal.</div>
+      </div>
+
+      <div class="faq-item" onclick="this.classList.toggle('open')">
+        <div class="faq-q">What is Model Context Protocol (MCP) and why does it matter for Claude Code?<span class="faq-ico">+</span></div>
+        <div class="faq-a">MCP is an open standard by Anthropic for connecting AI models to external data sources and tools. In Claude Code, MCP lets you extend its capabilities — connect to your database, internal APIs, project management tools, or the <a href="https://turboquant.network" rel="noopener">TurboQuant edge network</a>. This means Claude Code can query your real production database while fixing a bug, pull the exact Jira ticket it's working on, or run inference tasks through distributed edge compute — all within a single coding session.</div>
+      </div>
+
+    </div><!-- /main -->
+
+    <!-- SIDEBAR -->
+    <div class="sidebar-sticky">
+
+      <div class="tq-sb">
+        <h3>⚡ TurboQuant Edge</h3>
+        <p>Run Claude Code API calls through TurboQuant's DePIN edge network for low-latency inference and enterprise data sovereignty.</p>
+        <a href="https://turboquant.network" class="btn-sm" rel="noopener" target="_blank">Learn More →</a>
+      </div>
+
+      <div class="sb">
+        <h3>Alternatives to Claude Code</h3>
+        <a href="/tools/cline.html" class="alt-item">
+          <span class="alt-ico">🖊️</span>
+          <div><div class="alt-name">Cline</div><div class="alt-meta">VS Code · Apache 2.0 · ★ 29k</div></div>
+        </a>
+        <a href="/tools/goose.html" class="alt-item">
+          <span class="alt-ico">🪿</span>
+          <div><div class="alt-name">Goose</div><div class="alt-meta">CLI Agent · Apache 2.0 · ★ 11k</div></div>
+        </a>
+        <a href="/tools/roo-code.html" class="alt-item">
+          <span class="alt-ico">🦘</span>
+          <div><div class="alt-name">Roo Code</div><div class="alt-meta">VS Code · Apache 2.0 · ★ 18k</div></div>
+        </a>
+        <a href="/tools/opencode.html" class="alt-item">
+          <span class="alt-ico">💻</span>
+          <div><div class="alt-name">OpenCode</div><div class="alt-meta">CLI Agent · MIT · ★ 8k</div></div>
+        </a>
+        <a href="/compare/claude-code-vs-cursor.html" style="display:block;text-align:center;margin-top:.9rem;font-size:.78rem;color:var(--accent);text-decoration:none">Claude Code vs Cursor full comparison →</a>
+      </div>
+
+      <div class="sb">
+        <h3>Related Tools</h3>
+        <a href="/tools/n8n.html" class="alt-item">
+          <span class="alt-ico">🔁</span>
+          <div><div class="alt-name">n8n</div><div class="alt-meta">Automate Claude Code tasks</div></div>
+        </a>
+        <a href="/tools/onyx.html" class="alt-item">
+          <span class="alt-ico">🧠</span>
+          <div><div class="alt-name">Onyx</div><div class="alt-meta">Internal docs for MCP</div></div>
+        </a>
+        <a href="/tools/qdrant.html" class="alt-item">
+          <span class="alt-ico">🗄️</span>
+          <div><div class="alt-name">Qdrant</div><div class="alt-meta">Vector DB via MCP</div></div>
+        </a>
+      </div>
+
+      <div class="sb">
+        <h3>Categories</h3>
+        <a href="/category/ai-agents.html" class="alt-item">
+          <span class="alt-ico">🤖</span>
+          <div><div class="alt-name">AI Coding Agents</div><div class="alt-meta">134 tools listed</div></div>
+        </a>
+        <a href="/category/ides.html" class="alt-item">
+          <span class="alt-ico">🖊️</span>
+          <div><div class="alt-name">AI IDEs</div><div class="alt-meta">52 tools listed</div></div>
+        </a>
+        <a href="/category/ai-tools.html" class="alt-item">
+          <span class="alt-ico">⚡</span>
+          <div><div class="alt-name">All AI Tools</div><div class="alt-meta">342 tools listed</div></div>
+        </a>
+      </div>
+
+    </div><!-- /sidebar -->
+  </div><!-- /layout -->
+</div>
+
+<footer>
+  <div class="foot-bottom">
+    <span>© 2026 <a href="https://freemium.services">freemium.services</a> · Powered by <a href="https://turboquant.network">TurboQuant Network</a></span>
+    <span><a href="/tools/claude-code.html">Claude Code</a> · <a href="/category/ai-agents.html">AI Agents</a> · <a href="/compare/claude-code-vs-cursor.html">vs Cursor</a></span>
+  </div>
+</footer>
+</body>
+</html>

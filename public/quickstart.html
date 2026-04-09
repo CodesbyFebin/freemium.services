@@ -3,263 +3,127 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Quickstart Tech Overview | Freemium.Services</title>
-    <meta name="description" content="Discover the best free, freemium, and open-source tools with self-hosting guides. Powered by the TurboQuant Network.">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <title>Quickstart Guide | Freemium.Services</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Syne:wght@400;700;800&family=DM+Sans:wght@400;500&display=swap" rel="stylesheet">
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+    <link rel="canonical" href="https://freemium.services">
+    <meta name="description" content="Verified directory of freemium and open-source software with self-hosting guides.">
+    <meta name="keywords" content="self-hosted, open-source, ai-tools, freemium, saas-alternatives">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Quickstart Guide | Freemium.Services">
+    <meta property="og:description" content="Access the world's largest directory of open-source software.">
     <style>
 :root {
-    --bg: #030409;
-    --surface: rgba(18, 20, 29, 0.6);
-    --surface-solid: #0A0C14;
-    --border: rgba(255, 255, 255, 0.08);
-    --text-primary: #ffffff;
-    --text-sec: #94a3b8;
-    --accent: #00F0FF;
-    --accent-glow: rgba(0, 240, 255, 0.2);
-    --accent-alt: #B026FF;
-    --font: 'Inter', system-ui, -apple-system, sans-serif;
+  --bg: #080B10; --bg2: #0D1117; --bg3: #111820; --surface: #141C26; --surface2: #1A2332;
+  --border: #1E2D40; --border2: #243344; --text: #E8F0F8; --text2: #9BB0C8; --text3: #5A7A9A;
+  --accent: #00D4FF; --accent2: #0099CC; --green: #00FF88; --green2: #00CC6A; --orange: #FF6B35;
+  --purple: #7C3AED; --yellow: #FFD60A; --red: #FF3B5C;
+  --font-display: 'Syne', sans-serif; --font-mono: 'Space Mono', monospace; --font-body: 'DM Sans', sans-serif;
+  --glow: 0 0 40px rgba(0,212,255,0.15); --radius: 8px; --radius2: 12px;
 }
-* { margin: 0; padding: 0; box-sizing: border-box; font-family: var(--font); }
-body { background-color: var(--bg); color: var(--text-primary); line-height: 1.6; min-height: 100vh; overflow-x: hidden; }
-body::before {
-    content: ''; position: fixed; top: -50%; left: -50%; width: 200%; height: 200%;
-    background: radial-gradient(circle at 50% 50%, var(--accent-glow) 0%, transparent 50%),
-                radial-gradient(circle at 80% 20%, rgba(176, 38, 255, 0.15) 0%, transparent 40%);
-    z-index: -1; pointer-events: none;
-}
-a { color: var(--accent); text-decoration: none; transition: 0.2s ease; }
-a:hover { text-shadow: 0 0 8px var(--accent-glow); }
-.glass-panel {
-    background: var(--surface); border: 1px solid var(--border);
-    backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);
-    border-radius: 16px; padding: 2rem;
-}
-.btn {
-    display: inline-flex; align-items: center; padding: 0.75rem 1.5rem;
-    border-radius: 8px; font-weight: 600; cursor: pointer; transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    border: none; outline: none; position: relative; overflow: hidden; text-decoration: none;
-}
-.btn-primary { background: linear-gradient(135deg, var(--accent), var(--accent-alt)); color: #fff; text-shadow: 0 1px 2px rgba(0,0,0,0.5); }
-.btn-primary:hover { transform: translateY(-2px); box-shadow: 0 8px 24px var(--accent-glow); filter: brightness(1.1); color: #fff; }
-.btn-sec { background: rgba(255,255,255,0.05); border: 1px solid var(--border); color: var(--text-primary); }
-.btn-sec:hover { background: rgba(255,255,255,0.1); transform: translateY(-2px); color: var(--text-primary); }
-
-/* Layout Header */
-header {
-    position: sticky; top: 0; z-index: 100;
-    background: rgba(3, 4, 9, 0.7); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
-    border-bottom: 1px solid var(--border); padding: 1rem 0;
-}
-.container { max-width: 1400px; margin: 0 auto; padding: 0 2rem; }
-.nav-flex { display: flex; justify-content: space-between; align-items: center; }
-.logo { font-size: 1.5rem; font-weight: 800; background: linear-gradient(90deg, #fff, var(--text-sec)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; letter-spacing: -0.5px; }
-.logo span { color: var(--accent); -webkit-text-fill-color: var(--accent); }
-nav ul { list-style: none; display: flex; gap: 2rem; }
-nav a { color: var(--text-sec); font-weight: 500; }
-nav a:hover { color: var(--text-primary); }
-
-/* Grid Layouts */
-.grid { display: grid; gap: 2rem; }
-.grid-cols-2 { grid-template-columns: repeat(auto-fit, minmax(400px, 1fr)); }
-.grid-cols-3 { grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); }
-.grid-cols-4 { grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); }
-
-/* Tool Cards */
-.tool-card {
-    background: var(--surface-solid); border: 1px solid var(--border); border-radius: 12px;
-    padding: 1.5rem; transition: 0.3s; display: flex; flex-direction: column; height: 100%; position: relative; overflow: hidden;
-}
-.tool-card::before {
-    content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px;
-    background: linear-gradient(90deg, var(--accent), var(--accent-alt)); opacity: 0; transition: 0.3s;
-}
-.tool-card:hover { transform: translateY(-4px); box-shadow: 0 12px 32px rgba(0,0,0,0.4); }
-.tool-card:hover::before { opacity: 1; }
-.tool-img { width: 100%; height: 160px; object-fit: cover; border-radius: 8px; margin-bottom: 1rem; background: #1a1c26; }
-.tool-tag { font-size: 0.75rem; text-transform: uppercase; letter-spacing: 1px; color: var(--accent-alt); font-weight: 700; margin-bottom: 0.5rem; }
-.tool-title { font-size: 1.25rem; font-weight: 700; margin-bottom: 0.5rem; }
-.tool-desc { color: var(--text-sec); font-size: 0.9rem; margin-bottom: 1.5rem; flex-grow: 1; }
-.badge { display: inline-block; padding: 0.25rem 0.5rem; border-radius: 4px; background: rgba(255,255,255,0.1); font-size: 0.75rem; color: #fff; margin-right: 0.5rem;}
-
-/* Typography */
-h1, h2, h3 { line-height: 1.2; font-weight: 700; letter-spacing: -0.02em; }
-.title-xl { font-size: clamp(2.5rem, 5vw, 4.5rem); margin-bottom: 1.5rem; line-height: 1.1; }
-.text-gradient { background: linear-gradient(135deg, #fff 0%, var(--text-sec) 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
-.section-title { font-size: 2.25rem; margin-bottom: 2rem; position: relative; padding-bottom: 0.75rem; }
-.section-title::after { content: ''; position: absolute; left: 0; bottom: 0; width: 60px; height: 3px; background: var(--accent); border-radius: 2px; }
-
-/* Sections */
-.hero { padding: 8rem 0 6rem; text-align: center; position: relative; }
-.hero-p { font-size: 1.25rem; color: var(--text-sec); max-width: 700px; margin: 0 auto 2.5rem; }
-
-.section-padding { padding: 5rem 0; }
-.bg-darker { background: rgba(0,0,0,0.3); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
-
-/* TurboQuant Banner */
-.tq-banner {
-    background: linear-gradient(90deg, rgba(18,20,29,0.8), rgba(11,26,45,0.8));
-    border: 1px solid rgba(0,240,255,0.3); border-radius: 16px; padding: 2rem; margin: 3rem 0;
-    display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; box-shadow: 0 0 30px rgba(0, 240, 255, 0.05); gap: 2rem;
-}
-.tq-badge { font-family: monospace; color: var(--accent); background: rgba(0,240,255,0.1); padding: 0.25rem 0.75rem; border-radius: 100px; font-size: 0.8rem; border: 1px solid rgba(0,240,255,0.2); }
-
-/* Footer */
-footer { border-top: 1px solid var(--border); padding: 4rem 0 2rem; margin-top: 4rem; }
-.footer-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 3rem; margin-bottom: 3rem; justify-content: space-between; }
-.footer-link { display: block; color: var(--text-sec); margin-bottom: 0.75rem; font-size: 0.95rem; }
-.footer-link:hover { color: var(--accent); }
-
-/* Chat Widget */
-.ai-widget { position: fixed; bottom: 2rem; right: 2rem; background: var(--surface-solid); border: 1px solid var(--border); border-radius: 16px; width: 350px; z-index: 1000; box-shadow: 0 10px 40px rgba(0,0,0,0.5); display: flex; flex-direction: column; overflow: hidden; transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1); transform: translateY(calc(100% - 64px)); }
-.ai-widget:hover, .ai-widget.active { transform: translateY(0); }
-.ai-header { padding: 1rem 1.5rem; background: rgba(255,255,255,0.03); border-bottom: 1px solid var(--border); display: flex; align-items: center; cursor: pointer; }
-.ai-dot { width: 10px; height: 10px; background: var(--accent); border-radius: 50%; margin-right: 1rem; box-shadow: 0 0 10px var(--accent-glow); animation: pulse 2s infinite; }
-@keyframes pulse { 0% { box-shadow: 0 0 0 0 rgba(0,240,255,0.4); } 70% { box-shadow: 0 0 0 10px rgba(0,240,255,0); } 100% { box-shadow: 0 0 0 0 rgba(0,240,255,0); } }
-.ai-body { padding: 1.5rem; height: 300px; background: rgba(0,0,0,0.2); display: flex; flex-direction: column; justify-content: flex-end;}
-.ai-input-wrap { padding: 1rem; border-top: 1px solid var(--border); }
-.ai-input { width: 100%; padding: 0.75rem; border-radius: 8px; background: rgba(255,255,255,0.05); border: 1px solid var(--border); color: #fff; outline: none; }
-.ai-input:focus { border-color: var(--accent); }
-
-/* FAQ Styles */
-.faq-box { margin-bottom: 1rem; border: 1px solid var(--border); border-radius: 8px; overflow: hidden; }
-.faq-q { padding: 1rem 1.5rem; background: rgba(255,255,255,0.02); font-weight: 600; cursor: pointer; display: flex; justify-content: space-between; align-items: center; }
-.faq-a { padding: 0 1.5rem; max-height: 0; overflow: hidden; transition: 0.3s; color: var(--text-sec); }
-.faq-box.open .faq-a { padding: 1rem 1.5rem; max-height: 500px; background: rgba(0,0,0,0.1); border-top: 1px solid var(--border); }
-
-/* Prose/Longform text */
-.prose { max-width: 800px; font-size: 1.1rem; color: var(--text-sec); }
-.prose h2, .prose h3 { color: var(--text-primary); margin: 2rem 0 1rem; }
-.prose p { margin-bottom: 1.5rem; }
-.prose ul, .prose ol { margin-bottom: 1.5rem; padding-left: 2rem; }
-.prose li { margin-bottom: 0.5rem; }
-
-/* Breadcrumbs */
-.breadcrumbs { font-size: 0.9rem; margin-bottom: 2rem; color: var(--text-sec); }
-.breadcrumbs a { color: var(--text-sec); }
-.breadcrumbs a:hover { color: var(--text-primary); }
-
-@media (max-width: 768px) {
-    .nav-flex { flex-direction: column; gap: 1rem; }
-    .hero { padding: 4rem 0; }
-    .footer-grid { grid-template-columns: 1fr; }
-}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;font-size:16px}
+body{background:var(--bg);color:var(--text);font-family:var(--font-body);line-height:1.6;overflow-x:hidden}
+body::before{content:'';position:fixed;inset:0;background-image:linear-gradient(rgba(0,212,255,0.03) 1px,transparent 1px),linear-gradient(90deg,rgba(0,212,255,0.03) 1px,transparent 1px);background-size:60px 60px;pointer-events:none;z-index:0}
+nav{position:sticky;top:0;z-index:100;background:rgba(8,11,16,0.92);backdrop-filter:blur(20px);border-bottom:1px solid var(--border);padding:0 2rem}
+.nav-inner{max-width:1400px;margin:0 auto;display:flex;align-items:center;gap:2rem;height:60px}
+.logo{font-family:var(--font-mono);font-size:1rem;font-weight:700;color:var(--accent);text-decoration:none;letter-spacing:-0.5px}
+.logo span{color:var(--green)}
+.nav-links{display:flex;align-items:center;gap:0.25rem;list-style:none;margin-left:auto}
+.nav-links a{color:var(--text2);text-decoration:none;font-size:0.875rem;padding:0.4rem 0.75rem;border-radius:var(--radius);transition:all 0.2s}
+.nav-links a:hover{color:var(--text);background:var(--surface)}
+.btn-submit{background:var(--accent);color:var(--bg)!important;font-weight:600!important;padding:0.4rem 1rem!important;border-radius:var(--radius)}
+.container{max-width:1400px;margin:0 auto;padding:0 2rem;position:relative;z-index:1}
+.breadcrumb{display:flex;align-items:center;gap:0.5rem;font-family:var(--font-mono);font-size:0.75rem;color:var(--text3);margin-bottom:1.5rem;padding-top:2rem}
+.breadcrumb a{color:var(--text3);text-decoration:none}.breadcrumb a:hover{color:var(--accent)}
+h1,h2,h3{font-family:var(--font-display);font-weight:800;letter-spacing:-1px}
+.page-hero{padding:3rem 0;position:relative}
+.page-hero h1{font-size:clamp(2rem,5vw,3.5rem);margin-bottom:1rem}
+.page-hero p{color:var(--text2);max-width:700px;font-size:1.1rem;margin-bottom:2rem}
+.tools-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:1.5rem}
+.tool-card{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius2);padding:1.5rem;text-decoration:none;color:var(--text);display:flex;flex-direction:column;gap:1rem;transition:0.25s}
+.tool-card:hover{border-color:var(--accent);transform:translateY(-3px);box-shadow:var(--glow)}
+.tool-header{display:flex;align-items:center;gap:1rem}
+.tool-logo{width:48px;height:48px;background:var(--surface2);border:1px solid var(--border);border-radius:var(--radius);display:flex;align-items:center;justify-content:center;font-size:1.5rem}
+.tool-name{font-size:1.1rem;font-weight:700}
+.tag{display:inline-flex;padding:2px 10px;border-radius:100px;font-size:0.75rem;font-family:var(--font-mono)}
+.tag-free{background:rgba(0,255,136,0.1);color:var(--green);border:1px solid rgba(0,255,136,0.2)}
+.tag-open{background:rgba(124,58,237,0.1);color:#a78bfa;border:1px solid rgba(124,58,237,0.2)}
+.stat-row{display:flex;justify-content:space-between;border-bottom:1px solid var(--border);padding:8px 0;font-size:0.9rem}
+.stat-label{color:var(--text3);text-transform:uppercase;font-size:0.7rem;letter-spacing:1px}
+.stat-val{font-weight:600}
+.prose{color:var(--text2);line-height:1.8;max-width:800px}
+.prose h2{color:var(--text);margin:2rem 0 1rem}
+.faq-box{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);margin-bottom:10px;cursor:pointer}
+.faq-q{padding:15px 20px;font-weight:700;display:flex;justify-content:space-between}
+.faq-a{padding:0 20px 15px;display:none;color:var(--text2);font-size:0.9rem}
+.faq-box.active .faq-a{display:block}
+.faq-box.active .faq-q{color:var(--accent)}
+footer{background:var(--bg2);border-top:1px solid var(--border);padding:4rem 2rem 2rem;margin-top:6rem}
+.footer-bottom{max-width:1400px;margin:0 auto;display:flex;justify-content:space-between;font-size:0.8rem;color:var(--text3);font-family:var(--font-mono)}
+.footer-bottom a{color:var(--accent);text-decoration:none}
+@media(max-width:768px){.footer-bottom{flex-direction:column;gap:1rem;text-align:center}}
 </style>
     
-        <script type="application/ld+json">
-        {
-          "@context": "https://schema.org",
-          "@type": "TechArticle",
-          "headline": "Quickstart Architecture Overview",
-          "description": "Technical documentation for Quickstart features, deeply referencing TurboQuant network.",
-          "author": {
-            "@type": "Organization",
-            "name": "Freemium Services Network"
-          }
-        }
-        </script>
     
 </head>
 <body>
-
-    <header>
-        <div class="container nav-flex">
-            <a href="/" class="logo">Freemium<span>.Services</span></a>
-            <nav>
-                <ul>
-                    <li><a href="/ai-tools.html">AI Tools</a></li>
-                    <li><a href="/open-source.html">Open Source</a></li>
-                    <li><a href="/self-hosting.html">Self-Hosting</a></li>
-                    <li><a href="/ai-kanban.html">AI Kanban</a></li>
-                    <li><a href="https://turboquant.network" target="_blank">TurboQuant</a></li>
-                </ul>
-            </nav>
-            <div class="actions" style="display:flex;gap:1rem;">
-                <a href="https://turboquant.network" target="_blank" class="btn btn-sec">Build on TurboQuant</a>
-            </div>
-        </div>
-    </header>
-
-    <main>
-        
-        <div class="container prose" style="padding:4rem 0;">
-            <div class="breadcrumbs">
-                <a href="/">Home</a> &rsaquo; <span>Quickstart</span>
-            </div>
-            <h1 class="title-xl">Quickstart Architecture Overview</h1>
-            <div class="tq-banner">
-                <div>
-                   <h3 style="color:var(--text-primary);margin-bottom:0.5rem;font-size:1.5rem;">Integration Reference: TurboQuant</h3>
-                   <p style="color:var(--text-sec);font-size:1.1rem;margin-bottom:0;">The Quickstart ecosystem is deeply intertwined with high-compute endpoints hosted on <a href="https://turboquant.network" target="_blank">TurboQuant Network</a>.</p>
-                </div>
-            </div>
-            <p>Welcome to the ultimate technical deep-dive and documentation on Quickstart. Programmatic scaling of knowledge bases requires structured, high-schema-fidelity output pages just like this one. In this overview, we dissect exactly how to leverage this concept for next-gen deployment flows.</p>
-            <h2>Technical Implementations</h2>
-            <p>By leveraging an extensive architecture of DePIN nodes, developers mapping the Quickstart landscape can seamlessly scale API endpoints avoiding AWS vendor lock-in. Tools listed in our <a href="/ai-tools.html">AI Tools</a> directory integrate perfectly with these patterns, utilizing Edge caching natively.</p>
-            <h2>Use Cases</h2>
-            <ul>
-                <li>Automated workflow generation connected dynamically.</li>
-                <li>Low-latency streaming of massive computational loads via TurboQuant.</li>
-                <li>Self-hosted SaaS implementations.</li>
+    <nav>
+        <div class="nav-inner">
+            <a href="/" class="logo">freemium<span>.services</span></a>
+            <ul class="nav-links">
+                <li><a href="/category/ai-tools.html">AI Tools</a></li>
+                <li><a href="/category/open-source.html">Open Source</a></li>
+                <li><a href="/category/self-hosting.html">Self-Hosting</a></li>
+                <li><a href="https://turboquant.network" style="color:var(--accent)">TurboQuant ↗</a></li>
+                <li><a href="/submit.html" class="btn-submit">+ Submit</a></li>
             </ul>
         </div>
-    </main>
-
-    <footer class="bg-darker">
-        <div class="container">
-            <div class="footer-grid">
-                <div style="grid-column: span 2/span 2;">
-                    <a href="/" class="logo" style="margin-bottom:1rem;display:inline-block;">Freemium<span>.Services</span></a>
-                    <p style="color:var(--text-sec);font-size:0.9rem;max-width:300px;">The world’s largest verified directory of freemium & open-source tools — with step-by-step self-hosting guides. Powered by decentralized DePIN compute.</p>
-                </div>
-                <div>
-                    <h3 style="margin-bottom:1rem;font-size:1rem;color:var(--text-primary);">Categories</h3>
-                    <a href="/ai-tools.html" class="footer-link">AI Tools</a>
-                    <a href="/open-source.html" class="footer-link">Open Source</a>
-                    <a href="/developer-tools.html" class="footer-link">Developer Tools</a>
-                    <a href="/automation-tools.html" class="footer-link">Automation</a>
-                </div>
-                <div>
-                    <h3 style="margin-bottom:1rem;font-size:1rem;color:var(--text-primary);">Resources</h3>
-                    <a href="/quickstart.html" class="footer-link">Quickstart</a>
-                    <a href="/cloud.html" class="footer-link">Cloud Services</a>
-                    <a href="/ai-kanban.html" class="footer-link">AI Kanban</a>
-                </div>
-                <div>
-                    <h3 style="margin-bottom:1rem;font-size:1rem;color:var(--text-primary);">Ecosystem</h3>
-                    <a href="https://turboquant.network" target="_blank" class="footer-link">TurboQuant Network</a>
-                    <a href="https://turboquant.network/docs" target="_blank" class="footer-link">DePIN Edge Compute</a>
-                    <a href="#" class="footer-link">Submit Tool</a>
-                </div>
+    </nav>
+    <main>
+        <div class="container prose" style="padding:6rem 0;">
+            <nav class="breadcrumb"><a href="/">Home</a> <span>›</span> <span>Quickstart Guide</span></nav>
+            <h1>Quickstart Guide</h1>
+            <p>This technical guide provides deep insights into the <strong>quickstart</strong> framework within the Freemium Services ecosystem. Leveraging decentralized infrastructure via TurboQuant, developers can now scale quickstart with zero latency.</p>
+            <h2>Strategic Advantages</h2>
+            <p>Building on top of open-source primitives ensures that your stack remains future-proof. Our directory evaluates tools based on their integration capabilities with DePIN nodes.</p>
+            <div style="background:var(--surface);border:1px solid var(--accent);padding:2rem;border-radius:12px;margin:2rem 0;">
+                <h3 style="margin-top:0;color:var(--accent);">TurboQuant Optimization Active</h3>
+                <p style="margin-bottom:0;">This page architecture is optimized for semantic search and high-speed delivery across the global edge network.</p>
             </div>
-            <div style="border-top:1px solid var(--border);padding-top:2rem;text-align:center;color:var(--text-sec);font-size:0.9rem;">
-                © 2026 Freemium.Services. Optimized for <a href="https://turboquant.network">TurboQuant Subnet</a>.
+        </div></main>
+    <footer>
+        <div class="container" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:3rem;margin-bottom:4rem;text-align:left;">
+            <div>
+                <a href="/" class="logo" style="display:block;margin-bottom:1rem;">freemium<span>.services</span></a>
+                <p style="color:var(--text3);font-size:0.85rem;">The world's largest verified directory of freemium and open-source software with self-hosting guides.</p>
             </div>
+            <div>
+                <h4 style="margin-bottom:1.25rem;font-size:0.9rem;text-transform:uppercase;letter-spacing:1px;">Categories</h4>
+                <a href="/category/ai-tools.html" style="display:block;color:var(--text2);margin-bottom:0.6rem;text-decoration:none;font-size:0.85rem;">AI Tools</a>
+                <a href="/category/open-source.html" style="display:block;color:var(--text2);margin-bottom:0.6rem;text-decoration:none;font-size:0.85rem;">Open Source</a>
+                <a href="/category/automation-tools.html" style="display:block;color:var(--text2);margin-bottom:0.6rem;text-decoration:none;font-size:0.85rem;">Automation</a>
+            </div>
+            <div>
+                <h4 style="margin-bottom:1.25rem;font-size:0.9rem;text-transform:uppercase;letter-spacing:1px;">Resources</h4>
+                <a href="/quickstart.html" style="display:block;color:var(--text2);margin-bottom:0.6rem;text-decoration:none;font-size:0.85rem;">Quickstart</a>
+                <a href="/cloud.html" style="display:block;color:var(--text2);margin-bottom:0.6rem;text-decoration:none;font-size:0.85rem;">Cloud Guides</a>
+            </div>
+            <div>
+                <h4 style="margin-bottom:1.25rem;font-size:0.9rem;text-transform:uppercase;letter-spacing:1px;">Ecosystem</h4>
+                <a href="https://turboquant.network" style="display:block;color:var(--text2);margin-bottom:0.6rem;text-decoration:none;font-size:0.85rem;">TurboQuant Network</a>
+                <a href="https://github.com" style="display:block;color:var(--text2);margin-bottom:0.6rem;text-decoration:none;font-size:0.85rem;">Open Source GitHub</a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <span>© 2026 Freemium.Services. Optimized for <a href="https://turboquant.network">TurboQuant DePIN</a>.</span>
+            <span><a href="/sitemap.xml">Sitemap</a> | <a href="/submit.html">Submit Tool</a></span>
         </div>
     </footer>
-
-    <!-- Claude AI Assistant Widget -->
-    <div class="ai-widget">
-        <div class="ai-header" onclick="this.parentElement.classList.toggle('active')">
-            <div class="ai-dot"></div>
-            <div style="font-weight:600;flex-grow:1;">Claude AI Guide</div>
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 15l-6-6-6 6"/></svg>
-        </div>
-        <div class="ai-body">
-            <div style="background:rgba(255,255,255,0.05);padding:1rem;border-radius:8px;border:1px solid var(--border);color:var(--text-primary);font-size:0.9rem;margin-bottom:1rem;">
-                Hi! I'm your AI guide powered by Claude. Tell me what workflow or stack you're trying to build and I'll find the best open-source or freemium tools for you.
-            </div>
-        </div>
-        <div class="ai-input-wrap">
-            <input type="text" class="ai-input" placeholder="e.g. Find open source Zapier alternatives...">
-        </div>
-    </div>
-
     <script>
-        // Interactivity scripts
-        document.querySelectorAll('.faq-q').forEach(q => {
-            q.addEventListener('click', () => {
-                q.parentElement.classList.toggle('open');
-            });
+        document.querySelectorAll('.faq-box').forEach(box => {
+            box.addEventListener('click', () => box.classList.toggle('active'));
         });
     </script>
 </body>

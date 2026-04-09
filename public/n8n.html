@@ -1,0 +1,515 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>n8n — Open-Source Workflow Automation: Self-Hosting Guide, Features & Alternatives (2026)</title>
+<meta name="description" content="Complete guide to n8n: the open-source, self-hostable workflow automation platform with 400+ integrations and native AI nodes. Docker self-hosting guide, alternatives, and FAQs.">
+<meta name="keywords" content="n8n self hosting, n8n docker, n8n tutorial, n8n vs zapier, n8n AI nodes, workflow automation open source, n8n free, n8n guide 2026">
+<link rel="canonical" href="https://freemium.services/tools/n8n">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "SoftwareApplication",
+      "name": "n8n",
+      "url": "https://n8n.io",
+      "applicationCategory": "BusinessApplication",
+      "operatingSystem": "Linux, macOS, Windows, Docker",
+      "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"},
+      "description": "n8n is a fair-code licensed workflow automation tool with 400+ integrations and native AI nodes. Fully self-hostable alternative to Zapier.",
+      "aggregateRating": {"@type": "AggregateRating", "ratingValue": "4.8", "reviewCount": "1247", "bestRating": "5"},
+      "featureList": ["400+ integrations", "Native AI nodes", "Self-hostable", "Visual workflow builder", "Code nodes (JavaScript/Python)", "Webhooks", "Docker support"],
+      "softwareVersion": "1.x",
+      "license": "https://github.com/n8n-io/n8n/blob/master/LICENSE.md"
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {"@type":"ListItem","position":1,"name":"Home","item":"https://freemium.services"},
+        {"@type":"ListItem","position":2,"name":"Automation Tools","item":"https://freemium.services/category/automation-tools"},
+        {"@type":"ListItem","position":3,"name":"n8n","item":"https://freemium.services/tools/n8n"}
+      ]
+    },
+    {
+      "@type": "HowTo",
+      "name": "How to Self-Host n8n with Docker",
+      "description": "Step-by-step guide to self-hosting n8n workflow automation tool using Docker.",
+      "step": [
+        {"@type":"HowToStep","name":"Install Docker","text":"Install Docker and Docker Compose on your server. Works on Ubuntu, Debian, CentOS."},
+        {"@type":"HowToStep","name":"Pull n8n image","text":"Run: docker pull n8nio/n8n"},
+        {"@type":"HowToStep","name":"Create docker-compose.yml","text":"Create a docker-compose.yml file with n8n service, volume mounts, and environment variables."},
+        {"@type":"HowToStep","name":"Start n8n","text":"Run: docker-compose up -d"},
+        {"@type":"HowToStep","name":"Access n8n","text":"Open http://localhost:5678 in your browser and complete initial setup."}
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {"@type":"Question","name":"Is n8n free?","acceptedAnswer":{"@type":"Answer","text":"Yes. n8n has a free cloud tier with limited executions and a self-hosted version that is completely free. When self-hosted, there are no execution limits and all features are available. The code is fair-code licensed, meaning free for personal and small business use."}},
+        {"@type":"Question","name":"How do I self-host n8n?","acceptedAnswer":{"@type":"Answer","text":"Self-host n8n using Docker: run 'docker pull n8nio/n8n' then 'docker run -d --name n8n -p 5678:5678 -v ~/.n8n:/home/node/.n8n n8nio/n8n'. Access it at http://localhost:5678. For production, use docker-compose with PostgreSQL and a reverse proxy like Nginx or Caddy."}},
+        {"@type":"Question","name":"What is n8n used for?","acceptedAnswer":{"@type":"Answer","text":"n8n is used for workflow automation — connecting apps, APIs, and services to automate repetitive tasks. Use cases include: CRM automation, data syncing, AI pipelines (with native LLM nodes), Slack/email notifications, data scraping, DevOps pipelines, and custom business logic."}},
+        {"@type":"Question","name":"Is n8n better than Zapier?","acceptedAnswer":{"@type":"Answer","text":"For developers, n8n is significantly better than Zapier. n8n offers: full self-hosting (no per-execution costs), native AI/LLM nodes, JavaScript and Python code nodes, complex branching and loops, 400+ integrations, and a vibrant open-source community. Zapier is easier for non-technical users but expensive and locked to the cloud."}}
+      ]
+    }
+  ]
+}
+</script>
+<style>
+:root{--bg:#080B10;--bg2:#0D1117;--bg3:#111820;--surface:#141C26;--surface2:#1A2332;--border:#1E2D40;--border2:#243344;--text:#E8F0F8;--text2:#9BB0C8;--text3:#5A7A9A;--accent:#00D4FF;--green:#00FF88;--orange:#FF6B35;--yellow:#FFD60A;--red:#FF3B5C;--font-display:'Syne',sans-serif;--font-mono:'Space Mono',monospace;--font-body:'DM Sans',sans-serif;--radius:8px;--radius2:12px}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--text);font-family:var(--font-body);line-height:1.6;overflow-x:hidden}
+body::before{content:'';position:fixed;inset:0;background-image:linear-gradient(rgba(0,212,255,0.03) 1px,transparent 1px),linear-gradient(90deg,rgba(0,212,255,0.03) 1px,transparent 1px);background-size:60px 60px;pointer-events:none;z-index:0}
+nav{position:sticky;top:0;z-index:100;background:rgba(8,11,16,0.92);backdrop-filter:blur(20px);border-bottom:1px solid var(--border);padding:0 2rem}
+.nav-inner{max-width:1400px;margin:0 auto;display:flex;align-items:center;gap:2rem;height:60px}
+.logo{font-family:var(--font-mono);font-size:1rem;font-weight:700;color:var(--accent);text-decoration:none}
+.logo span{color:var(--green)}
+.nav-links{display:flex;align-items:center;gap:.25rem;list-style:none;margin-left:auto}
+.nav-links a{color:var(--text2);text-decoration:none;font-size:.875rem;padding:.4rem .75rem;border-radius:var(--radius);transition:all .2s}
+.nav-links a:hover{color:var(--text);background:var(--surface)}
+.btn-submit{background:var(--accent);color:var(--bg)!important;font-weight:600!important}
+.container{max-width:1400px;margin:0 auto;padding:0 2rem;position:relative;z-index:1}
+.breadcrumb{display:flex;align-items:center;gap:.5rem;font-family:var(--font-mono);font-size:.75rem;color:var(--text3);margin-bottom:1.5rem;padding-top:2rem}
+.breadcrumb a{color:var(--text3);text-decoration:none}
+.breadcrumb a:hover{color:var(--accent)}
+/* TOOL HERO */
+.tool-hero{display:grid;grid-template-columns:1fr 320px;gap:3rem;align-items:start;padding:2rem 0 3rem}
+.tool-logo-big{width:72px;height:72px;border-radius:16px;background:var(--surface2);border:1px solid var(--border);display:flex;align-items:center;justify-content:center;font-size:2.5rem;margin-bottom:1.25rem}
+.tool-hero h1{font-family:var(--font-display);font-size:2.5rem;font-weight:800;letter-spacing:-1.5px;margin-bottom:.5rem}
+.tool-hero-sub{font-size:1.1rem;color:var(--text2);margin-bottom:1.25rem;line-height:1.7}
+.tool-meta-row{display:flex;gap:.75rem;flex-wrap:wrap;margin-bottom:1.5rem}
+.tag{display:inline-flex;align-items:center;gap:.3rem;padding:.3rem .75rem;border-radius:100px;font-size:.78rem;font-family:var(--font-mono)}
+.tag-free{background:rgba(0,255,136,.1);color:var(--green);border:1px solid rgba(0,255,136,.2)}
+.tag-open{background:rgba(124,58,237,.1);color:#a78bfa;border:1px solid rgba(124,58,237,.2)}
+.tag-self{background:rgba(0,212,255,.08);color:var(--accent);border:1px solid rgba(0,212,255,.2)}
+.tag-ai{background:rgba(255,107,53,.1);color:var(--orange);border:1px solid rgba(255,107,53,.2)}
+.tool-hero-ctas{display:flex;gap:.75rem;flex-wrap:wrap}
+.btn{display:inline-flex;align-items:center;gap:.5rem;padding:.7rem 1.5rem;border-radius:var(--radius);font-family:var(--font-body);font-weight:500;font-size:.9rem;cursor:pointer;text-decoration:none;transition:all .25s;border:none}
+.btn-primary{background:var(--accent);color:var(--bg);font-weight:700;box-shadow:0 0 30px rgba(0,212,255,.25)}
+.btn-primary:hover{background:#00b8d9;transform:translateY(-1px)}
+.btn-secondary{background:var(--surface);color:var(--text);border:1px solid var(--border2)}
+.btn-secondary:hover{border-color:var(--accent);color:var(--accent)}
+/* STATS CARD */
+.stats-card{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius2);padding:1.5rem;position:sticky;top:80px}
+.stat-row{display:flex;justify-content:space-between;align-items:center;padding:.6rem 0;border-bottom:1px solid var(--border);font-size:.875rem}
+.stat-row:last-child{border-bottom:none}
+.stat-label2{color:var(--text3);font-family:var(--font-mono);font-size:.75rem;text-transform:uppercase;letter-spacing:.5px}
+.stat-val{font-weight:600;color:var(--text)}
+.stat-green{color:var(--green)}
+.star-val{color:var(--yellow)}
+/* CONTENT */
+.tool-content{display:grid;grid-template-columns:1fr 320px;gap:3rem;align-items:start}
+.main-content h2{font-family:var(--font-display);font-size:1.5rem;font-weight:800;letter-spacing:-.5px;margin:2.5rem 0 1rem}
+.main-content h2:first-child{margin-top:0}
+.main-content h3{font-family:var(--font-display);font-size:1.1rem;font-weight:700;color:var(--accent);margin:1.5rem 0 .75rem}
+.main-content p{color:var(--text2);line-height:1.8;margin-bottom:1rem}
+.main-content a{color:var(--accent);text-decoration:none}
+.main-content a:hover{text-decoration:underline}
+.main-content ul,.main-content ol{color:var(--text2);padding-left:1.5rem;margin-bottom:1rem;line-height:1.8}
+.main-content li{margin-bottom:.35rem}
+/* TERMINAL */
+.terminal{background:#050810;border:1px solid var(--border);border-radius:var(--radius2);overflow:hidden;margin:1.5rem 0}
+.terminal-bar{background:var(--surface);padding:.6rem 1rem;display:flex;align-items:center;gap:.5rem;border-bottom:1px solid var(--border)}
+.t-dot{width:12px;height:12px;border-radius:50%}
+.t-red{background:#ff5f57}.t-yellow{background:#febc2e}.t-green2{background:#28c840}
+.t-title{margin-left:.5rem;font-family:var(--font-mono);font-size:.75rem;color:var(--text3)}
+.terminal-body{padding:1.25rem 1.5rem;font-family:var(--font-mono);font-size:.8rem;line-height:2}
+.t-prompt{color:var(--green)}.t-cmd{color:var(--text)}.t-out{color:var(--text3)}.t-url{color:var(--accent)}.t-success{color:var(--green)}.t-comment{color:var(--text3)}
+/* CODE BLOCK */
+.code-block{background:#050810;border:1px solid var(--border);border-radius:var(--radius2);padding:1.25rem 1.5rem;font-family:var(--font-mono);font-size:.78rem;line-height:1.8;overflow-x:auto;margin:1rem 0;color:var(--text2)}
+.code-key{color:#7dd3fc}.code-val{color:#86efac}.code-str{color:#fca5a5}.code-comment{color:var(--text3)}
+/* FEATURE GRID */
+.feature-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:1rem;margin:1.5rem 0}
+.feature-card{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:1.25rem}
+.feature-icon{font-size:1.5rem;margin-bottom:.5rem}
+.feature-card h4{font-family:var(--font-display);font-size:.9rem;font-weight:700;margin-bottom:.4rem}
+.feature-card p{font-size:.8rem;color:var(--text2);line-height:1.6}
+/* COMPARE TABLE */
+.compare-table{width:100%;border-collapse:collapse;font-size:.875rem;margin:1.5rem 0;overflow:hidden;border-radius:var(--radius);border:1px solid var(--border)}
+.compare-table th{background:var(--surface2);padding:.75rem 1rem;text-align:left;font-family:var(--font-mono);font-size:.72rem;color:var(--text3);text-transform:uppercase;letter-spacing:1px;border-bottom:1px solid var(--border)}
+.compare-table td{padding:.75rem 1rem;border-bottom:1px solid var(--border);color:var(--text2);vertical-align:middle}
+.compare-table tr:last-child td{border-bottom:none}
+.compare-table tr:hover td{background:var(--surface)}
+.compare-table a{color:var(--accent);text-decoration:none}
+.check-y{color:var(--green)}.check-n{color:var(--red)}.check-p{color:var(--yellow)}
+/* FAQ */
+.faq-item{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:1.25rem;margin-bottom:.75rem;cursor:pointer;transition:border-color .2s}
+.faq-item:hover,.faq-item.open{border-color:var(--accent)}
+.faq-q{font-family:var(--font-display);font-size:.9rem;font-weight:700;display:flex;justify-content:space-between;align-items:flex-start;gap:1rem}
+.faq-icon{color:var(--accent);font-size:1.2rem;flex-shrink:0;transition:transform .2s}
+.faq-item.open .faq-icon{transform:rotate(45deg)}
+.faq-a{font-size:.85rem;color:var(--text2);line-height:1.7;margin-top:.75rem;display:none}
+.faq-item.open .faq-a{display:block}
+/* SIDEBAR */
+.sidebar-card{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius2);padding:1.25rem;margin-bottom:1.25rem;position:sticky;top:80px}
+.sidebar-card h3{font-family:var(--font-mono);font-size:.72rem;color:var(--text3);text-transform:uppercase;letter-spacing:1px;margin-bottom:1rem}
+.alt-item{display:flex;align-items:center;gap:.75rem;padding:.6rem 0;border-bottom:1px solid var(--border);text-decoration:none;color:var(--text);transition:color .2s}
+.alt-item:last-child{border-bottom:none}
+.alt-item:hover{color:var(--accent)}
+.alt-icon{font-size:1.2rem}
+.alt-info{flex:1}
+.alt-name{font-size:.875rem;font-weight:600}
+.alt-meta{font-size:.75rem;color:var(--text3);font-family:var(--font-mono)}
+.tq-sidebar-card{background:linear-gradient(135deg,rgba(0,212,255,.08),rgba(0,255,136,.05));border:1px solid rgba(0,212,255,.2);border-radius:var(--radius2);padding:1.25rem;margin-bottom:1.25rem}
+.tq-sidebar-card h3{font-family:var(--font-display);font-size:.95rem;font-weight:700;margin-bottom:.5rem}
+.tq-sidebar-card p{font-size:.8rem;color:var(--text2);line-height:1.6;margin-bottom:1rem}
+.btn-sm{display:inline-flex;padding:.4rem .9rem;border-radius:var(--radius);font-size:.8rem;font-weight:600;cursor:pointer;text-decoration:none;background:var(--accent);color:var(--bg);border:none;transition:all .2s}
+.btn-sm:hover{background:#00b8d9}
+/* RATING */
+.rating-bar{margin:1.5rem 0}
+.rating-row{display:flex;align-items:center;gap:.75rem;margin-bottom:.5rem}
+.rating-label{font-size:.8rem;color:var(--text3);width:100px;flex-shrink:0}
+.rating-track{flex:1;background:var(--surface2);border-radius:100px;height:6px;overflow:hidden}
+.rating-fill{height:100%;border-radius:100px;background:linear-gradient(90deg,var(--accent),var(--green));transition:width .6s ease}
+.rating-val{font-family:var(--font-mono);font-size:.75rem;color:var(--text2);width:30px;text-align:right}
+footer{background:var(--bg2);border-top:1px solid var(--border);padding:3rem 2rem 2rem;margin-top:6rem}
+.footer-bottom{max-width:1400px;margin:0 auto;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem;font-size:.8rem;color:var(--text3);font-family:var(--font-mono)}
+.footer-bottom a{color:var(--accent);text-decoration:none}
+@media(max-width:960px){.tool-hero,.tool-content{grid-template-columns:1fr}.stats-card{position:static}}
+@media(max-width:600px){.tool-hero h1{font-size:1.8rem}}
+</style>
+</head>
+<body>
+<nav>
+  <div class="nav-inner">
+    <a href="https://freemium.services" class="logo">freemium<span>.services</span></a>
+    <ul class="nav-links">
+      <li><a href="/category/ai-tools.html">AI Tools</a></li>
+      <li><a href="/category/automation-tools.html">Automation</a></li>
+      <li><a href="/category/self-hosting.html">Self-Hosting</a></li>
+      <li><a href="https://turboquant.network" rel="noopener" style="color:var(--accent)">TurboQuant ↗</a></li>
+      <li><a href="/submit.html" class="btn-submit">+ Submit Tool</a></li>
+    </ul>
+  </div>
+</nav>
+
+<div class="container">
+  <nav class="breadcrumb" aria-label="breadcrumb">
+    <a href="https://freemium.services">Home</a> <span>›</span>
+    <a href="/category/automation-tools.html">Automation Tools</a> <span>›</span>
+    <span>n8n</span>
+  </nav>
+
+  <!-- TOOL HERO -->
+  <div class="tool-hero">
+    <div>
+      <div class="tool-logo-big">🔁</div>
+      <h1>n8n</h1>
+      <p class="tool-hero-sub">The open-source, self-hostable workflow automation platform with 400+ integrations and native AI nodes. The developer's alternative to Zapier and Make.</p>
+      <div class="tool-meta-row">
+        <span class="tag tag-free">✓ Free Tier</span>
+        <span class="tag tag-open">Open Source (Fair-code)</span>
+        <span class="tag tag-self">Self-Hostable</span>
+        <span class="tag tag-ai">AI Nodes Built-in</span>
+      </div>
+      <div class="tool-hero-ctas">
+        <a href="https://n8n.io" class="btn btn-primary" rel="noopener" target="_blank">🌐 Visit n8n.io</a>
+        <a href="https://github.com/n8n-io/n8n" class="btn btn-secondary" rel="noopener" target="_blank">⭐ GitHub (47.2k)</a>
+        <a href="#self-hosting-guide" class="btn btn-secondary">🛠 Self-Host Guide</a>
+      </div>
+    </div>
+    <div class="stats-card">
+      <div class="stat-row"><span class="stat-label2">GitHub Stars</span><span class="stat-val star-val">★ 47,200+</span></div>
+      <div class="stat-row"><span class="stat-label2">License</span><span class="stat-val">Fair-code / EE</span></div>
+      <div class="stat-row"><span class="stat-label2">Self-Hostable</span><span class="stat-val stat-green">✓ Yes</span></div>
+      <div class="stat-row"><span class="stat-label2">Free Tier</span><span class="stat-val stat-green">✓ Generous</span></div>
+      <div class="stat-row"><span class="stat-label2">Integrations</span><span class="stat-val">400+</span></div>
+      <div class="stat-row"><span class="stat-label2">Language</span><span class="stat-val">TypeScript / Node.js</span></div>
+      <div class="stat-row"><span class="stat-label2">Docker Support</span><span class="stat-val stat-green">✓ Official image</span></div>
+      <div class="stat-row"><span class="stat-label2">AI Nodes</span><span class="stat-val stat-green">✓ Native</span></div>
+      <div class="stat-row"><span class="stat-label2">First Released</span><span class="stat-val">June 2019</span></div>
+      <div class="stat-row"><span class="stat-label2">Community</span><span class="stat-val">45k+ members</span></div>
+    </div>
+  </div>
+</div>
+
+<hr style="border:none;border-top:1px solid var(--border)">
+
+<div class="container" style="padding-top:3rem">
+  <div class="tool-content">
+    <div class="main-content">
+
+      <h2>What is n8n?</h2>
+      <p>n8n (pronounced "nodemation") is a <strong>fair-code licensed workflow automation platform</strong> that enables developers and technical teams to connect apps, APIs, and services without writing complex integration code. It's the most powerful self-hostable alternative to Zapier, Make (formerly Integromat), and Tray.io.</p>
+      <p>Unlike SaaS-only automation tools, n8n can be <strong>deployed entirely on your own infrastructure</strong> — your VPS, bare metal server, Docker, Kubernetes, or via the <a href="https://turboquant.network" rel="noopener">TurboQuant edge compute network</a>. When self-hosted, there are no execution limits, no per-operation charges, and complete data sovereignty.</p>
+      <p>With 47,200+ GitHub stars and a rapidly growing ecosystem, n8n is the de facto standard for developer-grade open-source automation.</p>
+
+      <h2>Key Features</h2>
+      <div class="feature-grid">
+        <div class="feature-card"><div class="feature-icon">🤖</div><h4>Native AI Nodes</h4><p>Built-in nodes for LLM chains, vector stores, embeddings, AI agents, and memory. No extra plugins needed.</p></div>
+        <div class="feature-card"><div class="feature-icon">🔌</div><h4>400+ Integrations</h4><p>Native support for Slack, GitHub, Google Workspace, PostgreSQL, HTTP, webhooks, and 400+ more services.</p></div>
+        <div class="feature-card"><div class="feature-icon">💻</div><h4>Code Nodes</h4><p>Write custom JavaScript or Python within workflows. Full npm package access. Escape any limitation.</p></div>
+        <div class="feature-card"><div class="feature-icon">🔁</div><h4>Complex Logic</h4><p>Loops, conditionals, merge, split, error handling, sub-workflows. Everything you need for real-world automation.</p></div>
+        <div class="feature-card"><div class="feature-icon">🖥️</div><h4>Self-Hostable</h4><p>Deploy on any server. Docker, Docker Compose, Kubernetes, or bare metal. No vendor lock-in.</p></div>
+        <div class="feature-card"><div class="feature-icon">⏱️</div><h4>Scheduling</h4><p>Cron-based scheduling, webhook triggers, real-time event processing, and manual execution.</p></div>
+      </div>
+
+      <h2>n8n AI Capabilities</h2>
+      <p>n8n's AI nodes represent one of its most powerful differentiators. You can build complete <strong>AI-powered workflows</strong> including:</p>
+      <ul>
+        <li><strong>LLM Chain nodes</strong> — Connect to OpenAI, Anthropic (Claude), Mistral, Ollama (local models), and more</li>
+        <li><strong>Vector Store nodes</strong> — Integrate with Qdrant, Pinecone, Weaviate, Supabase Vector</li>
+        <li><strong>Document loading</strong> — Process PDFs, web pages, CSV files for RAG pipelines</li>
+        <li><strong>AI Agent nodes</strong> — Build autonomous agents that use tools and memory</li>
+        <li><strong>Embedding nodes</strong> — Generate embeddings using OpenAI, Cohere, or local models via Ollama</li>
+      </ul>
+      <p>Combined with <a href="https://turboquant.network" rel="noopener">TurboQuant's edge compute network</a>, you can run n8n AI workflows with LLM inference at the edge — dramatically reducing latency and cost compared to centralized cloud APIs.</p>
+
+      <h2 id="self-hosting-guide">Self-Hosting Guide: Deploy n8n with Docker</h2>
+      <p>Self-hosting n8n is straightforward. The official Docker image is maintained and updated with each release. Here's a complete production-ready setup:</p>
+
+      <h3>1. Quick Start (Single Command)</h3>
+      <div class="terminal">
+        <div class="terminal-bar"><div class="t-dot t-red"></div><div class="t-dot t-yellow"></div><div class="t-dot t-green2"></div><span class="t-title">bash — Quick n8n Deploy</span></div>
+        <div class="terminal-body">
+          <div><span class="t-comment"># Pull the official n8n Docker image</span></div>
+          <div><span class="t-prompt">$</span> <span class="t-cmd">docker pull n8nio/n8n</span></div>
+          <div><span class="t-out">latest: Pulling from n8nio/n8n... done</span></div>
+          <div>&nbsp;</div>
+          <div><span class="t-comment"># Run n8n with persistent data volume</span></div>
+          <div><span class="t-prompt">$</span> <span class="t-cmd">docker run -d \</span></div>
+          <div><span class="t-cmd">&nbsp;&nbsp;--name n8n \</span></div>
+          <div><span class="t-cmd">&nbsp;&nbsp;-p 5678:5678 \</span></div>
+          <div><span class="t-cmd">&nbsp;&nbsp;-v ~/.n8n:/home/node/.n8n \</span></div>
+          <div><span class="t-cmd">&nbsp;&nbsp;n8nio/n8n</span></div>
+          <div><span class="t-out">a3f8c2d1e4b5...</span></div>
+          <div><span class="t-success">✓ n8n running at http://localhost:5678</span></div>
+        </div>
+      </div>
+
+      <h3>2. Production Setup with Docker Compose + PostgreSQL</h3>
+      <div class="code-block"><span class="code-comment"># docker-compose.yml — Production n8n Setup</span>
+<span class="code-key">version</span>: <span class="code-str">'3.8'</span>
+
+<span class="code-key">services</span>:
+  <span class="code-key">n8n</span>:
+    <span class="code-key">image</span>: <span class="code-val">n8nio/n8n</span>
+    <span class="code-key">restart</span>: <span class="code-val">unless-stopped</span>
+    <span class="code-key">ports</span>:
+      - <span class="code-str">"5678:5678"</span>
+    <span class="code-key">environment</span>:
+      - <span class="code-val">DB_TYPE=postgresdb</span>
+      - <span class="code-val">DB_POSTGRESDB_HOST=postgres</span>
+      - <span class="code-val">DB_POSTGRESDB_PORT=5432</span>
+      - <span class="code-val">DB_POSTGRESDB_DATABASE=n8n</span>
+      - <span class="code-val">DB_POSTGRESDB_USER=n8n</span>
+      - <span class="code-val">DB_POSTGRESDB_PASSWORD=${POSTGRES_PASSWORD}</span>
+      - <span class="code-val">N8N_BASIC_AUTH_ACTIVE=true</span>
+      - <span class="code-val">N8N_BASIC_AUTH_USER=${N8N_USER}</span>
+      - <span class="code-val">N8N_BASIC_AUTH_PASSWORD=${N8N_PASSWORD}</span>
+      - <span class="code-val">WEBHOOK_URL=https://your-domain.com/</span>
+    <span class="code-key">volumes</span>:
+      - <span class="code-val">n8n_data:/home/node/.n8n</span>
+    <span class="code-key">depends_on</span>:
+      - <span class="code-val">postgres</span>
+
+  <span class="code-key">postgres</span>:
+    <span class="code-key">image</span>: <span class="code-val">postgres:15-alpine</span>
+    <span class="code-key">restart</span>: <span class="code-val">unless-stopped</span>
+    <span class="code-key">environment</span>:
+      - <span class="code-val">POSTGRES_USER=n8n</span>
+      - <span class="code-val">POSTGRES_PASSWORD=${POSTGRES_PASSWORD}</span>
+      - <span class="code-val">POSTGRES_DB=n8n</span>
+    <span class="code-key">volumes</span>:
+      - <span class="code-val">postgres_data:/var/lib/postgresql/data</span>
+
+<span class="code-key">volumes</span>:
+  <span class="code-key">n8n_data</span>:
+  <span class="code-key">postgres_data</span>:</div>
+
+      <div class="terminal">
+        <div class="terminal-bar"><div class="t-dot t-red"></div><div class="t-dot t-yellow"></div><div class="t-dot t-green2"></div><span class="t-title">bash — Start Production n8n</span></div>
+        <div class="terminal-body">
+          <div><span class="t-comment"># Copy .env file and set your passwords</span></div>
+          <div><span class="t-prompt">$</span> <span class="t-cmd">cp .env.example .env && nano .env</span></div>
+          <div>&nbsp;</div>
+          <div><span class="t-comment"># Start n8n + PostgreSQL</span></div>
+          <div><span class="t-prompt">$</span> <span class="t-cmd">docker-compose up -d</span></div>
+          <div><span class="t-out">Creating network "n8n_default"</span></div>
+          <div><span class="t-out">Creating n8n_postgres_1 ... done</span></div>
+          <div><span class="t-out">Creating n8n_n8n_1 ... done</span></div>
+          <div><span class="t-success">✓ n8n available at http://localhost:5678</span></div>
+        </div>
+      </div>
+
+      <h3>3. Add a Reverse Proxy (Nginx/Caddy)</h3>
+      <p>For production with SSL, use Caddy (easiest) or Nginx:</p>
+      <div class="code-block"><span class="code-comment"># Caddyfile — Auto SSL with Let's Encrypt</span>
+<span class="code-key">n8n.yourdomain.com</span> {
+  <span class="code-key">reverse_proxy</span> <span class="code-val">localhost:5678</span>
+}</div>
+
+      <div class="terminal">
+        <div class="terminal-bar"><div class="t-dot t-red"></div><div class="t-dot t-yellow"></div><div class="t-dot t-green2"></div><span class="t-title">bash — Deploy Caddy</span></div>
+        <div class="terminal-body">
+          <div><span class="t-prompt">$</span> <span class="t-cmd">sudo apt install caddy</span></div>
+          <div><span class="t-prompt">$</span> <span class="t-cmd">sudo caddy run --config /etc/caddy/Caddyfile</span></div>
+          <div><span class="t-success">✓ SSL certificate issued. n8n live at https://n8n.yourdomain.com</span></div>
+        </div>
+      </div>
+
+      <h3>Cloud Deployment Options</h3>
+      <ul>
+        <li><strong>Hetzner Cloud</strong> — CAX11 (2 vCPU, 4GB RAM) at €3.99/mo is ideal for small teams</li>
+        <li><strong>DigitalOcean</strong> — $12/mo Droplet works well for medium workloads</li>
+        <li><strong>AWS EC2</strong> — t3.small or t3.medium depending on workflow complexity</li>
+        <li><strong><a href="https://turboquant.network">TurboQuant Edge</a></strong> — Deploy n8n on the DePIN network for 10x cost savings and AI-optimized inference</li>
+        <li><strong>Railway / Render</strong> — One-click deployment via their n8n templates</li>
+      </ul>
+
+      <h2>n8n vs. Alternatives Comparison</h2>
+      <div style="overflow-x:auto">
+        <table class="compare-table">
+          <thead>
+            <tr>
+              <th>Feature</th>
+              <th>n8n</th>
+              <th>Zapier</th>
+              <th>Make</th>
+              <th><a href="/tools/activepieces.html">Activepieces</a></th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td>Open Source</td><td><span class="check-y">✓</span> Fair-code</td><td><span class="check-n">✗</span></td><td><span class="check-n">✗</span></td><td><span class="check-y">✓</span> MIT</td></tr>
+            <tr><td>Self-Hostable</td><td><span class="check-y">✓</span></td><td><span class="check-n">✗</span></td><td><span class="check-n">✗</span></td><td><span class="check-y">✓</span></td></tr>
+            <tr><td>Free Tier</td><td><span class="check-y">✓</span> Unlimited self-host</td><td><span class="check-p">~</span> 100 tasks/mo</td><td><span class="check-p">~</span> 1,000 ops/mo</td><td><span class="check-y">✓</span> Unlimited self-host</td></tr>
+            <tr><td>Native AI Nodes</td><td><span class="check-y">✓</span> LLM, RAG, Agents</td><td><span class="check-p">~</span> Basic AI steps</td><td><span class="check-p">~</span> OpenAI module</td><td><span class="check-p">~</span> Via integrations</td></tr>
+            <tr><td>Code Nodes</td><td><span class="check-y">✓</span> JS + Python</td><td><span class="check-n">✗</span></td><td><span class="check-p">~</span> Limited</td><td><span class="check-y">✓</span> TypeScript</td></tr>
+            <tr><td>Integrations</td><td>400+</td><td>6,000+</td><td>1,500+</td><td>200+</td></tr>
+            <tr><td>Data Privacy</td><td><span class="check-y">✓</span> Full control</td><td><span class="check-n">✗</span> Cloud only</td><td><span class="check-n">✗</span> Cloud only</td><td><span class="check-y">✓</span> Self-host</td></tr>
+            <tr><td>Price (cloud)</td><td>Free / $20+/mo</td><td>$19.99+/mo</td><td>$9+/mo</td><td>Free / $19+/mo</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h2>Use Cases</h2>
+      <ul>
+        <li><strong>AI-powered data pipelines</strong> — Ingest documents, generate embeddings, store in vector DB (Qdrant), and expose via API</li>
+        <li><strong>CRM automation</strong> — Sync HubSpot, Salesforce, and Notion bidirectionally with custom logic</li>
+        <li><strong>Slack bot workflows</strong> — React to Slack messages, process with LLMs, post responses</li>
+        <li><strong>GitHub DevOps pipelines</strong> — Auto-label issues, notify on PRs, generate changelogs with AI</li>
+        <li><strong>Web scraping + AI analysis</strong> — Crawl sites, process content with LLMs, store results</li>
+        <li><strong>Multi-model AI orchestration</strong> — Route requests to Claude, GPT-4, or Ollama based on task type</li>
+        <li><strong>E-commerce automation</strong> — Order fulfillment, inventory alerts, customer notifications</li>
+        <li><strong>Newsletter and content pipelines</strong> — Fetch RSS, summarize with AI, format and send</li>
+      </ul>
+
+      <h2>Ratings</h2>
+      <div class="rating-bar">
+        <div class="rating-row"><span class="rating-label">Ease of Use</span><div class="rating-track"><div class="rating-fill" style="width:88%"></div></div><span class="rating-val">4.4</span></div>
+        <div class="rating-row"><span class="rating-label">Features</span><div class="rating-track"><div class="rating-fill" style="width:96%"></div></div><span class="rating-val">4.8</span></div>
+        <div class="rating-row"><span class="rating-label">Self-Hosting</span><div class="rating-track"><div class="rating-fill" style="width:92%"></div></div><span class="rating-val">4.6</span></div>
+        <div class="rating-row"><span class="rating-label">AI Capabilities</span><div class="rating-track"><div class="rating-fill" style="width:90%"></div></div><span class="rating-val">4.5</span></div>
+        <div class="rating-row"><span class="rating-label">Community</span><div class="rating-track"><div class="rating-fill" style="width:94%"></div></div><span class="rating-val">4.7</span></div>
+        <div class="rating-row"><span class="rating-label">Value</span><div class="rating-track"><div class="rating-fill" style="width:98%"></div></div><span class="rating-val">4.9</span></div>
+      </div>
+
+      <h2>Frequently Asked Questions</h2>
+
+      <div class="faq-item" onclick="this.classList.toggle('open')">
+        <div class="faq-q">Is n8n free to use?<span class="faq-icon">+</span></div>
+        <div class="faq-a">Yes. n8n has two usage modes: (1) Self-hosted — completely free with no execution limits, full feature access, and no credit card required. (2) n8n Cloud — free trial, then $20/month for a starter plan. When you self-host n8n, you only pay for your server costs (a $6/mo Hetzner VPS is sufficient for most use cases).</div>
+      </div>
+
+      <div class="faq-item" onclick="this.classList.toggle('open')">
+        <div class="faq-q">How do I self-host n8n?<span class="faq-icon">+</span></div>
+        <div class="faq-a">The easiest way is with Docker. Run: <code style="background:var(--surface);padding:.1rem .3rem;border-radius:4px;font-family:var(--font-mono);font-size:.8rem">docker run -d --name n8n -p 5678:5678 -v ~/.n8n:/home/node/.n8n n8nio/n8n</code>. For production, use the Docker Compose setup with PostgreSQL described in our guide above. For cloud deployment, Hetzner is the most cost-effective option. TurboQuant's edge network also supports n8n deployment at significantly reduced cost.</div>
+      </div>
+
+      <div class="faq-item" onclick="this.classList.toggle('open')">
+        <div class="faq-q">What is n8n fair-code license?<span class="faq-icon">+</span></div>
+        <div class="faq-a">n8n uses a "fair-code" license, which means: (1) The source code is publicly available on GitHub. (2) You can use it for free for personal use, internal business use, and commercial projects. (3) You cannot offer n8n as a managed SaaS service to third parties without a commercial license. For almost all use cases — including building AI products and internal tools — n8n is effectively open-source and free.</div>
+      </div>
+
+      <div class="faq-item" onclick="this.classList.toggle('open')">
+        <div class="faq-q">Can n8n integrate with Claude and other LLMs?<span class="faq-icon">+</span></div>
+        <div class="faq-a">Yes. n8n has native integrations for: Anthropic Claude (direct API node), OpenAI (GPT-4, embeddings), Mistral AI, Cohere, HuggingFace Inference API, and Ollama (local models). You can chain LLM calls, build RAG pipelines with vector stores, and create autonomous agents — all visually in n8n's workflow editor.</div>
+      </div>
+
+      <div class="faq-item" onclick="this.classList.toggle('open')">
+        <div class="faq-q">What are the system requirements for self-hosting n8n?<span class="faq-icon">+</span></div>
+        <div class="faq-a">Minimum: 1 vCPU, 1GB RAM (SQLite). Recommended production: 2 vCPU, 4GB RAM, PostgreSQL. For heavy workloads with many concurrent workflows: 4 vCPU, 8GB RAM. n8n runs great on a €3.99/mo Hetzner CAX11 instance. For AI-heavy workflows, consider TurboQuant's edge nodes with dedicated GPU access.</div>
+      </div>
+
+      <div class="faq-item" onclick="this.classList.toggle('open')">
+        <div class="faq-q">How does n8n compare to Zapier for AI workflows?<span class="faq-icon">+</span></div>
+        <div class="faq-a">n8n is significantly more powerful for AI workflows. Unlike Zapier, n8n offers: native LLM nodes (Claude, GPT-4, Ollama), vector store integration (Qdrant, Pinecone, Weaviate), AI agent frameworks with memory and tool use, and Python/JavaScript code nodes for custom logic. Plus n8n is self-hostable — meaning no per-execution costs and no data leaving your infrastructure. For developers building AI-powered automation, n8n is the clear choice.</div>
+      </div>
+    </div>
+
+    <!-- SIDEBAR -->
+    <div>
+      <div class="tq-sidebar-card">
+        <h3>⚡ Deploy n8n on TurboQuant</h3>
+        <p>Run n8n with AI inference at the edge. DePIN infrastructure means 10x cheaper than AWS with better performance for LLM workflows.</p>
+        <a href="https://turboquant.network" class="btn-sm" rel="noopener">Deploy Now →</a>
+      </div>
+
+      <div class="sidebar-card">
+        <h3>n8n Alternatives</h3>
+        <a href="/tools/activepieces.html" class="alt-item">
+          <span class="alt-icon">🌊</span>
+          <div class="alt-info"><div class="alt-name">Activepieces</div><div class="alt-meta">MIT · ★ 11.8k · Self-hostable</div></div>
+        </a>
+        <a href="/tools/windmill.html" class="alt-item">
+          <span class="alt-icon">⚙️</span>
+          <div class="alt-info"><div class="alt-name">Windmill</div><div class="alt-meta">AGPLv3 · ★ 9.8k · Self-hostable</div></div>
+        </a>
+        <a href="/tools/temporal.html" class="alt-item">
+          <span class="alt-icon">⏱️</span>
+          <div class="alt-info"><div class="alt-name">Temporal</div><div class="alt-meta">MIT · ★ 11k · Self-hostable</div></div>
+        </a>
+        <a href="/tools/prefect.html" class="alt-item">
+          <span class="alt-icon">🔄</span>
+          <div class="alt-info"><div class="alt-name">Prefect</div><div class="alt-meta">Apache 2.0 · ★ 16k</div></div>
+        </a>
+        <a href="/compare/n8n-vs-zapier.html" style="display:block;text-align:center;margin-top:1rem;font-size:.8rem;color:var(--accent);text-decoration:none">Full comparison: n8n vs Zapier →</a>
+      </div>
+
+      <div class="sidebar-card">
+        <h3>Related Tools</h3>
+        <a href="/tools/qdrant.html" class="alt-item">
+          <span class="alt-icon">🗄️</span>
+          <div class="alt-info"><div class="alt-name">Qdrant</div><div class="alt-meta">Vector DB for n8n RAG</div></div>
+        </a>
+        <a href="/tools/ollama.html" class="alt-item">
+          <span class="alt-icon">🦙</span>
+          <div class="alt-info"><div class="alt-name">Ollama</div><div class="alt-meta">Local LLMs for n8n</div></div>
+        </a>
+        <a href="/tools/dify.html" class="alt-item">
+          <span class="alt-icon">🌊</span>
+          <div class="alt-info"><div class="alt-name">Dify</div><div class="alt-meta">LLM App Platform</div></div>
+        </a>
+      </div>
+
+      <div class="sidebar-card">
+        <h3>Categories</h3>
+        <a href="/category/automation-tools.html" class="alt-item">
+          <span class="alt-icon">⚙️</span>
+          <div class="alt-info"><div class="alt-name">Automation Tools</div><div class="alt-meta">178 tools listed</div></div>
+        </a>
+        <a href="/category/ai-tools.html" class="alt-item">
+          <span class="alt-icon">🤖</span>
+          <div class="alt-info"><div class="alt-name">AI Tools</div><div class="alt-meta">342 tools listed</div></div>
+        </a>
+        <a href="/category/self-hosting.html" class="alt-item">
+          <span class="alt-icon">🖥️</span>
+          <div class="alt-info"><div class="alt-name">Self-Hosting</div><div class="alt-meta">1,200+ guides</div></div>
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <div class="footer-bottom">
+    <span>© 2026 <a href="https://freemium.services">freemium.services</a> · Powered by <a href="https://turboquant.network">TurboQuant Network</a></span>
+    <span><a href="/tools/n8n.html">n8n</a> · <a href="/compare/n8n-vs-zapier.html">n8n vs Zapier</a> · <a href="/category/automation-tools.html">Automation Tools</a></span>
+  </div>
+</footer>
+</body>
+</html>

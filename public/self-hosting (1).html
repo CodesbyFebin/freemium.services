@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Self-Hosting Guides 2026 — 1,200+ Open-Source Tools You Can Host Yourself | Freemium.Services</title>
+<meta name="description" content="Complete self-hosting guides for 1,200+ open-source tools. Docker, Kubernetes, VPS, bare metal — step-by-step setup for n8n, Dify, Onyx, Qdrant, and more. Take back control of your data.">
+<meta name="keywords" content="self hosting guide, self hosted open source, docker self host, self hosted alternatives, host your own software, open source self hostable 2026, self hosted SaaS alternatives">
+<link rel="canonical" href="https://freemium.services/category/self-hosting">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@graph":[
+    {"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://freemium.services"},{"@type":"ListItem","position":2,"name":"Self-Hosting","item":"https://freemium.services/category/self-hosting"}]},
+    {"@type":"CollectionPage","name":"Self-Hosting Guides 2026","description":"1,200+ step-by-step guides for self-hosting open-source tools — Docker, Kubernetes, VPS deployments.","url":"https://freemium.services/category/self-hosting"},
+    {"@type":"FAQPage","mainEntity":[
+      {"@type":"Question","name":"What does self-hosting mean?","acceptedAnswer":{"@type":"Answer","text":"Self-hosting means running software on your own server or infrastructure rather than using a vendor's cloud. You download the open-source code, deploy it on a VPS, homelab, or cloud VM, and maintain full control over your data and the application."}},
+      {"@type":"Question","name":"What is the easiest way to self-host software?","acceptedAnswer":{"@type":"Answer","text":"Docker is the easiest way to self-host most modern open-source software. Most tools provide official Docker images. Run docker pull [image] then docker run with the appropriate flags. For multi-service setups, Docker Compose is recommended."}},
+      {"@type":"Question","name":"What server do I need to self-host?","acceptedAnswer":{"@type":"Answer","text":"For most self-hosted tools, a Hetzner CAX11 (2 vCPU, 4GB RAM, €3.99/mo) or a DigitalOcean Droplet ($12/mo) is sufficient. For AI workloads with local LLMs, you need more RAM (16GB+) and ideally a GPU. TurboQuant's DePIN network offers edge nodes optimized for AI inference at lower cost."}},
+      {"@type":"Question","name":"How do I get SSL for my self-hosted apps?","acceptedAnswer":{"@type":"Answer","text":"Use Caddy as your reverse proxy — it automatically provisions and renews Let's Encrypt SSL certificates with zero configuration. Alternatively, use Nginx Proxy Manager for a GUI-based approach, or Traefik for Kubernetes environments."}}
+    ]}
+  ]
+}
+</script>
+<style>
+:root{--bg:#080B10;--bg2:#0D1117;--bg3:#111820;--surface:#141C26;--surface2:#1A2332;--border:#1E2D40;--border2:#243344;--text:#E8F0F8;--text2:#9BB0C8;--text3:#5A7A9A;--accent:#00D4FF;--green:#00FF88;--orange:#FF6B35;--yellow:#FFD60A;--red:#FF3B5C;--font-display:'Syne',sans-serif;--font-mono:'Space Mono',monospace;--font-body:'DM Sans',sans-serif;--radius:8px;--radius2:12px}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--text);font-family:var(--font-body);line-height:1.6;overflow-x:hidden}
+body::before{content:'';position:fixed;inset:0;background-image:linear-gradient(rgba(0,212,255,0.03) 1px,transparent 1px),linear-gradient(90deg,rgba(0,212,255,0.03) 1px,transparent 1px);background-size:60px 60px;pointer-events:none;z-index:0}
+nav{position:sticky;top:0;z-index:100;background:rgba(8,11,16,.92);backdrop-filter:blur(20px);border-bottom:1px solid var(--border);padding:0 2rem}
+.nav-inner{max-width:1400px;margin:0 auto;display:flex;align-items:center;gap:1.5rem;height:60px}
+.logo{font-family:var(--font-mono);font-size:1rem;font-weight:700;color:var(--accent);text-decoration:none}.logo span{color:var(--green)}
+.nav-links{display:flex;align-items:center;gap:.25rem;list-style:none;margin-left:auto}
+.nav-links a{color:var(--text2);text-decoration:none;font-size:.875rem;padding:.4rem .75rem;border-radius:var(--radius);transition:all .2s}
+.nav-links a:hover{color:var(--text);background:var(--surface)}
+.btn-submit{background:var(--accent);color:var(--bg)!important;font-weight:600!important}
+.container{max-width:1400px;margin:0 auto;padding:0 2rem;position:relative;z-index:1}
+.breadcrumb{display:flex;align-items:center;gap:.5rem;font-family:var(--font-mono);font-size:.75rem;color:var(--text3);padding-top:2rem;margin-bottom:1.5rem}
+.breadcrumb a{color:var(--text3);text-decoration:none}.breadcrumb a:hover{color:var(--accent)}
+.page-hero{padding:1rem 0 3rem}
+.page-hero h1{font-family:var(--font-display);font-size:clamp(1.8rem,4vw,3.2rem);font-weight:800;letter-spacing:-1.5px;margin-bottom:.9rem}
+.page-hero p{color:var(--text2);max-width:640px;line-height:1.75;margin-bottom:1.75rem}
+.hero-stats{display:flex;gap:2.5rem;flex-wrap:wrap;margin-bottom:2rem}
+.hs{text-align:center}
+.hs-num{font-family:var(--font-mono);font-size:1.6rem;font-weight:700;color:var(--accent);display:block}
+.hs-label{font-size:.75rem;color:var(--text3);text-transform:uppercase;letter-spacing:1px}
+.layout-2col{display:grid;grid-template-columns:1fr 280px;gap:2.5rem;align-items:start}
+/* WHY SELF-HOST */
+.why-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1rem;margin:2rem 0}
+.why-card{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius2);padding:1.25rem}
+.why-icon{font-size:1.8rem;margin-bottom:.6rem}
+.why-card h3{font-family:var(--font-display);font-size:.95rem;font-weight:700;margin-bottom:.4rem}
+.why-card p{font-size:.82rem;color:var(--text2);line-height:1.6}
+/* DIFFICULTY LEVELS */
+.diff-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;margin:1.5rem 0}
+.diff-card{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius2);padding:1.25rem}
+.diff-badge{display:inline-block;padding:.2rem .65rem;border-radius:100px;font-family:var(--font-mono);font-size:.7rem;margin-bottom:.75rem}
+.diff-easy{background:rgba(0,255,136,.1);color:var(--green);border:1px solid rgba(0,255,136,.2)}
+.diff-med{background:rgba(255,214,10,.1);color:var(--yellow);border:1px solid rgba(255,214,10,.2)}
+.diff-hard{background:rgba(255,107,53,.1);color:var(--orange);border:1px solid rgba(255,107,53,.2)}
+.diff-card h3{font-family:var(--font-display);font-size:.9rem;font-weight:700;margin-bottom:.4rem}
+.diff-card ul{list-style:none;color:var(--text2);font-size:.82rem;line-height:1.9}
+.diff-card li::before{content:"→ ";color:var(--text3)}
+/* GUIDE CARDS */
+.guides-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:1.1rem;margin:1.5rem 0}
+.guide-card{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius2);padding:1.4rem;text-decoration:none;color:var(--text);display:flex;flex-direction:column;gap:.75rem;transition:all .22s;position:relative;overflow:hidden}
+.guide-card::after{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--accent),var(--green));transform:scaleX(0);transform-origin:left;transition:transform .3s}
+.guide-card:hover{border-color:var(--border2);transform:translateY(-2px);box-shadow:0 8px 30px rgba(0,0,0,.4)}
+.guide-card:hover::after{transform:scaleX(1)}
+.guide-header{display:flex;align-items:center;gap:.9rem}
+.guide-logo{width:42px;height:42px;border-radius:var(--radius);background:var(--surface2);border:1px solid var(--border);display:flex;align-items:center;justify-content:center;font-size:1.3rem;flex-shrink:0}
+.guide-name{font-family:var(--font-display);font-size:.975rem;font-weight:700}
+.guide-cat{font-size:.75rem;color:var(--text3);font-family:var(--font-mono)}
+.guide-desc{font-size:.845rem;color:var(--text2);line-height:1.6;flex:1}
+.guide-footer{display:flex;align-items:center;justify-content:space-between;gap:.5rem}
+.guide-tags{display:flex;gap:.4rem;flex-wrap:wrap}
+.tag{display:inline-flex;padding:.22rem .6rem;border-radius:100px;font-size:.7rem;font-family:var(--font-mono)}
+.tag-easy{background:rgba(0,255,136,.1);color:var(--green);border:1px solid rgba(0,255,136,.2)}
+.tag-med{background:rgba(255,214,10,.1);color:var(--yellow);border:1px solid rgba(255,214,10,.2)}
+.tag-docker{background:rgba(0,212,255,.08);color:var(--accent);border:1px solid rgba(0,212,255,.2)}
+.guide-link{font-family:var(--font-mono);font-size:.72rem;color:var(--accent);white-space:nowrap}
+/* STACK SECTION */
+.stack-card{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius2);padding:1.5rem;margin:1.5rem 0}
+.stack-card h3{font-family:var(--font-display);font-size:1.1rem;font-weight:700;margin-bottom:1rem}
+.stack-row{display:flex;align-items:center;gap:1rem;padding:.6rem 0;border-bottom:1px solid var(--border);font-size:.875rem}
+.stack-row:last-child{border-bottom:none}
+.stack-ico{font-size:1.3rem;width:28px;text-align:center;flex-shrink:0}
+.stack-info{flex:1}
+.stack-name{font-weight:600}
+.stack-role{font-size:.75rem;color:var(--text3);font-family:var(--font-mono)}
+.stack-arrow{color:var(--accent);font-family:var(--font-mono);font-size:.75rem;text-decoration:none}
+.stack-arrow:hover{text-decoration:underline}
+/* TERMINAL */
+.terminal{background:#050810;border:1px solid var(--border);border-radius:var(--radius2);overflow:hidden;margin:1.25rem 0}
+.tbar{background:var(--surface);padding:.55rem 1rem;display:flex;align-items:center;gap:.4rem;border-bottom:1px solid var(--border)}
+.td{width:11px;height:11px;border-radius:50%}
+.tr{background:#ff5f57}.ty{background:#febc2e}.tg{background:#28c840}
+.ttitle{margin-left:.5rem;font-family:var(--font-mono);font-size:.72rem;color:var(--text3)}
+.tbody{padding:1.1rem 1.4rem;font-family:var(--font-mono);font-size:.78rem;line-height:2}
+.tp{color:var(--green)}.tc{color:var(--text)}.to{color:var(--text3)}.ts{color:var(--green)}.tu{color:var(--accent)}
+/* SECTION HEADERS */
+h2.sec{font-family:var(--font-display);font-size:1.45rem;font-weight:800;letter-spacing:-.5px;margin:3rem 0 1rem}
+h2.sec:first-child{margin-top:0}
+p.body{color:var(--text2);line-height:1.8;margin-bottom:.9rem}
+a.inline{color:var(--accent);text-decoration:none}.inline:hover{text-decoration:underline}
+/* FAQ */
+.faq-item{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:1.1rem;margin-bottom:.65rem;cursor:pointer;transition:border-color .2s}
+.faq-item:hover,.faq-item.open{border-color:var(--accent)}
+.faq-q{font-family:var(--font-display);font-size:.88rem;font-weight:700;display:flex;justify-content:space-between;align-items:flex-start;gap:1rem}
+.faq-ico{color:var(--accent);font-size:1.1rem;flex-shrink:0;transition:transform .2s}
+.faq-item.open .faq-ico{transform:rotate(45deg)}
+.faq-a{font-size:.84rem;color:var(--text2);line-height:1.72;margin-top:.65rem;display:none}
+.faq-item.open .faq-a{display:block}
+/* SIDEBAR */
+.sb{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius2);padding:1.1rem 1.25rem;margin-bottom:1.1rem;position:sticky;top:76px}
+.sb h3{font-family:var(--font-mono);font-size:.7rem;color:var(--text3);text-transform:uppercase;letter-spacing:1px;margin-bottom:.9rem}
+.sb-item{display:flex;justify-content:space-between;align-items:center;padding:.5rem 0;border-bottom:1px solid var(--border);font-size:.855rem}
+.sb-item:last-child{border-bottom:none}
+.sb-item a{color:var(--text2);text-decoration:none}.sb-item a:hover{color:var(--accent)}
+.sb-count{font-family:var(--font-mono);font-size:.72rem;color:var(--text3)}
+.tq-sb{background:linear-gradient(135deg,rgba(0,212,255,.08),rgba(0,255,136,.05));border:1px solid rgba(0,212,255,.2);border-radius:var(--radius2);padding:1.1rem 1.25rem;margin-bottom:1.1rem}
+.tq-sb h3{font-family:var(--font-display);font-size:.9rem;font-weight:700;margin-bottom:.4rem}
+.tq-sb p{font-size:.78rem;color:var(--text2);line-height:1.6;margin-bottom:.85rem}
+.btn-sm{display:inline-flex;padding:.38rem .85rem;border-radius:var(--radius);font-size:.78rem;font-weight:700;text-decoration:none;background:var(--accent);color:var(--bg);transition:background .2s}
+.btn-sm:hover{background:#00b8d9}
+footer{background:var(--bg2);border-top:1px solid var(--border);padding:2.5rem 2rem;margin-top:5rem}
+.foot-bottom{max-width:1400px;margin:0 auto;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem;font-size:.78rem;color:var(--text3);font-family:var(--font-mono)}
+.foot-bottom a{color:var(--accent);text-decoration:none}
+@media(max-width:900px){.layout-2col{grid-template-columns:1fr}.sb{position:static}.diff-grid{grid-template-columns:1fr}}
+@media(max-width:600px){.page-hero h1{font-size:1.7rem}.container{padding:0 1rem}.guides-grid{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-inner">
+    <a href="https://freemium.services" class="logo">freemium<span>.services</span></a>
+    <ul class="nav-links">
+      <li><a href="/category/ai-tools.html">AI Tools</a></li>
+      <li><a href="/category/self-hosting.html" style="color:var(--accent)">Self-Hosting</a></li>
+      <li><a href="/category/open-source.html">Open Source</a></li>
+      <li><a href="https://turboquant.network" rel="noopener" style="color:var(--accent)">TurboQuant ↗</a></li>
+      <li><a href="/submit.html" class="btn-submit">+ Submit</a></li>
+    </ul>
+  </div>
+</nav>
+
+<div class="container">
+  <nav class="breadcrumb" aria-label="breadcrumb">
+    <a href="https://freemium.services">Home</a> <span>›</span>
+    <span style="color:var(--text2)">Self-Hosting</span>
+  </nav>
+
+  <div class="page-hero">
+    <h1>🖥️ Self-Hosting Guides — 1,200+ Open-Source Tools</h1>
+    <p>Take back control. Every tool in our directory includes step-by-step self-hosting guides — Docker, Kubernetes, bare metal, and cloud-specific instructions. Your data, your server, your rules.</p>
+    <div class="hero-stats">
+      <div class="hs"><span class="hs-num">1,200+</span><span class="hs-label">Guides</span></div>
+      <div class="hs"><span class="hs-num">215</span><span class="hs-label">Tools</span></div>
+      <div class="hs"><span class="hs-num">4</span><span class="hs-label">Skill Levels</span></div>
+      <div class="hs"><span class="hs-num">12</span><span class="hs-label">Cloud Providers</span></div>
+    </div>
+  </div>
+</div>
+
+<main class="container">
+  <div class="layout-2col">
+    <div>
+
+      <!-- WHY SELF-HOST -->
+      <h2 class="sec">Why Self-Host?</h2>
+      <div class="why-grid">
+        <div class="why-card"><div class="why-icon">🔒</div><h3>Data Sovereignty</h3><p>Your data never leaves your infrastructure. No vendor can access, sell, or subpoena your data without your consent.</p></div>
+        <div class="why-card"><div class="why-icon">💰</div><h3>Massive Cost Savings</h3><p>Replace $500+/mo SaaS subscriptions with a $6/mo VPS. Self-hosted n8n replaces $99/mo Zapier. No per-seat licensing.</p></div>
+        <div class="why-card"><div class="why-icon">🔧</div><h3>Full Customization</h3><p>Modify configs, add integrations, patch bugs, or fork the code. You're not limited by the vendor's roadmap.</p></div>
+        <div class="why-card"><div class="why-icon">🌐</div><h3>No Vendor Lock-in</h3><p>Migrate tools, switch providers, or run multiple instances without paying migration fees or losing data.</p></div>
+      </div>
+
+      <!-- DIFFICULTY LEVELS -->
+      <h2 class="sec">Choose Your Skill Level</h2>
+      <div class="diff-grid">
+        <div class="diff-card">
+          <div class="diff-badge diff-easy">🟢 Beginner</div>
+          <h3>One-Command Deploy</h3>
+          <ul>
+            <li>n8n (Docker)</li>
+            <li>Open WebUI</li>
+            <li>Ollama</li>
+            <li>Uptime Kuma</li>
+            <li>Vaultwarden</li>
+          </ul>
+        </div>
+        <div class="diff-card">
+          <div class="diff-badge diff-med">🟡 Intermediate</div>
+          <h3>Docker Compose</h3>
+          <ul>
+            <li>Dify + PostgreSQL</li>
+            <li>Onyx Enterprise</li>
+            <li>Qdrant Cluster</li>
+            <li>Langflow + Redis</li>
+            <li>Meilisearch</li>
+          </ul>
+        </div>
+        <div class="diff-card">
+          <div class="diff-badge diff-hard">🔴 Advanced</div>
+          <h3>Kubernetes / K8s</h3>
+          <ul>
+            <li>n8n HA cluster</li>
+            <li>Dify production</li>
+            <li>Weaviate cluster</li>
+            <li>Milvus + etcd</li>
+            <li>TurboQuant Edge</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- QUICKSTART TERMINAL -->
+      <h2 class="sec">Quickstart: Essential Self-Hosted Stack</h2>
+      <p class="body">Get a complete self-hosted AI + automation stack running in under 10 minutes with Docker Compose. This stack powers hundreds of teams on a single €6/mo VPS.</p>
+
+      <div class="terminal">
+        <div class="tbar"><div class="td tr"></div><div class="td ty"></div><div class="td tg"></div><span class="ttitle">bash — Full AI Self-Hosted Stack</span></div>
+        <div class="tbody">
+          <div><span class="to"># 1. Install Docker + Compose on Ubuntu</span></div>
+          <div><span class="tp">$</span> <span class="tc">curl -fsSL https://get.docker.com | sh</span></div>
+          <div><span class="ts">✓  Docker 26.x installed</span></div>
+          <div>&nbsp;</div>
+          <div><span class="to"># 2. Clone the Freemium.Services starter stack</span></div>
+          <div><span class="tp">$</span> <span class="tc">git clone https://github.com/freemium-services/starter-stack</span></div>
+          <div><span class="tp">$</span> <span class="tc">cd starter-stack && cp .env.example .env</span></div>
+          <div>&nbsp;</div>
+          <div><span class="to"># 3. Configure your domain + passwords in .env</span></div>
+          <div><span class="tp">$</span> <span class="tc">nano .env</span></div>
+          <div>&nbsp;</div>
+          <div><span class="to"># 4. Start the full stack (n8n + Dify + Qdrant + Caddy)</span></div>
+          <div><span class="tp">$</span> <span class="tc">docker-compose up -d</span></div>
+          <div><span class="ts">✓  qdrant:latest         → :6333</span></div>
+          <div><span class="ts">✓  n8nio/n8n             → :5678</span></div>
+          <div><span class="ts">✓  langgenius/dify       → :3000</span></div>
+          <div><span class="ts">✓  caddy (SSL)           → :443</span></div>
+          <div>&nbsp;</div>
+          <div><span class="ts">✓  Stack live at <span class="tu">https://your-domain.com</span></span></div>
+        </div>
+      </div>
+
+      <!-- RECOMMENDED STACKS -->
+      <h2 class="sec">Recommended Self-Hosted Stacks</h2>
+
+      <div class="stack-card">
+        <h3>🤖 AI Builder Stack — LLM Apps + RAG</h3>
+        <div class="stack-row"><span class="stack-ico">🌊</span><div class="stack-info"><div class="stack-name">Dify</div><div class="stack-role">LLM App Platform — build + deploy AI apps visually</div></div><a href="/tools/dify.html" class="stack-arrow">Guide →</a></div>
+        <div class="stack-row"><span class="stack-ico">🔗</span><div class="stack-info"><div class="stack-name">Langflow</div><div class="stack-role">RAG Pipeline Builder — visual agent + workflow editor</div></div><a href="/tools/langflow.html" class="stack-arrow">Guide →</a></div>
+        <div class="stack-row"><span class="stack-ico">🗄️</span><div class="stack-info"><div class="stack-name">Qdrant</div><div class="stack-role">Vector Database — store and query embeddings at scale</div></div><a href="/tools/qdrant.html" class="stack-arrow">Guide →</a></div>
+        <div class="stack-row"><span class="stack-ico">🦙</span><div class="stack-info"><div class="stack-name">Ollama</div><div class="stack-role">Local LLM Inference — run Llama 3, Mistral locally</div></div><a href="/tools/ollama.html" class="stack-arrow">Guide →</a></div>
+      </div>
+
+      <div class="stack-card">
+        <h3>⚙️ Automation Stack — No-Code + AI Workflows</h3>
+        <div class="stack-row"><span class="stack-ico">🔁</span><div class="stack-info"><div class="stack-name">n8n</div><div class="stack-role">Workflow Automation — 400+ integrations + AI nodes</div></div><a href="/tools/n8n.html" class="stack-arrow">Guide →</a></div>
+        <div class="stack-row"><span class="stack-ico">🌊</span><div class="stack-info"><div class="stack-name">Activepieces</div><div class="stack-role">MIT-licensed Zapier alternative — simpler than n8n</div></div><a href="/tools/activepieces.html" class="stack-arrow">Guide →</a></div>
+        <div class="stack-row"><span class="stack-ico">📬</span><div class="stack-info"><div class="stack-name">Postal</div><div class="stack-role">Self-hosted email delivery server — SMTP + webhooks</div></div><a href="/tools/postal.html" class="stack-arrow">Guide →</a></div>
+      </div>
+
+      <div class="stack-card">
+        <h3>🧠 Enterprise AI Knowledge Stack</h3>
+        <div class="stack-row"><span class="stack-ico">🧠</span><div class="stack-info"><div class="stack-name">Onyx</div><div class="stack-role">AI Enterprise Search — connects Slack, Notion, Confluence</div></div><a href="/tools/onyx.html" class="stack-arrow">Guide →</a></div>
+        <div class="stack-row"><span class="stack-ico">📝</span><div class="stack-info"><div class="stack-name">Outline</div><div class="stack-role">Open-source Notion alternative — team wiki</div></div><a href="/tools/outline.html" class="stack-arrow">Guide →</a></div>
+        <div class="stack-row"><span class="stack-ico">🔍</span><div class="stack-info"><div class="stack-name">Meilisearch</div><div class="stack-role">Instant search engine — full-text + semantic search</div></div><a href="/tools/meilisearch.html" class="stack-arrow">Guide →</a></div>
+      </div>
+
+      <!-- GUIDES GRID -->
+      <h2 class="sec" id="guides">Popular Self-Hosting Guides</h2>
+
+      <div class="guides-grid">
+
+        <a href="/tools/n8n.html#self-hosting-guide" class="guide-card">
+          <div class="guide-header"><div class="guide-logo">🔁</div><div><div class="guide-name">n8n</div><div class="guide-cat">Workflow Automation</div></div></div>
+          <div class="guide-desc">Self-host n8n with Docker or Docker Compose + PostgreSQL. Includes reverse proxy setup with Caddy and SSL configuration.</div>
+          <div class="guide-footer"><div class="guide-tags"><span class="tag tag-easy">🟢 Easy</span><span class="tag tag-docker">Docker</span></div><span class="guide-link">Read guide →</span></div>
+        </a>
+
+        <a href="/tools/dify.html#self-hosting" class="guide-card">
+          <div class="guide-header"><div class="guide-logo">🌊</div><div><div class="guide-name">Dify</div><div class="guide-cat">LLM App Platform</div></div></div>
+          <div class="guide-desc">Deploy Dify with Docker Compose including PostgreSQL, Redis, Weaviate, and Nginx. Production-ready in under 15 minutes.</div>
+          <div class="guide-footer"><div class="guide-tags"><span class="tag tag-med">🟡 Medium</span><span class="tag tag-docker">Compose</span></div><span class="guide-link">Read guide →</span></div>
+        </a>
+
+        <a href="/tools/onyx.html#self-hosting" class="guide-card">
+          <div class="guide-header"><div class="guide-logo">🧠</div><div><div class="guide-name">Onyx</div><div class="guide-cat">Enterprise AI Search</div></div></div>
+          <div class="guide-desc">Self-host Onyx with full connector support (Slack, Notion, Google Drive). Docker Compose setup with Vespa for vector search.</div>
+          <div class="guide-footer"><div class="guide-tags"><span class="tag tag-med">🟡 Medium</span><span class="tag tag-docker">Compose</span></div><span class="guide-link">Read guide →</span></div>
+        </a>
+
+        <a href="/tools/qdrant.html#self-hosting" class="guide-card">
+          <div class="guide-header"><div class="guide-logo">🗄️</div><div><div class="guide-name">Qdrant</div><div class="guide-cat">Vector Database</div></div></div>
+          <div class="guide-desc">Deploy Qdrant standalone or in a multi-node cluster. REST + gRPC API ready. Includes snapshot backup configuration.</div>
+          <div class="guide-footer"><div class="guide-tags"><span class="tag tag-easy">🟢 Easy</span><span class="tag tag-docker">Docker</span></div><span class="guide-link">Read guide →</span></div>
+        </a>
+
+        <a href="/tools/ollama.html#self-hosting" class="guide-card">
+          <div class="guide-header"><div class="guide-logo">🦙</div><div><div class="guide-name">Ollama</div><div class="guide-cat">Local LLM Runner</div></div></div>
+          <div class="guide-desc">Install Ollama on any Linux/macOS/Windows machine. Pull Llama 3, Mistral, Gemma. Expose as OpenAI-compatible API.</div>
+          <div class="guide-footer"><div class="guide-tags"><span class="tag tag-easy">🟢 Easy</span><span class="tag tag-docker">Native</span></div><span class="guide-link">Read guide →</span></div>
+        </a>
+
+        <a href="/tools/open-webui.html#self-hosting" class="guide-card">
+          <div class="guide-header"><div class="guide-logo">💬</div><div><div class="guide-name">Open WebUI</div><div class="guide-cat">AI Chat Interface</div></div></div>
+          <div class="guide-desc">Self-host the best ChatGPT-style interface for Ollama and OpenAI APIs. Docker one-liner. Includes auth and multi-user setup.</div>
+          <div class="guide-footer"><div class="guide-tags"><span class="tag tag-easy">🟢 Easy</span><span class="tag tag-docker">Docker</span></div><span class="guide-link">Read guide →</span></div>
+        </a>
+
+        <a href="/tools/langflow.html#self-hosting" class="guide-card">
+          <div class="guide-header"><div class="guide-logo">🔗</div><div><div class="guide-name">Langflow</div><div class="guide-cat">RAG Builder</div></div></div>
+          <div class="guide-desc">Deploy Langflow with persistent storage and Redis for production use. Includes ngrok tunnel option for local dev testing.</div>
+          <div class="guide-footer"><div class="guide-tags"><span class="tag tag-easy">🟢 Easy</span><span class="tag tag-docker">Docker</span></div><span class="guide-link">Read guide →</span></div>
+        </a>
+
+        <a href="/tools/meilisearch.html#self-hosting" class="guide-card">
+          <div class="guide-header"><div class="guide-logo">🔍</div><div><div class="guide-name">Meilisearch</div><div class="guide-cat">Search Engine</div></div></div>
+          <div class="guide-desc">Deploy Meilisearch on a single server with persistent index storage. Configure master key, snapshot schedules, and CORS.</div>
+          <div class="guide-footer"><div class="guide-tags"><span class="tag tag-easy">🟢 Easy</span><span class="tag tag-docker">Docker</span></div><span class="guide-link">Read guide →</span></div>
+        </a>
+
+        <a href="/tools/marimo.html#self-hosting" class="guide-card">
+          <div class="guide-header"><div class="guide-logo">📓</div><div><div class="guide-name">Marimo</div><div class="guide-cat">Reactive Notebooks</div></div></div>
+          <div class="guide-desc">Self-host Marimo as a shareable app server. Deploy notebooks as web apps accessible to your whole team via browser.</div>
+          <div class="guide-footer"><div class="guide-tags"><span class="tag tag-easy">🟢 Easy</span><span class="tag tag-docker">pip / Docker</span></div><span class="guide-link">Read guide →</span></div>
+        </a>
+
+      </div>
+
+      <!-- CLOUD PROVIDERS -->
+      <h2 class="sec">Recommended Hosting Providers</h2>
+      <p class="body">These providers are developer-friendly, cost-effective, and work well for self-hosting the tools in our directory. All prices for VPS instances capable of running most tools.</p>
+
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:1rem;margin:1.25rem 0">
+        <div style="background:var(--surface);border:1px solid var(--border);border-radius:var(--radius2);padding:1.1rem">
+          <div style="font-size:1.5rem;margin-bottom:.5rem">🇩🇪</div>
+          <div style="font-family:var(--font-display);font-weight:700;margin-bottom:.25rem">Hetzner Cloud</div>
+          <div style="font-size:.78rem;color:var(--text3);font-family:var(--font-mono);margin-bottom:.5rem">from €3.99/mo</div>
+          <div style="font-size:.8rem;color:var(--text2)">Best value in Europe. CAX11 (ARM, 4GB) handles most self-hosted stacks perfectly.</div>
+        </div>
+        <div style="background:var(--surface);border:1px solid var(--border);border-radius:var(--radius2);padding:1.1rem">
+          <div style="font-size:1.5rem;margin-bottom:.5rem">🌊</div>
+          <div style="font-family:var(--font-display);font-weight:700;margin-bottom:.25rem">DigitalOcean</div>
+          <div style="font-size:.78rem;color:var(--text3);font-family:var(--font-mono);margin-bottom:.5rem">from $12/mo</div>
+          <div style="font-size:.8rem;color:var(--text2)">Excellent for US deployments. One-click Docker Droplets. Managed databases available.</div>
+        </div>
+        <div style="background:var(--surface);border:1px solid var(--border);border-radius:var(--radius2);padding:1.1rem">
+          <div style="font-size:1.5rem;margin-bottom:.5rem">⚡</div>
+          <div style="font-family:var(--font-display);font-weight:700;margin-bottom:.25rem">TurboQuant Edge</div>
+          <div style="font-size:.78rem;color:var(--text3);font-family:var(--font-mono);margin-bottom:.5rem">DePIN Pricing</div>
+          <div style="font-size:.8rem;color:var(--text2)"><a href="https://turboquant.network" class="inline" rel="noopener">TurboQuant's edge network</a> — ideal for AI-heavy self-hosted stacks. GPU nodes available.</div>
+        </div>
+        <div style="background:var(--surface);border:1px solid var(--border);border-radius:var(--radius2);padding:1.1rem">
+          <div style="font-size:1.5rem;margin-bottom:.5rem">🚀</div>
+          <div style="font-family:var(--font-display);font-weight:700;margin-bottom:.25rem">Railway</div>
+          <div style="font-size:.78rem;color:var(--text3);font-family:var(--font-mono);margin-bottom:.5rem">from $5/mo</div>
+          <div style="font-size:.8rem;color:var(--text2)">One-click deployment for most tools. No server management. Great for quick deploys.</div>
+        </div>
+      </div>
+
+      <!-- FAQ -->
+      <h2 class="sec">Self-Hosting FAQ</h2>
+
+      <div class="faq-item" onclick="this.classList.toggle('open')">
+        <div class="faq-q">What does self-hosting mean?<span class="faq-ico">+</span></div>
+        <div class="faq-a">Self-hosting means running software on your own server or infrastructure rather than using a vendor's managed cloud service. You take an open-source tool, deploy it on a VPS, home server, or cloud VM, and you have full control over the data, configuration, and uptime. The software is the same — you just run it yourself instead of paying the vendor to run it for you.</div>
+      </div>
+
+      <div class="faq-item" onclick="this.classList.toggle('open')">
+        <div class="faq-q">What server do I need to self-host AI tools?<span class="faq-ico">+</span></div>
+        <div class="faq-a">For most AI tools (n8n, Dify, Onyx, Qdrant), a Hetzner CAX11 (2 ARM vCPU, 4GB RAM, €3.99/mo) or Hetzner CX22 (2 vCPU, 4GB RAM, €4.49/mo) is sufficient. For running local LLMs with Ollama, you need more RAM (16GB+ for 7B models, 32GB for 13B models). For GPU inference, consider TurboQuant's edge nodes or a dedicated GPU server from vast.ai.</div>
+      </div>
+
+      <div class="faq-item" onclick="this.classList.toggle('open')">
+        <div class="faq-q">How do I get SSL/HTTPS for self-hosted apps?<span class="faq-ico">+</span></div>
+        <div class="faq-a">Use Caddy as your reverse proxy — it automatically provisions and renews Let's Encrypt SSL certificates with a single config line: your-domain.com { reverse_proxy localhost:PORT }. Caddy is the easiest option. Alternatively, use Nginx Proxy Manager (GUI-based) or Traefik for Docker-based setups. You'll need a domain name pointed to your server's IP via DNS A record.</div>
+      </div>
+
+      <div class="faq-item" onclick="this.classList.toggle('open')">
+        <div class="faq-q">Is self-hosting secure?<span class="faq-ico">+</span></div>
+        <div class="faq-a">Self-hosting can be highly secure if configured correctly. Key practices: keep Docker images updated, use strong passwords and environment variables (not hardcoded), enable firewall (UFW), use SSL/TLS, restrict ports (only expose 80/443), enable fail2ban, and use SSH key authentication. Many self-hosted tools are inherently more secure than SaaS because your data never leaves your infrastructure.</div>
+      </div>
+
+      <div class="faq-item" onclick="this.classList.toggle('open')">
+        <div class="faq-q">Can I self-host on a Raspberry Pi or home server?<span class="faq-ico">+</span></div>
+        <div class="faq-a">Yes, many tools run well on ARM hardware including Raspberry Pi. Tools like n8n, Vaultwarden, Uptime Kuma, Meilisearch, and Qdrant all have ARM Docker images. For heavy AI workloads (Dify, Onyx with local LLMs), you'll need more RAM. A Raspberry Pi 5 (8GB) can handle lightweight self-hosted stacks. Use a VPS for production workloads where uptime matters.</div>
+      </div>
+
+      <div class="faq-item" onclick="this.classList.toggle('open')">
+        <div class="faq-q">How does TurboQuant help with self-hosting?<span class="faq-ico">+</span></div>
+        <div class="faq-a">TurboQuant (turboquant.network) is a DePIN edge compute network that provides distributed infrastructure for self-hosted AI workloads. Instead of managing your own VPS, you can deploy to TurboQuant's edge nodes — distributed globally, optimized for AI inference, and typically 5-10x cheaper than AWS for GPU-accelerated workloads. TurboQuant also provides managed orchestration for complex multi-container self-hosted stacks.</div>
+      </div>
+
+    </div><!-- /main -->
+
+    <!-- SIDEBAR -->
+    <aside>
+      <div class="tq-sb">
+        <h3>⚡ Host on TurboQuant</h3>
+        <p>Skip the server management. Deploy self-hosted AI stacks on TurboQuant's DePIN edge network — cheaper, faster, and globally distributed.</p>
+        <a href="https://turboquant.network" class="btn-sm" rel="noopener">Get Started →</a>
+      </div>
+
+      <div class="sb" style="position:sticky;top:76px">
+        <h3>Difficulty Levels</h3>
+        <div class="sb-item"><a href="#guides">🟢 Beginner Guides</a><span class="sb-count">124</span></div>
+        <div class="sb-item"><a href="#guides">🟡 Intermediate</a><span class="sb-count">67</span></div>
+        <div class="sb-item"><a href="#guides">🔴 Advanced</a><span class="sb-count">24</span></div>
+      </div>
+
+      <div class="sb">
+        <h3>By Category</h3>
+        <div class="sb-item"><a href="/category/automation-tools.html">Automation</a><span class="sb-count">38</span></div>
+        <div class="sb-item"><a href="/category/ai-tools.html">AI / LLM</a><span class="sb-count">91</span></div>
+        <div class="sb-item"><a href="/category/vector-databases.html">Vector DBs</a><span class="sb-count">16</span></div>
+        <div class="sb-item"><a href="/category/developer-tools.html">Dev Tools</a><span class="sb-count">44</span></div>
+        <div class="sb-item"><a href="/category/rag-tools.html">RAG Tools</a><span class="sb-count">29</span></div>
+        <div class="sb-item"><a href="/category/assistants.html">AI Chat</a><span class="sb-count">18</span></div>
+      </div>
+
+      <div class="sb">
+        <h3>Related Articles</h3>
+        <div style="display:flex;flex-direction:column;gap:.5rem">
+          <a href="/blog/self-hosted-saas-stack.html" style="color:var(--text2);font-size:.82rem;text-decoration:none;display:block;line-height:1.5;padding:.4rem 0;border-bottom:1px solid var(--border)">Top Self-Hosted SaaS Stack 2026</a>
+          <a href="/blog/docker-self-host-beginners.html" style="color:var(--text2);font-size:.82rem;text-decoration:none;display:block;line-height:1.5;padding:.4rem 0;border-bottom:1px solid var(--border)">Docker Self-Hosting Beginner Guide</a>
+          <a href="/blog/hetzner-vps-setup.html" style="color:var(--text2);font-size:.82rem;text-decoration:none;display:block;line-height:1.5;padding:.4rem 0">Hetzner VPS Complete Setup Guide</a>
+        </div>
+      </div>
+    </aside>
+
+  </div>
+</main>
+
+<footer>
+  <div class="foot-bottom">
+    <span>© 2026 <a href="https://freemium.services">freemium.services</a> · Powered by <a href="https://turboquant.network">TurboQuant Network</a></span>
+    <span><a href="/category/self-hosting.html">Self-Hosting</a> · <a href="/category/ai-tools.html">AI Tools</a> · <a href="/category/open-source.html">Open Source</a></span>
+  </div>
+</footer>
+</body>
+</html>

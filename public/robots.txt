@@ -1,0 +1,110 @@
+# ============================================
+# robots.txt
+# Domain: freemium.services
+# Optimized: AI Models, LLMs, Search Engines, Auto-Indexing
+# Version: 2.0 (Enterprise Grade)
+# ============================================
+
+User-agent: *
+Allow: /
+Allow: /category/
+Allow: /tools/
+Allow: /assets/
+Allow: /images/
+Allow: /css/
+Allow: /js/
+Allow: /sitemap.xml
+Allow: /sitemap-*.xml
+Allow: /*.html$
+
+Disallow: /admin/
+Disallow: /wp-admin/
+Disallow: /cgi-bin/
+Disallow: /tmp/
+Disallow: /logs/
+Disallow: /backup/
+Disallow: /private/
+Disallow: /config/
+Disallow: /includes/
+Disallow: /vendor/
+Disallow: /node_modules/
+Disallow: /wp-*
+Disallow: /feed/
+Disallow: /trackback/
+Disallow: /xmlrpc.php
+Disallow: /?s=
+Disallow: /*?
+Disallow: /*.pdf$
+Disallow: /*.zip$
+Disallow: /*.gz$
+
+Crawl-delay: 0.3
+
+# AI MODEL CRAWLERS (Full Access)
+User-agent: GPTBot
+User-agent: ChatGPT-User
+Allow: /
+Crawl-delay: 0.5
+
+User-agent: Google-Extended
+Allow: /
+Crawl-delay: 0.3
+
+User-agent: anthropic-ai
+Allow: /
+Crawl-delay: 0.5
+
+User-agent: CCBot
+Allow: /
+Crawl-delay: 1
+
+User-agent: FacebookBot
+User-agent: meta-externalagent
+Allow: /
+Crawl-delay: 0.5
+
+User-agent: Amazonbot
+Allow: /
+Crawl-delay: 0.5
+
+User-agent: Applebot
+User-agent: Applebot-Extended
+Allow: /
+Crawl-delay: 0.5
+
+User-agent: bingbot
+User-agent: adidxbot
+Allow: /
+Crawl-delay: 0.3
+
+User-agent: PerplexityBot
+Allow: /
+Crawl-delay: 1
+
+User-agent: CohereBot
+Allow: /
+Crawl-delay: 1
+
+User-agent: Baiduspider
+Allow: /
+Crawl-delay: 1
+
+User-agent: Yeti
+Allow: /
+Crawl-delay: 1
+
+# SEO & TRADITIONAL CRAWLERS
+User-agent: Googlebot
+Allow: /
+Crawl-delay: 0.2
+
+User-agent: Bingbot
+Allow: /
+Crawl-delay: 0.3
+
+Sitemap: https://freemium.services/sitemap.xml
+Sitemap: https://freemium.services/sitemap-images.xml
+Sitemap: https://freemium.services/sitemap-news.xml
+Sitemap: https://freemium.services/sitemap-video.xml
+
+Host: freemium.services
