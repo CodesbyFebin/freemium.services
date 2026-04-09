@@ -1,0 +1,26 @@
+Fetching Domain freemium.services under febinfrancis555s-projects
+> Domain freemium.services found under febinfrancis555s-projects [4s]
+
+  General
+
+    Name			freemium.services
+    Registrar			Third Party
+    Expiration Date		-
+    Creator			febinfrancis555
+    Created At			09 April 2026 20:44:10 [20m ago]
+    Edge Network		yes
+    Renewal Price		-
+
+  Nameservers
+
+    Intended Nameservers    Current Nameservers               
+    -                       anna.ns.cloudflare.com       ✘    
+    -                       michael.ns.cloudflare.com    ✘    
+
+WARNING! This Domain is not configured properly. To configure it you should either:
+  a) Set the following record on your DNS provider to continue: `A freemium.services 76.76.21.21` [recommended]
+  b) Change your Domains's nameservers to the intended set detailed above.
+
+  We will run a verification for you and you will receive an email upon completion.
+  Read more: https://vercel.link/domain-configuration
+

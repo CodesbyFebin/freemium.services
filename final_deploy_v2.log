@@ -1,0 +1,18 @@
+The "--name" option is deprecated (https://vercel.link/name-flag)
+Loading scopes…
+Searching for existing projects…
+Linked to febinfrancis555s-projects/freemium-services (created .vercel and added it to .gitignore)
+Retrieving project…
+> Downloading `development` Environment Variables for febinfrancis555s-projects/freemium-services
+Downloading
+Created .env.local file and added it to .gitignore [302ms]
+Deploying febinfrancis555s-projects/freemium-services
+Uploading [--------------------] (0.0B/1.4MB)
+Uploading [=====---------------] (358.6KB/1.4MB)
+Uploading [==========----------] (708.5KB/1.4MB)
+Uploading [===============-----] (1.0MB/1.4MB)
+Uploading [====================] (1.4MB/1.4MB)
+Inspect: https://vercel.com/febinfrancis555s-projects/freemium-services/5XAv4Pxe4kNj9dtEoEYC8gnnGPbK [35s]
+Production: https://freemium-services-r5ieofy4l-febinfrancis555s-projects.vercel.app [35s]
+https://freemium-services-r5ieofy4l-febinfrancis555s-projects.vercel.appBuilding...
+Error: Unexpected error. Please try again later. ()
