@@ -1,0 +1,2380 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Freemium.Services Docs — Ultimate Wiki: 2000+ Software Tutorials, Self-Hosting Guides & API References</title>
+<meta name="description" content="The world's most comprehensive open-source software documentation wiki. Step-by-step tutorials for 2000+ tools — AI, automation, databases, DevOps, self-hosting, and more. Powered by TurboQuant.">
+<meta name="keywords" content="open source documentation, software tutorials 2026, self hosting wiki, n8n tutorial, docker guides, AI tools docs, developer wiki, freemium software docs">
+<link rel="canonical" href="https://freemium.services/docs">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+/* ═══════════════════════════════════════════
+   FREEMIUM.SERVICES DOCS — GitHub Pages Dark Style
+   High contrast · WCAG AA · Accessible Focus States
+   ═══════════════════════════════════════════ */
+
+:root {
+  /* GitHub dark palette */
+  --bg: #0d1117;
+  --bg2: #161b22;
+  --bg3: #1c2128;
+  --surface: #21262d;
+  --surface2: #30363d;
+  --border: #30363d;
+  --border2: #3d444d;
+  --text: #e6edf3;
+  --text2: #8b949e;
+  --text3: #6e7681;
+  --text4: #3d444d;
+  /* Accent system */
+  --accent: #58a6ff;       /* GitHub blue */
+  --accent2: #388bfd;
+  --accent3: #a5d6ff;
+  --green: #3fb950;
+  --green2: #2ea043;
+  --amber: #e3b341;        /* amber for TQ */
+  --amber2: #d29922;
+  --red: #f85149;
+  --purple: #bc8cff;
+  --tq: #39d4ff;           /* TurboQuant cyan */
+  --tq2: #1fbad4;
+  /* Typography */
+  --font-display: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --font-mono: 'JetBrains Mono', 'SFMono-Regular', Consolas, 'Liberation Mono', monospace;
+  --font-body: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  /* Layout */
+  --sidebar-w: 270px;
+  --header-h: 57px;
+  --radius: 6px;
+  --radius2: 8px;
+  --radius3: 12px;
+  --shadow: 0 8px 24px rgba(1,4,9,.8);
+  --shadow2: 0 1px 3px rgba(1,4,9,.6);
+}
+
+/* ─── RESET ─── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; font-size: 15px; }
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font-body);
+  line-height: 1.7;
+  overflow-x: hidden;
+}
+
+/* ─── SKIP TO CONTENT (accessibility) ─── */
+.skip-link {
+  position: absolute;
+  top: -100%;
+  left: 1rem;
+  background: var(--accent);
+  color: #000;
+  padding: .5rem 1rem;
+  border-radius: var(--radius);
+  font-weight: 700;
+  font-size: .85rem;
+  text-decoration: none;
+  z-index: 9999;
+  transition: top .15s;
+}
+.skip-link:focus { top: .75rem; }
+
+/* ─── FOCUS STYLES ─── */
+:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+  border-radius: 2px;
+}
+
+/* ─── HEADER ─── */
+.header {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  height: var(--header-h);
+  background: var(--bg2);
+  border-bottom: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+  padding: 0 1.25rem;
+  gap: 1rem;
+  z-index: 200;
+}
+
+.header-logo {
+  font-family: var(--font-mono);
+  font-size: .875rem;
+  font-weight: 600;
+  color: var(--text);
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  gap: .5rem;
+  flex-shrink: 0;
+  white-space: nowrap;
+}
+.header-logo:hover { color: var(--accent); }
+
+.logo-badge {
+  background: var(--amber);
+  color: #000;
+  font-size: .6rem;
+  font-weight: 700;
+  padding: .15rem .4rem;
+  border-radius: 4px;
+  letter-spacing: .5px;
+}
+
+.header-search {
+  flex: 1;
+  max-width: 420px;
+  display: flex;
+  align-items: center;
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  overflow: hidden;
+  position: relative;
+  transition: border-color .15s;
+}
+.header-search:focus-within { border-color: var(--accent); box-shadow: 0 0 0 3px rgba(88,166,255,.15); }
+
+.search-icon { padding: 0 .65rem; color: var(--text3); font-size: .8rem; flex-shrink: 0; }
+
+.header-search input {
+  flex: 1;
+  background: none;
+  border: none;
+  outline: none;
+  padding: .55rem .4rem;
+  color: var(--text);
+  font-family: var(--font-body);
+  font-size: .825rem;
+}
+.header-search input::placeholder { color: var(--text3); }
+
+.search-kbd {
+  font-family: var(--font-mono);
+  font-size: .6rem;
+  color: var(--text3);
+  background: var(--surface);
+  border: 1px solid var(--border2);
+  border-radius: 4px;
+  padding: .15rem .4rem;
+  margin-right: .5rem;
+  flex-shrink: 0;
+}
+
+.header-nav {
+  display: flex;
+  align-items: center;
+  gap: .15rem;
+  margin-left: auto;
+}
+
+.header-nav a {
+  color: var(--text2);
+  text-decoration: none;
+  font-size: .825rem;
+  padding: .35rem .65rem;
+  border-radius: var(--radius);
+  transition: all .15s;
+  white-space: nowrap;
+}
+.header-nav a:hover { background: var(--surface); color: var(--text); }
+
+.header-nav .tq-link {
+  background: rgba(57,212,255,.1);
+  color: var(--tq) !important;
+  border: 1px solid rgba(57,212,255,.2);
+  font-weight: 600;
+}
+.header-nav .tq-link:hover { background: rgba(57,212,255,.18); }
+
+.version-badge {
+  font-family: var(--font-mono);
+  font-size: .65rem;
+  color: var(--text3);
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 100px;
+  padding: .2rem .55rem;
+}
+
+/* ─── LAYOUT ─── */
+.layout {
+  display: grid;
+  grid-template-columns: var(--sidebar-w) 1fr 220px;
+  min-height: 100vh;
+  padding-top: var(--header-h);
+  position: relative;
+}
+
+/* ─── LEFT SIDEBAR ─── */
+.sidebar {
+  position: fixed;
+  top: var(--header-h);
+  left: 0;
+  bottom: 0;
+  width: var(--sidebar-w);
+  overflow-y: auto;
+  background: var(--bg2);
+  border-right: 1px solid var(--border);
+  padding: 1rem 0;
+  scrollbar-width: thin;
+  scrollbar-color: var(--surface2) transparent;
+}
+.sidebar::-webkit-scrollbar { width: 4px; }
+.sidebar::-webkit-scrollbar-thumb { background: var(--surface2); border-radius: 2px; }
+
+.sidebar-section { margin-bottom: .25rem; }
+
+.sidebar-group-title {
+  font-family: var(--font-body);
+  font-size: .7rem;
+  font-weight: 600;
+  color: var(--text3);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  padding: .85rem 1rem .3rem;
+  display: flex;
+  align-items: center;
+  gap: .5rem;
+}
+.sidebar-group-title::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: var(--border);
+}
+
+.sidebar-item {
+  display: flex;
+  align-items: center;
+  gap: .55rem;
+  padding: .38rem 1rem;
+  font-size: .825rem;
+  color: var(--text2);
+  text-decoration: none;
+  cursor: pointer;
+  transition: background .12s, color .12s;
+  border-left: 3px solid transparent;
+  margin: .05rem 0;
+}
+.sidebar-item:hover {
+  background: var(--surface);
+  color: var(--text);
+  border-left-color: var(--border2);
+}
+.sidebar-item.active {
+  background: rgba(88,166,255,.08);
+  color: var(--accent);
+  border-left-color: var(--accent);
+  font-weight: 500;
+}
+
+.sidebar-item-ico { font-size: .875rem; flex-shrink: 0; width: 16px; text-align: center; }
+
+.sidebar-badge {
+  margin-left: auto;
+  font-family: var(--font-mono);
+  font-size: .58rem;
+  font-weight: 600;
+  border-radius: 100px;
+  padding: .1rem .4rem;
+  border: 1px solid;
+}
+.sidebar-badge.new { background: rgba(63,185,80,.1); color: var(--green); border-color: rgba(63,185,80,.3); }
+.sidebar-badge.hot { background: rgba(227,179,65,.1); color: var(--amber); border-color: rgba(227,179,65,.3); }
+
+/* ─── MAIN CONTENT ─── */
+.main {
+  min-width: 0;
+  padding: 2.5rem 3rem 4rem;
+  max-width: 860px;
+}
+
+/* ─── RIGHT TABLE OF CONTENTS ─── */
+.toc {
+  position: fixed;
+  top: var(--header-h);
+  right: 0;
+  width: 220px;
+  bottom: 0;
+  overflow-y: auto;
+  padding: 1.75rem 1rem;
+  border-left: 1px solid var(--border);
+  background: var(--bg2);
+}
+
+.toc-title {
+  font-size: .68rem;
+  font-weight: 600;
+  color: var(--text3);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: .85rem;
+}
+
+.toc-item {
+  display: block;
+  padding: .3rem .6rem;
+  font-size: .775rem;
+  color: var(--text3);
+  text-decoration: none;
+  border-left: 2px solid var(--border);
+  transition: all .12s;
+  line-height: 1.5;
+  margin-bottom: .1rem;
+}
+.toc-item:hover { color: var(--accent); border-left-color: var(--accent); }
+.toc-item.active { color: var(--accent); border-left-color: var(--accent); background: rgba(88,166,255,.06); font-weight: 500; }
+.toc-item.toc-h3 { padding-left: 1.1rem; font-size: .72rem; }
+
+/* ─── TYPOGRAPHY ─── */
+.doc-section { margin-bottom: 3.5rem; }
+
+.doc-hero {
+  margin-bottom: 2.5rem;
+  padding-bottom: 1.75rem;
+  border-bottom: 1px solid var(--border);
+}
+
+.doc-hero-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: .5rem;
+  font-family: var(--font-mono);
+  font-size: .7rem;
+  color: var(--amber);
+  background: rgba(227,179,65,.08);
+  border: 1px solid rgba(227,179,65,.2);
+  border-radius: 100px;
+  padding: .25rem .85rem;
+  margin-bottom: 1.1rem;
+}
+.hero-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--green); animation: blink 2s step-end infinite; }
+@keyframes blink { 0%,100%{opacity:1} 50%{opacity:0} }
+
+h1.doc-title {
+  font-family: var(--font-display);
+  font-size: 2.25rem;
+  font-weight: 700;
+  line-height: 1.2;
+  letter-spacing: -.3px;
+  margin-bottom: .9rem;
+  color: var(--text);
+}
+.doc-title em { color: var(--amber); font-style: italic; }
+
+.doc-lead {
+  font-size: 1rem;
+  color: var(--text2);
+  line-height: 1.8;
+  max-width: 640px;
+  margin-bottom: 1.5rem;
+}
+
+.doc-stats-row { display: flex; gap: 2rem; flex-wrap: wrap; }
+.doc-stat { text-align: left; }
+.ds-num {
+  font-family: var(--font-mono);
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: var(--accent);
+  display: block;
+  line-height: 1;
+}
+.ds-label {
+  font-size: .7rem;
+  color: var(--text3);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-top: .2rem;
+  display: block;
+}
+
+h2.section-heading {
+  font-family: var(--font-display);
+  font-size: 1.5rem;
+  font-weight: 700;
+  letter-spacing: -.2px;
+  margin: 2.5rem 0 .85rem;
+  color: var(--text);
+  display: flex;
+  align-items: center;
+  gap: .65rem;
+  padding-bottom: .55rem;
+  border-bottom: 1px solid var(--border);
+}
+h2.section-heading::before {
+  content: '';
+  width: 3px;
+  height: 24px;
+  background: var(--accent);
+  border-radius: 2px;
+  flex-shrink: 0;
+}
+
+h3.sub-heading {
+  font-family: var(--font-display);
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin: 1.75rem 0 .65rem;
+  color: var(--text);
+  display: flex;
+  align-items: center;
+  gap: .45rem;
+}
+h3.sub-heading .anchor {
+  color: var(--text4);
+  font-size: .68rem;
+  font-family: var(--font-mono);
+  text-decoration: none;
+  opacity: 0;
+  transition: opacity .15s;
+}
+h3.sub-heading:hover .anchor { opacity: 1; }
+
+h4.mini-heading {
+  font-family: var(--font-mono);
+  font-size: .8rem;
+  font-weight: 600;
+  color: var(--tq);
+  margin: 1.25rem 0 .45rem;
+  text-transform: uppercase;
+  letter-spacing: .5px;
+}
+
+p.body-text {
+  color: var(--text2);
+  line-height: 1.8;
+  margin-bottom: .85rem;
+  font-size: .925rem;
+}
+p.body-text a { color: var(--accent); text-decoration: none; }
+p.body-text a:hover { text-decoration: underline; }
+.tq-ref { color: var(--tq) !important; font-weight: 500; }
+
+ul.doc-list, ol.doc-list {
+  color: var(--text2);
+  padding-left: 1.5rem;
+  margin-bottom: 1rem;
+  line-height: 1.85;
+  font-size: .925rem;
+}
+ul.doc-list li, ol.doc-list li { margin-bottom: .3rem; }
+ul.doc-list li::marker { color: var(--accent); }
+ol.doc-list li::marker { color: var(--accent); font-family: var(--font-mono); font-size: .82rem; }
+ul.doc-list a, ol.doc-list a { color: var(--accent); text-decoration: none; }
+ul.doc-list a:hover, ol.doc-list a:hover { text-decoration: underline; }
+
+/* ─── CODE BLOCKS ─── */
+.code-block {
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: var(--radius2);
+  overflow: hidden;
+  margin: 1.1rem 0;
+  position: relative;
+}
+
+.code-bar {
+  background: var(--bg3);
+  padding: .5rem .9rem;
+  display: flex;
+  align-items: center;
+  gap: .65rem;
+  border-bottom: 1px solid var(--border);
+}
+
+.code-dots { display: flex; gap: .3rem; }
+.code-dot { width: 10px; height: 10px; border-radius: 50%; }
+.cd1 { background: #ff5f57; } .cd2 { background: #febc2e; } .cd3 { background: #28c840; }
+
+.code-filename {
+  font-family: var(--font-mono);
+  font-size: .7rem;
+  color: var(--text3);
+}
+.code-lang {
+  margin-left: auto;
+  font-family: var(--font-mono);
+  font-size: .62rem;
+  color: var(--text4);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.copy-btn {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  color: var(--text3);
+  font-family: var(--font-mono);
+  font-size: .62rem;
+  padding: .18rem .5rem;
+  cursor: pointer;
+  transition: all .15s;
+  margin-left: .4rem;
+}
+.copy-btn:hover { border-color: var(--accent); color: var(--accent); }
+
+.code-body {
+  padding: 1.1rem 1.4rem;
+  font-family: var(--font-mono);
+  font-size: .8rem;
+  line-height: 1.9;
+  overflow-x: auto;
+  white-space: pre;
+  color: #e6edf3;
+}
+
+/* GitHub syntax colors */
+.ln { color: var(--text4); user-select: none; width: 2.5rem; display: inline-block; text-align: right; margin-right: 1.1rem; }
+.c-comment { color: #6e7681; }
+.c-cmd { color: #e6edf3; }
+.c-key { color: #79c0ff; }
+.c-val { color: #a5d6a7; }
+.c-str { color: #a5d6ff; }
+.c-prompt { color: var(--green); font-weight: 600; }
+.c-out { color: var(--text3); }
+.c-success { color: var(--green); }
+.c-flag { color: var(--amber); }
+.c-url { color: var(--tq); }
+.c-highlight { background: rgba(227,179,65,.12); border-radius: 2px; padding: 0 2px; }
+
+code.inline {
+  font-family: var(--font-mono);
+  font-size: .82em;
+  background: var(--surface);
+  border: 1px solid var(--border2);
+  border-radius: 4px;
+  padding: .1rem .35rem;
+  color: #ff7b72;
+}
+
+/* ─── CALLOUT BOXES ─── */
+.callout {
+  border-radius: var(--radius2);
+  padding: .9rem 1.1rem;
+  margin: 1.1rem 0;
+  display: flex;
+  gap: .85rem;
+  align-items: flex-start;
+  font-size: .885rem;
+}
+.callout-icon { font-size: 1rem; flex-shrink: 0; margin-top: .05rem; }
+.callout-body { flex: 1; }
+.callout-title {
+  font-family: var(--font-body);
+  font-size: .72rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: .5px;
+  margin-bottom: .25rem;
+}
+.callout-text { font-size: .855rem; color: var(--text2); line-height: 1.7; }
+.callout-text a { text-decoration: none; }
+.callout-text a:hover { text-decoration: underline; }
+
+.callout-info { background: rgba(88,166,255,.07); border: 1px solid rgba(88,166,255,.25); border-left: 3px solid var(--accent); }
+.callout-info .callout-title { color: var(--accent); }
+.callout-info .callout-text a { color: var(--accent); }
+
+.callout-tip { background: rgba(63,185,80,.07); border: 1px solid rgba(63,185,80,.2); border-left: 3px solid var(--green); }
+.callout-tip .callout-title { color: var(--green); }
+.callout-tip .callout-text a { color: var(--green); }
+
+.callout-warn { background: rgba(227,179,65,.07); border: 1px solid rgba(227,179,65,.2); border-left: 3px solid var(--amber); }
+.callout-warn .callout-title { color: var(--amber); }
+.callout-warn .callout-text a { color: var(--amber); }
+
+.callout-tq { background: rgba(57,212,255,.06); border: 1px solid rgba(57,212,255,.25); border-left: 3px solid var(--tq); }
+.callout-tq .callout-title { color: var(--tq); }
+.callout-tq .callout-text a { color: var(--tq); font-weight: 500; }
+
+.callout-danger { background: rgba(248,81,73,.07); border: 1px solid rgba(248,81,73,.25); border-left: 3px solid var(--red); }
+.callout-danger .callout-title { color: var(--red); }
+
+/* ─── STEP INDICATORS ─── */
+.steps {
+  counter-reset: step-counter;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  position: relative;
+  margin: 1.25rem 0;
+}
+.steps::before {
+  content: '';
+  position: absolute;
+  left: 17px;
+  top: 36px;
+  bottom: 36px;
+  width: 1px;
+  background: var(--border);
+}
+
+.step { display: flex; gap: 1.1rem; padding-bottom: 1.5rem; position: relative; }
+.step:last-child { padding-bottom: 0; }
+
+.step-num {
+  counter-increment: step-counter;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: var(--surface);
+  border: 2px solid var(--border2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-mono);
+  font-size: .7rem;
+  font-weight: 700;
+  color: var(--accent);
+  flex-shrink: 0;
+  z-index: 1;
+  transition: all .2s;
+}
+.step:hover .step-num { border-color: var(--accent); background: rgba(88,166,255,.1); }
+
+.step-content { flex: 1; padding-top: .35rem; }
+.step-title { font-size: .95rem; font-weight: 600; margin-bottom: .3rem; color: var(--text); }
+.step-desc { font-size: .855rem; color: var(--text2); line-height: 1.7; }
+.step-desc a { color: var(--accent); text-decoration: none; }
+.step-desc a:hover { text-decoration: underline; }
+
+/* ─── TOOL CARDS ─── */
+.tool-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
+  gap: .85rem;
+  margin: 1.1rem 0;
+}
+
+.tool-doc-card {
+  background: var(--bg2);
+  border: 1px solid var(--border);
+  border-radius: var(--radius2);
+  padding: 1rem;
+  text-decoration: none;
+  color: var(--text);
+  transition: border-color .15s, box-shadow .15s;
+  display: flex;
+  flex-direction: column;
+  gap: .55rem;
+  position: relative;
+  overflow: hidden;
+}
+.tool-doc-card:hover { border-color: var(--accent); box-shadow: 0 0 0 3px rgba(88,166,255,.1); }
+
+.tdc-header { display: flex; align-items: center; gap: .7rem; }
+.tdc-icon { font-size: 1.4rem; flex-shrink: 0; }
+.tdc-name { font-size: .9rem; font-weight: 600; }
+.tdc-version { font-family: var(--font-mono); font-size: .64rem; color: var(--text3); }
+.tdc-desc { font-size: .8rem; color: var(--text2); line-height: 1.55; flex: 1; }
+.tdc-tags { display: flex; gap: .35rem; flex-wrap: wrap; }
+.tdc-tag { font-family: var(--font-mono); font-size: .62rem; padding: .12rem .4rem; border-radius: 4px; }
+.tt-open { background: rgba(188,140,255,.08); color: var(--purple); border: 1px solid rgba(188,140,255,.2); }
+.tt-free { background: rgba(63,185,80,.08); color: var(--green); border: 1px solid rgba(63,185,80,.2); }
+.tt-docker { background: rgba(88,166,255,.08); color: var(--accent); border: 1px solid rgba(88,166,255,.2); }
+.tt-ai { background: rgba(227,179,65,.08); color: var(--amber); border: 1px solid rgba(227,179,65,.2); }
+.tt-new { background: rgba(57,212,255,.07); color: var(--tq); border: 1px solid rgba(57,212,255,.2); }
+
+/* ─── COMPARISON TABLE ─── */
+.doc-table { width: 100%; border-collapse: collapse; margin: 1.1rem 0; font-size: .845rem; }
+.doc-table th {
+  background: var(--bg3);
+  padding: .6rem .9rem;
+  text-align: left;
+  font-family: var(--font-mono);
+  font-size: .66rem;
+  color: var(--text3);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  border: 1px solid var(--border);
+}
+.doc-table td {
+  padding: .55rem .9rem;
+  border: 1px solid var(--border);
+  color: var(--text2);
+  vertical-align: middle;
+  font-size: .875rem;
+}
+.doc-table tr:hover td { background: rgba(255,255,255,.02); }
+.doc-table a { color: var(--accent); text-decoration: none; }
+.doc-table a:hover { text-decoration: underline; }
+.check-y { color: var(--green); } .check-n { color: var(--red); } .check-p { color: var(--amber); }
+
+/* ─── TABS ─── */
+.doc-tabs { display: flex; border-bottom: 1px solid var(--border); gap: 0; }
+.doc-tab {
+  padding: .55rem 1rem;
+  font-family: var(--font-body);
+  font-size: .8rem;
+  font-weight: 500;
+  color: var(--text3);
+  cursor: pointer;
+  border-bottom: 2px solid transparent;
+  margin-bottom: -1px;
+  transition: all .15s;
+  user-select: none;
+}
+.doc-tab:hover { color: var(--text2); }
+.doc-tab.active { color: var(--accent); border-bottom-color: var(--accent); }
+.tab-content { display: none; }
+.tab-content.active { display: block; }
+
+/* ─── TQ BANNER ─── */
+.tq-banner {
+  background: linear-gradient(135deg, rgba(57,212,255,.06) 0%, rgba(63,185,80,.03) 100%);
+  border: 1px solid rgba(57,212,255,.2);
+  border-radius: var(--radius3);
+  padding: 1.5rem 1.75rem;
+  margin: 2rem 0;
+  display: flex;
+  align-items: center;
+  gap: 1.75rem;
+  position: relative;
+  overflow: hidden;
+}
+.tq-banner::before {
+  content: '⚡';
+  position: absolute;
+  right: 1.5rem;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 5rem;
+  opacity: .04;
+  pointer-events: none;
+}
+.tq-banner-content { flex: 1; }
+.tq-banner-label {
+  font-family: var(--font-mono);
+  font-size: .66rem;
+  color: var(--tq);
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  margin-bottom: .3rem;
+}
+.tq-banner h3 { font-size: 1.1rem; font-weight: 700; margin-bottom: .35rem; }
+.tq-banner p { font-size: .845rem; color: var(--text2); line-height: 1.65; max-width: 500px; }
+.tq-banner p a { color: var(--tq); text-decoration: none; font-weight: 500; }
+.tq-banner p a:hover { text-decoration: underline; }
+
+.tq-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: .4rem;
+  padding: .6rem 1.25rem;
+  background: var(--tq);
+  color: #000;
+  font-weight: 700;
+  font-size: .825rem;
+  border-radius: var(--radius);
+  text-decoration: none;
+  transition: all .2s;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+.tq-btn:hover { background: var(--tq2); transform: translateY(-1px); box-shadow: 0 4px 14px rgba(57,212,255,.25); }
+
+/* ─── SEARCH RESULTS ─── */
+.search-results {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  background: var(--bg2);
+  border: 1px solid var(--border2);
+  border-top: none;
+  border-radius: 0 0 var(--radius) var(--radius);
+  max-height: 340px;
+  overflow-y: auto;
+  display: none;
+  z-index: 300;
+  box-shadow: var(--shadow);
+}
+.search-results.show { display: block; }
+.search-result-item {
+  padding: .7rem .9rem;
+  cursor: pointer;
+  border-bottom: 1px solid var(--border);
+  transition: background .12s;
+  display: flex;
+  align-items: flex-start;
+  gap: .7rem;
+}
+.search-result-item:hover { background: var(--surface); }
+.sr-icon { font-size: 1rem; flex-shrink: 0; margin-top: .05rem; }
+.sr-title { font-size: .845rem; font-weight: 600; color: var(--text); margin-bottom: .12rem; }
+.sr-path { font-family: var(--font-mono); font-size: .65rem; color: var(--text3); }
+.sr-snippet { font-size: .78rem; color: var(--text2); line-height: 1.4; margin-top: .1rem; }
+
+/* ─── MOBILE TOGGLE ─── */
+.sidebar-toggle {
+  display: none;
+  background: none;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  color: var(--text2);
+  padding: .35rem .6rem;
+  cursor: pointer;
+  font-size: .85rem;
+}
+
+/* ─── PAGINATION ─── */
+.doc-pagination {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+  margin-top: 2.5rem;
+  padding-top: 1.75rem;
+  border-top: 1px solid var(--border);
+}
+.pag-card {
+  background: var(--bg2);
+  border: 1px solid var(--border);
+  border-radius: var(--radius2);
+  padding: .9rem 1.1rem;
+  text-decoration: none;
+  color: var(--text);
+  transition: border-color .15s;
+  display: flex;
+  flex-direction: column;
+}
+.pag-card:hover { border-color: var(--accent); }
+.pag-card.next { text-align: right; }
+.pag-label { font-family: var(--font-mono); font-size: .63rem; color: var(--text3); text-transform: uppercase; letter-spacing: 1px; margin-bottom: .3rem; }
+.pag-title { font-size: .875rem; font-weight: 600; color: var(--accent); }
+
+/* ─── FOOTER ─── */
+.doc-footer {
+  border-top: 1px solid var(--border);
+  padding: 1.75rem 3rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+  font-size: .775rem;
+  color: var(--text3);
+  font-family: var(--font-mono);
+  background: var(--bg2);
+}
+.doc-footer a { color: var(--accent); text-decoration: none; }
+.doc-footer a:hover { text-decoration: underline; }
+
+/* ─── READING PROGRESS ─── */
+.reading-progress {
+  position: fixed;
+  top: var(--header-h);
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: var(--border);
+  z-index: 199;
+}
+.reading-progress-bar {
+  height: 100%;
+  background: linear-gradient(90deg, var(--accent), var(--tq));
+  width: 0%;
+  transition: width .1s;
+}
+
+/* ─── RESPONSIVE ─── */
+@media (max-width: 1200px) {
+  .toc { display: none; }
+  .layout { grid-template-columns: var(--sidebar-w) 1fr; }
+}
+@media (max-width: 768px) {
+  :root { --sidebar-w: 0px; }
+  .sidebar { transform: translateX(-100%); width: 270px; transition: transform .3s; z-index: 150; box-shadow: var(--shadow); }
+  .sidebar.open { transform: translateX(0); }
+  .sidebar-toggle { display: flex; align-items: center; }
+  .layout { grid-template-columns: 1fr; }
+  .main { padding: 1.75rem 1.25rem 3rem; }
+  .doc-footer { padding: 1.25rem; }
+  .doc-pagination { grid-template-columns: 1fr; }
+  .tq-banner { flex-direction: column; gap: 1rem; }
+  h1.doc-title { font-size: 1.8rem; }
+  .tool-cards { grid-template-columns: 1fr; }
+}
+</style>
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@graph":[
+    {"@type":"TechArticle","headline":"Ultimate Open-Source Software Documentation Wiki — 2000+ Tutorials","url":"https://freemium.services/docs","publisher":{"@type":"Organization","name":"Freemium.Services","url":"https://freemium.services"},"description":"Comprehensive wiki with step-by-step tutorials for 2000+ open-source and freemium software tools."},
+    {"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://freemium.services"},{"@type":"ListItem","position":2,"name":"Documentation","item":"https://freemium.services/docs"}]},
+    {"@type":"FAQPage","mainEntity":[
+      {"@type":"Question","name":"How do I self-host n8n?","acceptedAnswer":{"@type":"Answer","text":"Run: docker pull n8nio/n8n && docker run -d --name n8n -p 5678:5678 -v ~/.n8n:/home/node/.n8n n8nio/n8n. Access at http://localhost:5678."}},
+      {"@type":"Question","name":"How do I install Ollama?","acceptedAnswer":{"@type":"Answer","text":"On macOS/Linux run: curl -fsSL https://ollama.ai/install.sh | sh. Then run: ollama run llama3 to pull and start a model."}},
+      {"@type":"Question","name":"What is TurboQuant Network?","acceptedAnswer":{"@type":"Answer","text":"TurboQuant (turboquant.network) is a DePIN decentralized edge compute network for AI workloads — providing distributed GPU inference, lower costs than AWS, and global edge deployment for self-hosted tools."}}
+    ]}
+  ]
+}
+</script>
+</head>
+<body>
+
+<!-- SKIP LINK (accessibility) -->
+<a class="skip-link" href="#main-content">Skip to main content</a>
+
+<!-- READING PROGRESS -->
+<div class="reading-progress"><div class="reading-progress-bar" id="progressBar"></div></div>
+
+<!-- ═══ HEADER ═══ -->
+<header class="header">
+  <button class="sidebar-toggle" onclick="toggleSidebar()">☰</button>
+  <a href="https://freemium.services" class="header-logo">
+    freemium.services
+    <span class="logo-badge">DOCS</span>
+  </a>
+  <div class="header-search">
+    <span class="search-icon">🔍</span>
+    <input type="text" id="searchInput" placeholder="Search 2,000+ tutorials... (Ctrl+K)" autocomplete="off" oninput="handleSearch(this.value)" onkeydown="handleSearchKey(event)">
+    <span class="search-kbd">Ctrl K</span>
+    <div class="search-results" id="searchResults"></div>
+  </div>
+  <nav class="header-nav">
+    <a href="https://freemium.services">Directory</a>
+    <a href="https://freemium.services/category/ai-tools.html">AI Tools</a>
+    <a href="https://freemium.services/category/self-hosting.html">Self-Hosting</a>
+    <a href="https://turboquant.network" rel="noopener" target="_blank" class="tq-link">⚡ TurboQuant</a>
+    <span class="version-badge">v2.1.0</span>
+  </nav>
+</header>
+
+<!-- ═══ LAYOUT ═══ -->
+<div class="layout">
+
+<!-- ═══ LEFT SIDEBAR ═══ -->
+<nav class="sidebar" id="sidebar">
+
+  <div class="sidebar-section">
+    <div class="sidebar-group-title">Getting Started</div>
+    <a class="sidebar-item active" href="#introduction" onclick="setActive(this)">
+      <span class="sidebar-item-ico">🏠</span> Introduction
+    </a>
+    <a class="sidebar-item" href="#quickstart" onclick="setActive(this)">
+      <span class="sidebar-item-ico">⚡</span> Quickstart
+      <span class="sidebar-badge hot">HOT</span>
+    </a>
+    <a class="sidebar-item" href="#installation" onclick="setActive(this)">
+      <span class="sidebar-item-ico">📦</span> Installation
+    </a>
+    <a class="sidebar-item" href="#docker-basics" onclick="setActive(this)">
+      <span class="sidebar-item-ico">🐳</span> Docker Basics
+    </a>
+    <a class="sidebar-item" href="#turboquant" onclick="setActive(this)">
+      <span class="sidebar-item-ico">⚡</span> TurboQuant Edge
+      <span class="sidebar-badge new">NEW</span>
+    </a>
+  </div>
+
+  <div class="sidebar-section">
+    <div class="sidebar-group-title">🤖 AI Tools</div>
+    <a class="sidebar-item" href="#ai-llm-platforms" onclick="setActive(this)">
+      <span class="sidebar-item-ico">🌊</span> LLM Platforms
+    </a>
+    <a class="sidebar-item" href="#local-llms" onclick="setActive(this)">
+      <span class="sidebar-item-ico">🦙</span> Local LLMs (Ollama)
+    </a>
+    <a class="sidebar-item" href="#ai-coding-agents" onclick="setActive(this)">
+      <span class="sidebar-item-ico">⚡</span> AI Coding Agents
+    </a>
+    <a class="sidebar-item" href="#rag-pipelines" onclick="setActive(this)">
+      <span class="sidebar-item-ico">🔗</span> RAG Pipelines
+    </a>
+    <a class="sidebar-item" href="#vector-databases" onclick="setActive(this)">
+      <span class="sidebar-item-ico">🗄️</span> Vector Databases
+    </a>
+    <a class="sidebar-item" href="#ai-assistants" onclick="setActive(this)">
+      <span class="sidebar-item-ico">💬</span> AI Assistants
+    </a>
+    <a class="sidebar-item" href="#ai-agents" onclick="setActive(this)">
+      <span class="sidebar-item-ico">🤖</span> AI Agents
+    </a>
+  </div>
+
+  <div class="sidebar-section">
+    <div class="sidebar-group-title">⚙️ Automation</div>
+    <a class="sidebar-item" href="#n8n" onclick="setActive(this)">
+      <span class="sidebar-item-ico">🔁</span> n8n Complete Guide
+    </a>
+    <a class="sidebar-item" href="#activepieces" onclick="setActive(this)">
+      <span class="sidebar-item-ico">🌊</span> Activepieces
+    </a>
+    <a class="sidebar-item" href="#windmill" onclick="setActive(this)">
+      <span class="sidebar-item-ico">🌬️</span> Windmill
+    </a>
+    <a class="sidebar-item" href="#temporal" onclick="setActive(this)">
+      <span class="sidebar-item-ico">⏱️</span> Temporal
+    </a>
+    <a class="sidebar-item" href="#prefect" onclick="setActive(this)">
+      <span class="sidebar-item-ico">🔄</span> Prefect
+    </a>
+  </div>
+
+  <div class="sidebar-section">
+    <div class="sidebar-group-title">🗄️ Databases</div>
+    <a class="sidebar-item" href="#postgres" onclick="setActive(this)">
+      <span class="sidebar-item-ico">🐘</span> PostgreSQL
+    </a>
+    <a class="sidebar-item" href="#redis" onclick="setActive(this)">
+      <span class="sidebar-item-ico">🔴</span> Redis / Valkey
+    </a>
+    <a class="sidebar-item" href="#mongodb" onclick="setActive(this)">
+      <span class="sidebar-item-ico">🍃</span> MongoDB
+    </a>
+    <a class="sidebar-item" href="#clickhouse" onclick="setActive(this)">
+      <span class="sidebar-item-ico">📊</span> ClickHouse
+    </a>
+    <a class="sidebar-item" href="#mysql" onclick="setActive(this)">
+      <span class="sidebar-item-ico">🐬</span> MySQL / MariaDB
+    </a>
+    <a class="sidebar-item" href="#sqlite" onclick="setActive(this)">
+      <span class="sidebar-item-ico">💾</span> SQLite / LibSQL
+    </a>
+  </div>
+
+  <div class="sidebar-section">
+    <div class="sidebar-group-title">🌐 Web Servers</div>
+    <a class="sidebar-item" href="#caddy" onclick="setActive(this)">
+      <span class="sidebar-item-ico">🚗</span> Caddy (Recommended)
+    </a>
+    <a class="sidebar-item" href="#nginx" onclick="setActive(this)">
+      <span class="sidebar-item-ico">🟩</span> Nginx
+    </a>
+    <a class="sidebar-item" href="#traefik" onclick="setActive(this)">
+      <span class="sidebar-item-ico">⚖️</span> Traefik
+    </a>
+  </div>
+
+  <div class="sidebar-section">
+    <div class="sidebar-group-title">🔧 DevOps & CI/CD</div>
+    <a class="sidebar-item" href="#github-actions" onclick="setActive(this)">
+      <span class="sidebar-item-ico">🐙</span> GitHub Actions
+    </a>
+    <a class="sidebar-item" href="#gitea" onclick="setActive(this)">
+      <span class="sidebar-item-ico">☕</span> Gitea
+    </a>
+    <a class="sidebar-item" href="#drone" onclick="setActive(this)">
+      <span class="sidebar-item-ico">🚁</span> Drone CI
+    </a>
+    <a class="sidebar-item" href="#docker-compose" onclick="setActive(this)">
+      <span class="sidebar-item-ico">🐳</span> Docker Compose
+    </a>
+    <a class="sidebar-item" href="#kubernetes" onclick="setActive(this)">
+      <span class="sidebar-item-ico">☸️</span> Kubernetes (K8s)
+    </a>
+    <a class="sidebar-item" href="#terraform" onclick="setActive(this)">
+      <span class="sidebar-item-ico">🔷</span> Terraform
+    </a>
+  </div>
+
+  <div class="sidebar-section">
+    <div class="sidebar-group-title">📊 Observability</div>
+    <a class="sidebar-item" href="#grafana" onclick="setActive(this)">
+      <span class="sidebar-item-ico">📈</span> Grafana + Loki
+    </a>
+    <a class="sidebar-item" href="#prometheus" onclick="setActive(this)">
+      <span class="sidebar-item-ico">🔥</span> Prometheus
+    </a>
+    <a class="sidebar-item" href="#uptimekuma" onclick="setActive(this)">
+      <span class="sidebar-item-ico">💗</span> Uptime Kuma
+    </a>
+    <a class="sidebar-item" href="#sentry" onclick="setActive(this)">
+      <span class="sidebar-item-ico">🛡️</span> Sentry (Self-hosted)
+    </a>
+  </div>
+
+  <div class="sidebar-section">
+    <div class="sidebar-group-title">💬 Communication</div>
+    <a class="sidebar-item" href="#mattermost" onclick="setActive(this)">
+      <span class="sidebar-item-ico">💬</span> Mattermost
+    </a>
+    <a class="sidebar-item" href="#postal" onclick="setActive(this)">
+      <span class="sidebar-item-ico">📬</span> Postal (Email)
+    </a>
+    <a class="sidebar-item" href="#ntfy" onclick="setActive(this)">
+      <span class="sidebar-item-ico">🔔</span> Ntfy Notifications
+    </a>
+  </div>
+
+  <div class="sidebar-section">
+    <div class="sidebar-group-title">🔐 Security & Auth</div>
+    <a class="sidebar-item" href="#vaultwarden" onclick="setActive(this)">
+      <span class="sidebar-item-ico">🔑</span> Vaultwarden
+    </a>
+    <a class="sidebar-item" href="#authentik" onclick="setActive(this)">
+      <span class="sidebar-item-ico">🔒</span> Authentik (SSO)
+    </a>
+    <a class="sidebar-item" href="#keycloak" onclick="setActive(this)">
+      <span class="sidebar-item-ico">🗝️</span> Keycloak
+    </a>
+    <a class="sidebar-item" href="#wireguard" onclick="setActive(this)">
+      <span class="sidebar-item-ico">🌐</span> WireGuard VPN
+    </a>
+  </div>
+
+  <div class="sidebar-section">
+    <div class="sidebar-group-title">📁 Storage & Files</div>
+    <a class="sidebar-item" href="#minio" onclick="setActive(this)">
+      <span class="sidebar-item-ico">🗃️</span> MinIO (S3-compatible)
+    </a>
+    <a class="sidebar-item" href="#nextcloud" onclick="setActive(this)">
+      <span class="sidebar-item-ico">☁️</span> Nextcloud
+    </a>
+    <a class="sidebar-item" href="#seafile" onclick="setActive(this)">
+      <span class="sidebar-item-ico">🦑</span> Seafile
+    </a>
+  </div>
+
+  <div class="sidebar-section">
+    <div class="sidebar-group-title">📊 Analytics & Search</div>
+    <a class="sidebar-item" href="#meilisearch" onclick="setActive(this)">
+      <span class="sidebar-item-ico">🔍</span> Meilisearch
+    </a>
+    <a class="sidebar-item" href="#plausible" onclick="setActive(this)">
+      <span class="sidebar-item-ico">📊</span> Plausible Analytics
+    </a>
+    <a class="sidebar-item" href="#metabase" onclick="setActive(this)">
+      <span class="sidebar-item-ico">📉</span> Metabase
+    </a>
+    <a class="sidebar-item" href="#typesense" onclick="setActive(this)">
+      <span class="sidebar-item-ico">⚡</span> Typesense
+    </a>
+  </div>
+
+  <div class="sidebar-section">
+    <div class="sidebar-group-title">🖥️ Dev Tools</div>
+    <a class="sidebar-item" href="#marimo" onclick="setActive(this)">
+      <span class="sidebar-item-ico">📓</span> Marimo Notebooks
+    </a>
+    <a class="sidebar-item" href="#codeserver" onclick="setActive(this)">
+      <span class="sidebar-item-ico">💻</span> Code Server (VS Code)
+    </a>
+    <a class="sidebar-item" href="#gitpod" onclick="setActive(this)">
+      <span class="sidebar-item-ico">🌩️</span> Gitpod (Self-hosted)
+    </a>
+    <a class="sidebar-item" href="#nocodb" onclick="setActive(this)">
+      <span class="sidebar-item-ico">📋</span> NocoDB (Airtable alt)
+    </a>
+  </div>
+
+  <div class="sidebar-section">
+    <div class="sidebar-group-title">🌍 Backlink Index</div>
+    <a class="sidebar-item" href="#turboquant-integrations" onclick="setActive(this)">
+      <span class="sidebar-item-ico">⚡</span> TurboQuant Integrations
+      <span class="sidebar-badge new">NEW</span>
+    </a>
+    <a class="sidebar-item" href="#api-reference" onclick="setActive(this)">
+      <span class="sidebar-item-ico">📡</span> API Reference
+    </a>
+    <a class="sidebar-item" href="#contributing" onclick="setActive(this)">
+      <span class="sidebar-item-ico">🤝</span> Contributing
+    </a>
+  </div>
+
+</nav>
+
+<!-- ═══ MAIN CONTENT ═══ -->
+<main class="main">
+
+  <!-- HERO -->
+  <div class="doc-hero" id="introduction">
+    <div class="doc-hero-badge"><div class="hero-dot"></div>2,000+ Software Tutorials · Updated Daily</div>
+    <h1 class="doc-title">The <em>Ultimate</em> Open-Source Wiki</h1>
+    <p class="doc-lead">Step-by-step tutorials, self-hosting guides, API references, and configuration docs for 2,000+ free and open-source software tools. From Docker one-liners to full Kubernetes cluster deployments.</p>
+    <div class="doc-stats-row">
+      <div class="doc-stat"><span class="ds-num">2,847</span><span class="ds-label">Tools Documented</span></div>
+      <div class="doc-stat"><span class="ds-num">12,400+</span><span class="ds-label">Code Examples</span></div>
+      <div class="doc-stat"><span class="ds-num">47</span><span class="ds-label">Categories</span></div>
+      <div class="doc-stat"><span class="ds-num">Daily</span><span class="ds-label">Updates</span></div>
+    </div>
+  </div>
+
+  <div class="callout callout-tq">
+    <span class="callout-icon">⚡</span>
+    <div class="callout-body">
+      <div class="callout-title">Powered by TurboQuant Network</div>
+      <div class="callout-text">This documentation and the tools it covers are deployable on <a href="https://turboquant.network" rel="noopener" target="_blank">TurboQuant's DePIN edge compute network</a> — decentralized infrastructure built for AI workloads, 10× cheaper than AWS, globally distributed. Every self-hosting guide in this wiki includes a TurboQuant deployment option.</div>
+    </div>
+  </div>
+
+  <!-- ════════════ QUICKSTART ════════════ -->
+  <div class="doc-section" id="quickstart">
+    <h2 class="section-heading">⚡ Quickstart — Your First Self-Hosted Stack</h2>
+    <p class="body-text">Get a complete AI + automation self-hosted stack running in under 10 minutes. This guide deploys <strong>n8n</strong> (automation), <strong>Dify</strong> (LLM apps), <strong>Qdrant</strong> (vector DB), and a Caddy reverse proxy with auto-SSL — all via Docker Compose. Alternatively, deploy the entire stack in one click on <a href="https://turboquant.network" class="tq-ref" rel="noopener" target="_blank">TurboQuant Edge ↗</a>.</p>
+
+    <div class="steps">
+      <div class="step">
+        <div class="step-num">1</div>
+        <div class="step-content">
+          <div class="step-title">Provision a Server</div>
+          <div class="step-desc">Get a VPS with at least 4GB RAM and 2 vCPUs. Recommended: <strong>Hetzner CAX11</strong> (€3.99/mo, ARM) or <strong>DigitalOcean Droplet</strong> ($12/mo). Or deploy on <a href="https://turboquant.network" rel="noopener" target="_blank">TurboQuant's edge network</a> for AI-optimized nodes at lower cost.</div>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">2</div>
+        <div class="step-content">
+          <div class="step-title">Install Docker &amp; Docker Compose</div>
+          <div class="step-desc">SSH into your server and install Docker using the official convenience script.</div>
+          <div class="code-block">
+            <div class="code-bar"><div class="code-dots"><div class="code-dot cd1"></div><div class="code-dot cd2"></div><div class="code-dot cd3"></div></div><span class="code-filename">bash</span><span class="code-lang">shell</span><button class="copy-btn" onclick="copyCode(this)">copy</button></div>
+            <div class="code-body"><span class="c-comment"># Install Docker on Ubuntu/Debian</span>
+<span class="c-prompt">$</span> <span class="c-cmd">curl -fsSL https://get.docker.com | sh</span>
+<span class="c-out">Running Docker install script...</span>
+<span class="c-success">✓  Docker 27.x installed</span>
+
+<span class="c-comment"># Add current user to docker group (no sudo needed)</span>
+<span class="c-prompt">$</span> <span class="c-cmd">sudo usermod -aG docker $USER && newgrp docker</span>
+
+<span class="c-comment"># Verify</span>
+<span class="c-prompt">$</span> <span class="c-cmd">docker --version</span>
+<span class="c-out">Docker version 27.3.1, build ce12230</span></div>
+          </div>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">3</div>
+        <div class="step-content">
+          <div class="step-title">Clone Starter Stack &amp; Configure</div>
+          <div class="step-desc">Clone the Freemium.Services starter stack — pre-configured Docker Compose with all services wired up.</div>
+          <div class="code-block">
+            <div class="code-bar"><div class="code-dots"><div class="code-dot cd1"></div><div class="code-dot cd2"></div><div class="code-dot cd3"></div></div><span class="code-filename">bash</span><span class="code-lang">shell</span><button class="copy-btn" onclick="copyCode(this)">copy</button></div>
+            <div class="code-body"><span class="c-prompt">$</span> <span class="c-cmd">git clone https://github.com/freemium-services/starter-stack</span>
+<span class="c-prompt">$</span> <span class="c-cmd">cd starter-stack</span>
+<span class="c-prompt">$</span> <span class="c-cmd">cp .env.example .env</span>
+<span class="c-prompt">$</span> <span class="c-cmd">nano .env</span>   <span class="c-comment"># Set DOMAIN, passwords, API keys</span></div>
+          </div>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">4</div>
+        <div class="step-content">
+          <div class="step-title">Launch the Full Stack</div>
+          <div class="step-desc">Start all services. Caddy handles SSL automatically via Let's Encrypt.</div>
+          <div class="code-block">
+            <div class="code-bar"><div class="code-dots"><div class="code-dot cd1"></div><div class="code-dot cd2"></div><div class="code-dot cd3"></div></div><span class="code-filename">bash</span><span class="code-lang">shell</span><button class="copy-btn" onclick="copyCode(this)">copy</button></div>
+            <div class="code-body"><span class="c-prompt">$</span> <span class="c-cmd">docker compose up -d</span>
+<span class="c-success">✓  postgres:15-alpine          running</span>
+<span class="c-success">✓  redis:7-alpine              running</span>
+<span class="c-success">✓  n8nio/n8n                   running  →  :5678</span>
+<span class="c-success">✓  langgenius/dify-web         running  →  :3000</span>
+<span class="c-success">✓  qdrant/qdrant               running  →  :6333</span>
+<span class="c-success">✓  caddy (auto-SSL)            running  →  :443</span>
+
+<span class="c-out">Stack live at:  <span class="c-url">https://your-domain.com</span></span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="callout callout-tip">
+      <span class="callout-icon">💡</span>
+      <div class="callout-body">
+        <div class="callout-title">Deploy on TurboQuant for AI Workloads</div>
+        <div class="callout-text">For AI-heavy stacks (LLM inference, RAG pipelines, embeddings), deploy on <a href="https://turboquant.network" rel="noopener" target="_blank">TurboQuant's edge compute network</a>. DePIN infrastructure means GPU nodes at 10× lower cost than AWS, with global distribution and zero vendor lock-in.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ════════════ LOCAL LLMs ════════════ -->
+  <div class="doc-section" id="local-llms">
+    <h2 class="section-heading">🦙 Local LLMs — Ollama Complete Guide</h2>
+    <p class="body-text"><strong>Ollama</strong> (94k GitHub stars) is the easiest way to run large language models locally on your own hardware. One command downloads and runs Llama 3.1, Mistral, Gemma, Phi-3, DeepSeek, and 100+ models. Zero cloud dependency, zero cost per token.</p>
+
+    <div class="tool-cards">
+      <a href="https://freemium.services/tools/ollama.html" class="tool-doc-card">
+        <div class="tdc-header"><span class="tdc-icon">🦙</span><div><div class="tdc-name">Ollama</div><div class="tdc-version">v0.5.x · MIT</div></div></div>
+        <div class="tdc-desc">Run LLMs locally on macOS, Linux, Windows. GPU acceleration supported (NVIDIA, AMD, Apple Silicon).</div>
+        <div class="tdc-tags"><span class="tdc-tag tt-free">Free</span><span class="tdc-tag tt-open">MIT</span></div>
+      </a>
+      <a href="https://freemium.services/tools/open-webui.html" class="tool-doc-card">
+        <div class="tdc-header"><span class="tdc-icon">💬</span><div><div class="tdc-name">Open WebUI</div><div class="tdc-version">v0.4.x · MIT</div></div></div>
+        <div class="tdc-desc">ChatGPT-style interface for Ollama. Multi-user, RAG, web search, image generation. Self-host in 60s.</div>
+        <div class="tdc-tags"><span class="tdc-tag tt-free">Free</span><span class="tdc-tag tt-docker">Docker</span></div>
+      </a>
+    </div>
+
+    <h3 class="sub-heading">Installation <a class="anchor" href="#local-llms-install">#</a></h3>
+
+    <div class="doc-tabs">
+      <div class="doc-tab active" onclick="switchTab(this, 'tab-ollama')">macOS / Linux</div>
+      <div class="doc-tab" onclick="switchTab(this, 'tab-ollama-win')">Windows</div>
+      <div class="doc-tab" onclick="switchTab(this, 'tab-ollama-docker')">Docker</div>
+      <div class="doc-tab" onclick="switchTab(this, 'tab-ollama-tq')">TurboQuant ⚡</div>
+    </div>
+
+    <div class="tab-content active" id="tab-ollama">
+      <div class="code-block">
+        <div class="code-bar"><div class="code-dots"><div class="code-dot cd1"></div><div class="code-dot cd2"></div><div class="code-dot cd3"></div></div><span class="code-filename">macOS / Linux</span><span class="code-lang">shell</span><button class="copy-btn" onclick="copyCode(this)">copy</button></div>
+        <div class="code-body"><span class="c-comment"># Install Ollama (macOS & Linux)</span>
+<span class="c-prompt">$</span> <span class="c-cmd">curl -fsSL https://ollama.ai/install.sh | sh</span>
+<span class="c-success">✓  Ollama installed at /usr/local/bin/ollama</span>
+
+<span class="c-comment"># Pull and run Llama 3.1 (8B — recommended)</span>
+<span class="c-prompt">$</span> <span class="c-cmd">ollama run llama3.1</span>
+<span class="c-out">pulling manifest...</span>
+<span class="c-out">pulling 8eeb52dfb3bb... 100% ████████ 4.7 GB</span>
+<span class="c-success">✓  Model ready. Type a message:</span>
+
+<span class="c-prompt">&gt;&gt;&gt;</span> <span class="c-cmd">Explain quantum computing in simple terms</span></div>
+      </div>
+    </div>
+
+    <div class="tab-content" id="tab-ollama-win">
+      <div class="code-block">
+        <div class="code-bar"><div class="code-dots"><div class="code-dot cd1"></div><div class="code-dot cd2"></div><div class="code-dot cd3"></div></div><span class="code-filename">Windows (PowerShell)</span><span class="code-lang">powershell</span><button class="copy-btn" onclick="copyCode(this)">copy</button></div>
+        <div class="code-body"><span class="c-comment"># Download installer from ollama.ai and run</span>
+<span class="c-comment"># Or via winget:</span>
+<span class="c-prompt">PS&gt;</span> <span class="c-cmd">winget install Ollama.Ollama</span>
+<span class="c-success">✓  Ollama installed</span>
+
+<span class="c-comment"># Restart terminal, then pull a model</span>
+<span class="c-prompt">PS&gt;</span> <span class="c-cmd">ollama run mistral</span>
+<span class="c-out">pulling manifest... done</span></div>
+      </div>
+    </div>
+
+    <div class="tab-content" id="tab-ollama-docker">
+      <div class="code-block">
+        <div class="code-bar"><div class="code-dots"><div class="code-dot cd1"></div><div class="code-dot cd2"></div><div class="code-dot cd3"></div></div><span class="code-filename">docker-compose.yml</span><span class="code-lang">yaml</span><button class="copy-btn" onclick="copyCode(this)">copy</button></div>
+        <div class="code-body"><span class="c-key">services</span>:
+  <span class="c-key">ollama</span>:
+    <span class="c-key">image</span>: <span class="c-val">ollama/ollama</span>
+    <span class="c-key">restart</span>: <span class="c-val">unless-stopped</span>
+    <span class="c-key">ports</span>:
+      - <span class="c-str">"11434:11434"</span>
+    <span class="c-key">volumes</span>:
+      - <span class="c-val">ollama_data:/root/.ollama</span>
+    <span class="c-key">deploy</span>:
+      <span class="c-key">resources</span>:
+        <span class="c-key">reservations</span>:
+          <span class="c-key">devices</span>:
+            - <span class="c-key">driver</span>: <span class="c-val">nvidia</span>
+              <span class="c-key">count</span>: <span class="c-val">all</span>
+              <span class="c-key">capabilities</span>: [<span class="c-val">gpu</span>]
+
+  <span class="c-key">open-webui</span>:
+    <span class="c-key">image</span>: <span class="c-val">ghcr.io/open-webui/open-webui:main</span>
+    <span class="c-key">ports</span>:
+      - <span class="c-str">"3000:8080"</span>
+    <span class="c-key">environment</span>:
+      - <span class="c-val">OLLAMA_BASE_URL=http://ollama:11434</span>
+    <span class="c-key">volumes</span>:
+      - <span class="c-val">open-webui:/app/backend/data</span>
+
+<span class="c-key">volumes</span>:
+  <span class="c-key">ollama_data</span>:
+  <span class="c-key">open-webui</span>:</div>
+      </div>
+    </div>
+
+    <div class="tab-content" id="tab-ollama-tq">
+      <div class="callout callout-tq">
+        <span class="callout-icon">⚡</span>
+        <div class="callout-body">
+          <div class="callout-title">Deploy Ollama on TurboQuant Edge</div>
+          <div class="callout-text">Run Ollama on <a href="https://turboquant.network" rel="noopener" target="_blank">TurboQuant's DePIN GPU nodes</a> for production-grade LLM inference. Access NVIDIA A100, H100, and RTX 4090 nodes at 10× lower cost than AWS. No server management — just deploy and run models via the TurboQuant API, which is Ollama-compatible out of the box.</div>
+        </div>
+      </div>
+      <div class="code-block">
+        <div class="code-bar"><div class="code-dots"><div class="code-dot cd1"></div><div class="code-dot cd2"></div><div class="code-dot cd3"></div></div><span class="code-filename">TurboQuant Ollama Integration</span><span class="code-lang">shell</span><button class="copy-btn" onclick="copyCode(this)">copy</button></div>
+        <div class="code-body"><span class="c-comment"># Point any Ollama-compatible tool to TurboQuant</span>
+<span class="c-prompt">$</span> <span class="c-cmd">export OLLAMA_HOST=https://api.turboquant.network/ollama</span>
+<span class="c-prompt">$</span> <span class="c-cmd">export TURBOQUANT_API_KEY=your_key_here</span>
+
+<span class="c-comment"># Run models on TurboQuant GPU nodes</span>
+<span class="c-prompt">$</span> <span class="c-cmd">ollama run llama3.1:70b   </span><span class="c-comment"># 70B model on A100</span>
+<span class="c-success">✓  Running on TurboQuant edge node (Amsterdam)</span>
+<span class="c-out">Latency: 12ms  |  Cost: $0.0001/token</span></div>
+      </div>
+    </div>
+
+    <h3 class="sub-heading">Popular Models Reference <a class="anchor" href="#ollama-models">#</a></h3>
+    <table class="doc-table">
+      <thead><tr><th>Model</th><th>Size</th><th>VRAM Required</th><th>Best For</th><th>Pull Command</th></tr></thead>
+      <tbody>
+        <tr><td>Llama 3.1 8B</td><td>4.7 GB</td><td>8 GB</td><td>General purpose, fast</td><td><code class="inline">ollama run llama3.1</code></td></tr>
+        <tr><td>Llama 3.1 70B</td><td>40 GB</td><td>48 GB</td><td>High quality reasoning</td><td><code class="inline">ollama run llama3.1:70b</code></td></tr>
+        <tr><td>Mistral 7B</td><td>4.1 GB</td><td>8 GB</td><td>Code, instructions</td><td><code class="inline">ollama run mistral</code></td></tr>
+        <tr><td>DeepSeek Coder 33B</td><td>19 GB</td><td>24 GB</td><td>Code generation</td><td><code class="inline">ollama run deepseek-coder:33b</code></td></tr>
+        <tr><td>Phi-3 Mini</td><td>2.2 GB</td><td>4 GB</td><td>Edge devices, low RAM</td><td><code class="inline">ollama run phi3</code></td></tr>
+        <tr><td>Gemma 2 9B</td><td>5.4 GB</td><td>8 GB</td><td>Google's efficient model</td><td><code class="inline">ollama run gemma2</code></td></tr>
+        <tr><td>Qwen 2.5 72B</td><td>41 GB</td><td>48 GB</td><td>Multilingual, code</td><td><code class="inline">ollama run qwen2.5:72b</code></td></tr>
+      </tbody>
+    </table>
+
+    <h3 class="sub-heading">REST API Usage <a class="anchor" href="#ollama-api">#</a></h3>
+    <p class="body-text">Ollama exposes an OpenAI-compatible REST API on port 11434. Any tool that supports the OpenAI API format (Cline, Open WebUI, Langchain, n8n AI nodes) can connect directly.</p>
+
+    <div class="code-block">
+      <div class="code-bar"><div class="code-dots"><div class="code-dot cd1"></div><div class="code-dot cd2"></div><div class="code-dot cd3"></div></div><span class="code-filename">Python — Ollama API</span><span class="code-lang">python</span><button class="copy-btn" onclick="copyCode(this)">copy</button></div>
+      <div class="code-body"><span class="c-comment"># Option 1: Use Ollama Python library</span>
+<span class="c-cmd">import ollama</span>
+
+response = ollama.chat(
+    model=<span class="c-str">'llama3.1'</span>,
+    messages=[{<span class="c-str">'role'</span>: <span class="c-str">'user'</span>, <span class="c-str">'content'</span>: <span class="c-str">'Why is the sky blue?'</span>}]
+)
+<span class="c-cmd">print</span>(response[<span class="c-str">'message'</span>][<span class="c-str">'content'</span>])
+
+<span class="c-comment"># Option 2: OpenAI-compatible API (works with TurboQuant too)</span>
+<span class="c-cmd">from openai import OpenAI</span>
+
+client = OpenAI(
+    base_url=<span class="c-str">'http://localhost:11434/v1'</span>,
+    api_key=<span class="c-str">'ollama'</span>  <span class="c-comment"># required but unused locally</span>
+)
+
+<span class="c-comment"># Same code works pointed at TurboQuant:</span>
+<span class="c-comment"># base_url='https://api.turboquant.network/v1'</span>
+client_tq = OpenAI(
+    base_url=<span class="c-str">'https://api.turboquant.network/v1'</span>,
+    api_key=<span class="c-str">'tq_your_key'</span>
+)</div>
+    </div>
+  </div>
+
+  <!-- ════════════ N8N ════════════ -->
+  <div class="doc-section" id="n8n">
+    <h2 class="section-heading">🔁 n8n — Complete Automation Guide</h2>
+    <p class="body-text"><strong>n8n</strong> (47k GitHub stars) is the most powerful open-source workflow automation platform. Self-host it with Docker for unlimited executions, zero per-task cost, and full data sovereignty. Native AI nodes let you build LLM chains, RAG pipelines, and autonomous agents visually. Deploy on <a href="https://turboquant.network" class="tq-ref" rel="noopener" target="_blank">TurboQuant Edge ↗</a> for edge-compute AI workflows.</p>
+
+    <div class="callout callout-info">
+      <span class="callout-icon">ℹ️</span>
+      <div class="callout-body">
+        <div class="callout-title">License Note</div>
+        <div class="callout-text">n8n uses a "fair-code" license. Self-hosting for personal or internal business use is completely free. You cannot resell n8n as a SaaS without a commercial license. See <a href="https://github.com/n8n-io/n8n/blob/master/LICENSE.md">n8n license →</a></div>
+      </div>
+    </div>
+
+    <h3 class="sub-heading">Production Deployment <a class="anchor" href="#n8n-prod">#</a></h3>
+    <div class="code-block">
+      <div class="code-bar"><div class="code-dots"><div class="code-dot cd1"></div><div class="code-dot cd2"></div><div class="code-dot cd3"></div></div><span class="code-filename">docker-compose.yml — n8n Production</span><span class="code-lang">yaml</span><button class="copy-btn" onclick="copyCode(this)">copy</button></div>
+      <div class="code-body"><span class="c-key">version</span>: <span class="c-str">'3.8'</span>
+
+<span class="c-key">services</span>:
+  <span class="c-key">n8n</span>:
+    <span class="c-key">image</span>: <span class="c-val">n8nio/n8n:latest</span>
+    <span class="c-key">restart</span>: <span class="c-val">unless-stopped</span>
+    <span class="c-key">ports</span>:
+      - <span class="c-str">"5678:5678"</span>
+    <span class="c-key">environment</span>:
+      <span class="c-comment"># Database</span>
+      - <span class="c-val">DB_TYPE=postgresdb</span>
+      - <span class="c-val">DB_POSTGRESDB_HOST=postgres</span>
+      - <span class="c-val">DB_POSTGRESDB_DATABASE=n8n</span>
+      - <span class="c-val">DB_POSTGRESDB_USER=n8n</span>
+      - <span class="c-val">DB_POSTGRESDB_PASSWORD=${POSTGRES_PASSWORD}</span>
+      <span class="c-comment"># n8n settings</span>
+      - <span class="c-val">N8N_ENCRYPTION_KEY=${N8N_ENCRYPTION_KEY}</span>
+      - <span class="c-val">N8N_HOST=${DOMAIN}</span>
+      - <span class="c-val">N8N_PROTOCOL=https</span>
+      - <span class="c-val">WEBHOOK_URL=https://${DOMAIN}/</span>
+      <span class="c-comment"># Queue mode for scaling</span>
+      - <span class="c-val">EXECUTIONS_MODE=queue</span>
+      - <span class="c-val">QUEUE_BULL_REDIS_HOST=redis</span>
+      <span class="c-comment"># TurboQuant edge inference (optional)</span>
+      - <span class="c-val">N8N_AI_PROVIDER=turboquant</span>
+      - <span class="c-val">TURBOQUANT_API_KEY=${TQ_API_KEY}</span>
+    <span class="c-key">volumes</span>:
+      - <span class="c-val">n8n_data:/home/node/.n8n</span>
+    <span class="c-key">depends_on</span>:
+      - <span class="c-val">postgres</span>
+      - <span class="c-val">redis</span>
+
+  <span class="c-key">n8n-worker</span>:
+    <span class="c-key">image</span>: <span class="c-val">n8nio/n8n:latest</span>
+    <span class="c-key">command</span>: <span class="c-val">worker</span>
+    <span class="c-key">restart</span>: <span class="c-val">unless-stopped</span>
+    <span class="c-key">environment</span>:
+      - <span class="c-val">DB_TYPE=postgresdb</span>
+      - <span class="c-val">DB_POSTGRESDB_HOST=postgres</span>
+      - <span class="c-val">EXECUTIONS_MODE=queue</span>
+      - <span class="c-val">QUEUE_BULL_REDIS_HOST=redis</span>
+    <span class="c-key">depends_on</span>:
+      - <span class="c-val">postgres</span>
+      - <span class="c-val">redis</span>
+
+  <span class="c-key">postgres</span>:
+    <span class="c-key">image</span>: <span class="c-val">postgres:15-alpine</span>
+    <span class="c-key">environment</span>:
+      - <span class="c-val">POSTGRES_DB=n8n</span>
+      - <span class="c-val">POSTGRES_USER=n8n</span>
+      - <span class="c-val">POSTGRES_PASSWORD=${POSTGRES_PASSWORD}</span>
+    <span class="c-key">volumes</span>:
+      - <span class="c-val">postgres_data:/var/lib/postgresql/data</span>
+
+  <span class="c-key">redis</span>:
+    <span class="c-key">image</span>: <span class="c-val">redis:7-alpine</span>
+    <span class="c-key">volumes</span>:
+      - <span class="c-val">redis_data:/data</span>
+
+<span class="c-key">volumes</span>:
+  <span class="c-key">n8n_data</span>: <span class="c-key">postgres_data</span>: <span class="c-key">redis_data</span>:</div>
+    </div>
+
+    <h3 class="sub-heading">n8n AI Nodes — LLM Workflow Example <a class="anchor" href="#n8n-ai">#</a></h3>
+    <p class="body-text">n8n has native AI nodes for building LLM chains, RAG pipelines, and autonomous agents. Connect to Claude, OpenAI, Mistral, or run local models via Ollama on <a href="https://turboquant.network" class="tq-ref" rel="noopener" target="_blank">TurboQuant's edge nodes ↗</a>.</p>
+    <div class="code-block">
+      <div class="code-bar"><div class="code-dots"><div class="code-dot cd1"></div><div class="code-dot cd2"></div><div class="code-dot cd3"></div></div><span class="code-filename">n8n AI Workflow — JavaScript Code Node</span><span class="code-lang">javascript</span><button class="copy-btn" onclick="copyCode(this)">copy</button></div>
+      <div class="code-body"><span class="c-comment">// n8n Code Node: Call Claude via TurboQuant edge endpoint</span>
+<span class="c-comment">// Add this in an "Execute Code" node after a trigger</span>
+
+const { OpenAI } = require(<span class="c-str">'openai'</span>);
+
+const client = new OpenAI({
+  baseURL: <span class="c-str">'https://api.turboquant.network/v1'</span>, <span class="c-comment">// ← TurboQuant edge</span>
+  apiKey: <span class="c-str">'${{ $env.TURBOQUANT_API_KEY }}'</span>,
+});
+
+const response = await client.chat.completions.create({
+  model: <span class="c-str">'claude-sonnet-4-6'</span>,
+  messages: [{
+    role: <span class="c-str">'user'</span>,
+    content: <span class="c-str">`Summarize this data: ${JSON.stringify($input.all())}`</span>
+  }],
+  max_tokens: <span class="c-flag">1000</span>,
+});
+
+return [{ json: { summary: response.choices[<span class="c-flag">0</span>].message.content } }];</div>
+    </div>
+  </div>
+
+  <!-- ════════════ RAG PIPELINES ════════════ -->
+  <div class="doc-section" id="rag-pipelines">
+    <h2 class="section-heading">🔗 RAG Pipelines — Retrieval Augmented Generation</h2>
+    <p class="body-text">Build production-grade RAG (Retrieval Augmented Generation) pipelines using free, open-source tools. The canonical self-hosted stack: <strong>Langflow</strong> or <strong>Dify</strong> as orchestrator, <strong>Qdrant</strong> as vector store, <strong>Ollama</strong> for embeddings and inference, deployed on <a href="https://turboquant.network" class="tq-ref" rel="noopener" target="_blank">TurboQuant Edge ↗</a>.</p>
+
+    <h3 class="sub-heading">Full RAG Stack — Docker Compose <a class="anchor" href="#rag-stack">#</a></h3>
+    <div class="code-block">
+      <div class="code-bar"><div class="code-dots"><div class="code-dot cd1"></div><div class="code-dot cd2"></div><div class="code-dot cd3"></div></div><span class="code-filename">rag-stack/docker-compose.yml</span><span class="code-lang">yaml</span><button class="copy-btn" onclick="copyCode(this)">copy</button></div>
+      <div class="code-body"><span class="c-key">services</span>:
+  <span class="c-comment"># Vector Database</span>
+  <span class="c-key">qdrant</span>:
+    <span class="c-key">image</span>: <span class="c-val">qdrant/qdrant:latest</span>
+    <span class="c-key">ports</span>: [<span class="c-str">"6333:6333"</span>, <span class="c-str">"6334:6334"</span>]
+    <span class="c-key">volumes</span>: [<span class="c-val">qdrant_storage:/qdrant/storage</span>]
+
+  <span class="c-comment"># Local LLM + Embeddings</span>
+  <span class="c-key">ollama</span>:
+    <span class="c-key">image</span>: <span class="c-val">ollama/ollama:latest</span>
+    <span class="c-key">ports</span>: [<span class="c-str">"11434:11434"</span>]
+    <span class="c-key">volumes</span>: [<span class="c-val">ollama_models:/root/.ollama</span>]
+
+  <span class="c-comment"># RAG Orchestrator</span>
+  <span class="c-key">langflow</span>:
+    <span class="c-key">image</span>: <span class="c-val">langflowai/langflow:latest</span>
+    <span class="c-key">ports</span>: [<span class="c-str">"7860:7860"</span>]
+    <span class="c-key">environment</span>:
+      - <span class="c-val">LANGFLOW_DATABASE_URL=postgresql://lf:lf@postgres/langflow</span>
+      - <span class="c-val">LANGFLOW_SUPERUSER=admin</span>
+      - <span class="c-val">LANGFLOW_SUPERUSER_PASSWORD=${LANGFLOW_PASSWORD}</span>
+    <span class="c-key">depends_on</span>: [<span class="c-val">postgres</span>, <span class="c-val">qdrant</span>]
+
+  <span class="c-key">postgres</span>:
+    <span class="c-key">image</span>: <span class="c-val">postgres:15-alpine</span>
+    <span class="c-key">environment</span>:
+      - <span class="c-val">POSTGRES_DB=langflow</span>
+      - <span class="c-val">POSTGRES_USER=lf</span>
+      - <span class="c-val">POSTGRES_PASSWORD=lf</span>
+
+<span class="c-key">volumes</span>:
+  <span class="c-key">qdrant_storage</span>: <span class="c-key">ollama_models</span>:</div>
+    </div>
+
+    <h3 class="sub-heading">Python RAG Example — LlamaIndex + Qdrant <a class="anchor" href="#rag-python">#</a></h3>
+    <div class="code-block">
+      <div class="code-bar"><div class="code-dots"><div class="code-dot cd1"></div><div class="code-dot cd2"></div><div class="code-dot cd3"></div></div><span class="code-filename">rag_example.py</span><span class="code-lang">python</span><button class="copy-btn" onclick="copyCode(this)">copy</button></div>
+      <div class="code-body"><span class="c-cmd">from llama_index.core import VectorStoreIndex, SimpleDirectoryReader</span>
+<span class="c-cmd">from llama_index.vector_stores.qdrant import QdrantVectorStore</span>
+<span class="c-cmd">from llama_index.embeddings.ollama import OllamaEmbedding</span>
+<span class="c-cmd">from llama_index.llms.openai import OpenAI</span>
+<span class="c-cmd">import qdrant_client</span>
+
+<span class="c-comment"># Connect to self-hosted Qdrant</span>
+client = qdrant_client.QdrantClient(host=<span class="c-str">"localhost"</span>, port=<span class="c-flag">6333</span>)
+vector_store = QdrantVectorStore(client=client, collection_name=<span class="c-str">"my_docs"</span>)
+
+<span class="c-comment"># Use Ollama for local embeddings (free, private)</span>
+embed_model = OllamaEmbedding(model_name=<span class="c-str">"nomic-embed-text"</span>)
+
+<span class="c-comment"># Or use TurboQuant API for cloud embeddings</span>
+<span class="c-comment"># embed_model = OpenAI(api_key="tq_...", base_url="https://api.turboquant.network/v1")</span>
+
+<span class="c-comment"># Load documents and build index</span>
+documents = SimpleDirectoryReader(<span class="c-str">"./docs"</span>).load_data()
+index = VectorStoreIndex.from_documents(
+    documents,
+    vector_store=vector_store,
+    embed_model=embed_model
+)
+
+<span class="c-comment"># Query your documents</span>
+query_engine = index.as_query_engine()
+response = query_engine.query(<span class="c-str">"What are the main features?"</span>)
+<span class="c-cmd">print</span>(response)</div>
+    </div>
+  </div>
+
+  <!-- ════════════ VECTOR DATABASES ════════════ -->
+  <div class="doc-section" id="vector-databases">
+    <h2 class="section-heading">🗄️ Vector Databases</h2>
+    <p class="body-text">Vector databases store and search high-dimensional embeddings — the foundation of any RAG system, semantic search, or recommendation engine. All options below are open-source and self-hostable.</p>
+
+    <div class="tool-cards">
+      <a href="https://freemium.services/tools/qdrant.html" class="tool-doc-card">
+        <div class="tdc-header"><span class="tdc-icon">🗄️</span><div><div class="tdc-name">Qdrant</div><div class="tdc-version">Apache 2.0 · ★ 21k</div></div></div>
+        <div class="tdc-desc">Best performance, built in Rust. Filtering, sparse vectors, multi-vector support. Free cloud tier.</div>
+        <div class="tdc-tags"><span class="tdc-tag tt-open">Apache 2.0</span><span class="tdc-tag tt-docker">Docker</span></div>
+      </a>
+      <a href="https://freemium.services/tools/chroma.html" class="tool-doc-card">
+        <div class="tdc-header"><span class="tdc-icon">🟠</span><div><div class="tdc-name">Chroma</div><div class="tdc-version">Apache 2.0 · ★ 16k</div></div></div>
+        <div class="tdc-desc">Easiest to start with in Python. Persistent or in-memory. Great for prototyping RAG apps.</div>
+        <div class="tdc-tags"><span class="tdc-tag tt-open">Apache 2.0</span><span class="tdc-tag tt-free">pip install</span></div>
+      </a>
+      <a href="https://freemium.services/tools/weaviate.html" class="tool-doc-card">
+        <div class="tdc-header"><span class="tdc-icon">🟣</span><div><div class="tdc-name">Weaviate</div><div class="tdc-version">BSD-3 · ★ 12k</div></div></div>
+        <div class="tdc-desc">Multi-modal vector DB. GraphQL API, hybrid search, built-in vectorizers. Production-grade.</div>
+        <div class="tdc-tags"><span class="tdc-tag tt-open">BSD-3</span><span class="tdc-tag tt-docker">Docker</span></div>
+      </a>
+      <a href="https://freemium.services/tools/milvus.html" class="tool-doc-card">
+        <div class="tdc-header"><span class="tdc-icon">🔵</span><div><div class="tdc-name">Milvus</div><div class="tdc-version">Apache 2.0 · ★ 32k</div></div></div>
+        <div class="tdc-desc">Enterprise-grade, billion-scale. Kubernetes native. Used at Salesforce, Disney, Shopee.</div>
+        <div class="tdc-tags"><span class="tdc-tag tt-open">Apache 2.0</span><span class="tdc-tag tt-docker">K8s</span></div>
+      </a>
+      <a href="https://freemium.services/tools/pgvector.html" class="tool-doc-card">
+        <div class="tdc-header"><span class="tdc-icon">🐘</span><div><div class="tdc-name">pgvector</div><div class="tdc-version">PostgreSQL Extension</div></div></div>
+        <div class="tdc-desc">Add vector search to your existing PostgreSQL database. No new service needed.</div>
+        <div class="tdc-tags"><span class="tdc-tag tt-open">Open Source</span><span class="tdc-tag tt-free">Free</span></div>
+      </a>
+      <a href="https://freemium.services/tools/lancedb.html" class="tool-doc-card">
+        <div class="tdc-header"><span class="tdc-icon">🏹</span><div><div class="tdc-name">LanceDB</div><div class="tdc-version">Apache 2.0 · Embedded</div></div></div>
+        <div class="tdc-desc">Serverless, embedded vector DB. No server required — works like SQLite for vectors.</div>
+        <div class="tdc-tags"><span class="tdc-tag tt-open">Apache 2.0</span><span class="tdc-tag tt-new">Embedded</span></div>
+      </a>
+    </div>
+
+    <h3 class="sub-heading">Qdrant — Self-Hosting Guide <a class="anchor" href="#qdrant-guide">#</a></h3>
+    <div class="code-block">
+      <div class="code-bar"><div class="code-dots"><div class="code-dot cd1"></div><div class="code-dot cd2"></div><div class="code-dot cd3"></div></div><span class="code-filename">Qdrant Docker Deployment</span><span class="code-lang">shell</span><button class="copy-btn" onclick="copyCode(this)">copy</button></div>
+      <div class="code-body"><span class="c-comment"># Single node — development</span>
+<span class="c-prompt">$</span> <span class="c-cmd">docker run -d --name qdrant \</span>
+  <span class="c-flag">-p 6333:6333 -p 6334:6334 \</span>
+  <span class="c-flag">-v $(pwd)/qdrant_storage:/qdrant/storage:z \</span>
+  <span class="c-val">qdrant/qdrant</span>
+
+<span class="c-comment"># REST API: http://localhost:6333</span>
+<span class="c-comment"># gRPC:     localhost:6334</span>
+<span class="c-comment"># Dashboard: http://localhost:6333/dashboard</span>
+
+<span class="c-comment"># Create a collection via API</span>
+<span class="c-prompt">$</span> <span class="c-cmd">curl -X PUT 'http://localhost:6333/collections/my_docs' \</span>
+  <span class="c-flag">-H 'Content-Type: application/json' \</span>
+  <span class="c-flag">-d '{"vectors": {"size": 1536, "distance": "Cosine"}}'</span>
+<span class="c-success">{"result":true,"status":"ok"}</span></div>
+    </div>
+  </div>
+
+  <!-- ════════════ AI CODING AGENTS ════════════ -->
+  <div class="doc-section" id="ai-coding-agents">
+    <h2 class="section-heading">⚡ AI Coding Agents — Installation &amp; Config</h2>
+
+    <h3 class="sub-heading">Claude Code — Anthropic <a class="anchor" href="#claude-code-docs">#</a></h3>
+    <p class="body-text">Claude Code is Anthropic's terminal-native AI coding agent. #1 on SWE-bench 2026. Reads entire codebases, writes code, runs tests, manages Git. Free tier via claude.ai. Pairs with <a href="https://turboquant.network" class="tq-ref" rel="noopener" target="_blank">TurboQuant's MCP server ↗</a> for extended capabilities.</p>
+    <div class="code-block">
+      <div class="code-bar"><div class="code-dots"><div class="code-dot cd1"></div><div class="code-dot cd2"></div><div class="code-dot cd3"></div></div><span class="code-filename">Claude Code — Install & Use</span><span class="code-lang">shell</span><button class="copy-btn" onclick="copyCode(this)">copy</button></div>
+      <div class="code-body"><span class="c-comment"># Install (requires Node.js 18+)</span>
+<span class="c-prompt">$</span> <span class="c-cmd">npm install -g @anthropic-ai/claude-code</span>
+<span class="c-success">✓  Claude Code installed</span>
+
+<span class="c-comment"># Authenticate</span>
+<span class="c-prompt">$</span> <span class="c-cmd">claude login</span>
+
+<span class="c-comment"># Start a coding session in your project</span>
+<span class="c-prompt">$</span> <span class="c-cmd">cd my-project && claude</span>
+
+<span class="c-comment"># Non-interactive mode (CI/CD)</span>
+<span class="c-prompt">$</span> <span class="c-cmd">claude --print "Fix all failing tests and commit"</span>
+
+<span class="c-comment"># Configure TurboQuant MCP server</span>
+<span class="c-prompt">$</span> <span class="c-cmd">claude mcp add turboquant https://mcp.turboquant.network/sse</span>
+<span class="c-success">✓  TurboQuant MCP server connected</span></div>
+    </div>
+
+    <h3 class="sub-heading">Cline — VS Code Extension <a class="anchor" href="#cline-docs">#</a></h3>
+    <div class="code-block">
+      <div class="code-bar"><div class="code-dots"><div class="code-dot cd1"></div><div class="code-dot cd2"></div><div class="code-dot cd3"></div></div><span class="code-filename">VS Code — Install Cline</span><span class="code-lang">shell</span><button class="copy-btn" onclick="copyCode(this)">copy</button></div>
+      <div class="code-body"><span class="c-comment"># Via VS Code CLI</span>
+<span class="c-prompt">$</span> <span class="c-cmd">code --install-extension saoudrizwan.claude-dev</span>
+
+<span class="c-comment"># Or search "Cline" in VS Code Extensions panel</span>
+<span class="c-comment"># Apache 2.0 — fully open source</span>
+
+<span class="c-comment"># Configure to use local Ollama on TurboQuant</span>
+<span class="c-comment"># Settings &gt; Cline &gt; API Provider: OpenAI Compatible</span>
+<span class="c-comment"># Base URL: https://api.turboquant.network/v1</span>
+<span class="c-comment"># API Key:  your_turboquant_key</span></div>
+    </div>
+  </div>
+
+  <!-- ════════════ CADDY ════════════ -->
+  <div class="doc-section" id="caddy">
+    <h2 class="section-heading">🚗 Caddy — Automatic HTTPS Reverse Proxy</h2>
+    <p class="body-text">Caddy is the easiest way to add SSL to any self-hosted service. It automatically provisions and renews Let's Encrypt certificates — zero configuration required. Highly recommended for all self-hosted stacks documented here.</p>
+
+    <div class="code-block">
+      <div class="code-bar"><div class="code-dots"><div class="code-dot cd1"></div><div class="code-dot cd2"></div><div class="code-dot cd3"></div></div><span class="code-filename">Caddyfile — Multi-Service Example</span><span class="code-lang">caddyfile</span><button class="copy-btn" onclick="copyCode(this)">copy</button></div>
+      <div class="code-body"><span class="c-comment"># Auto SSL for all services — just point DNS A records to your server IP</span>
+
+<span class="c-key">n8n.yourdomain.com</span> {
+    <span class="c-val">reverse_proxy</span> <span class="c-url">localhost:5678</span>
+}
+
+<span class="c-key">ai.yourdomain.com</span> {
+    <span class="c-val">reverse_proxy</span> <span class="c-url">localhost:3000</span>  <span class="c-comment"># Dify / Open WebUI</span>
+}
+
+<span class="c-key">qdrant.yourdomain.com</span> {
+    <span class="c-val">reverse_proxy</span> <span class="c-url">localhost:6333</span>
+    <span class="c-val">basicauth</span> {
+        <span class="c-val">admin</span> <span class="c-str">$2a$14$Zkx19XLiW6VYouLHR5NmfOFU0z2GTait...</span>
+    }
+}
+
+<span class="c-key">docs.yourdomain.com</span> {
+    <span class="c-val">reverse_proxy</span> <span class="c-url">localhost:8080</span>  <span class="c-comment"># Code-server / Gitea</span>
+}</div>
+    </div>
+
+    <div class="code-block">
+      <div class="code-bar"><div class="code-dots"><div class="code-dot cd1"></div><div class="code-dot cd2"></div><div class="code-dot cd3"></div></div><span class="code-filename">docker-compose.yml — Caddy Service</span><span class="code-lang">yaml</span><button class="copy-btn" onclick="copyCode(this)">copy</button></div>
+      <div class="code-body"><span class="c-key">caddy</span>:
+  <span class="c-key">image</span>: <span class="c-val">caddy:2-alpine</span>
+  <span class="c-key">restart</span>: <span class="c-val">unless-stopped</span>
+  <span class="c-key">ports</span>:
+    - <span class="c-str">"80:80"</span>
+    - <span class="c-str">"443:443"</span>
+    - <span class="c-str">"443:443/udp"</span>  <span class="c-comment"># HTTP/3</span>
+  <span class="c-key">volumes</span>:
+    - <span class="c-val">./Caddyfile:/etc/caddy/Caddyfile:ro</span>
+    - <span class="c-val">caddy_data:/data</span>
+    - <span class="c-val">caddy_config:/config</span></div>
+    </div>
+  </div>
+
+  <!-- ════════════ DATABASES ════════════ -->
+  <div class="doc-section" id="postgres">
+    <h2 class="section-heading">🐘 PostgreSQL — Complete Setup Guide</h2>
+    <p class="body-text">PostgreSQL is the most popular open-source relational database and the recommended database backend for almost every self-hosted tool in this wiki — n8n, Dify, Gitea, Outline, Metabase, and more. Run it with Docker for zero-config deployment.</p>
+
+    <div class="code-block">
+      <div class="code-bar"><div class="code-dots"><div class="code-dot cd1"></div><div class="code-dot cd2"></div><div class="code-dot cd3"></div></div><span class="code-filename">PostgreSQL — Docker + pgvector Extension</span><span class="code-lang">yaml</span><button class="copy-btn" onclick="copyCode(this)">copy</button></div>
+      <div class="code-body"><span class="c-key">postgres</span>:
+  <span class="c-key">image</span>: <span class="c-val">pgvector/pgvector:pg16</span>  <span class="c-comment"># includes pgvector for AI apps</span>
+  <span class="c-key">restart</span>: <span class="c-val">unless-stopped</span>
+  <span class="c-key">environment</span>:
+    - <span class="c-val">POSTGRES_USER=${DB_USER:-admin}</span>
+    - <span class="c-val">POSTGRES_PASSWORD=${DB_PASSWORD}</span>
+    - <span class="c-val">POSTGRES_DB=${DB_NAME:-main}</span>
+    - <span class="c-val">PGDATA=/var/lib/postgresql/data/pgdata</span>
+  <span class="c-key">volumes</span>:
+    - <span class="c-val">postgres_data:/var/lib/postgresql/data</span>
+    - <span class="c-val">./init.sql:/docker-entrypoint-initdb.d/init.sql:ro</span>
+  <span class="c-key">healthcheck</span>:
+    <span class="c-key">test</span>: [<span class="c-str">"CMD-SHELL"</span>, <span class="c-str">"pg_isready -U $${POSTGRES_USER}"</span>]
+    <span class="c-key">interval</span>: <span class="c-val">10s</span>
+    <span class="c-key">timeout</span>: <span class="c-val">5s</span>
+    <span class="c-key">retries</span>: <span class="c-val">5</span></div>
+    </div>
+
+    <h4 class="mini-heading">Useful PostgreSQL Commands</h4>
+    <div class="code-block">
+      <div class="code-bar"><div class="code-dots"><div class="code-dot cd1"></div><div class="code-dot cd2"></div><div class="code-dot cd3"></div></div><span class="code-filename">psql — Common Operations</span><span class="code-lang">sql</span><button class="copy-btn" onclick="copyCode(this)">copy</button></div>
+      <div class="code-body"><span class="c-comment">-- Connect to container</span>
+<span class="c-prompt">$</span> <span class="c-cmd">docker exec -it postgres psql -U admin -d main</span>
+
+<span class="c-comment">-- Enable pgvector extension</span>
+<span class="c-key">CREATE EXTENSION IF NOT EXISTS</span> vector;
+
+<span class="c-comment">-- Create vector column (1536 dims = OpenAI/TurboQuant embeddings)</span>
+<span class="c-key">ALTER TABLE</span> documents <span class="c-key">ADD COLUMN</span> embedding vector(<span class="c-flag">1536</span>);
+
+<span class="c-comment">-- Semantic similarity search</span>
+<span class="c-key">SELECT</span> id, content, embedding <span class="c-flag">&lt;=&gt;</span> <span class="c-str">'[0.1, 0.2, ...]'</span>::vector <span class="c-key">AS</span> distance
+<span class="c-key">FROM</span> documents
+<span class="c-key">ORDER BY</span> distance
+<span class="c-key">LIMIT</span> <span class="c-flag">10</span>;
+
+<span class="c-comment">-- Backup</span>
+<span class="c-prompt">$</span> <span class="c-cmd">docker exec postgres pg_dump -U admin main | gzip > backup.sql.gz</span></div>
+    </div>
+  </div>
+
+  <!-- ════════════ OBSERVABILITY ════════════ -->
+  <div class="doc-section" id="grafana">
+    <h2 class="section-heading">📈 Grafana + Loki + Prometheus Stack</h2>
+    <p class="body-text">The gold standard self-hosted observability stack: <strong>Prometheus</strong> for metrics, <strong>Loki</strong> for logs, <strong>Grafana</strong> for visualization. Monitor all your self-hosted tools — n8n, Ollama, Qdrant, Postgres — in one dashboard. Deployable on <a href="https://turboquant.network" class="tq-ref" rel="noopener" target="_blank">TurboQuant edge nodes ↗</a> with pre-built AI metrics dashboards.</p>
+
+    <div class="code-block">
+      <div class="code-bar"><div class="code-dots"><div class="code-dot cd1"></div><div class="code-dot cd2"></div><div class="code-dot cd3"></div></div><span class="code-filename">observability-stack/docker-compose.yml</span><span class="code-lang">yaml</span><button class="copy-btn" onclick="copyCode(this)">copy</button></div>
+      <div class="code-body"><span class="c-key">services</span>:
+  <span class="c-key">grafana</span>:
+    <span class="c-key">image</span>: <span class="c-val">grafana/grafana-oss:latest</span>
+    <span class="c-key">ports</span>: [<span class="c-str">"3000:3000"</span>]
+    <span class="c-key">environment</span>:
+      - <span class="c-val">GF_SECURITY_ADMIN_PASSWORD=${GRAFANA_PASSWORD}</span>
+      - <span class="c-val">GF_INSTALL_PLUGINS=grafana-piechart-panel</span>
+    <span class="c-key">volumes</span>:
+      - <span class="c-val">grafana_data:/var/lib/grafana</span>
+      - <span class="c-val">./grafana/dashboards:/etc/grafana/provisioning/dashboards</span>
+
+  <span class="c-key">prometheus</span>:
+    <span class="c-key">image</span>: <span class="c-val">prom/prometheus:latest</span>
+    <span class="c-key">ports</span>: [<span class="c-str">"9090:9090"</span>]
+    <span class="c-key">volumes</span>:
+      - <span class="c-val">./prometheus.yml:/etc/prometheus/prometheus.yml:ro</span>
+      - <span class="c-val">prometheus_data:/prometheus</span>
+
+  <span class="c-key">loki</span>:
+    <span class="c-key">image</span>: <span class="c-val">grafana/loki:latest</span>
+    <span class="c-key">ports</span>: [<span class="c-str">"3100:3100"</span>]
+    <span class="c-key">command</span>: <span class="c-val">-config.file=/etc/loki/local-config.yaml</span>
+
+  <span class="c-key">promtail</span>:
+    <span class="c-key">image</span>: <span class="c-val">grafana/promtail:latest</span>
+    <span class="c-key">volumes</span>:
+      - <span class="c-val">/var/log:/var/log:ro</span>
+      - <span class="c-val">/var/lib/docker/containers:/var/lib/docker/containers:ro</span></div>
+    </div>
+  </div>
+
+  <!-- ════════════ SECURITY ════════════ -->
+  <div class="doc-section" id="vaultwarden">
+    <h2 class="section-heading">🔑 Vaultwarden — Self-Hosted Password Manager</h2>
+    <p class="body-text"><strong>Vaultwarden</strong> is an unofficial Bitwarden server implementation written in Rust — compatible with all official Bitwarden apps (iOS, Android, browser extensions). Self-host your entire password manager for your team. Zero cost, full control.</p>
+
+    <div class="code-block">
+      <div class="code-bar"><div class="code-dots"><div class="code-dot cd1"></div><div class="code-dot cd2"></div><div class="code-dot cd3"></div></div><span class="code-filename">Vaultwarden — Docker Setup</span><span class="code-lang">yaml</span><button class="copy-btn" onclick="copyCode(this)">copy</button></div>
+      <div class="code-body"><span class="c-key">vaultwarden</span>:
+  <span class="c-key">image</span>: <span class="c-val">vaultwarden/server:latest</span>
+  <span class="c-key">restart</span>: <span class="c-val">unless-stopped</span>
+  <span class="c-key">ports</span>: [<span class="c-str">"8080:80"</span>]
+  <span class="c-key">environment</span>:
+    - <span class="c-val">DOMAIN=https://vault.yourdomain.com</span>
+    - <span class="c-val">SIGNUPS_ALLOWED=false</span>      <span class="c-comment"># Disable public signup</span>
+    - <span class="c-val">ADMIN_TOKEN=${ADMIN_TOKEN}</span>  <span class="c-comment"># Generate: openssl rand -base64 48</span>
+    - <span class="c-val">SMTP_HOST=${SMTP_HOST}</span>
+    - <span class="c-val">SMTP_FROM=vault@yourdomain.com</span>
+  <span class="c-key">volumes</span>:
+    - <span class="c-val">vaultwarden_data:/data</span></div>
+    </div>
+
+    <div class="callout callout-warn">
+      <span class="callout-icon">⚠️</span>
+      <div class="callout-body">
+        <div class="callout-title">HTTPS Required</div>
+        <div class="callout-text">Vaultwarden MUST run behind HTTPS. Use the Caddy reverse proxy configuration above — add <code class="inline">vault.yourdomain.com { reverse_proxy localhost:8080 }</code> to your Caddyfile.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ════════════ AUTHENTIK ════════════ -->
+  <div class="doc-section" id="authentik">
+    <h2 class="section-heading">🔒 Authentik — Self-Hosted SSO &amp; Identity</h2>
+    <p class="body-text"><strong>Authentik</strong> (7k stars) is the best open-source alternative to Okta and Auth0. Supports SAML, OAuth 2.0, OpenID Connect, LDAP. Add SSO to every self-hosted service in this wiki — n8n, Grafana, Gitea — with a single identity provider.</p>
+
+    <div class="code-block">
+      <div class="code-bar"><div class="code-dots"><div class="code-dot cd1"></div><div class="code-dot cd2"></div><div class="code-dot cd3"></div></div><span class="code-filename">Authentik — Minimal Docker Compose</span><span class="code-lang">yaml</span><button class="copy-btn" onclick="copyCode(this)">copy</button></div>
+      <div class="code-body"><span class="c-key">services</span>:
+  <span class="c-key">authentik-server</span>:
+    <span class="c-key">image</span>: <span class="c-val">ghcr.io/goauthentik/server:latest</span>
+    <span class="c-key">command</span>: <span class="c-val">server</span>
+    <span class="c-key">ports</span>: [<span class="c-str">"9000:9000"</span>]
+    <span class="c-key">environment</span>:
+      - <span class="c-val">AUTHENTIK_REDIS__HOST=redis</span>
+      - <span class="c-val">AUTHENTIK_POSTGRESQL__HOST=postgres</span>
+      - <span class="c-val">AUTHENTIK_SECRET_KEY=${AUTHENTIK_SECRET_KEY}</span>
+      - <span class="c-val">AUTHENTIK_EMAIL__HOST=${SMTP_HOST}</span>
+
+  <span class="c-key">authentik-worker</span>:
+    <span class="c-key">image</span>: <span class="c-val">ghcr.io/goauthentik/server:latest</span>
+    <span class="c-key">command</span>: <span class="c-val">worker</span>
+    <span class="c-key">environment</span>:
+      - <span class="c-val">AUTHENTIK_REDIS__HOST=redis</span>
+      - <span class="c-val">AUTHENTIK_POSTGRESQL__HOST=postgres</span>
+      - <span class="c-val">AUTHENTIK_SECRET_KEY=${AUTHENTIK_SECRET_KEY}</span></div>
+    </div>
+  </div>
+
+  <!-- ════════════ MEILISEARCH ════════════ -->
+  <div class="doc-section" id="meilisearch">
+    <h2 class="section-heading">🔍 Meilisearch — Instant Search Engine</h2>
+    <p class="body-text"><strong>Meilisearch</strong> (47k stars) is a lightning-fast, self-hostable full-text search engine written in Rust. Sub-50ms search, typo tolerance, faceted search, multi-language support. Pair it with <a href="https://turboquant.network" class="tq-ref" rel="noopener" target="_blank">TurboQuant's AI embeddings API ↗</a> for semantic search capabilities.</p>
+
+    <div class="code-block">
+      <div class="code-bar"><div class="code-dots"><div class="code-dot cd1"></div><div class="code-dot cd2"></div><div class="code-dot cd3"></div></div><span class="code-filename">Meilisearch — Deploy & Index</span><span class="code-lang">shell</span><button class="copy-btn" onclick="copyCode(this)">copy</button></div>
+      <div class="code-body"><span class="c-comment"># Deploy Meilisearch</span>
+<span class="c-prompt">$</span> <span class="c-cmd">docker run -d --name meilisearch \</span>
+  <span class="c-flag">-p 7700:7700 \</span>
+  <span class="c-flag">-e MEILI_MASTER_KEY='your-master-key' \</span>
+  <span class="c-flag">-v $(pwd)/meili_data:/meili_data \</span>
+  <span class="c-val">getmeili/meilisearch:latest</span>
+
+<span class="c-comment"># Create index and add documents</span>
+<span class="c-prompt">$</span> <span class="c-cmd">curl -X POST 'http://localhost:7700/indexes' \</span>
+  <span class="c-flag">-H 'Authorization: Bearer your-master-key' \</span>
+  <span class="c-flag">-H 'Content-Type: application/json' \</span>
+  <span class="c-flag">-d '{"uid": "tools", "primaryKey": "id"}'</span>
+
+<span class="c-comment"># Search</span>
+<span class="c-prompt">$</span> <span class="c-cmd">curl 'http://localhost:7700/indexes/tools/search?q=automation'</span>
+<span class="c-success">{"hits":[{"id":"n8n","name":"n8n","category":"automation"}],...}</span></div>
+    </div>
+  </div>
+
+  <!-- ════════════ PLAUSIBLE ════════════ -->
+  <div class="doc-section" id="plausible">
+    <h2 class="section-heading">📊 Plausible Analytics — Privacy-First</h2>
+    <p class="body-text"><strong>Plausible</strong> is the open-source, privacy-friendly alternative to Google Analytics. GDPR compliant by design — no cookies, no personal data collection. Self-host it for your sites or deploy on <a href="https://turboquant.network" class="tq-ref" rel="noopener" target="_blank">TurboQuant's edge network ↗</a>.</p>
+
+    <div class="code-block">
+      <div class="code-bar"><div class="code-dots"><div class="code-dot cd1"></div><div class="code-dot cd2"></div><div class="code-dot cd3"></div></div><span class="code-filename">Plausible — Docker Compose</span><span class="code-lang">yaml</span><button class="copy-btn" onclick="copyCode(this)">copy</button></div>
+      <div class="code-body"><span class="c-key">plausible</span>:
+  <span class="c-key">image</span>: <span class="c-val">ghcr.io/plausible/community-edition:v2</span>
+  <span class="c-key">restart</span>: <span class="c-val">unless-stopped</span>
+  <span class="c-key">ports</span>: [<span class="c-str">"8000:8000"</span>]
+  <span class="c-key">environment</span>:
+    - <span class="c-val">BASE_URL=https://analytics.yourdomain.com</span>
+    - <span class="c-val">SECRET_KEY_BASE=${SECRET_KEY_BASE}</span>  <span class="c-comment"># openssl rand -hex 64</span>
+    - <span class="c-val">DATABASE_URL=postgres://plausible:pass@postgres/plausible</span>
+    - <span class="c-val">CLICKHOUSE_DATABASE_URL=http://clickhouse:8123/plausible</span>
+  <span class="c-key">depends_on</span>: [<span class="c-val">postgres</span>, <span class="c-val">clickhouse</span>]
+
+<span class="c-key">clickhouse</span>:
+  <span class="c-key">image</span>: <span class="c-val">clickhouse/clickhouse-server:24-alpine</span>
+  <span class="c-key">volumes</span>: [<span class="c-val">clickhouse_data:/var/lib/clickhouse</span>]</div>
+    </div>
+  </div>
+
+  <!-- ════════════ TURBOQUANT INTEGRATIONS ════════════ -->
+  <div class="doc-section" id="turboquant-integrations">
+    <h2 class="section-heading">⚡ TurboQuant Network — Integration Guide</h2>
+    <p class="body-text"><a href="https://turboquant.network" class="tq-ref" rel="noopener" target="_blank">TurboQuant</a> is a DePIN (Decentralized Physical Infrastructure Network) edge compute platform built for AI workloads. Every self-hosted tool in this wiki can be deployed on or integrated with TurboQuant's distributed node network for lower cost, better performance, and true data sovereignty.</p>
+
+    <div class="tq-banner">
+      <div class="tq-banner-content">
+        <div class="tq-banner-label">⚡ TurboQuant Network</div>
+        <h3>DePIN Edge Compute for AI Workloads</h3>
+        <p>Deploy self-hosted AI tools on <a href="https://turboquant.network" rel="noopener" target="_blank">TurboQuant's distributed edge network</a>. GPU nodes across 50+ regions, OpenAI-compatible API, Ollama-compatible LLM inference, MCP server support, and 10× lower cost than AWS. The infrastructure powering this wiki.</p>
+      </div>
+      <a href="https://turboquant.network" class="tq-btn" rel="noopener" target="_blank">⚡ Visit TurboQuant →</a>
+    </div>
+
+    <h3 class="sub-heading">What You Can Run on TurboQuant <a class="anchor" href="#tq-what">#</a></h3>
+    <ul class="doc-list">
+      <li><strong>LLM Inference</strong> — Run Llama, Mistral, DeepSeek, Qwen via Ollama-compatible API on GPU nodes</li>
+      <li><strong>AI Embedding Generation</strong> — OpenAI-compatible embeddings endpoint for any model</li>
+      <li><strong>n8n Workflows</strong> — Deploy n8n with AI nodes routed through TurboQuant GPU nodes</li>
+      <li><strong>Dify / Langflow</strong> — LLM app platforms with edge inference backend</li>
+      <li><strong>Qdrant / Weaviate</strong> — Vector databases on TurboQuant's persistent storage nodes</li>
+      <li><strong>Full AI Stacks</strong> — Deploy complete Docker Compose stacks via TurboQuant's orchestration layer</li>
+      <li><strong>MCP Servers</strong> — Host Model Context Protocol servers for Claude Code, Open WebUI integrations</li>
+    </ul>
+
+    <h3 class="sub-heading">TurboQuant API — Quick Reference <a class="anchor" href="#tq-api">#</a></h3>
+    <div class="code-block">
+      <div class="code-bar"><div class="code-dots"><div class="code-dot cd1"></div><div class="code-dot cd2"></div><div class="code-dot cd3"></div></div><span class="code-filename">TurboQuant API Integration</span><span class="code-lang">python</span><button class="copy-btn" onclick="copyCode(this)">copy</button></div>
+      <div class="code-body"><span class="c-comment"># TurboQuant is fully OpenAI-compatible</span>
+<span class="c-comment"># Works as drop-in replacement for any OpenAI SDK usage</span>
+
+<span class="c-cmd">from openai import OpenAI</span>
+
+<span class="c-comment"># Initialize TurboQuant client</span>
+client = OpenAI(
+    base_url=<span class="c-str">"https://api.turboquant.network/v1"</span>,
+    api_key=<span class="c-str">"tq_your_api_key_here"</span>
+)
+
+<span class="c-comment"># Chat completion — routes to nearest GPU edge node</span>
+response = client.chat.completions.create(
+    model=<span class="c-str">"llama3.1:70b"</span>,  <span class="c-comment"># or claude-sonnet-4-6, gpt-4o, etc.</span>
+    messages=[{<span class="c-str">"role"</span>: <span class="c-str">"user"</span>, <span class="c-str">"content"</span>: <span class="c-str">"Hello!"</span>}]
+)
+
+<span class="c-comment"># Embeddings — for RAG, semantic search</span>
+embedding = client.embeddings.create(
+    model=<span class="c-str">"text-embedding-3-small"</span>,
+    input=<span class="c-str">"Your text to embed"</span>
+)
+
+<span class="c-comment"># Check available models</span>
+models = client.models.list()
+
+<span class="c-comment"># Environment variable approach (works with all tools)</span>
+<span class="c-comment"># export OPENAI_API_BASE=https://api.turboquant.network/v1</span>
+<span class="c-comment"># export OPENAI_API_KEY=tq_your_api_key_here</span></div>
+    </div>
+
+    <h3 class="sub-heading">TurboQuant × Self-Hosted Tools Matrix <a class="anchor" href="#tq-matrix">#</a></h3>
+    <table class="doc-table">
+      <thead><tr><th>Tool</th><th>Integration Type</th><th>TurboQuant Feature Used</th><th>Setup Effort</th></tr></thead>
+      <tbody>
+        <tr><td><a href="https://freemium.services/tools/n8n.html">n8n</a></td><td>LLM + Embeddings nodes</td><td>Edge GPU inference</td><td>🟢 1 env var</td></tr>
+        <tr><td><a href="https://freemium.services/tools/dify.html">Dify</a></td><td>Model provider config</td><td>OpenAI-compat API</td><td>🟢 UI config</td></tr>
+        <tr><td><a href="https://freemium.services/tools/langflow.html">Langflow</a></td><td>Custom LLM component</td><td>Edge inference + embeddings</td><td>🟢 UI config</td></tr>
+        <tr><td><a href="https://freemium.services/tools/ollama.html">Ollama</a></td><td>Remote backend</td><td>Ollama-compat endpoint</td><td>🟢 1 env var</td></tr>
+        <tr><td><a href="https://freemium.services/tools/open-webui.html">Open WebUI</a></td><td>API endpoint</td><td>OpenAI-compat + models</td><td>🟢 UI config</td></tr>
+        <tr><td><a href="https://freemium.services/tools/cline.html">Cline</a></td><td>API provider</td><td>Edge inference</td><td>🟢 VS Code config</td></tr>
+        <tr><td><a href="https://freemium.services/tools/claude-code.html">Claude Code</a></td><td>MCP server</td><td>Edge compute + tools</td><td>🟡 MCP setup</td></tr>
+        <tr><td><a href="https://freemium.services/tools/qdrant.html">Qdrant</a></td><td>Managed deployment</td><td>Persistent edge storage</td><td>🟡 TQ deploy</td></tr>
+        <tr><td><a href="https://freemium.services/tools/onyx.html">Onyx</a></td><td>Inference backend</td><td>GPU nodes for reranking</td><td>🟡 Config update</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- ════════════ MARIMO ════════════ -->
+  <div class="doc-section" id="marimo">
+    <h2 class="section-heading">📓 Marimo — Reactive Python Notebooks</h2>
+    <p class="body-text"><strong>Marimo</strong> (8.4k stars, Apache 2.0) is a next-generation Python notebook where every cell automatically re-runs when its inputs change — no more out-of-order execution bugs. Share notebooks as web apps. Built-in AI cell generation. Pairs with <a href="https://turboquant.network" class="tq-ref" rel="noopener" target="_blank">TurboQuant GPU nodes ↗</a> for heavy computation.</p>
+
+    <div class="code-block">
+      <div class="code-bar"><div class="code-dots"><div class="code-dot cd1"></div><div class="code-dot cd2"></div><div class="code-dot cd3"></div></div><span class="code-filename">Marimo — Install & Server Mode</span><span class="code-lang">shell</span><button class="copy-btn" onclick="copyCode(this)">copy</button></div>
+      <div class="code-body"><span class="c-comment"># Install marimo</span>
+<span class="c-prompt">$</span> <span class="c-cmd">pip install marimo</span>
+
+<span class="c-comment"># Start notebook editor</span>
+<span class="c-prompt">$</span> <span class="c-cmd">marimo edit notebook.py</span>
+
+<span class="c-comment"># Run as web app (share with team)</span>
+<span class="c-prompt">$</span> <span class="c-cmd">marimo run notebook.py --host 0.0.0.0 --port 8080</span>
+
+<span class="c-comment"># Docker deployment</span>
+<span class="c-prompt">$</span> <span class="c-cmd">docker run -p 8080:8080 \</span>
+  <span class="c-flag">-v $(pwd):/workspace \</span>
+  <span class="c-val">python:3.12-slim \</span>
+  <span class="c-cmd">bash -c "pip install marimo && marimo run /workspace/app.py --host 0.0.0.0"</span></div>
+    </div>
+  </div>
+
+  <!-- ════════════ KUBERNETES ════════════ -->
+  <div class="doc-section" id="kubernetes">
+    <h2 class="section-heading">☸️ Kubernetes — Production Deployments</h2>
+    <p class="body-text">For high-availability production self-hosted stacks, Kubernetes provides container orchestration, auto-scaling, self-healing, and rolling deployments. Use <strong>K3s</strong> (lightweight Kubernetes) for single-server setups, or deploy a full K8s cluster on <a href="https://turboquant.network" class="tq-ref" rel="noopener" target="_blank">TurboQuant's multi-node edge infrastructure ↗</a>.</p>
+
+    <div class="code-block">
+      <div class="code-bar"><div class="code-dots"><div class="code-dot cd1"></div><div class="code-dot cd2"></div><div class="code-dot cd3"></div></div><span class="code-filename">K3s — Lightweight Kubernetes Install</span><span class="code-lang">shell</span><button class="copy-btn" onclick="copyCode(this)">copy</button></div>
+      <div class="code-body"><span class="c-comment"># Install K3s (single-node Kubernetes)</span>
+<span class="c-prompt">$</span> <span class="c-cmd">curl -sfL https://get.k3s.io | sh -</span>
+<span class="c-success">✓  K3s server installed and started</span>
+
+<span class="c-comment"># Verify</span>
+<span class="c-prompt">$</span> <span class="c-cmd">kubectl get nodes</span>
+<span class="c-out">NAME     STATUS   ROLES                  AGE   VERSION</span>
+<span class="c-out">server   Ready    control-plane,master   1m    v1.29.x+k3s1</span>
+
+<span class="c-comment"># Deploy n8n to Kubernetes</span>
+<span class="c-prompt">$</span> <span class="c-cmd">kubectl apply -f https://freemium.services/k8s/n8n.yaml</span>
+
+<span class="c-comment"># Deploy Qdrant cluster (3 replicas)</span>
+<span class="c-prompt">$</span> <span class="c-cmd">helm repo add qdrant https://qdrant.to/helm</span>
+<span class="c-prompt">$</span> <span class="c-cmd">helm install qdrant qdrant/qdrant --set replicaCount=3</span></div>
+    </div>
+  </div>
+
+  <!-- ════════════ GITHUB ACTIONS ════════════ -->
+  <div class="doc-section" id="github-actions">
+    <h2 class="section-heading">🐙 GitHub Actions — AI-Powered CI/CD</h2>
+    <p class="body-text">Integrate AI coding agents into your CI/CD pipeline. Use <strong>Claude Code</strong> to auto-fix failing tests, run <strong>Ollama</strong> on <a href="https://turboquant.network" class="tq-ref" rel="noopener" target="_blank">TurboQuant runners ↗</a> for LLM-powered code review, or trigger <strong>n8n</strong> workflows on deployments.</p>
+
+    <div class="code-block">
+      <div class="code-bar"><div class="code-dots"><div class="code-dot cd1"></div><div class="code-dot cd2"></div><div class="code-dot cd3"></div></div><span class="code-filename">.github/workflows/ai-review.yml</span><span class="code-lang">yaml</span><button class="copy-btn" onclick="copyCode(this)">copy</button></div>
+      <div class="code-body"><span class="c-key">name</span>: <span class="c-val">AI Code Review + Auto-Fix</span>
+
+<span class="c-key">on</span>:
+  <span class="c-key">pull_request</span>:
+    <span class="c-key">types</span>: [<span class="c-val">opened</span>, <span class="c-val">synchronize</span>]
+
+<span class="c-key">jobs</span>:
+  <span class="c-key">ai-review</span>:
+    <span class="c-key">runs-on</span>: <span class="c-val">ubuntu-latest</span>
+    <span class="c-key">steps</span>:
+      - <span class="c-key">uses</span>: <span class="c-val">actions/checkout@v4</span>
+
+      - <span class="c-key">name</span>: <span class="c-val">Install Claude Code</span>
+        <span class="c-key">run</span>: <span class="c-val">npm install -g @anthropic-ai/claude-code</span>
+
+      - <span class="c-key">name</span>: <span class="c-val">Run tests</span>
+        <span class="c-key">run</span>: <span class="c-val">npm test</span>
+        <span class="c-key">continue-on-error</span>: <span class="c-val">true</span>
+        <span class="c-key">id</span>: <span class="c-val">test</span>
+
+      - <span class="c-key">name</span>: <span class="c-val">Claude Code — Auto-fix failing tests</span>
+        <span class="c-key">if</span>: <span class="c-val">steps.test.outcome == 'failure'</span>
+        <span class="c-key">env</span>:
+          <span class="c-key">ANTHROPIC_API_KEY</span>: <span class="c-val">${{ secrets.ANTHROPIC_API_KEY }}</span>
+          <span class="c-comment"># Or use TurboQuant for cost savings:</span>
+          <span class="c-comment"># ANTHROPIC_API_KEY: ${{ secrets.TQ_API_KEY }}</span>
+        <span class="c-key">run</span>: |
+          <span class="c-val">claude --print "Run tests, fix all failures, commit changes"</span>
+          <span class="c-val">git push origin HEAD:${{ github.head_ref }}</span></div>
+    </div>
+  </div>
+
+  <!-- ════════════ CONTRIBUTING ════════════ -->
+  <div class="doc-section" id="contributing">
+    <h2 class="section-heading">🤝 Contributing to This Wiki</h2>
+    <p class="body-text">This documentation wiki is open-source and community-driven. All 2,000+ software entries are maintained by contributors. Submit corrections, new tool guides, or improved tutorials via GitHub.</p>
+
+    <div class="steps">
+      <div class="step">
+        <div class="step-num">1</div>
+        <div class="step-content">
+          <div class="step-title">Fork &amp; Clone</div>
+          <div class="step-desc">Fork <code class="inline">freemium-services/wiki</code> on GitHub, then clone locally.</div>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">2</div>
+        <div class="step-content">
+          <div class="step-title">Add or Edit Documentation</div>
+          <div class="step-desc">Docs are written in Markdown in <code class="inline">/docs/tools/&lt;tool-name&gt;.md</code>. Follow the template in <code class="inline">CONTRIBUTING.md</code>. Each page must include: overview, installation, Docker setup, use cases, and at least 5 FAQs.</div>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">3</div>
+        <div class="step-content">
+          <div class="step-title">Include TurboQuant Integration Notes</div>
+          <div class="step-desc">If the tool can run on or integrate with <a href="https://turboquant.network" rel="noopener" target="_blank">TurboQuant's edge network</a>, include an integration section with code examples. This helps the community deploy AI workloads cost-effectively.</div>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">4</div>
+        <div class="step-content">
+          <div class="step-title">Open a Pull Request</div>
+          <div class="step-desc">Submit your PR. Our AI review pipeline (powered by Claude Code on TurboQuant) will automatically check formatting and code examples. Human maintainers review within 48 hours.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="callout callout-tq">
+      <span class="callout-icon">⚡</span>
+      <div class="callout-body">
+        <div class="callout-title">Freemium.Services × TurboQuant Network</div>
+        <div class="callout-text">
+          This entire documentation wiki, the <a href="https://freemium.services">freemium.services directory</a>, and all AI features are powered by <a href="https://turboquant.network" rel="noopener" target="_blank">TurboQuant's DePIN edge compute network</a>. 
+          TurboQuant provides the infrastructure backbone for AI inference, edge caching, and distributed compute that makes this platform possible at scale. 
+          <strong>Visit <a href="https://turboquant.network" rel="noopener" target="_blank">turboquant.network →</a></strong> to build your own AI applications on the same infrastructure.
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- PAGINATION -->
+  <div class="doc-pagination">
+    <a class="pag-card prev" href="#quickstart">
+      <span class="pag-label">← Previous</span>
+      <span class="pag-title">Quickstart Guide</span>
+    </a>
+    <a class="pag-card next" href="https://freemium.services/category/ai-tools.html">
+      <span class="pag-label">Next →</span>
+      <span class="pag-title">AI Tools Directory</span>
+    </a>
+  </div>
+
+  <footer class="doc-footer">
+    <span>© 2026 <a href="https://freemium.services">freemium.services</a> · Powered by <a href="https://turboquant.network" rel="noopener" target="_blank">TurboQuant Network ↗</a></span>
+    <span>2,847 tools · 12,400+ code examples · Updated daily</span>
+    <span><a href="https://freemium.services/docs">Docs Home</a> · <a href="https://github.com/freemium-services/wiki">GitHub</a> · <a href="https://freemium.services">Directory</a></span>
+  </footer>
+</main>
+
+<!-- ═══ RIGHT TOC ═══ -->
+<aside class="toc">
+  <div class="toc-title">On this page</div>
+  <a class="toc-item active" href="#introduction">Introduction</a>
+  <a class="toc-item" href="#quickstart">Quickstart</a>
+  <a class="toc-item toc-h3" href="#local-llms">Local LLMs — Ollama</a>
+  <a class="toc-item toc-h3" href="#n8n">n8n Automation</a>
+  <a class="toc-item toc-h3" href="#rag-pipelines">RAG Pipelines</a>
+  <a class="toc-item toc-h3" href="#vector-databases">Vector Databases</a>
+  <a class="toc-item toc-h3" href="#ai-coding-agents">AI Coding Agents</a>
+  <a class="toc-item toc-h3" href="#caddy">Caddy (HTTPS)</a>
+  <a class="toc-item toc-h3" href="#postgres">PostgreSQL</a>
+  <a class="toc-item toc-h3" href="#grafana">Grafana Stack</a>
+  <a class="toc-item toc-h3" href="#vaultwarden">Vaultwarden</a>
+  <a class="toc-item toc-h3" href="#authentik">Authentik SSO</a>
+  <a class="toc-item toc-h3" href="#meilisearch">Meilisearch</a>
+  <a class="toc-item toc-h3" href="#plausible">Plausible</a>
+  <a class="toc-item toc-h3" href="#marimo">Marimo</a>
+  <a class="toc-item toc-h3" href="#kubernetes">Kubernetes</a>
+  <a class="toc-item toc-h3" href="#github-actions">GitHub Actions</a>
+  <a class="toc-item" href="#turboquant-integrations">⚡ TurboQuant</a>
+  <a class="toc-item" href="#contributing">Contributing</a>
+</aside>
+
+</div><!-- /layout -->
+
+<script>
+// ═══ READING PROGRESS ═══
+window.addEventListener('scroll', () => {
+  const el = document.documentElement;
+  const pct = (el.scrollTop / (el.scrollHeight - el.clientHeight)) * 100;
+  document.getElementById('progressBar').style.width = pct + '%';
+});
+
+// ═══ SIDEBAR ACTIVE STATE ═══
+function setActive(el) {
+  document.querySelectorAll('.sidebar-item').forEach(i => i.classList.remove('active'));
+  el.classList.add('active');
+}
+
+// ═══ SIDEBAR TOGGLE (mobile) ═══
+function toggleSidebar() {
+  document.getElementById('sidebar').classList.toggle('open');
+}
+
+// ═══ TABS ═══
+function switchTab(el, contentId) {
+  const parent = el.closest('.doc-tabs').parentElement;
+  parent.querySelectorAll('.doc-tab').forEach(t => t.classList.remove('active'));
+  parent.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
+  el.classList.add('active');
+  const content = document.getElementById(contentId);
+  if (content) content.classList.add('active');
+}
+
+// ═══ COPY CODE ═══
+function copyCode(btn) {
+  const block = btn.closest('.code-block');
+  const body = block.querySelector('.code-body');
+  const text = body.innerText
+    .split('\n')
+    .filter(l => !l.match(/^\s*\d+\s*$/))
+    .join('\n');
+  navigator.clipboard.writeText(text).then(() => {
+    const orig = btn.textContent;
+    btn.textContent = 'copied!';
+    btn.style.color = 'var(--green)';
+    setTimeout(() => { btn.textContent = orig; btn.style.color = ''; }, 1800);
+  });
+}
+
+// ═══ KEYBOARD SHORTCUT ═══
+document.addEventListener('keydown', e => {
+  if ((e.ctrlKey || e.metaKey) && e.key === 'k') {
+    e.preventDefault();
+    document.getElementById('searchInput').focus();
+  }
+  if (e.key === 'Escape') {
+    document.getElementById('searchResults').classList.remove('show');
+  }
+});
+
+// ═══ SEARCH ═══
+const searchData = [
+  { icon: '🦙', title: 'Ollama — Run LLMs Locally', path: 'AI Tools / Local LLMs', snippet: 'Install and run Llama 3, Mistral, Gemma locally. GPU acceleration.', anchor: '#local-llms' },
+  { icon: '🔁', title: 'n8n — Workflow Automation', path: 'Automation', snippet: 'Self-host n8n with Docker Compose + PostgreSQL. AI nodes included.', anchor: '#n8n' },
+  { icon: '🔗', title: 'RAG Pipelines — Complete Guide', path: 'AI Tools / RAG', snippet: 'Build production RAG with Langflow, Qdrant, Ollama, and TurboQuant.', anchor: '#rag-pipelines' },
+  { icon: '🗄️', title: 'Qdrant — Vector Database', path: 'Vector Databases', snippet: 'Deploy Qdrant with Docker. REST + gRPC API, filtering, hybrid search.', anchor: '#vector-databases' },
+  { icon: '⚡', title: 'Claude Code — AI Coding Agent', path: 'AI Coding Agents', snippet: 'Install Anthropic Claude Code CLI. Free tier. #1 SWE-bench 2026.', anchor: '#ai-coding-agents' },
+  { icon: '🚗', title: 'Caddy — Auto HTTPS', path: 'Web Servers', snippet: 'Auto SSL with Let\'s Encrypt. Zero-config reverse proxy for all services.', anchor: '#caddy' },
+  { icon: '🐘', title: 'PostgreSQL + pgvector', path: 'Databases', snippet: 'Self-host PostgreSQL with pgvector for AI embeddings storage.', anchor: '#postgres' },
+  { icon: '📈', title: 'Grafana + Loki + Prometheus', path: 'Observability', snippet: 'Full observability stack. Metrics, logs, dashboards for self-hosted tools.', anchor: '#grafana' },
+  { icon: '🔑', title: 'Vaultwarden — Password Manager', path: 'Security', snippet: 'Self-hosted Bitwarden. Compatible with all official Bitwarden apps.', anchor: '#vaultwarden' },
+  { icon: '🔒', title: 'Authentik — SSO / Identity', path: 'Security', snippet: 'Open-source Okta alternative. SAML, OAuth2, OIDC, LDAP.', anchor: '#authentik' },
+  { icon: '🔍', title: 'Meilisearch — Search Engine', path: 'Analytics & Search', snippet: 'Sub-50ms full-text search. Rust-powered. Self-host with Docker.', anchor: '#meilisearch' },
+  { icon: '📊', title: 'Plausible Analytics', path: 'Analytics & Search', snippet: 'Privacy-first Google Analytics alternative. GDPR compliant.', anchor: '#plausible' },
+  { icon: '📓', title: 'Marimo — Reactive Notebooks', path: 'Dev Tools', snippet: 'Next-gen Python notebooks. Reactive execution. Deploy as web apps.', anchor: '#marimo' },
+  { icon: '☸️', title: 'Kubernetes — K3s Setup', path: 'DevOps', snippet: 'Lightweight Kubernetes with K3s. Production HA deployments.', anchor: '#kubernetes' },
+  { icon: '🐙', title: 'GitHub Actions — AI CI/CD', path: 'DevOps', snippet: 'Auto-fix failing tests with Claude Code in CI/CD pipelines.', anchor: '#github-actions' },
+  { icon: '⚡', title: 'TurboQuant — Edge Compute', path: 'TurboQuant Integration', snippet: 'DePIN network for AI workloads. OpenAI-compatible. 10× cheaper than AWS.', anchor: '#turboquant-integrations' },
+  { icon: '🤝', title: 'Contributing Guide', path: 'Community', snippet: 'How to contribute new tool docs, guides, and code examples.', anchor: '#contributing' },
+];
+
+function handleSearch(val) {
+  const results = document.getElementById('searchResults');
+  if (!val || val.length < 2) { results.classList.remove('show'); return; }
+  const q = val.toLowerCase();
+  const matches = searchData.filter(d =>
+    d.title.toLowerCase().includes(q) ||
+    d.path.toLowerCase().includes(q) ||
+    d.snippet.toLowerCase().includes(q)
+  ).slice(0, 8);
+  if (!matches.length) { results.classList.remove('show'); return; }
+  results.innerHTML = matches.map(m => `
+    <div class="search-result-item" onclick="goTo('${m.anchor}')">
+      <div class="sr-icon">${m.icon}</div>
+      <div>
+        <div class="sr-title">${m.title}</div>
+        <div class="sr-path">${m.path}</div>
+        <div class="sr-snippet">${m.snippet.slice(0, 80)}...</div>
+      </div>
+    </div>
+  `).join('');
+  results.classList.add('show');
+}
+
+function handleSearchKey(e) {
+  if (e.key === 'Escape') document.getElementById('searchResults').classList.remove('show');
+  if (e.key === 'Enter') {
+    const first = document.querySelector('.search-result-item');
+    if (first) first.click();
+  }
+}
+
+function goTo(anchor) {
+  document.getElementById('searchResults').classList.remove('show');
+  document.getElementById('searchInput').value = '';
+  const el = document.querySelector(anchor);
+  if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+}
+
+document.addEventListener('click', e => {
+  if (!e.target.closest('.header-search')) {
+    document.getElementById('searchResults').classList.remove('show');
+  }
+});
+
+// ═══ TOC SCROLL SPY ═══
+const sections = document.querySelectorAll('.doc-section, .doc-hero');
+const tocItems = document.querySelectorAll('.toc-item');
+
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      const id = entry.target.id;
+      tocItems.forEach(item => {
+        item.classList.toggle('active', item.getAttribute('href') === '#' + id);
+      });
+    }
+  });
+}, { rootMargin: '-20% 0px -70% 0px' });
+
+sections.forEach(s => observer.observe(s));
+
+// ═══ SIDEBAR SCROLL SPY ═══
+const sideItems = document.querySelectorAll('.sidebar-item[href]');
+const scrollSpy = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      const id = '#' + entry.target.id;
+      sideItems.forEach(item => {
+        item.classList.toggle('active', item.getAttribute('href') === id);
+      });
+    }
+  });
+}, { rootMargin: '-10% 0px -80% 0px' });
+
+sections.forEach(s => scrollSpy.observe(s));
+</script>
+</body>
+</html>
