@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="/sitemap.xsl"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+    <url><loc>https://freemium.services/embeddings.html</loc><lastmod>2026-04-10</lastmod><priority>0.85</priority></url>
+    <url><loc>https://freemium.services/streaming.html</loc><lastmod>2026-04-10</lastmod><priority>0.85</priority></url>
+    <url><loc>https://freemium.services/tool-calling.html</loc><lastmod>2026-04-10</lastmod><priority>0.85</priority></url>
+    <url><loc>https://freemium.services/structured-outputs.html</loc><lastmod>2026-04-10</lastmod><priority>0.85</priority></url>
+</urlset>

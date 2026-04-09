@@ -2,109 +2,114 @@
 # robots.txt
 # Domain: freemium.services
 # Optimized: AI Models, LLMs, Search Engines, Auto-Indexing
-# Version: 2.0 (Enterprise Grade)
+# Version: 3.0 (Ultimate Grade)
 # ============================================
 
+# Section 1 - Global Default
 User-agent: *
 Allow: /
-Allow: /category/
-Allow: /tools/
-Allow: /assets/
-Allow: /images/
-Allow: /css/
-Allow: /js/
-Allow: /sitemap.xml
-Allow: /sitemap-*.xml
-Allow: /*.html$
-
-Disallow: /admin/
-Disallow: /wp-admin/
-Disallow: /cgi-bin/
-Disallow: /tmp/
-Disallow: /logs/
-Disallow: /backup/
-Disallow: /private/
-Disallow: /config/
-Disallow: /includes/
-Disallow: /vendor/
-Disallow: /node_modules/
-Disallow: /wp-*
-Disallow: /feed/
-Disallow: /trackback/
-Disallow: /xmlrpc.php
-Disallow: /?s=
-Disallow: /*?
-Disallow: /*.pdf$
-Disallow: /*.zip$
-Disallow: /*.gz$
-
-Crawl-delay: 0.3
-
-# AI MODEL CRAWLERS (Full Access)
-User-agent: GPTBot
-User-agent: ChatGPT-User
-Allow: /
-Crawl-delay: 0.5
-
-User-agent: Google-Extended
-Allow: /
-Crawl-delay: 0.3
-
-User-agent: anthropic-ai
-Allow: /
-Crawl-delay: 0.5
-
-User-agent: CCBot
-Allow: /
 Crawl-delay: 1
 
-User-agent: FacebookBot
-User-agent: meta-externalagent
+# Section 2 - Google Bots (Standard & Extended)
+User-agent: Googlebot
+User-agent: Googlebot-Image
+User-agent: Googlebot-News
+User-agent: Googlebot-Video
+User-agent: Storebot-Google
+User-agent: Google-InspectionTool
+User-agent: GoogleOther
+User-agent: APIs-Google
+User-agent: AdsBot-Google
+User-agent: Mediapartners-Google
 Allow: /
-Crawl-delay: 0.5
+Crawl-delay: 0
 
-User-agent: Amazonbot
-Allow: /
-Crawl-delay: 0.5
-
-User-agent: Applebot
-User-agent: Applebot-Extended
-Allow: /
-Crawl-delay: 0.5
-
+# Section 3 - Bing / Microsoft
 User-agent: bingbot
 User-agent: adidxbot
+User-agent: MSNBot
+User-agent: BingPreview
+User-agent: MicrosoftPreview
 Allow: /
-Crawl-delay: 0.3
+Crawl-delay: 0.1
 
+# Section 4 - AI Crawlers (Full Open Access)
+User-agent: GPTBot
+User-agent: ChatGPT-User
+User-agent: ClaudeBot
+User-agent: Claude-Web
+User-agent: anthropic-ai
 User-agent: PerplexityBot
-Allow: /
-Crawl-delay: 1
-
+User-agent: Google-Extended
+User-agent: Applebot-Extended
+User-agent: meta-externalagent
+User-agent: FacebookBot
 User-agent: CohereBot
+User-agent: xAI-Grok
+User-agent: MistralBot
+User-agent: CCBot
+User-agent: Diffbot
 Allow: /
-Crawl-delay: 1
+Crawl-delay: 0.5
 
+# Section 5 - Alternative Search Engines
+User-agent: Yandex
 User-agent: Baiduspider
-Allow: /
-Crawl-delay: 1
-
+User-agent: DuckDuckBot
 User-agent: Yeti
+User-agent: Ecosia
+User-agent: Sogou-Qugou
 Allow: /
 Crawl-delay: 1
 
-# SEO & TRADITIONAL CRAWLERS
-User-agent: Googlebot
+# Section 6 - Social & Comms Scrapers
+User-agent: Twitterbot
+User-agent: LinkedInBot
+User-agent: Slackbot
+User-agent: Discordbot
+User-agent: TelegramBot
+User-agent: WhatsApp
 Allow: /
-Crawl-delay: 0.2
 
-User-agent: Bingbot
+# Section 7 - SEO & Audit Tools
+User-agent: AhrefsBot
+User-agent: SemrushBot
+User-agent: Screaming Frog SEO Spider
+User-agent: MJ12bot
 Allow: /
-Crawl-delay: 0.3
+Crawl-delay: 2
 
-Sitemap: https://freemium.services/sitemap.xml
-Sitemap: https://freemium.services/sitemap-images.xml
+# Section 8 - Blocked System Directories & Parameters
+User-agent: *
+Disallow: /admin/
+Disallow: /.env
+Disallow: /*?utm_
+Disallow: /*?session=
+Disallow: /tmp/
+Disallow: /config/
+Disallow: /node_modules/
+Disallow: /*.zip$
+Disallow: /*.pdf$
+Disallow: /login/
+
+# Section 10 - All Explicit Sitemaps
+Sitemap: https://freemium.services/sitemap-index.xml
+Sitemap: https://freemium.services/sitemap-core.xml
+Sitemap: https://freemium.services/sitemap-categories.xml
+Sitemap: https://freemium.services/sitemap-tools.xml
+Sitemap: https://freemium.services/sitemap-knowledge.xml
+Sitemap: https://freemium.services/sitemap-comparisons.xml
+Sitemap: https://freemium.services/sitemap-blog.xml
+Sitemap: https://freemium.services/sitemap-features.xml
 Sitemap: https://freemium.services/sitemap-news.xml
-Sitemap: https://freemium.services/sitemap-video.xml
+Sitemap: https://freemium.services/sitemap-images.xml
+Sitemap: https://freemium.services/sitemap-hi.xml
+Sitemap: https://freemium.services/sitemap-ta.xml
+Sitemap: https://freemium.services/sitemap-ml.xml
 
-Host: freemium.services
+# Section 11 - Yandex Canonical Host
+Host: https://freemium.services
+
+# Section 12 - IndexNow API / Auto Ping Referencer
+# Use the deploy_seo.sh script to auto-ping search engines directly:
+# IndexNow / Google Ping / Bing Ping

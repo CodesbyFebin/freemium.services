@@ -1,11 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="/sitemap.xsl"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
-  
-  <url>
-    <loc>https://freemium.services/tools/n8n.html</loc>
-    <image:image>
-      <image:loc>https://freemium.services/assets/n8n-thumb.jpg</image:loc>
-      <image:title>n8n workflow automation tool</image:title>
-    </image:image>
-  </url>
+    <url><loc>https://freemium.services/</loc><image:image><image:loc>https://freemium.services/images/hero.webp</image:loc></image:image></url>
 </urlset>
