@@ -1,5 +1,7 @@
 import { BrowserRouter as Router, Routes, Route, Link, useParams, useNavigate } from 'react-router-dom';
 import { HelmetProvider, Helmet } from 'react-helmet-async';
+import { Analytics } from '@vercel/analytics/react';
+
 import { motion, AnimatePresence } from 'motion/react';
 import {
   Search, Menu, X, Github, ExternalLink, Cpu, Shield, Zap, Globe, ChevronRight,
@@ -498,9 +500,11 @@ Be concise, technically accurate, and recommend specific tools from the director
             <div ref={scrollRef} className="flex-1 overflow-y-auto p-4 space-y-3">
               {msgs.map((m, i) => (
                 <div key={i} className={cn('max-w-[90%] p-3.5 rounded-2xl text-sm leading-relaxed', m.role === 'user' ? 'ml-auto chat-message-user text-white rounded-tr-sm' : 'mr-auto chat-message-ai text-gray-300 rounded-tl-sm')}>
-                  <ReactMarkdown className="prose prose-sm prose-invert max-w-none text-xs leading-relaxed [&>p]:mb-2 [&>ul]:mb-2 [&>code]:text-[#00ffaa]">
-                    {m.text}
-                  </ReactMarkdown>
+                  <div className="prose prose-sm prose-invert max-w-none text-xs leading-relaxed [&>p]:mb-2 [&>ul]:mb-2 [&>code]:text-[#00ffaa]">
+                    <ReactMarkdown>
+                      {m.text}
+                    </ReactMarkdown>
+                  </div>
                 </div>
               ))}
               {loading && (
@@ -1644,7 +1648,7 @@ const IDEsPage = () => (
                 ))}
               </tr>
             </thead>
-            <tbody className="divide-y" style={{ divideColor: 'rgba(255,255,255,0.04)' }}>
+            <tbody className="divide-y divide-white/5">
               {[
                 { name: 'Cursor', free: '2k completions', os: false, best: 'Solo devs', flex: 'Limited' },
                 { name: 'Zed', free: 'Free + BYOK', os: true, best: 'Performance', flex: 'High' },
@@ -1803,6 +1807,7 @@ export default function App() {
           </main>
           <Footer />
           <ChatWidget />
+          <Analytics />
         </div>
       </Router>
     </HelmetProvider>
