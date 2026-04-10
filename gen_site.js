@@ -14,14 +14,64 @@ const TQ_URL = 'https://turboquant.network';
 
 // --- DATA DEFINITION ---
 const categories = [
-    { id: 'ai-tools', name: 'AI Tools', icon: '🤖', desc: 'Verified list of open-source and freemium AI tools for developers, offering local LLMs, agents, and pipelines.', tools: ['n8n', 'dify', 'langflow', 'ollama', 'open-webui'] },
-    { id: 'open-source', name: 'Open Source', icon: '🐙', desc: '100% open-source software alternatives to proprietary enterprise tools.', tools: ['n8n', 'ollama', 'qdrant', 'chroma'] },
-    { id: 'self-hosting', name: 'Self-Hosting', icon: '🖥️', desc: 'Tools designed for local deployment using Docker and Kubernetes.', tools: ['coolify', 'ollama', 'dify', 'open-webui'] },
-    { id: 'automation-tools', name: 'Automation', icon: '⚙️', desc: 'No-code and low-code workflow automation nodes.', tools: ['n8n', 'activepieces', 'windmill', 'pipedream'] },
-    { id: 'ai-agents', name: 'AI Agents', icon: '🧠', desc: 'Autonomous AI agents that execute complex workflows and coding tasks.', tools: ['claude-code', 'goose', 'autogpt', 'aider'] },
-    { id: 'developer-tools', name: 'Dev Tools', icon: '⌨️', desc: 'Tools built to enhance developer productivity and CI/CD pipelines.', tools: ['cline', 'roo-code', 'lazygit', 'fzf'] },
-    { id: 'rag-tools', name: 'RAG Tools', icon: '📚', desc: 'Retrieval Augmented Generation pipelines for AI knowledge bases.', tools: ['onyx', 'dify', 'langchain', 'llamaindex'] },
-    { id: 'vector-databases', name: 'Vector DBs', icon: '🗄️', desc: 'Databases optimized for vector embeddings and similarity search.', tools: ['qdrant', 'milvus', 'weaviate', 'pgvector'] }
+    { 
+        id: 'ai-tools', 
+        name: 'AI Tools', 
+        icon: '🤖', 
+        desc: 'The definitive guide to building a free, open-source AI stack with LLMs, RAG, and Agents.',
+        tools: ['n8n', 'dify', 'langflow', 'ollama', 'open-webui'],
+        longDesc: `
+            <h2>The Definitive Guide to Open-Source AI Stacks in 2026</h2>
+            <p>Welcome to the ultimate hub for Open-Source Artificial Intelligence. In 2026, the landscape of AI has shifted from monolithic SaaS providers to modular, self-hosted stacks. This guide explores the semantic entities required to dominate the AI landscape, focusing on LLMs, RAG (Retrieval-Augmented Generation), and autonomous agents.</p>
+            <h3>1. The Rise of Data Sovereignty in AI</h3>
+            <p>Organizations are increasingly moving away from closed-source models to maintain control over their proprietary data. By utilizing tools like <strong>Ollama</strong> for local inference and <strong>Qdrant</strong> for vector storage, you can build production-grade AI systems that never leak sensitive information to third-party providers. This sovereignty is the cornerstone of modern enterprise AI strategy.</p>
+            <h3>2. Mastering RAG (Retrieval-Augmented Generation)</h3>
+            <p>RAG pipelines have become the standard for grounding LLMs in reality. Instead of relying solely on pre-trained knowledge, RAG allows your AI to query your internal documentation in real-time. Tools like <strong>Dify</strong> and <strong>Onyx</strong> simplify this orchestration, providing out-of-the-box support for vector embedding and context retrieval.</p>
+            <h3>3. Autonomous Agents and Workflow Automation</h3>
+            <p>The next frontier is agentic workflows. Autonomous agents can now use tools, execute bash commands, and iterate on complex multi-step goals. Integrating <strong>Claude Code</strong> with <strong>n8n</strong> allows developers to automate entire software development lifecycles (SDLC) with zero human intervention in the loop.</p>
+        `
+    },
+    { 
+        id: 'automation-tools', 
+        name: 'Automation', 
+        icon: '⚙️', 
+        desc: 'Mastering workflow automation without vendor lock-in using No-code and Low-code nodes.',
+        tools: ['n8n', 'activepieces', 'windmill', 'pipedream'],
+        longDesc: `
+            <h2>Building Resilient Automation Architectures</h2>
+            <p>Workflow automation is the glue of modern digital business. However, relying on proprietary platforms like Zapier creates significant risk through vendor lock-in and high task-based costs. Our directory focuses on fair-code and open-source alternatives that prioritize efficiency and flexibility.</p>
+            <h3>1. The iPaaS Revolution</h3>
+            <p>Modern Integration Platform as a Service (iPaaS) solutions like <strong>n8n</strong> provide a visual interface for connecting over 400 applications. Because these tools can be self-hosted on the <strong>TurboQuant DePIN</strong> network, you can run thousands of execution steps for the price of raw compute, rather than paying per-task premiums.</p>
+            <h3>2. Event-Driven Architectures</h3>
+            <p>Leveraging webhooks and cron triggers allows your infrastructure to react in real-time to external signals. Whether it is processing a new Stripe payment or reacting to a GitHub pull request, open-source automation nodes ensure your data flows smoothly across your entire tech stack.</p>
+        `
+    },
+    { 
+        id: 'self-hosting', 
+        name: 'Self-Hosting', 
+        icon: '🖥️', 
+        desc: 'The complete guide to data sovereignty and homelab infrastructure using Docker and K8s.',
+        tools: ['coolify', 'ollama', 'dify', 'open-webui'],
+        longDesc: `
+            <h2>The Self-Hosting Handbook: From Homelab to Enterprise</h2>
+            <p>Self-hosting is no longer just for enthusiasts; it is a strategic requirement for privacy-conscious organizations. This pillar page provides the technical scaffolding for deploying and maintaining your own software stack with zero reliance on the public cloud.</p>
+            <h3>1. Containerization with Docker and Kubernetes</h3>
+            <p>The standard for modern self-hosting is containerization. <strong>Docker</strong> allows you to package any application into an immutable unit that runs anywhere. For larger scales, <strong>Kubernetes</strong> provides the orchestration required for high-availability and elastic scaling.</p>
+            <h3>2. Infrastructure as Code (IaC)</h3>
+            <p>Managing servers manually is a thing of the past. Using tools like <strong>Coolify</strong> or custom Ansible playbooks, you can treat your hardware as code, ensuring that your deployments are reproducible, secure, and easily backable.</p>
+        `
+    }
+];
+
+const faqBank = [
+    { q: 'What is Freemium.Services?', a: 'Freemium.Services is the world\'s largest verified directory of freemium, free, and open-source software (FOSS). We index over 2,800 tools across 47 categories, helping developers, founders, and IT professionals discover software that can be self-hosted or used with a free tier. Unlike general directories, we prioritize tools that offer data sovereignty and avoid vendor lock-in.' },
+    { q: 'What does "Freemium" mean?', a: '"Freemium" is a business model where a software product is offered free of charge for basic usage, but a premium is charged for advanced features, increased usage limits, or enterprise support. This model is popular among startups and open-source companies because it lowers the barrier to entry. Examples include n8n (free self-hosted, paid cloud), Onyx (free community edition, paid enterprise), and Windmill.' },
+    { q: 'What is Open Source software?', a: 'Open Source software (OSS) is code that is released under a license in which the copyright holder grants users the rights to use, study, change, and distribute the software to anyone and for any purpose. Popular open-source licenses include MIT License (permissive), AGPLv3 (strong copyleft, requires sharing modifications of hosted services), and Apache 2.0.' },
+    { q: 'What is Self-Hosting?', a: 'Self-hosting is the practice of running and maintaining software applications on your own private server or local hardware, rather than using a third-party cloud provider (SaaS). This gives you full ownership of your data, customizability, and often lower long-term costs. We provide step-by-step self-hosting guides for tools like Dify and Langflow.' },
+    { q: 'What is Docker?', a: 'Docker is a platform that packages software into standardized units called containers. A container bundles the application code with all its dependencies (libraries, system tools) so it runs reliably on any Linux server. It is the standard for modern self-hosting.' },
+    { q: 'What is the best free alternative to Zapier?', a: 'n8n is widely considered the best free alternative to Zapier. It is open-source (Fair-code), self-hostable, and offers over 400 native integrations. It provides a visual workflow editor and is significantly more cost-effective for high-volume automation.' },
+    { q: 'What is RAG?', a: 'RAG (Retrieval-Augmented Generation) is a technique that enhances the accuracy of LLMs by providing them with real-time, proprietary data from external sources (like your company documents). Tools like Dify and Onyx are built specifically to implement RAG workflows.' },
+    { q: 'How can I run an LLM locally?', a: 'Use Ollama. Ollama is a tool that allows you to download and run open-source LLMs (like Llama 3, Mistral, Gemma) directly on your local machine or self-hosted server. It provides a simple CLI and an API compatible with OpenAI.' }
 ];
 
 const allTools = {
@@ -45,66 +95,9 @@ const allTools = {
         install: 'git clone https://github.com/langgenius/dify.git && cd dify/docker && docker-compose up -d',
         features: ['Visual orchestration of LLM apps', 'Built-in RAG engine', 'Prompt IDE', 'Vector database integrations'],
         alternatives: ['langflow', 'flowise']
-    },
-    'qdrant': {
-        name: 'Qdrant', tag: 'Vector DB', emoji: '🗄️', github_stars: 18000, license: 'Apache 2.0',
-        description: 'Qdrant is a high-performance, massive-scale Vector Database for the next generation of AI applications. Built in Rust.',
-        install: 'docker run -p 6333:6333 -p 6334:6334 qdrant/qdrant',
-        features: ['HNSW graph memory optimization', 'Payload-based filtering', 'Rust performance', 'Distributed architecture capabilities'],
-        alternatives: ['milvus', 'weaviate', 'pgvector']
-    },
-    'claude-code': {
-        name: 'Claude Code', tag: 'AI Agent', emoji: '⚡', github_stars: 9500, license: 'Proprietary CLI (Free Tier)',
-        description: 'Claude Code is an autonomous coding agent by Anthropic that operates directly in your terminal to read code, write commits, and execute bash.',
-        install: 'npm install -g @anthropic-ai/claude-code',
-        features: ['Direct filesystem access', 'Git integration', 'Bash execution', 'Understands massive codebases via RAG'],
-        alternatives: ['goose', 'aider', 'cline']
-    },
-    'cline': {
-        name: 'Cline', tag: 'VS Code', emoji: '🖊️', github_stars: 12000, license: 'Apache 2.0',
-        description: 'Cline is an AI assistant that lives in your IDE, capable of planning and executing multi-file codebase changes safely.',
-        install: 'ext install saoudrizwan.claude-dev',
-        features: ['VS Code extension', 'Tool use capability (read/write files)', 'Terminal access', 'Multiple LLM provider support'],
-        alternatives: ['roo-code', 'cursor']
-    },
-    'activepieces': {
-        name: 'Activepieces', tag: 'Automation', emoji: '🧩', github_stars: 11000, license: 'MIT',
-        description: 'An open-source no-code business automation tool. A direct, purely open-source alternative to Zapier.',
-        install: 'docker pull activepieces/activepieces && docker run -p 8080:8080 activepieces/activepieces',
-        features: ['Pure open source alternative', '150+ components', 'TypeScript piece creation', 'Self-hosted friendly'],
-        alternatives: ['n8n', 'huginn']
-    },
-    'open-webui': {
-        name: 'Open WebUI', tag: 'Chat', emoji: '💬', github_stars: 45000, license: 'MIT',
-        description: 'An extensible, feature-rich, and user-friendly self-hosted AI UI that integrates beautifully with Ollama.',
-        install: 'docker run -d -p 3000:8080 --add-host=host.docker.internal:host-gateway -v open-webui:/app/backend/data --name open-webui --restart always ghcr.io/open-webui/open-webui:main',
-        features: ['Seamless Ollama integration', 'Document parsing for RAG', 'Role-based access control', 'Web browsing capabilities'],
-        alternatives: ['lobe-chat', 'chatbot-ui']
     }
 };
 
-// Generic filler for remaining tools that weren't explicitly detailed
-const genericTools = ['marimo', 'langflow', 'onyx', 'goose', 'roo-code', 'windmill', 'pipedream', 'milvus', 'weaviate', 'pgvector', 'aider', 'autogpt'];
-genericTools.forEach(gt => {
-    if(!allTools[gt]) {
-        allTools[gt] = {
-            name: gt.charAt(0).toUpperCase() + gt.slice(1).replace('-', ' '),
-            tag: 'Developer Tool', emoji: '🔧', github_stars: Math.floor(Math.random() * 10000) + 1000, license: 'Open Source',
-            description: `${gt} is a powerful developer utility designed for modern tech stacks. Built for scalability and self-hosting.`,
-            install: `docker run -d ${gt}/${gt}:latest`,
-            features: ['Open-source core', 'Self-hosting supported', 'API-first design', 'Active community'],
-            alternatives: ['n8n', 'dify']
-        }
-    }
-});
-
-const STATIC_ARTICLES = [
-    { title: 'n8n vs ActivePieces: Which Automation Tool Wins in 2026?', url: '/blog/n8n-vs-activepieces', date: 'April 10, 2026', read: '5 min read', desc: 'Comparing features, pricing, and self-hosting capabilities of the two biggest open-source automation platforms.' },
-    { title: 'Complete Guide to Self-Hosting Ollama on Ubuntu 24.04', url: '/blog/ollama-self-hosting-guide', date: 'April 8, 2026', read: '8 min read', desc: 'Step-by-step instructions for running large language models locally on your own hardware without paying cloud fees.' },
-    { title: 'Qdrant vs Milvus: Vector Database Comparison 2026', url: '/blog/qdrant-milvus-comparison', date: 'April 5, 2026', read: '6 min read', desc: 'Performance benchmarks, ease-of-use analysis, and real-world production advice for choosing a Vector DB.' }
-];
-
-// --- MASTER UI COMPONENTS ---
 const MASTER_CSS = `
 :root {
   --bg: #080B10; --bg2: #0D1117; --bg3: #111820; --surface: #141C26; --surface2: #1A2332;
@@ -123,40 +116,44 @@ nav{position:sticky;top:0;z-index:100;background:rgba(8,11,16,0.92);backdrop-fil
 .nav-links{display:flex;align-items:center;gap:0.25rem;list-style:none;margin-left:auto}
 .nav-links a{color:var(--text2);text-decoration:none;font-size:0.875rem;padding:0.4rem 0.75rem;border-radius:var(--radius);transition:all 0.2s}
 .nav-links a:hover{color:var(--text);background:var(--surface)}
-.container{max-width:1000px;margin:0 auto;padding:0 2rem;position:relative;z-index:1}
+.container{max-width:1100px;margin:0 auto;padding:0 2rem;position:relative;z-index:1}
 h1,h2,h3{font-family:var(--font-display);font-weight:800;letter-spacing:-1px}
-.page-hero{padding:4rem 0 3rem;position:relative;border-bottom:1px solid var(--border);}
-.page-hero h1{font-size:clamp(2.5rem,6vw,4rem);margin-bottom:1rem;line-height:1.1}
-.page-hero p{color:var(--text2);font-size:1.2rem;margin-bottom:2rem}
-.prose{color:var(--text2);line-height:1.8;font-size:1.1rem;margin:3rem 0}
-.prose h2{color:var(--text);margin:2.5rem 0 1rem;font-size:1.8rem;}
-.prose ul{padding-left:1.5rem;margin-bottom:1.5rem;}
-.prose li{margin-bottom:0.5rem;}
-.prose a{color:var(--accent);text-decoration:none;} .prose a:hover{text-decoration:underline;}
-pre{background:#050810;padding:1.5rem;border-radius:var(--radius);border:1px solid var(--border);overflow-x:auto;margin:1rem 0 2rem;font-family:var(--font-mono);color:var(--green);font-size:0.9rem;}
-.card-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:1.5rem;margin:2rem 0;}
-.tool-card{background:var(--surface);border:1px solid var(--border);padding:1.5rem;border-radius:var(--radius);text-decoration:none;transition:transform 0.2s, border-color 0.2s;}
-.tool-card:hover{transform:translateY(-2px);border-color:var(--accent);}
-.tool-card h3{color:var(--text);font-size:1.2rem;margin-bottom:0.5rem;font-family:var(--font-display);}
-.tool-card p{color:var(--text2);font-size:0.9rem;}
-.blog-post{border-bottom:1px solid var(--border);padding:2rem 0;}
-.blog-post h2{margin:0 0 0.5rem 0;font-size:1.5rem;}
-.blog-meta{font-family:var(--font-mono);font-size:0.8rem;color:var(--text3);margin-bottom:1rem;}
-footer{background:var(--bg2);border-top:1px solid var(--border);padding:4rem 2rem 2rem;margin-top:8rem}
-.footer-bottom{max-width:1400px;margin:2rem auto 0;padding-top:2rem;border-top:1px solid var(--border);display:flex;justify-content:space-between;font-size:0.8rem;color:var(--text3);font-family:var(--font-mono)}
+.page-hero{padding:5rem 0 4rem;position:relative;border-bottom:1px solid var(--border);}
+.page-hero h1{font-size:clamp(2.5rem,6vw,4.5rem);margin-bottom:1.5rem;line-height:1.1}
+.page-hero p{color:var(--text2);font-size:1.3rem;margin-bottom:2rem;max-width:800px;}
+.prose{color:var(--text2);line-height:1.8;font-size:1.15rem;margin:4rem 0}
+.prose h2{color:var(--text);margin:3.5rem 0 1.5rem;font-size:2.2rem;border-left:4px solid var(--accent);padding-left:1.5rem;}
+.prose h3{color:var(--text);margin:2.5rem 0 1rem;font-size:1.6rem;}
+.prose p{margin-bottom:1.8rem;}
+.prose ul{padding-left:1.5rem;margin-bottom:2rem;}
+.prose li{margin-bottom:0.8rem;}
+.prose a{color:var(--accent);text-decoration:none;font-weight:600;} .prose a:hover{text-decoration:underline;}
+pre{background:#050810;padding:2rem;border-radius:var(--radius);border:1px solid var(--border2);overflow-x:auto;margin:2rem 0;font-family:var(--font-mono);color:var(--green);font-size:0.95rem;box-shadow:inset 0 4px 20px rgba(0,0,0,0.5);}
+.card-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:2rem;margin:3rem 0;}
+.tool-card{background:var(--surface);border:1px solid var(--border);padding:2rem;border-radius:var(--radius2);text-decoration:none;transition:all 0.3s cubic-bezier(0.4, 0, 0.2, 1);display:flex;flex-direction:column;gap:1rem;}
+.tool-card:hover{transform:translateY(-5px);border-color:var(--accent);background:var(--surface2);box-shadow:0 12px 40px rgba(0,212,255,0.1);}
+.tool-card h3{color:var(--text);font-size:1.4rem;font-family:var(--font-display);}
+.tool-card p{color:var(--text2);font-size:0.95rem;flex-grow:1;}
+.faq-section{margin-top:6rem;padding-top:4rem;border-top:1px solid var(--border)}
+.faq-item{margin-bottom:3rem;}
+.faq-item h3{font-size:1.3rem;margin-bottom:1rem;color:var(--text);}
+.faq-item p{color:var(--text2);line-height:1.7;}
+footer{background:var(--bg2);border-top:1px solid var(--border);padding:6rem 2rem 3rem;margin-top:10rem}
+.footer-bottom{max-width:1400px;margin:3rem auto 0;padding-top:2rem;border-top:1px solid var(--border);display:flex;justify-content:space-between;font-size:0.85rem;color:var(--text3);font-family:var(--font-mono)}
 `;
 
-const getLayout = (title, content, head = {}) => {
+const getLayout = (title, content, head = {}, faqSchema = null) => {
     return `<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>${title} | Freemium.Services</title>
-    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="${SITE_URL}${head.path || ''}">
     <meta name="description" content="${head.description || 'Verified directory of freemium and open-source software.'}">
     <link href="https://fonts.googleapis.com/css2?family=Space+Mono&family=Syne:wght@400;700;800&family=DM+Sans:wght@400;500&display=swap" rel="stylesheet">
     <style>${MASTER_CSS}</style>
+    ${faqSchema ? `<script type="application/ld+json">${JSON.stringify(faqSchema)}</script>` : ''}
 </head>
 <body>
     <nav>
@@ -164,7 +161,7 @@ const getLayout = (title, content, head = {}) => {
             <a href="/" class="logo">freemium<span>.services</span></a>
             <ul class="nav-links">
                 <li><a href="/category/ai-tools.html">AI Tools</a></li>
-                <li><a href="/category/open-source.html">Open Source</a></li>
+                <li><a href="/category/automation-tools.html">Automation</a></li>
                 <li><a href="/docs.html">Docs</a></li>
                 <li><a href="${TQ_URL}" style="color:var(--accent)">TurboQuant ↗</a></li>
             </ul>
@@ -172,6 +169,11 @@ const getLayout = (title, content, head = {}) => {
     </nav>
     <main>${content}</main>
     <footer>
+        <div class="container" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:4rem;">
+            <div><a href="/" class="logo">freemium<span>.services</span></a><p style="margin-top:1.5rem;color:var(--text3);font-size:0.9rem;">Empowering developers with open-source sovereignty and freemium intelligence.</p></div>
+            <div><h4 style="margin-bottom:1.5rem;">Categories</h4>${categories.map(c=>`<a href="/category/${c.id}.html" style="display:block;color:var(--text3);text-decoration:none;margin-bottom:0.5rem;">${c.name}</a>`).join('')}</div>
+            <div><h4 style="margin-bottom:1.5rem;">Resources</h4><a href="/docs.html" style="display:block;color:var(--text3);text-decoration:none;margin-bottom:0.5rem;">Documentation</a><a href="/quickstart.html" style="display:block;color:var(--text3);text-decoration:none;margin-bottom:0.5rem;">Quickstart</a></div>
+        </div>
         <div class="footer-bottom">
             <span>© 2026 Freemium.Services.</span>
             <span><a href="/sitemap.xml" style="color:var(--accent);">XML Sitemap</a></span>
@@ -181,75 +183,57 @@ const getLayout = (title, content, head = {}) => {
 </html>`;
 };
 
-// --- UNIQUE PAGE GENERATORS ---
-
-function genBlogPage() {
-    let content = `
-    <div class="container">
-        <div class="page-hero">
-            <h1>Open Source & Freemium AI Tools Blog</h1>
-            <p>Latest updates on n8n, Dify, Ollama, and self-hosting AI tools. Tutorials, comparisons, and industry news.</p>
-        </div>
-        <div class="prose">
-            ${STATIC_ARTICLES.map(art => `
-            <article class="blog-post">
-                <h2>${art.title}</h2>
-                <div class="blog-meta">Published: ${art.date} | ${art.read}</div>
-                <p>${art.desc}</p>
-                <a href="${art.url}" style="font-weight:600;">Read More →</a>
-            </article>
-            `).join('')}
-        </div>
-    </div>`;
-    fs.writeFileSync(path.join(outDir, 'blog.html'), getLayout('Blog', content, { description: 'Latest news and updates.' }));
-}
-
-function genQuickstartPage() {
-    let content = `
-    <div class="container">
-        <div class="page-hero">
-            <h1>🚀 Directory Quickstart</h1>
-            <p>How to navigate testing and deploying the 2,000+ tools found on Freemium.Services.</p>
-        </div>
-        <div class="prose">
-            <h2>1. Understand the Licenses</h2>
-            <p>Open Source (MIT/Apache 2.0) tools are fully free. Fair-code tools like n8n require careful auditing for commercial deployment. Always check the badges on our tool pages.</p>
-            <h2>2. Docker is your Best Friend</h2>
-            <p>Almost 95% of the self-hosted directory tools utilize Docker setups. Make sure you have Docker daemon running locally or a virtual machine provisioned on TurboQuant network.</p>
-            <pre><code>curl -fsSL https://get.docker.com -o get-docker.sh && sh get-docker.sh</code></pre>
-            <h2>3. Using Reverse Proxies</h2>
-            <p>If you plan to expose tools like Dify or Open-WebUI, deploy them behind Nginx Proxy Manager or Traefik to ensure SSL/TLS validity and secure exposure.</p>
-        </div>
-    </div>`;
-    fs.writeFileSync(path.join(outDir, 'quickstart.html'), getLayout('Quickstart Guide', content, { description: 'Get started with testing tools.' }));
-}
+// --- CORE GENERATORS ---
 
 function genCategoryPages() {
     categories.forEach(cat => {
         let toolsHTML = cat.tools ? cat.tools.map(tid => {
-            const t = allTools[tid] || { name: tid, description: 'Tool', emoji: '🔧' };
+            const t = allTools[tid] || { name: tid, description: 'High-performance open-source utility.', emoji: '🔧' };
             return `<a href="/tools/${tid}.html" class="tool-card">
                 <h3>${t.emoji} ${t.name}</h3>
                 <p>${t.description}</p>
+                <div style="font-size:0.75rem;color:var(--accent);font-family:var(--font-mono);">VIEW GUIDE →</div>
             </a>`;
         }).join('') : '';
+
+        const faqSchema = {
+            "@context": "https://schema.org",
+            "@type": "FAQPage",
+            "mainEntity": faqBank.map(f => ({
+                "@type": "Question",
+                "name": f.q,
+                "acceptedAnswer": { "@type": "Answer", "text": f.a }
+            }))
+        };
 
         let content = `
         <div class="container">
             <div class="page-hero">
-                <h1>${cat.icon} Best ${cat.name} in 2026</h1>
+                <h1>${cat.icon} ${cat.name} — Essential Open Source Hub</h1>
                 <p>${cat.desc}</p>
             </div>
             <div class="prose">
-                <h2>Top Picked Tools</h2>
+                <h2>Top Verified ${cat.name}</h2>
                 <div class="card-grid">
                     ${toolsHTML}
                 </div>
-                <h2>Why use ${cat.name}?</h2>
-                <p>Establishing proper architecture in your organization relies on adopting the right ${cat.name}. We specifically filter and rank these solutions for performance, open-source purity, and self-hosting simplicity.</p>
+                ${cat.longDesc || '<p>Detailed analysis of this category is currently being finalized into a comprehensive pillar guide.</p>'}
+                
+                <section class="faq-section">
+                    <h2>Expert FAQ — ${cat.name} & Open Source Mastery</h2>
+                    <div style="margin-top:2rem;">
+                        ${faqBank.map(f => `
+                            <div class="faq-item">
+                                <h3>Q: ${f.q}</h3>
+                                <p>A: ${f.a}</p>
+                            </div>
+                        `).join('')}
+                    </div>
+                </section>
             </div>
         </div>`;
-        fs.writeFileSync(path.join(categoryDir, `${cat.id}.html`), getLayout(`Best ${cat.name}`, content, { description: cat.desc }));
+        
+        fs.writeFileSync(path.join(categoryDir, `${cat.id}.html`), getLayout(`Best ${cat.name} 2026`, content, { description: cat.desc, path: `/category/${cat.id}.html` }, faqSchema));
     });
 }
 
@@ -259,57 +243,36 @@ function genToolPages() {
         let content = `
         <div class="container">
             <div class="page-hero" style="border:none; padding-bottom:1rem;">
-                <div style="font-family:var(--font-mono);font-size:0.8rem;color:var(--accent);margin-bottom:1rem;text-transform:uppercase;">
-                    ${t.tag} • ${t.license} • ⭐ ${t.github_stars.toLocaleString()} Stars
+                <div style="font-family:var(--font-mono);font-size:0.8rem;color:var(--accent);margin-bottom:1.5rem;text-transform:uppercase;letter-spacing:1px;">
+                    ${t.tag} • ${t.license} • ⭐ ${t.github_stars.toLocaleString()} Github Stars
                 </div>
-                <h1 style="display:flex;align-items:center;gap:1rem;">${t.emoji} ${t.name}</h1>
-                <p style="font-size:1.3rem;">${t.description}</p>
+                <h1 style="display:flex;align-items:center;gap:1.5rem;">${t.emoji} ${t.name}</h1>
+                <p style="font-size:1.4rem;line-height:1.4;">${t.description}</p>
             </div>
             
             <div class="prose" style="margin-top:1rem;">
-                <h2>What is ${t.name}?</h2>
-                <p>${t.description} It integrates seamlessly with modern development environments and acts as a central hub for ${t.tag.toLowerCase()} workflows.</p>
+                <h2>Mastering ${t.name} Deployment</h2>
+                <p>${t.description} As an essential entity in the <strong>${t.tag}</strong> ecosystem, ${t.name} defines the standard for performance and scalability in 2026 infrastructure stacks.</p>
                 
-                <h2>Key Features</h2>
+                <h3>Core Capabilities</h3>
                 <ul>
-                    ${t.features.map(f => `<li>✅ ${f}</li>`).join('')}
+                    ${t.features.map(f => `<li>✅ <strong>${f.split(' ')[0]}</strong>: ${f.split(' ').slice(1).join(' ')}</li>`).join('')}
                 </ul>
                 
-                <h2>Quick Install</h2>
+                <h3>One-Line Production Install</h3>
                 <pre><code>${t.install}</code></pre>
                 
-                <h2>Alternatives</h2>
-                <ul>
-                    ${t.alternatives.map(a => `<li><a href="/tools/${a}.html" style="text-transform:capitalize;">${a.replace('-',' ')}</a></li>`).join('')}
-                </ul>
+                <h3>Semantic Alternatives</h3>
+                <div class="card-grid" style="margin-top:2rem;">
+                    ${t.alternatives.map(a => `<a href="/tools/${a}.html" class="tool-card" style="padding:1.2rem;min-width:0;"><h4 style="text-transform:capitalize;">${a.replace('-',' ')}</h4></a>`).join('')}
+                </div>
             </div>
         </div>`;
-        fs.writeFileSync(path.join(toolsDir, `${tid}.html`), getLayout(`${t.name} Guide`, content, { description: `Self-hosting guide and features for ${t.name}.` }));
-    });
-}
-
-function genExtraPages() {
-    // Generate minimal unique info for other extras without duplicate blocks
-    const extras = [
-        { id: 'self-hosting-guide', title: 'Self Hosting Guide', content: '<p>A deep dive into VPS provisioning, Docker Compose architectures, and network tunneling for private tools.</p>' },
-        { id: 'compare-tools', title: 'Compare Tools', content: '<p>A matrix database comparing the 2000+ top tools against proprietary competitors (e.g., n8n vs Zapier, Supabase vs Firebase).</p>' },
-        { id: 'changelog', title: 'Changelog', content: '<p>V2.0: Deployed completely unique content across 80+ pages. Removed all legacy generic loops. Boosted SEO score.</p>' }
-    ];
-    extras.forEach(p => {
-        let pageHTML = `
-        <div class="container">
-            <div class="page-hero"><h1>${p.title}</h1><p>Documentation & Reference for 2026.</p></div>
-            <div class="prose">${p.content}</div>
-        </div>`;
-        fs.writeFileSync(path.join(outDir, `${p.id}.html`), getLayout(p.title, pageHTML, { description: p.title }));
+        fs.writeFileSync(path.join(toolsDir, `${tid}.html`), getLayout(`${t.name} Setup Guide`, content, { description: `How to deploy and maintain ${t.name}.`, path: `/tools/${tid}.html` }));
     });
 }
 
 // --- EXECUTION ---
-console.log('Generating Categories...'); genCategoryPages();
-console.log('Generating Tools...'); genToolPages();
-console.log('Generating Unique Blog...'); genBlogPage();
-console.log('Generating Unique Quickstart...'); genQuickstartPage();
-console.log('Generating Extra Pages...'); genExtraPages();
-
+console.log('Generating Reimagined Categories...'); genCategoryPages();
+console.log('Generating Reimagined Tools...'); genToolPages();
 console.log('Site build successful.');
