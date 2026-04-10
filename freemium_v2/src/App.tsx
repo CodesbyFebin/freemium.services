@@ -1,6 +1,7 @@
 import { BrowserRouter as Router, Routes, Route, Link, useParams, useNavigate } from 'react-router-dom';
 import { HelmetProvider, Helmet } from 'react-helmet-async';
 import { Analytics } from '@vercel/analytics/react';
+import { SpeedInsights } from '@vercel/speed-insights/react';
 
 import { motion, AnimatePresence } from 'motion/react';
 import {
@@ -1808,6 +1809,7 @@ export default function App() {
           <Footer />
           <ChatWidget />
           <Analytics />
+          <SpeedInsights />
         </div>
       </Router>
     </HelmetProvider>
