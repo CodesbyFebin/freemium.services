@@ -12,6 +12,7 @@ import { useState, useEffect, useMemo, useRef, useCallback } from 'react';
 import { cn } from './lib/utils';
 import { CATEGORIES, TOOLS, KNOWLEDGE_HUB, COMPARISONS, type Tool, type Category } from './lib/data';
 import ReactMarkdown from 'react-markdown';
+import { Analytics } from '@vercel/analytics/react';
 
 // ─── Design tokens ───────────────────────────────────────────────
 const C = {
