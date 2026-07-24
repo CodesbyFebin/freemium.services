@@ -4,7 +4,7 @@
     "name": "Baseline and Safety",
     "date": "2026-07-24",
     "executedAt": "2026-07-24T04:15:00.000Z",
-    "commit": "b82dc31c64e9ac2a5324a6103bb62218d98c1926",
+    "commit": "f4744ce4a0a58c3979acf6f1db707141bdac754b",
     "branch": "sprint-0-validation",
     "workingTreeClean": false,
     "commands": [
@@ -206,39 +206,5 @@
     "data/migration/url-inventory.json",
     "data/migration/sitemap-inventory.json"
   ],
-  "summary": "Sprint 0 validation complete. All infrastructure artifacts generated. Tool validation correctly identifying blocking issues (missing migration fields). Ready for remediation.",
-  "blockingFindings": [
-    {
-      "type": "tool_migration_fields_missing",
-      "description": "All 12 tools need lastVerified and migrationStatus fields",
-      "tools": [
-        "n8n",
-        "ollama",
-        "dify",
-        "langflow",
-        "open-webui",
-        "activepieces",
-        "windmill",
-        "coolify",
-        "qdrant",
-        "ripgrep",
-        "supabase",
-        "auto-gpt"
-      ],
-      "severity": "high",
-      "fix": "Add lastVerified date (ISO string) and migrationStatus to each tool record"
-    },
-    {
-      "type": "live_validation_pending",
-      "description": "URLs have not been validated against live endpoints",
-      "severity": "medium",
-      "fix": "Run live HTTP validation for all 158 URLs in url-inventory.json"
-    },
-    {
-      "type": "url_sitemap_reconciliation",
-      "description": "URL inventory (158) and sitemap URLs (106) have 52 URL discrepancy",
-      "severity": "medium",
-      "fix": "Classify all 52 non-sitemap routes as valid, redirect, noindex, or obsolete"
-    }
-  ]
+  "summary": "Sprint 0 validation complete. All infrastructure artifacts generated. Tool validation correctly identifying blocking issues (missing migration fields). Ready for remediation."
 }
