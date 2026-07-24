@@ -1,0 +1,74 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { getEntryBySlug, getCollection } from 'astro:content';
+
+// Required for dynamic routes
+export async function getStaticPaths() {
+  const tools = await getCollection('tools');
+  return tools.map((tool) => ({
+    params: { id: tool.id },
+    props: { tool }
+  }));
+}
+
+const tool = getEntryBySlug('tools', Astro.params.id);
+
+if (!tool) {
+  throw new Error('Tool not found');
+}
+---
+
+<BaseLayout 
+  title={tool.data.name + ' | Freemium.Services'}
+  description={tool.data.description.substring(0, 160)}
+>
+  <div class="max-w-4xl mx-auto">
+    <div class="mb-6">
+      <div class="flex items-center gap-3 mb-4">
+        {tool.data.emoji && <span class="text-4xl">{tool.data.emoji}</span>}
+        <h1 class="text-3xl font-bold">{tool.data.name}</h1>
+      </div>
+      
+      <p class="text-lg text-gray-700 mb-4">{tool.data.description}</p>
+    </div>
+
+    <div class="grid md:grid-cols-2 gap-8">
+      <div>
+        <h2 class="text-xl font-bold mb-3">Installation</h2>
+        <pre class="bg-gray-100 p-3 rounded-lg text-sm overflow-x-auto">
+          <code>{tool.data.install}</code>
+        </pre>
+        
+        <h2 class="text-xl font-bold mt-6 mb-3">Key Features</h2>
+        <ul class="list-disc list-inside space-y-2 text-gray-700">
+          {tool.data.features.map((feature) => (
+            <li>{feature}</li>
+          ))}
+        </ul>
+      </div>
+      
+      <div>
+        {tool.data.alternatives && tool.data.alternatives.length > 0 && (
+          <div class="mb-6">
+            <h2 class="text-xl font-bold mb-3">Alternatives</h2>
+            <div class="flex flex-wrap gap-2">
+              {tool.data.alternatives.map((alt) => (
+                <span class="bg-gray-100 px-2 py-1 rounded text-sm">{alt}</span>
+              ))}
+            </div>
+          </div>
+        )}
+        
+        <div class="text-sm text-gray-500 mb-4">
+          <p><strong>Category:</strong> {tool.data.category}</p>
+          <p><strong>Stars:</strong> {tool.data.stars}</p>
+          <p><strong>License:</strong> {tool.data.license}</p>
+        </div>
+        
+        <div class="text-xs text-gray-400">
+          Last verified: {new Date(tool.data.lastVerified).toLocaleDateString()}
+        </div>
+      </div>
+    </div>
+  </div>
+</BaseLayout>

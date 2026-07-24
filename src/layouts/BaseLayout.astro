@@ -1,0 +1,48 @@
+---
+---
+
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    
+    <!-- Primary SEO -->
+    <title>{Astro.props?.title || 'Freemium.Services'}</title>
+    {Astro.props?.description && <meta name="description" content={Astro.props.description} />}
+    
+    <!-- Canonical URL -->
+    <link rel="canonical" href={`https://freemium.services${Astro.url}`} />
+    
+    <!-- Open Graph -->
+    <meta property="og:title" content={Astro.props?.title || 'Freemium.Services'} />
+    <meta property="og:description" content={Astro.props?.description || 'Open-source AI tools and infrastructure'} />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={`https://freemium.services${Astro.url}`} />
+    
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={Astro.props?.title || 'Freemium.Services'} />
+    <meta name="twitter:description" content={Astro.props?.description || 'Open-source AI tools and infrastructure'} />
+  </head>
+  
+  <body class="bg-gray-50 text-gray-900 antialiased">
+    <header class="bg-white shadow-sm border-b">
+      <div class="max-w-7xl mx-auto px-4 py-4">
+        <a href="/" class="text-2xl font-bold text-blue-600">
+          Freemium.Services
+        </a>
+      </div>
+    </header>
+    
+    <main class="max-w-7xl mx-auto px-4 py-8">
+      <slot />
+    </main>
+    
+    <footer class="bg-white mt-16 border-t py-8">
+      <div class="max-w-7xl mx-auto px-4 text-center text-gray-600">
+        <p>&copy; {new Date().getFullYear()} Freemium.Services. All rights reserved.</p>
+      </div>
+    </footer>
+  </body>
+</html>

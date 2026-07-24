@@ -1,0 +1,87 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { getCollection } from 'astro:content';
+
+const tools = await getCollection('tools');
+const categories = await getCollection('categories');
+---
+
+<BaseLayout 
+  title="Freemium.Services - Open-Source AI Tools Directory"
+  description="Directory of verified open-source AI tools, LLMs, RAG frameworks, and automation platforms. Compare, learn, and self-host."
+>
+  <div class="space-y-12">
+    <!-- Hero Section -->
+    <div class="text-center py-12">
+      <h1 class="text-4xl md:text-5xl font-bold mb-4">
+        Open-Source AI Tools & Infrastructure
+      </h1>
+      <p class="text-xl text-gray-600 mb-8 max-w-3xl mx-auto">
+        The definitive guide to self-hosting, comparing, and deploying open-source AI and automation tools.
+      </p>
+    </div>
+
+    <!-- Categories Section -->
+    <section>
+      <h2 class="text-2xl font-bold mb-6">Explore by Category</h2>
+      <div class="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
+        {categories.slice(0, 6).map((category) => {
+          const toolCount = category.data.toolCount || (tools?.filter((t) => 
+            t.data.category === category.id || 
+            t.data.category === category.data.slug
+          ).length || 0);
+          return (
+            <a 
+              href={"/categories/" + category.id + "/"}
+              class="border rounded-lg p-4 hover:shadow-lg transition-shadow bg-white"
+            >
+              <h3 class="font-bold text-lg">{category.data.name}</h3>
+              <p class="text-sm text-gray-600 mt-1">{category.data.description}</p>
+              <span class="text-xs text-gray-500 mt-2">{toolCount} tools</span>
+            </a>
+          );
+        })}
+      </div>
+    </section>
+
+    <!-- Popular Tools Section -->
+    <section>
+      <h2 class="text-2xl font-bold mb-6">Popular Tools</h2>
+      <div class="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
+        {tools.map((tool) => ({
+          ...tool,
+          sort: (tool.data as any).stars || 0
+        }))
+          .sort((a, b) => ((b as any).sort as number) - ((a as any).sort as number))
+          .slice(0, 9)
+          .map((tool) => {
+            const t = tool as any;
+            return (
+              <div class="border rounded-lg p-4 bg-white">
+                <div class="flex items-center mb-2">
+                  {t.data.emoji && <span className="text-2xl">{t.data.emoji}</span>}
+                  <h3 class="font-bold text-lg ml-2">{t.data.name}</h3>
+                </div>
+                <p class="text-sm text-gray-600 mb-2">{t.data.description?.substring(0, 100)}...</p>
+                <div className="flex justify-between items-center">
+                  <span className="text-xs text-gray-500">{t.data.category}</span>
+                  <a href={"/tools/" + t.id + "/"} class="text-blue-600 text-sm">Details →</a>
+                </div>
+              </div>
+            );
+          })}
+      </div>
+    </section>
+
+    <!-- Knowledge Hub Section -->
+    <section class="bg-blue-50 rounded-lg p-8">
+      <h2 class="text-2xl font-bold mb-4">Knowledge Hub</h2>
+      <p class="text-gray-700 mb-4">
+        Comprehensive guides for building and deploying open-source AI infrastructure.
+      </p>
+      <a href="/knowledge-hub/" class="inline-block bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700">
+        Browse Guides →
+      </a>
+    </section>
+  </div>
+</BaseLayout>
