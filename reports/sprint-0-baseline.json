@@ -19,12 +19,25 @@
       "validate-tools.ts": 0,
       "audit-claims.py": 0
     },
-    "gateStatus": "passes-with-blockers",
+    "gateStatus": "blocked",
     "blockingFindings": [
       {
         "type": "migration_fields_missing",
         "description": "Tools missing lastVerified and migrationStatus fields",
-        "tools": ["n8n", "ollama", "dify", "langflow", "open-webui", "activepieces", "windmill", "coolify", "qdrant", "ripgrep", "supabase", "auto-gpt"],
+        "tools": [
+          "n8n",
+          "ollama",
+          "dify",
+          "langflow",
+          "open-webui",
+          "activepieces",
+          "windmill",
+          "coolify",
+          "qdrant",
+          "ripgrep",
+          "supabase",
+          "auto-gpt"
+        ],
         "severity": "high",
         "fix": "Add lastVerified date and migrationStatus to each tool record"
       },
@@ -47,7 +60,8 @@
       "route-validation.json": "dd8096019bcdd174",
       "content-validation.json": "5f66c636794eb8dd",
       "claim-audit.json": "2dacbdcd6c69c7f1"
-    }
+    },
+    "status": "baseline_complete_gate_blocked"
   },
   "checks": {
     "repositoryArchitecture": {
@@ -78,8 +92,8 @@
       "required": true,
       "completed": true,
       "validated": true,
-      "claimsFound": 4,
-      "validClaims": 4,
+      "claimsFound": 2,
+      "validClaims": 2,
       "invalidClaims": 0,
       "notes": "Context-aware validation performed in reports/claim-audit.json"
     },
@@ -162,26 +176,27 @@
     "blockingReason": "Tools require lastVerified date and migrationStatus field for migration readiness",
     "remedy": "Add lastVerified (ISO date string) and migrationStatus (source|v2-only|needs-sync|migrated) to each tool record"
   },
-"scriptSubstitutionLog": {
-      "originalScript": "scripts/audit-claims.ts",
-      "problem": "TypeScript recursive directory scanning caused memory exhaustion",
-      "solution": "Replaced with Python script scripts/audit-claims.py with targeted file scanning",
-      "pythonVersion": "3.x",
-      "bugFix": "Fixed false claim detection from 'V2 tools' matching '2 tools'",
-      "changes": [
-        "Context-aware metric validation (staticToolCount vs v2ToolCount)",
-        "Targeted file reading instead of full directory scan",
-        "Fixed regex to avoid matching numbers in words like 'V2'",
-        "Better error handling and memory management"
-      ]
-    },
-"nextSteps": [
-        "Add lastVerified and migrationStatus fields to all 12 tools in data/tools.json",
-        "Add primaryEvidence (documentation, pricing, licensing URLs) to tool records",
-        "Run live HTTP validation for all URLs in url-inventory.json",
-        "Initialize git repository and commit Sprint 0 artifacts",
-        "Address claim in URL-CONTRACT.md about 'top 10 tools' - verify if this needs updating"
-    ],
+  "scriptSubstitutionLog": {
+    "originalScript": "scripts/audit-claims.ts",
+    "problem": "TypeScript recursive directory scanning caused memory exhaustion",
+    "solution": "Replaced with Python script scripts/audit-claims.py with targeted file scanning",
+    "pythonVersion": "3.x",
+    "bugFix": "Fixed false claim detection from 'V2 tools' matching '2 tools'",
+    "changes": [
+      "Context-aware metric validation (staticToolCount vs v2ToolCount)",
+      "Targeted file reading instead of full directory scan",
+      "Fixed regex to avoid matching numbers in words like 'V2'",
+      "Better error handling and memory management"
+    ]
+  },
+  "nextSteps": [
+    "Add lastVerified and migrationStatus fields to all 12 tools in data/tools.json",
+    "Add primaryEvidence (documentation, pricing, licensing URLs) to tool records",
+    "Run live HTTP validation for all 158 URLs in url-inventory.json",
+    "Classify 52 URLs that differ between inventory (158) and sitemap (106)",
+    "Initialize git repository and commit current state if not already done",
+    "Rerun all validators after remediation to confirm gate resolution"
+  ],
   "artifacts": [
     "reports/url-inventory.json",
     "reports/sitemap-inventory.json",
@@ -191,5 +206,39 @@
     "data/migration/url-inventory.json",
     "data/migration/sitemap-inventory.json"
   ],
-  "summary": "Sprint 0 validation complete. All infrastructure artifacts generated. Tool validation correctly identifying blocking issues (missing migration fields). Ready for remediation."
+  "summary": "Sprint 0 validation complete. All infrastructure artifacts generated. Tool validation correctly identifying blocking issues (missing migration fields). Ready for remediation.",
+  "blockingFindings": [
+    {
+      "type": "tool_migration_fields_missing",
+      "description": "All 12 tools need lastVerified and migrationStatus fields",
+      "tools": [
+        "n8n",
+        "ollama",
+        "dify",
+        "langflow",
+        "open-webui",
+        "activepieces",
+        "windmill",
+        "coolify",
+        "qdrant",
+        "ripgrep",
+        "supabase",
+        "auto-gpt"
+      ],
+      "severity": "high",
+      "fix": "Add lastVerified date (ISO string) and migrationStatus to each tool record"
+    },
+    {
+      "type": "live_validation_pending",
+      "description": "URLs have not been validated against live endpoints",
+      "severity": "medium",
+      "fix": "Run live HTTP validation for all 158 URLs in url-inventory.json"
+    },
+    {
+      "type": "url_sitemap_reconciliation",
+      "description": "URL inventory (158) and sitemap URLs (106) have 52 URL discrepancy",
+      "severity": "medium",
+      "fix": "Classify all 52 non-sitemap routes as valid, redirect, noindex, or obsolete"
+    }
+  ]
 }
