@@ -1,0 +1,22 @@
+{
+  "id": "qdrant",
+  "name": "Qdrant - Vector Database",
+  "description": "Qdrant is a high-performance vector similarity search engine and vector database written in Rust. It is designed to handle high-dimensional vector embeddings with millisecond-level latency, making it the perfect memory layer for RAG (Retrieval-Augmented Generation) and semantic search applications in 2026. Qdrant provides a robust API for storing, searching, and managing vectors with additional payload filtering. Its architecture allows for vertical and horizontal scaling, supporting billion-scale datasets. By self-hosting Qdrant, developers can ensure that their sensitive vector data\u2014representing the collective knowledge of their organization\u2014remains private and secure, avoiding the high costs and privacy risks of managed cloud vector stores.",
+  "category": "vector-databases",
+  "emoji": "\ud83e\udd80",
+  "license": "Apache 2.0",
+  "stars": 18500,
+  "alternatives": [
+    "dify",
+    "langflow"
+  ],
+  "install": "docker run -p 6333:6333 qdrant/qdrant",
+  "features": [
+    "Rust-native performance and memory safety",
+    "Advanced filtering based on vector payloads",
+    "Support for multiple distance metrics (Cosine, Euclidean, Dot product)",
+    "Dynamic segment management for high-throughput updates",
+    "Horizontal scaling with distributed cluster support"
+  ],
+  "ogImage": "/og/qdrant.png"
+}

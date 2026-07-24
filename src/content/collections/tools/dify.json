@@ -1,0 +1,23 @@
+{
+  "id": "dify",
+  "name": "Dify - Open Source LLM Platform",
+  "description": "Dify is a comprehensive, open-source LLM application development platform that combines AI workflow orchestration, RAG pipelines, and agent capabilities into a cohesive visual interface. It serves as a self-hostable alternative to platforms like Coze or LangSmith. In 2026, Dify is widely adopted by engineering teams that need to deploy production-ready AI applications rapidly without getting bogged down in boilerplate code. The platform seamlessly connects to hundreds of LLMs\u2014both cloud providers like Anthropic and OpenAI, and local models via Ollama. It offers an advanced Prompt IDE, sophisticated RAG engine with built-in vector store support (Qdrant, Milvus, Weaviate), and a flexible visual builder for multi-step agentic workflows. By self-hosting Dify via Docker Compose, organizations can provide their teams with a powerful internal AI toolset while ensuring that proprietary documents uploaded for retrieval never leave the corporate firewall.",
+  "category": "ai-tools",
+  "emoji": "\ud83c\udf0a",
+  "license": "Apache 2.0",
+  "stars": 52000,
+  "alternatives": [
+    "langflow",
+    "flowise",
+    "anythingllm"
+  ],
+  "install": "git clone https://github.com/langgenius/dify.git && cd dify/docker && docker-compose up -d",
+  "features": [
+    "Visual orchestration of complex LLM applications",
+    "Enterprise-grade RAG engine with document parsing",
+    "Support for 100+ commercial and local LLMs",
+    "Built-in API generation and frontend deployment",
+    "Detailed observability, logging, and token usage tracking"
+  ],
+  "ogImage": "/og/dify.png"
+}

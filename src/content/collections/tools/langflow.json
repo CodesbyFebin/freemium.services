@@ -1,0 +1,23 @@
+{
+  "id": "langflow",
+  "name": "Langflow - Visual RAG & Agent Builder",
+  "description": "Langflow is a highly customizable, drag-and-drop visual builder for creating advanced LLM applications, RAG pipelines, and autonomous agents. Built natively on top of the popular LangChain framework, it democratizes AI development by allowing both technical and non-technical users to quickly prototype and deploy complex generative AI workflows. In the 2026 ecosystem, Langflow excels in its modularity and immediate feedback loop. Users can drag components\u2014such as LLMs, vector stores, text splitters, and custom API tools\u2014onto a canvas, connect them, and test the pipeline instantly via an integrated chat interface. Once the workflow is perfected, it can be exported as a JSON configuration or immediately accessed via Langflow's REST API, bridging the gap between no-code prototyping and production-grade deployment. Its MIT license and simple Docker deployment make it an essential tool for self-hosted AI labs.",
+  "category": "rag-tools",
+  "emoji": "\ud83d\udd17",
+  "license": "MIT",
+  "stars": 38000,
+  "alternatives": [
+    "dify",
+    "flowise",
+    "n8n"
+  ],
+  "install": "pip install langflow && langflow run",
+  "features": [
+    "Intuitive drag-and-drop LangChain component builder",
+    "Real-time testing and debugging of AI workflows",
+    "One-click export to REST API endpoints",
+    "Native integration with local LLMs and vector databases",
+    "Custom Python component creation for advanced logic"
+  ],
+  "ogImage": "/og/langflow.png"
+}

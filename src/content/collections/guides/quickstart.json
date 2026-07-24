@@ -1,0 +1,7 @@
+{
+  "id": "quickstart",
+  "title": "Quickstart: Building Your Open-Source Stack",
+  "content": "## The Modern Open-Source Stack in 2026\n\nBuilding a complete production stack without vendor lock-in is easier than ever. Here is the proven path.\n\n### Hosting Layer\nStart with Coolify on a $20/mo Hetzner VPS. It handles SSL, deployments, and monitoring for all your services.\n\n### AI Layer\n- Ollama for local model inference\n- Open WebUI for team AI chat\n- Qdrant for vector search\n\n### Automation Layer\nn8n handles 80% of integration needs visually. Add custom Python microservices for the remaining 20%.",
+  "seoTitle": "Open-Source Stack Quickstart | Freemium Services",
+  "seoDescription": "Build your complete open-source tech stack in 2026. AI, automation, hosting, and search covered."
+}

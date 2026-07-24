@@ -1,0 +1,23 @@
+{
+  "id": "coolify",
+  "name": "Coolify - Open Source PaaS",
+  "description": "Coolify is a powerful, open-source, self-hostable alternative to PaaS solutions like Heroku, Netlify, and Vercel. It allows developers to seamlessly deploy applications, databases, and services to their own servers with a single click. In 2026, as cloud costs continue to rise, Coolify has become the cornerstone of modern self-hosting and DePIN edge compute deployments. By installing Coolify on a standard VPS (like Hetzner or DigitalOcean), users gain an elegant web dashboard to manage Git-push-to-deploy workflows, automatic SSL certificate generation via Let's Encrypt, zero-downtime deployments, and integrated database backups. Coolify supports deploying static sites, Node.js/Python apps, Docker images, and complex Docker Compose stacks. It effectively turns any bare-metal hardware into a fully managed, private cloud platform, drastically cutting infrastructure costs while maintaining developer velocity.",
+  "category": "self-hosting",
+  "emoji": "\ud83d\udc33",
+  "license": "Apache 2.0",
+  "stars": 34000,
+  "alternatives": [
+    "supabase",
+    "dokku",
+    "vercel"
+  ],
+  "install": "curl -fsSL https://get.coollabs.io/coolify/install.sh | bash",
+  "features": [
+    "Git push-to-deploy for modern web frameworks",
+    "One-click deployment for popular open-source databases and tools",
+    "Automatic SSL provisioning and domain routing",
+    "Zero-downtime deployments and container management",
+    "Multi-server management from a single dashboard"
+  ],
+  "ogImage": "/og/coolify.png"
+}

@@ -1,0 +1,25 @@
+{
+  "id": "n8n-vs-zapier",
+  "toolA": "n8n",
+  "toolAName": "n8n",
+  "toolB": "zapier",
+  "toolBName": "Zapier",
+  "verdict": "n8n wins for technical teams needing self-hosting and unlimited executions. Zapier wins for non-technical users who need its 6000+ integration catalog.",
+  "features": [
+    {
+      "name": "Self-Hosting",
+      "valA": true,
+      "valB": false
+    },
+    {
+      "name": "Free Tier",
+      "valA": "Unlimited (self-hosted)",
+      "valB": "100 tasks/mo"
+    },
+    {
+      "name": "Integrations",
+      "valA": "400+",
+      "valB": "6000+"
+    }
+  ]
+}

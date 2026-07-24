@@ -1,0 +1,23 @@
+{
+  "id": "windmill",
+  "name": "Windmill - Developer Automation",
+  "description": "Windmill is an open-source developer platform for turning scripts into internal tools, APIs, and complex automated workflows. Unlike Zapier or n8n which focus on API connectivity via visual nodes, Windmill is deeply developer-centric. It allows you to write raw Python, TypeScript, Go, or Bash scripts and instantly orchestrate them into UI dashboards, cron jobs, or webhook endpoints. In 2026, engineering teams rely on Windmill to rapidly deploy internal tooling without the overhead of building full-stack applications. Windmill's architecture is built in Rust, making its worker execution incredibly fast and efficient. It automatically generates UI forms based on your script's parameters and provides granular access control. For developers needing to glue infrastructure together, run database migrations, or orchestrate high-performance CI/CD extensions, Windmill provides an unparalleled, self-hostable solution.",
+  "category": "developer-tools",
+  "emoji": "\u2699\ufe0f",
+  "license": "AGPLv3",
+  "stars": 9800,
+  "alternatives": [
+    "n8n",
+    "activepieces",
+    "pipedream"
+  ],
+  "install": "curl -sL https://github.com/windmill-labs/windmill/releases/latest/download/docker-compose.yml > docker-compose.yml && docker-compose up -d",
+  "features": [
+    "Native execution of Python, TypeScript, Go, and Bash",
+    "Instant UI generation from script parameters",
+    "Ultra-fast Rust-based orchestration engine",
+    "Complex flow builder with branching and error handling",
+    "Granular permission system for enterprise deployment"
+  ],
+  "ogImage": "/og/windmill.png"
+}

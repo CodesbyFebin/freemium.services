@@ -1,0 +1,7 @@
+{
+  "id": "rag-guide",
+  "title": "Building Production RAG: The Complete Guide",
+  "content": "## RAG Architecture for Production\n\nRetrieval-Augmented Generation grounds LLMs in your data, eliminating hallucination.\n\n### The RAG Pipeline\n1. Ingest: Split docs -> embed -> store in vector DB\n2. Retrieve: Query -> embed -> similarity search -> top-k chunks\n3. Generate: Inject context into LLM prompt -> answer\n\n### Recommended Stack\n- Embedding: nomic-embed-text via Ollama\n- Vector DB: Qdrant (self-hosted)\n- LLM: Llama 3.3 70B or Claude API\n- Orchestration: Dify or AnythingLLM",
+  "seoTitle": "Production RAG Architecture Guide 2026 | Freemium.Services",
+  "seoDescription": "Build production-grade RAG pipelines with open-source tools. Complete guide for 2026."
+}

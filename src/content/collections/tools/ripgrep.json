@@ -1,0 +1,22 @@
+{
+  "id": "ripgrep",
+  "name": "ripgrep - Fast CLI Search",
+  "description": "ripgrep (rg) is a line-oriented search tool that recursively searches your current directory for a regex pattern. It is widely considered the fastest search tool for developers, outperforming grep, ack, and the silver searcher (ag). In 2026, ripgrep remains an essential component of every power-user's terminal toolkit. It automatically respects your .gitignore rules and skips hidden files/directories by default, making it incredibly intuitive for searching large codebases. Its speed comes from a highly optimized Rust implementation and smart use of memory mapping. Whether you're searching for a specific function call or auditing logs, ripgrep provides near-instant results even on massive monorepos.",
+  "category": "cli-tools",
+  "emoji": "\ud83d\udd0d",
+  "license": "MIT / Unlicense",
+  "stars": 45000,
+  "alternatives": [
+    "ollama",
+    "windmill"
+  ],
+  "install": "brew install ripgrep # macOS\nsudo apt install ripgrep # Ubuntu",
+  "features": [
+    "Extremely fast regex-based searching",
+    "Automatic respect for .gitignore and hidden files",
+    "Support for searching compressed files",
+    "Built-in support for multiple encoding formats",
+    "Highly customizable output formatting"
+  ],
+  "ogImage": "/og/ripgrep.png"
+}
