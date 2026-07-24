@@ -5,6 +5,7 @@ type: "getting-started"
 date: "2025-12-02T02:20:10.416Z"
 draft: true
 noindex: true
+
 ---
 
 ## Getting Started with Windmill - Developer Automation

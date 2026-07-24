@@ -3,8 +3,8 @@ title: "Deep Dive: Understanding Open WebUI - Self-Hosted AI Interface"
 tool: "open-webui"
 type: "deep-dive"
 date: "2025-08-05T02:20:10.401Z"
-draft: true
-noindex: true
+draft: truenoindex: true
+
 ---
 
 ## Deep Dive: Understanding Open WebUI - Self-Hosted AI Interface

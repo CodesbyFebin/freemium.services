@@ -25,6 +25,29 @@ CLAIM_PATTERNS = [
     (r'(?<!V|\w)(\d+(?:,\d{3})*(?:\.\d+)?)\s+(tools?|tool[s]?|categories?|stars?)', 'tools', 'staticToolCount'),
 ]
 
+# Configuration patterns that describe settings, not claims - should be classified as such
+CONFIG_PATTERNS = [
+    r'top\s+\d+\s+tools',
+    r'up\s+to\s+\d+\s+tools',
+    r'max\s+\d+\s+tools',
+]
+
+def is_configuration_claim(text: str, context: str) -> bool:
+    """Check if a claim is actually a configuration statement, not an assertion."""
+    text_lower = text.lower()
+    context_lower = context.lower()
+    
+    for pattern in CONFIG_PATTERNS:
+        if re.search(pattern, text_lower, re.IGNORECASE) or re.search(pattern, context_lower, re.IGNORECASE):
+            return True
+    
+    # Also check if context indicates it's a recommendation or configuration
+    config_indicators = ['ItemList', 'schema', 'configuration', 'recommendation', 'limit', 'suggest', 'suggests']
+    if any(indicator in context_lower for indicator in config_indicators):
+        return True
+    
+    return False
+
 def extract_metrics() -> dict[str, int]:
     """Extract actual counts from source data files."""
     metrics = {
@@ -110,6 +133,10 @@ def extract_claims_from_file(file_path: str) -> list[dict[str, Any]]:
                     metric = metric_override
                 else:
                     metric = 'staticToolCount' if matched_unit in ['tools', 'tool'] else 'staticCategoryCount'
+
+                # Skip configuration claims (like "top 10 tools" - these are not assertions)
+                if is_configuration_claim(claim_text, context):
+                    continue
 
                 claims.append({
                     'text': claim_text,
