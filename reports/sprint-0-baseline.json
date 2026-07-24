@@ -4,7 +4,7 @@
     "name": "Baseline and Safety",
     "date": "2026-07-24",
     "executedAt": "2026-07-24T04:15:00.000Z",
-    "commit": "local-working-directory",
+    "commit": "d26b3cf03a1d80b9dd107fa23ee88f9fea4a511a",
     "branch": "sprint-0-validation",
     "workingTreeClean": false,
     "commands": [
@@ -43,7 +43,7 @@
     ],
     "reportHashes": {
       "url-inventory.json": "410bd4eb52913e66",
-      "sitemap-inventory.json": "aeae3345b6211d9f",
+      "sitemap-inventory.json": "d663882315754099",
       "route-validation.json": "dd8096019bcdd174",
       "content-validation.json": "5f66c636794eb8dd",
       "claim-audit.json": "2dacbdcd6c69c7f1"
