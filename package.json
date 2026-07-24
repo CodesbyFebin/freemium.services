@@ -19,9 +19,19 @@
     "db:seed": "npx prisma db seed"
   },
   "dependencies": {
-    "marked": "^12.0.0"
+    "@astrojs/mdx": "^6.0.3",
+    "@astrojs/react": "^6.0.1",
+    "@faker-js/faker": "^10.5.0",
+    "astro": "^6.4.8",
+    "marked": "^12.0.0",
+    "sharp": "^0.35.3",
+    "zod": "^4.3.6",
+    "zod-validation-error": "^5.0.0"
   },
   "devDependencies": {
+    "@types/node": "^26.1.1",
+    "@types/react": "^19.2.17",
+    "glob": "^13.0.6",
     "prisma": "^6.0.0",
     "typescript": "^5.0.0"
   }
