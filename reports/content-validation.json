@@ -1,0 +1,295 @@
+{
+  "metadata": {
+    "generatedAt": "2026-07-24T00:13:44.239Z",
+    "total": 12,
+    "sourceValid": 12,
+    "migrationReady": 0,
+    "publishable": 0
+  },
+  "tools": {
+    "n8n": {
+      "toolId": "n8n",
+      "sourceValid": true,
+      "migrationReady": false,
+      "publishable": false,
+      "missingFields": [
+        "lastVerified",
+        "migrationStatus"
+      ],
+      "failures": [
+        "lastVerified:missing",
+        "migrationStatus:missing"
+      ],
+      "warnings": []
+    },
+    "ollama": {
+      "toolId": "ollama",
+      "sourceValid": true,
+      "migrationReady": false,
+      "publishable": false,
+      "missingFields": [
+        "lastVerified",
+        "migrationStatus"
+      ],
+      "failures": [
+        "lastVerified:missing",
+        "migrationStatus:missing"
+      ],
+      "warnings": []
+    },
+    "dify": {
+      "toolId": "dify",
+      "sourceValid": true,
+      "migrationReady": false,
+      "publishable": false,
+      "missingFields": [
+        "lastVerified",
+        "migrationStatus"
+      ],
+      "failures": [
+        "lastVerified:missing",
+        "migrationStatus:missing"
+      ],
+      "warnings": []
+    },
+    "langflow": {
+      "toolId": "langflow",
+      "sourceValid": true,
+      "migrationReady": false,
+      "publishable": false,
+      "missingFields": [
+        "lastVerified",
+        "migrationStatus"
+      ],
+      "failures": [
+        "lastVerified:missing",
+        "migrationStatus:missing"
+      ],
+      "warnings": []
+    },
+    "open-webui": {
+      "toolId": "open-webui",
+      "sourceValid": true,
+      "migrationReady": false,
+      "publishable": false,
+      "missingFields": [
+        "lastVerified",
+        "migrationStatus"
+      ],
+      "failures": [
+        "lastVerified:missing",
+        "migrationStatus:missing"
+      ],
+      "warnings": []
+    },
+    "activepieces": {
+      "toolId": "activepieces",
+      "sourceValid": true,
+      "migrationReady": false,
+      "publishable": false,
+      "missingFields": [
+        "lastVerified",
+        "migrationStatus"
+      ],
+      "failures": [
+        "lastVerified:missing",
+        "migrationStatus:missing"
+      ],
+      "warnings": []
+    },
+    "windmill": {
+      "toolId": "windmill",
+      "sourceValid": true,
+      "migrationReady": false,
+      "publishable": false,
+      "missingFields": [
+        "lastVerified",
+        "migrationStatus"
+      ],
+      "failures": [
+        "lastVerified:missing",
+        "migrationStatus:missing"
+      ],
+      "warnings": []
+    },
+    "coolify": {
+      "toolId": "coolify",
+      "sourceValid": true,
+      "migrationReady": false,
+      "publishable": false,
+      "missingFields": [
+        "lastVerified",
+        "migrationStatus"
+      ],
+      "failures": [
+        "lastVerified:missing",
+        "migrationStatus:missing"
+      ],
+      "warnings": []
+    },
+    "qdrant": {
+      "toolId": "qdrant",
+      "sourceValid": true,
+      "migrationReady": false,
+      "publishable": false,
+      "missingFields": [
+        "lastVerified",
+        "migrationStatus"
+      ],
+      "failures": [
+        "lastVerified:missing",
+        "migrationStatus:missing"
+      ],
+      "warnings": []
+    },
+    "ripgrep": {
+      "toolId": "ripgrep",
+      "sourceValid": true,
+      "migrationReady": false,
+      "publishable": false,
+      "missingFields": [
+        "lastVerified",
+        "migrationStatus"
+      ],
+      "failures": [
+        "lastVerified:missing",
+        "migrationStatus:missing"
+      ],
+      "warnings": []
+    },
+    "supabase": {
+      "toolId": "supabase",
+      "sourceValid": true,
+      "migrationReady": false,
+      "publishable": false,
+      "missingFields": [
+        "lastVerified",
+        "migrationStatus"
+      ],
+      "failures": [
+        "lastVerified:missing",
+        "migrationStatus:missing"
+      ],
+      "warnings": []
+    },
+    "auto-gpt": {
+      "toolId": "auto-gpt",
+      "sourceValid": true,
+      "migrationReady": false,
+      "publishable": false,
+      "missingFields": [
+        "lastVerified",
+        "migrationStatus"
+      ],
+      "failures": [
+        "lastVerified:missing",
+        "migrationStatus:missing"
+      ],
+      "warnings": []
+    }
+  },
+  "summary": {
+    "total": 12,
+    "sourceValid": 12,
+    "migrationReady": 0,
+    "publishable": 0,
+    "issues": [
+      {
+        "tool": "n8n",
+        "issue": "Missing field: lastVerified"
+      },
+      {
+        "tool": "n8n",
+        "issue": "Missing field: migrationStatus"
+      },
+      {
+        "tool": "ollama",
+        "issue": "Missing field: lastVerified"
+      },
+      {
+        "tool": "ollama",
+        "issue": "Missing field: migrationStatus"
+      },
+      {
+        "tool": "dify",
+        "issue": "Missing field: lastVerified"
+      },
+      {
+        "tool": "dify",
+        "issue": "Missing field: migrationStatus"
+      },
+      {
+        "tool": "langflow",
+        "issue": "Missing field: lastVerified"
+      },
+      {
+        "tool": "langflow",
+        "issue": "Missing field: migrationStatus"
+      },
+      {
+        "tool": "open-webui",
+        "issue": "Missing field: lastVerified"
+      },
+      {
+        "tool": "open-webui",
+        "issue": "Missing field: migrationStatus"
+      },
+      {
+        "tool": "activepieces",
+        "issue": "Missing field: lastVerified"
+      },
+      {
+        "tool": "activepieces",
+        "issue": "Missing field: migrationStatus"
+      },
+      {
+        "tool": "windmill",
+        "issue": "Missing field: lastVerified"
+      },
+      {
+        "tool": "windmill",
+        "issue": "Missing field: migrationStatus"
+      },
+      {
+        "tool": "coolify",
+        "issue": "Missing field: lastVerified"
+      },
+      {
+        "tool": "coolify",
+        "issue": "Missing field: migrationStatus"
+      },
+      {
+        "tool": "qdrant",
+        "issue": "Missing field: lastVerified"
+      },
+      {
+        "tool": "qdrant",
+        "issue": "Missing field: migrationStatus"
+      },
+      {
+        "tool": "ripgrep",
+        "issue": "Missing field: lastVerified"
+      },
+      {
+        "tool": "ripgrep",
+        "issue": "Missing field: migrationStatus"
+      },
+      {
+        "tool": "supabase",
+        "issue": "Missing field: lastVerified"
+      },
+      {
+        "tool": "supabase",
+        "issue": "Missing field: migrationStatus"
+      },
+      {
+        "tool": "auto-gpt",
+        "issue": "Missing field: lastVerified"
+      },
+      {
+        "tool": "auto-gpt",
+        "issue": "Missing field: migrationStatus"
+      }
+    ]
+  }
+}

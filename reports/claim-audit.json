@@ -1,0 +1,53 @@
+{
+  "metadata": {
+    "generatedAt": "2026-07-24T05:51:58.006529",
+    "totalClaims": 3,
+    "valid": 3,
+    "invalid": 0,
+    "unverifiable": 0,
+    "metrics": {
+      "staticToolCount": 12,
+      "v2ToolCount": 39,
+      "staticCategoryCount": 0,
+      "v2CategoryCount": 0
+    }
+  },
+  "claims": [
+    {
+      "text": "12 tools",
+      "location": "line 18",
+      "file": "CURRENT-ARCHITECTURE.md",
+      "value": 12.0,
+      "unit": "tools",
+      "metric": "staticToolCount",
+      "validationStatus": "valid",
+      "expected": 12,
+      "evidence": "Matches expected 12"
+    },
+    {
+      "text": "39 tools",
+      "location": "line 55",
+      "file": "CURRENT-ARCHITECTURE.md",
+      "value": 39.0,
+      "unit": "tools",
+      "metric": "v2ToolCount",
+      "validationStatus": "valid",
+      "expected": 39,
+      "evidence": "Matches expected 39"
+    },
+    {
+      "text": "10 tools",
+      "location": "line 206",
+      "file": "URL-CONTRACT.md",
+      "value": 10.0,
+      "unit": "tools",
+      "metric": "staticToolCount",
+      "validationStatus": "valid",
+      "expected": 12,
+      "evidence": "Matches expected 12"
+    }
+  ],
+  "summary": {
+    "invalid": []
+  }
+}

@@ -1,0 +1,217 @@
+{
+  "metadata": {
+    "generatedAt": "2026-07-24T00:13:15.602Z",
+    "totalRedirects": 24,
+    "totalSources": 24,
+    "totalDestinations": 24,
+    "cyclesDetected": 0,
+    "failedValidations": 0
+  },
+  "cycles": [],
+  "validations": [
+    {
+      "sourceUrl": "/index.html",
+      "canonical": "/index.html",
+      "hasRedirect": true,
+      "redirectChain": 1,
+      "redirectLoop": false,
+      "validationStatus": "pass"
+    },
+    {
+      "sourceUrl": "/knowledge-hub.html",
+      "canonical": "/knowledge-hub.html",
+      "hasRedirect": true,
+      "redirectChain": 1,
+      "redirectLoop": false,
+      "validationStatus": "pass"
+    },
+    {
+      "sourceUrl": "/category/ai-tools.html",
+      "canonical": "/category/ai-tools.html",
+      "hasRedirect": true,
+      "redirectChain": 1,
+      "redirectLoop": false,
+      "validationStatus": "pass"
+    },
+    {
+      "sourceUrl": "/category/automation-tools.html",
+      "canonical": "/category/automation-tools.html",
+      "hasRedirect": true,
+      "redirectChain": 1,
+      "redirectLoop": false,
+      "validationStatus": "pass"
+    },
+    {
+      "sourceUrl": "/category/self-hosting.html",
+      "canonical": "/category/self-hosting.html",
+      "hasRedirect": true,
+      "redirectChain": 1,
+      "redirectLoop": false,
+      "validationStatus": "pass"
+    },
+    {
+      "sourceUrl": "/category/rag-tools.html",
+      "canonical": "/category/rag-tools.html",
+      "hasRedirect": true,
+      "redirectChain": 1,
+      "redirectLoop": false,
+      "validationStatus": "pass"
+    },
+    {
+      "sourceUrl": "/category/ai-agents.html",
+      "canonical": "/category/ai-agents.html",
+      "hasRedirect": true,
+      "redirectChain": 1,
+      "redirectLoop": false,
+      "validationStatus": "pass"
+    },
+    {
+      "sourceUrl": "/category/developer-tools.html",
+      "canonical": "/category/developer-tools.html",
+      "hasRedirect": true,
+      "redirectChain": 1,
+      "redirectLoop": false,
+      "validationStatus": "pass"
+    },
+    {
+      "sourceUrl": "/category/vector-databases.html",
+      "canonical": "/category/vector-databases.html",
+      "hasRedirect": true,
+      "redirectChain": 1,
+      "redirectLoop": false,
+      "validationStatus": "pass"
+    },
+    {
+      "sourceUrl": "/category/cli-tools.html",
+      "canonical": "/category/cli-tools.html",
+      "hasRedirect": true,
+      "redirectChain": 1,
+      "redirectLoop": false,
+      "validationStatus": "pass"
+    },
+    {
+      "sourceUrl": "/category/assistants.html",
+      "canonical": "/category/assistants.html",
+      "hasRedirect": true,
+      "redirectChain": 1,
+      "redirectLoop": false,
+      "validationStatus": "pass"
+    },
+    {
+      "sourceUrl": "/category/open-source.html",
+      "canonical": "/category/open-source.html",
+      "hasRedirect": true,
+      "redirectChain": 1,
+      "redirectLoop": false,
+      "validationStatus": "pass"
+    },
+    {
+      "sourceUrl": "/tools/n8n.html",
+      "canonical": "/tools/n8n.html",
+      "hasRedirect": true,
+      "redirectChain": 1,
+      "redirectLoop": false,
+      "validationStatus": "pass"
+    },
+    {
+      "sourceUrl": "/tools/ollama.html",
+      "canonical": "/tools/ollama.html",
+      "hasRedirect": true,
+      "redirectChain": 1,
+      "redirectLoop": false,
+      "validationStatus": "pass"
+    },
+    {
+      "sourceUrl": "/tools/dify.html",
+      "canonical": "/tools/dify.html",
+      "hasRedirect": true,
+      "redirectChain": 1,
+      "redirectLoop": false,
+      "validationStatus": "pass"
+    },
+    {
+      "sourceUrl": "/tools/langflow.html",
+      "canonical": "/tools/langflow.html",
+      "hasRedirect": true,
+      "redirectChain": 1,
+      "redirectLoop": false,
+      "validationStatus": "pass"
+    },
+    {
+      "sourceUrl": "/tools/open-webui.html",
+      "canonical": "/tools/open-webui.html",
+      "hasRedirect": true,
+      "redirectChain": 1,
+      "redirectLoop": false,
+      "validationStatus": "pass"
+    },
+    {
+      "sourceUrl": "/tools/activepieces.html",
+      "canonical": "/tools/activepieces.html",
+      "hasRedirect": true,
+      "redirectChain": 1,
+      "redirectLoop": false,
+      "validationStatus": "pass"
+    },
+    {
+      "sourceUrl": "/tools/windmill.html",
+      "canonical": "/tools/windmill.html",
+      "hasRedirect": true,
+      "redirectChain": 1,
+      "redirectLoop": false,
+      "validationStatus": "pass"
+    },
+    {
+      "sourceUrl": "/tools/coolify.html",
+      "canonical": "/tools/coolify.html",
+      "hasRedirect": true,
+      "redirectChain": 1,
+      "redirectLoop": false,
+      "validationStatus": "pass"
+    },
+    {
+      "sourceUrl": "/tools/qdrant.html",
+      "canonical": "/tools/qdrant.html",
+      "hasRedirect": true,
+      "redirectChain": 1,
+      "redirectLoop": false,
+      "validationStatus": "pass"
+    },
+    {
+      "sourceUrl": "/tools/ripgrep.html",
+      "canonical": "/tools/ripgrep.html",
+      "hasRedirect": true,
+      "redirectChain": 1,
+      "redirectLoop": false,
+      "validationStatus": "pass"
+    },
+    {
+      "sourceUrl": "/tools/supabase.html",
+      "canonical": "/tools/supabase.html",
+      "hasRedirect": true,
+      "redirectChain": 1,
+      "redirectLoop": false,
+      "validationStatus": "pass"
+    },
+    {
+      "sourceUrl": "/tools/auto-gpt.html",
+      "canonical": "/tools/auto-gpt.html",
+      "hasRedirect": true,
+      "redirectChain": 1,
+      "redirectLoop": false,
+      "validationStatus": "pass"
+    }
+  ],
+  "analysis": {
+    "duplicateSources": [],
+    "conflictingDestinations": [],
+    "selfRedirects": 0
+  },
+  "summary": {
+    "total": 24,
+    "passes": 24,
+    "fails": 0,
+    "loops": 0,
+    "chains": 0
+  }
+}

@@ -1,0 +1,493 @@
+{
+  "metadata": {
+    "generatedAt": "2026-07-24T00:13:57.322Z",
+    "totalSitemaps": 13,
+    "totalUrls": 106,
+    "active": 6,
+    "empty": 7,
+    "stale": 0,
+    "invalid": 0
+  },
+  "sitemaps": [
+    {
+      "file": "sitemap-blog.xml",
+      "status": "active",
+      "urlCount": 13,
+      "sizeBytes": 2976,
+      "hasUrls": true,
+      "urls": [
+        {
+          "loc": "https://freemium.services/blog/",
+          "lastmod": "2026-04-10",
+          "changefreq": "daily",
+          "priority": "0.90"
+        },
+        {
+          "loc": "https://freemium.services/blog/self-host-entire-saas-stack-40-month/",
+          "lastmod": "2026-03-28",
+          "changefreq": "monthly",
+          "priority": "0.87"
+        },
+        {
+          "loc": "https://freemium.services/blog/depin-edge-computing-2026-guide/",
+          "lastmod": "2026-03-22",
+          "changefreq": "monthly",
+          "priority": "0.85"
+        },
+        {
+          "loc": "https://freemium.services/blog/rag-production-mistakes-to-avoid/",
+          "lastmod": "2026-03-15",
+          "changefreq": "monthly",
+          "priority": "0.86"
+        },
+        {
+          "loc": "https://freemium.services/blog/deepseek-r1-local-setup-guide/",
+          "lastmod": "2026-03-08",
+          "changefreq": "monthly",
+          "priority": "0.87"
+        },
+        {
+          "loc": "https://freemium.services/blog/n8n-ai-agents-production-guide/",
+          "lastmod": "2026-02-28",
+          "changefreq": "monthly",
+          "priority": "0.86"
+        },
+        {
+          "loc": "https://freemium.services/blog/ollama-complete-guide-2026/",
+          "lastmod": "2026-02-20",
+          "changefreq": "monthly",
+          "priority": "0.87"
+        },
+        {
+          "loc": "https://freemium.services/blog/coolify-vs-heroku-2026/",
+          "lastmod": "2026-02-14",
+          "changefreq": "monthly",
+          "priority": "0.85"
+        },
+        {
+          "loc": "https://freemium.services/blog/vector-databases-compared-2026/",
+          "lastmod": "2026-02-07",
+          "changefreq": "monthly",
+          "priority": "0.86"
+        },
+        {
+          "loc": "https://freemium.services/blog/open-source-ai-stack-2026/",
+          "lastmod": "2026-01-30",
+          "changefreq": "monthly",
+          "priority": "0.88"
+        }
+      ]
+    },
+    {
+      "file": "sitemap-categories.xml",
+      "status": "empty",
+      "urlCount": 0,
+      "sizeBytes": 5085,
+      "hasUrls": false,
+      "urls": []
+    },
+    {
+      "file": "sitemap-comparisons.xml",
+      "status": "active",
+      "urlCount": 15,
+      "sizeBytes": 2591,
+      "hasUrls": true,
+      "urls": [
+        {
+          "loc": "https://freemium.services/compare/",
+          "lastmod": "2026-04-10",
+          "changefreq": "weekly",
+          "priority": "0.90"
+        },
+        {
+          "loc": "https://freemium.services/compare/n8n-vs-zapier/",
+          "lastmod": "2026-04-10",
+          "changefreq": "monthly",
+          "priority": "0.88"
+        },
+        {
+          "loc": "https://freemium.services/compare/ollama-vs-lmstudio/",
+          "lastmod": "2026-04-10",
+          "changefreq": "monthly",
+          "priority": "0.87"
+        },
+        {
+          "loc": "https://freemium.services/compare/qdrant-vs-weaviate/",
+          "lastmod": "2026-04-10",
+          "changefreq": "monthly",
+          "priority": "0.87"
+        },
+        {
+          "loc": "https://freemium.services/compare/cursor-vs-vscode-cline/",
+          "lastmod": "2026-04-10",
+          "changefreq": "monthly",
+          "priority": "0.88"
+        },
+        {
+          "loc": "https://freemium.services/compare/dify-vs-flowise/",
+          "lastmod": "2026-04-10",
+          "changefreq": "monthly",
+          "priority": "0.86"
+        },
+        {
+          "loc": "https://freemium.services/compare/n8n-vs-activepieces/",
+          "lastmod": "2026-04-10",
+          "changefreq": "monthly",
+          "priority": "0.86"
+        },
+        {
+          "loc": "https://freemium.services/compare/ollama-vs-localai/",
+          "lastmod": "2026-04-10",
+          "changefreq": "monthly",
+          "priority": "0.85"
+        },
+        {
+          "loc": "https://freemium.services/compare/coolify-vs-caprover/",
+          "lastmod": "2026-04-10",
+          "changefreq": "monthly",
+          "priority": "0.84"
+        },
+        {
+          "loc": "https://freemium.services/compare/qdrant-vs-pinecone/",
+          "lastmod": "2026-04-10",
+          "changefreq": "monthly",
+          "priority": "0.86"
+        }
+      ]
+    },
+    {
+      "file": "sitemap-core.xml",
+      "status": "active",
+      "urlCount": 8,
+      "sizeBytes": 6461,
+      "hasUrls": true,
+      "urls": [
+        {
+          "loc": "https://freemium.services/submit/",
+          "lastmod": "2026-04-10",
+          "changefreq": "monthly",
+          "priority": "0.75"
+        },
+        {
+          "loc": "https://freemium.services/search/",
+          "lastmod": "2026-04-10",
+          "changefreq": "daily",
+          "priority": "0.80"
+        },
+        {
+          "loc": "https://freemium.services/depin-guide/",
+          "lastmod": "2026-04-10",
+          "changefreq": "monthly",
+          "priority": "0.82"
+        },
+        {
+          "loc": "https://freemium.services/tq-integration/",
+          "lastmod": "2026-04-10",
+          "changefreq": "monthly",
+          "priority": "0.80"
+        },
+        {
+          "loc": "https://freemium.services/changelog/",
+          "lastmod": "2026-04-10",
+          "changefreq": "weekly",
+          "priority": "0.70"
+        },
+        {
+          "loc": "https://freemium.services/html-sitemap/",
+          "lastmod": "2026-04-10",
+          "changefreq": "weekly",
+          "priority": "0.65"
+        },
+        {
+          "loc": "https://freemium.services/privacy/",
+          "lastmod": "2026-04-10",
+          "changefreq": "yearly",
+          "priority": "0.50"
+        },
+        {
+          "loc": "https://freemium.services/terms/",
+          "lastmod": "2026-04-10",
+          "changefreq": "yearly",
+          "priority": "0.50"
+        }
+      ]
+    },
+    {
+      "file": "sitemap-features.xml",
+      "status": "active",
+      "urlCount": 10,
+      "sizeBytes": 1624,
+      "hasUrls": true,
+      "urls": [
+        {
+          "loc": "https://freemium.services/ai-kanban/",
+          "lastmod": "2026-04-10",
+          "changefreq": "weekly",
+          "priority": "0.92"
+        },
+        {
+          "loc": "https://freemium.services/ides/",
+          "lastmod": "2026-04-10",
+          "changefreq": "weekly",
+          "priority": "0.90"
+        },
+        {
+          "loc": "https://freemium.services/coding/",
+          "lastmod": "2026-04-10",
+          "changefreq": "weekly",
+          "priority": "0.90"
+        },
+        {
+          "loc": "https://freemium.services/assistants/",
+          "lastmod": "2026-04-10",
+          "changefreq": "weekly",
+          "priority": "0.88"
+        },
+        {
+          "loc": "https://freemium.services/directory/",
+          "lastmod": "2026-04-10",
+          "changefreq": "daily",
+          "priority": "0.95"
+        },
+        {
+          "loc": "https://freemium.services/search/",
+          "lastmod": "2026-04-10",
+          "changefreq": "daily",
+          "priority": "0.80"
+        },
+        {
+          "loc": "https://freemium.services/submit/",
+          "lastmod": "2026-04-10",
+          "changefreq": "monthly",
+          "priority": "0.75"
+        },
+        {
+          "loc": "https://freemium.services/tq-integration/",
+          "lastmod": "2026-04-10",
+          "changefreq": "monthly",
+          "priority": "0.80"
+        },
+        {
+          "loc": "https://freemium.services/changelog/",
+          "lastmod": "2026-04-10",
+          "changefreq": "weekly",
+          "priority": "0.70"
+        },
+        {
+          "loc": "https://freemium.services/html-sitemap/",
+          "lastmod": "2026-04-10",
+          "changefreq": "weekly",
+          "priority": "0.65"
+        }
+      ]
+    },
+    {
+      "file": "sitemap-hi.xml",
+      "status": "empty",
+      "urlCount": 0,
+      "sizeBytes": 4537,
+      "hasUrls": false,
+      "urls": []
+    },
+    {
+      "file": "sitemap-images.xml",
+      "status": "empty",
+      "urlCount": 0,
+      "sizeBytes": 3646,
+      "hasUrls": false,
+      "urls": []
+    },
+    {
+      "file": "sitemap-index.xml",
+      "status": "empty",
+      "urlCount": 0,
+      "sizeBytes": 2860,
+      "hasUrls": false,
+      "urls": []
+    },
+    {
+      "file": "sitemap-knowledge.xml",
+      "status": "active",
+      "urlCount": 13,
+      "sizeBytes": 2627,
+      "hasUrls": true,
+      "urls": [
+        {
+          "loc": "https://freemium.services/cloud/",
+          "lastmod": "2026-04-10",
+          "changefreq": "monthly",
+          "priority": "0.88"
+        },
+        {
+          "loc": "https://freemium.services/streaming/",
+          "lastmod": "2026-04-10",
+          "changefreq": "monthly",
+          "priority": "0.85"
+        },
+        {
+          "loc": "https://freemium.services/thinking/",
+          "lastmod": "2026-04-10",
+          "changefreq": "monthly",
+          "priority": "0.87"
+        },
+        {
+          "loc": "https://freemium.services/structured-outputs/",
+          "lastmod": "2026-04-10",
+          "changefreq": "monthly",
+          "priority": "0.85"
+        },
+        {
+          "loc": "https://freemium.services/vision/",
+          "lastmod": "2026-04-10",
+          "changefreq": "monthly",
+          "priority": "0.85"
+        },
+        {
+          "loc": "https://freemium.services/embeddings/",
+          "lastmod": "2026-04-10",
+          "changefreq": "monthly",
+          "priority": "0.88"
+        },
+        {
+          "loc": "https://freemium.services/tool-calling/",
+          "lastmod": "2026-04-10",
+          "changefreq": "monthly",
+          "priority": "0.86"
+        },
+        {
+          "loc": "https://freemium.services/web-search/",
+          "lastmod": "2026-04-10",
+          "changefreq": "monthly",
+          "priority": "0.85"
+        },
+        {
+          "loc": "https://freemium.services/integrations/",
+          "lastmod": "2026-04-10",
+          "changefreq": "monthly",
+          "priority": "0.85"
+        },
+        {
+          "loc": "https://freemium.services/rag-guide/",
+          "lastmod": "2026-04-10",
+          "changefreq": "monthly",
+          "priority": "0.88"
+        }
+      ]
+    },
+    {
+      "file": "sitemap-ml.xml",
+      "status": "empty",
+      "urlCount": 0,
+      "sizeBytes": 2560,
+      "hasUrls": false,
+      "urls": []
+    },
+    {
+      "file": "sitemap-news.xml",
+      "status": "empty",
+      "urlCount": 0,
+      "sizeBytes": 3100,
+      "hasUrls": false,
+      "urls": []
+    },
+    {
+      "file": "sitemap-ta.xml",
+      "status": "empty",
+      "urlCount": 0,
+      "sizeBytes": 2556,
+      "hasUrls": false,
+      "urls": []
+    },
+    {
+      "file": "sitemap-tools.xml",
+      "status": "active",
+      "urlCount": 47,
+      "sizeBytes": 13211,
+      "hasUrls": true,
+      "urls": [
+        {
+          "loc": "https://freemium.services/tools/perplexica/",
+          "lastmod": "2026-04-10",
+          "changefreq": "weekly",
+          "priority": "0.89"
+        },
+        {
+          "loc": "https://freemium.services/tools/anythingllm/",
+          "lastmod": "2026-04-10",
+          "changefreq": "weekly",
+          "priority": "0.88"
+        },
+        {
+          "loc": "https://freemium.services/tools/langchain/",
+          "lastmod": "2026-04-10",
+          "changefreq": "weekly",
+          "priority": "0.88"
+        },
+        {
+          "loc": "https://freemium.services/tools/llamaindex/",
+          "lastmod": "2026-04-10",
+          "changefreq": "weekly",
+          "priority": "0.88"
+        },
+        {
+          "loc": "https://freemium.services/tools/cline/",
+          "lastmod": "2026-04-10",
+          "changefreq": "weekly",
+          "priority": "0.88"
+        },
+        {
+          "loc": "https://freemium.services/tools/roo-code/",
+          "lastmod": "2026-04-10",
+          "changefreq": "weekly",
+          "priority": "0.87"
+        },
+        {
+          "loc": "https://freemium.services/tools/goose/",
+          "lastmod": "2026-04-10",
+          "changefreq": "weekly",
+          "priority": "0.87"
+        },
+        {
+          "loc": "https://freemium.services/tools/activepieces/",
+          "lastmod": "2026-04-10",
+          "changefreq": "weekly",
+          "priority": "0.87"
+        },
+        {
+          "loc": "https://freemium.services/tools/weaviate/",
+          "lastmod": "2026-04-10",
+          "changefreq": "weekly",
+          "priority": "0.86"
+        },
+        {
+          "loc": "https://freemium.services/tools/marimo/",
+          "lastmod": "2026-04-10",
+          "changefreq": "weekly",
+          "priority": "0.86"
+        }
+      ]
+    }
+  ],
+  "classification": {
+    "active": [
+      "sitemap-blog.xml",
+      "sitemap-comparisons.xml",
+      "sitemap-core.xml",
+      "sitemap-features.xml",
+      "sitemap-knowledge.xml",
+      "sitemap-tools.xml"
+    ],
+    "empty": [
+      "sitemap-categories.xml",
+      "sitemap-hi.xml",
+      "sitemap-images.xml",
+      "sitemap-index.xml",
+      "sitemap-ml.xml",
+      "sitemap-news.xml",
+      "sitemap-ta.xml"
+    ]
+  },
+  "recommendations": [
+    "Consider removing 7 empty sitemaps"
+  ]
+}
