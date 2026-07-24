@@ -1,0 +1,28 @@
+{
+  "name": "freemium-services-monorepo",
+  "private": true,
+  "workspaces": [
+    "apps/*",
+    "packages/*"
+  ],
+  "scripts": {
+    "dev": "npm run dev --workspaces --if-present",
+    "build": "node builder.js",
+    "build:workspaces": "npm run build --workspaces --if-present",
+    "lint": "npm run lint --workspaces --if-present",
+    "test": "node --test tests/**/*.test.js",
+    "test:tools": "node tests/tools.test.js",
+    "test:builder": "node --test tests/builder.test.js",
+    "test:all": "npm run test:tools && npm run test",
+    "db:push": "npx prisma db push",
+    "db:generate": "npx prisma generate",
+    "db:seed": "npx prisma db seed"
+  },
+  "dependencies": {
+    "marked": "^12.0.0"
+  },
+  "devDependencies": {
+    "prisma": "^6.0.0",
+    "typescript": "^5.0.0"
+  }
+}

@@ -1,0 +1,199 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Tool Source Resolution Map",
+  "description": "Maps each public tool to its authoritative source record",
+  "generatedAt": "2026-07-24",
+  "version": "1.0",
+  "tools": [
+    {
+      "id": "n8n",
+      "sources": [
+        { "source": "static-builder", "path": "data/tools.json", "weight": 24 },
+        { "source": "react-v2", "path": "freemium_v2/src/lib/data.ts", "weight": 18 }
+      ],
+      "canonicalRecord": "static-builder",
+      "decisions": [
+        { "field": "name", "chosenSource": "static-builder", "reason": "Both have 'n8n', static is authoritative" },
+        { "field": "description", "chosenSource": "static-builder", "reason": "More detailed in static builder" },
+        { "field": "features", "chosenSource": "static-builder", "reason": "More features listed" },
+        { "field": "alternatives", "chosenSource": "static-builder", "reason": "Complete list available" },
+        { "field": "install", "chosenSource": "static-builder", "reason": "Production-tested command" },
+        { "field": "lastVerified", "chosenSource": "static-builder", "reason": "Tracked in build process" }
+      ]
+    },
+    {
+      "id": "ollama",
+      "sources": [
+        { "source": "static-builder", "path": "data/tools.json", "weight": 24 },
+        { "source": "react-v2", "path": "freemium_v2/src/lib/data.ts", "weight": 18 }
+      ],
+      "canonicalRecord": "static-builder",
+      "decisions": [
+        { "field": "name", "chosenSource": "static-builder", "reason": "Both have 'Ollama', static is authoritative" },
+        { "field": "description", "chosenSource": "static-builder", "reason": "Contains full 2026 context" },
+        { "field": "features", "chosenSource": "static-builder", "reason": "More complete feature list" },
+        { "field": "alternatives", "chosenSource": "static-builder", "reason": "Validated alternatives in production" },
+        { "field": "install", "chosenSource": "static-builder", "reason": "Production-tested install command" }
+      ]
+    },
+    {
+      "id": "dify",
+      "sources": [
+        { "source": "static-builder", "path": "data/tools.json", "weight": 24 },
+        { "source": "react-v2", "path": "freemium_v2/src/lib/data.ts", "weight": 18 }
+      ],
+      "canonicalRecord": "static-builder",
+      "decisions": [
+        { "field": "all", "chosenSource": "static-builder", "reason": "Static builder has complete production data" }
+      ]
+    },
+    {
+      "id": "langflow",
+      "sources": [
+        { "source": "static-builder", "path": "data/tools.json", "weight": 24 }
+      ],
+      "canonicalRecord": "static-builder",
+      "sourceCount": 1,
+      "note": "Only exists in static builder"
+    },
+    {
+      "id": "open-webui",
+      "sources": [
+        { "source": "static-builder", "path": "data/tools.json", "weight": 24 },
+        { "source": "react-v2", "path": "freemium_v2/src/lib/data.ts", "weight": 18 }
+      ],
+      "canonicalRecord": "static-builder",
+      "decisions": [
+        { "field": "all", "chosenSource": "static-builder", "reason": "Static builder is production source" }
+      ]
+    },
+    {
+      "id": "activepieces",
+      "sources": [
+        { "source": "static-builder", "path": "data/tools.json", "weight": 24 },
+        { "source": "react-v2", "path": "freemium_v2/src/lib/data.ts", "weight": 18 }
+      ],
+      "canonicalRecord": "static-builder",
+      "decisions": [
+        { "field": "all", "chosenSource": "static-builder", "reason": "Production API key only in static" }
+      ]
+    },
+    {
+      "id": "windmill",
+      "sources": [
+        { "source": "static-builder", "path": "data/tools.json", "weight": 24 }
+      ],
+      "canonicalRecord": "static-builder",
+      "sourceCount": 1,
+      "note": "Only exists in static builder"
+    },
+    {
+      "id": "coolify",
+      "sources": [
+        { "source": "static-builder", "path": "data/tools.json", "weight": 24 }
+      ],
+      "canonicalRecord": "static-builder",
+      "sourceCount": 1,
+      "note": "Only exists in static builder"
+    },
+    {
+      "id": "qdrant",
+      "sources": [
+        { "source": "static-builder", "path": "data/tools.json", "weight": 24 },
+        { "source": "react-v2", "path": "freemium_v2/src/lib/data.ts", "weight": 18 }
+      ],
+      "canonicalRecord": "static-builder",
+      "decisions": [
+        { "field": "all", "chosenSource": "static-builder", "reason": "Production source takes precedence" }
+      ]
+    },
+    {
+      "id": "ripgrep",
+      "sources": [
+        { "source": "static-builder", "path": "data/tools.json", "weight": 24 }
+      ],
+      "canonicalRecord": "static-builder",
+      "sourceCount": 1,
+      "note": "Only exists in static builder"
+    },
+    {
+      "id": "supabase",
+      "sources": [
+        { "source": "static-builder", "path": "data/tools.json", "weight": 24 }
+      ],
+      "canonicalRecord": "static-builder",
+      "sourceCount": 1,
+      "note": "Only exists in static builder"
+    },
+    {
+      "id": "auto-gpt",
+      "sources": [
+        { "source": "static-builder", "path": "data/tools.json", "weight": 24 }
+      ],
+      "canonicalRecord": "static-builder",
+      "sourceCount": 1,
+      "note": "Only exists in static builder"
+    },
+    {
+      "id": "zed",
+      "sources": [
+        { "source": "react-v2", "path": "freemium_v2/src/lib/data.ts", "weight": 18 }
+      ],
+      "canonicalRecord": "react-v2",
+      "note": "Only exists in V2, import to content collection",
+      "needsImport": true
+    },
+    {
+      "id": "anythingllm",
+      "sources": [
+        { "source": "react-v2", "path": "freemium_v2/src/lib/data.ts", "weight": 18 }
+      ],
+      "canonicalRecord": "react-v2",
+      "note": "Only exists in V2, import to content collection",
+      "needsImport": true
+    },
+    {
+      "id": "perplexica",
+      "sources": [
+        { "source": "react-v2", "path": "freemium_v2/src/lib/data.ts", "weight": 18 }
+      ],
+      "canonicalRecord": "react-v2",
+      "note": "Only exists in V2, import to content collection",
+      "needsImport": true
+    },
+    {
+      "id": "marimo",
+      "sources": [
+        { "source": "react-v2", "path": "freemium_v2/src/lib/data.ts", "weight": 18 }
+      ],
+      "canonicalRecord": "react-v2",
+      "note": "Only exists in V2, import to content collection",
+      "needsImport": true
+    },
+    {
+      "id": "weaviate",
+      "sources": [
+        { "source": "react-v2", "path": "freemium_v2/src/lib/data.ts", "weight": 18 }
+      ],
+      "canonicalRecord": "react-v2",
+      "note": "Only exists in V2, import to content collection",
+      "needsImport": true
+    },
+    {
+      "id": "claude-code",
+      "sources": [
+        { "source": "react-v2", "path": "freemium_v2/src/lib/data.ts", "weight": 18 }
+      ],
+      "canonicalRecord": "react-v2",
+      "note": "Only exists in V2, import to content collection",
+      "needsImport": true
+    }
+  ],
+  "summary": {
+    "totalInStatic": 12,
+    "totalInReactV2": 34,
+    "overlap": 12,
+    "reactV2Only": 22,
+    "actionPlan": "Import React V2-only tools to content collection with manual review"
+  }
+}

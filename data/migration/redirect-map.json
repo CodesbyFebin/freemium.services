@@ -1,0 +1,179 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Migration Redirect Map",
+  "description": "Explicit redirect mappings from legacy URLs to new Astro URLs",
+  "generatedAt": "2026-07-24",
+  "version": "1.0",
+  "mappings": [
+    {
+      "from": "/index.html",
+      "to": "/",
+      "type": 301,
+      "reason": "Homepage canonical",
+      "validationStatus": "pending"
+    },
+    {
+      "from": "/knowledge-hub.html",
+      "to": "/knowledge-hub/",
+      "type": 301,
+      "reason": "Redirect to clean URL",
+      "validationStatus": "pending"
+    },
+    {
+      "from": "/category/ai-tools.html",
+      "to": "/categories/ai-tools/",
+      "type": 301,
+      "reason": "Category renamed and URL cleaned",
+      "validationStatus": "pending"
+    },
+    {
+      "from": "/category/automation-tools.html",
+      "to": "/categories/automation-tools/",
+      "type": 301,
+      "reason": "Category renamed and URL cleaned",
+      "validationStatus": "pending"
+    },
+    {
+      "from": "/category/self-hosting.html",
+      "to": "/categories/self-hosting/",
+      "type": 301,
+      "reason": "Category renamed and URL cleaned",
+      "validationStatus": "pending"
+    },
+    {
+      "from": "/category/rag-tools.html",
+      "to": "/categories/rag-tools/",
+      "type": 301,
+      "reason": "Category renamed and URL cleaned",
+      "validationStatus": "pending"
+    },
+    {
+      "from": "/category/ai-agents.html",
+      "to": "/categories/ai-agents/",
+      "type": 301,
+      "reason": "Category renamed and URL cleaned",
+      "validationStatus": "pending"
+    },
+    {
+      "from": "/category/developer-tools.html",
+      "to": "/categories/developer-tools/",
+      "type": 301,
+      "reason": "Category renamed and URL cleaned",
+      "validationStatus": "pending"
+    },
+    {
+      "from": "/category/vector-databases.html",
+      "to": "/categories/vector-databases/",
+      "type": 301,
+      "reason": "Category renamed and URL cleaned",
+      "validationStatus": "pending"
+    },
+    {
+      "from": "/category/cli-tools.html",
+      "to": "/categories/cli-tools/",
+      "type": 301,
+      "reason": "Category renamed and URL cleaned",
+      "validationStatus": "pending"
+    },
+    {
+      "from": "/category/assistants.html",
+      "to": "/categories/assistants/",
+      "type": 301,
+      "reason": "Category renamed and URL cleaned",
+      "validationStatus": "pending"
+    },
+    {
+      "from": "/category/open-source.html",
+      "to": "/categories/open-source/",
+      "type": 301,
+      "reason": "Category renamed and URL cleaned",
+      "validationStatus": "pending"
+    }
+  ],
+  "toolSpecific": [
+    {
+      "from": "/tools/n8n.html",
+      "to": "/tools/n8n/",
+      "type": 301,
+      "reason": "Tool URL cleanup",
+      "validationStatus": "pending"
+    },
+    {
+      "from": "/tools/ollama.html",
+      "to": "/tools/ollama/",
+      "type": 301,
+      "reason": "Tool URL cleanup",
+      "validationStatus": "pending"
+    },
+    {
+      "from": "/tools/dify.html",
+      "to": "/tools/dify/",
+      "type": 301,
+      "reason": "Tool URL cleanup",
+      "validationStatus": "pending"
+    },
+    {
+      "from": "/tools/langflow.html",
+      "to": "/tools/langflow/",
+      "type": 301,
+      "reason": "Tool URL cleanup",
+      "validationStatus": "pending"
+    },
+    {
+      "from": "/tools/open-webui.html",
+      "to": "/tools/open-webui/",
+      "type": 301,
+      "reason": "Tool URL cleanup",
+      "validationStatus": "pending"
+    },
+    {
+      "from": "/tools/activepieces.html",
+      "to": "/tools/activepieces/",
+      "type": 301,
+      "reason": "Tool URL cleanup",
+      "validationStatus": "pending"
+    },
+    {
+      "from": "/tools/windmill.html",
+      "to": "/tools/windmill/",
+      "type": 301,
+      "reason": "Tool URL cleanup",
+      "validationStatus": "pending"
+    },
+    {
+      "from": "/tools/coolify.html",
+      "to": "/tools/coolify/",
+      "type": 301,
+      "reason": "Tool URL cleanup",
+      "validationStatus": "pending"
+    },
+    {
+      "from": "/tools/qdrant.html",
+      "to": "/tools/qdrant/",
+      "type": 301,
+      "reason": "Tool URL cleanup",
+      "validationStatus": "pending"
+    },
+    {
+      "from": "/tools/ripgrep.html",
+      "to": "/tools/ripgrep/",
+      "type": 301,
+      "reason": "Tool URL cleanup",
+      "validationStatus": "pending"
+    },
+    {
+      "from": "/tools/supabase.html",
+      "to": "/tools/supabase/",
+      "type": 301,
+      "reason": "Tool URL cleanup",
+      "validationStatus": "pending"
+    },
+    {
+      "from": "/tools/auto-gpt.html",
+      "to": "/tools/auto-gpt/",
+      "type": 301,
+      "reason": "Tool URL cleanup",
+      "validationStatus": "pending"
+    }
+  ]
+}
