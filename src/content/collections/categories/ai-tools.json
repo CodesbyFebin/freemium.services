@@ -1,0 +1,8 @@
+{
+  "id": "ai-tools",
+  "name": "AI Tools",
+  "slug": "ai-tools",
+  "description": "Open-source AI tools and LLMs",
+  "descriptionLong": "A collection of open-source AI tools including LLMs, agents, and workflows.",
+  "toolCount": 12
+}

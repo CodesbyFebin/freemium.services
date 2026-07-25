@@ -1,0 +1,23 @@
+{
+  "id": "ollama-vs-langflow",
+  "toolA": "ollama",
+  "toolB": "langflow",
+  "verdict": "Ollama for local model inference and LLM serving. Langflow for visual AI workflow building and RAG pipeline construction.",
+  "features": [
+    {
+      "name": "Purpose",
+      "valA": "Model Serving",
+      "valB": "Workflow Builder"
+    },
+    {
+      "name": "Interface",
+      "valA": "CLI + API",
+      "valB": "Visual + API"
+    },
+    {
+      "name": "RAG Support",
+      "valA": "Via API",
+      "valB": "Built-in"
+    }
+  ]
+}

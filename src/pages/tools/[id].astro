@@ -1,6 +1,6 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
-import { getEntryBySlug, getCollection } from 'astro:content';
+import { getEntry, getCollection } from 'astro:content';
 
 // Required for dynamic routes
 export async function getStaticPaths() {
@@ -11,7 +11,10 @@ export async function getStaticPaths() {
   }));
 }
 
-const tool = getEntryBySlug('tools', Astro.params.id);
+// Astro.params may be narrow in check; use url-based extraction
+const params = Astro.params as Record<string, string | undefined>;
+const id = params.id || Astro.url.pathname.split('/').filter(Boolean).pop() || '';
+const tool = await getEntry('tools', id);
 
 if (!tool) {
   throw new Error('Tool not found');
@@ -65,9 +68,11 @@ if (!tool) {
           <p><strong>License:</strong> {tool.data.license}</p>
         </div>
         
-        <div class="text-xs text-gray-400">
-          Last verified: {new Date(tool.data.lastVerified).toLocaleDateString()}
-        </div>
+        {tool.data.lastVerified && (
+          <div class="text-xs text-gray-400">
+            Last verified: {new Date(tool.data.lastVerified).toLocaleDateString()}
+          </div>
+        )}
       </div>
     </div>
   </div>

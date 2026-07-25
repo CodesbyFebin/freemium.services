@@ -3,7 +3,7 @@
   "name": "Ollama - Run Local LLMs",
   "description": "Ollama is a lightweight, extensible framework for running, managing, and interacting with large language models locally on your own hardware. By abstracting the complex CUDA, Metal, and ROCm dependencies, Ollama allows developers to pull and run models like Llama 3, Mistral, Gemma, and DeepSeek in seconds with a single CLI command. It has become the de facto standard for private AI inference in 2026, replacing reliance on closed OpenAI APIs for sensitive data tasks. Ollama automatically optimizes model execution for your specific hardware, utilizing GPU acceleration on Macs (Apple Silicon), NVIDIA, and AMD cards, while falling back to CPU execution when necessary. It provides an OpenAI-compatible REST API, meaning existing applications built around ChatGPT can be instantly redirected to use local, private models by simply changing the base URL. For developers building RAG systems or agentic workflows, Ollama offers a free, high-performance inference engine that completely eliminates API costs and data privacy concerns.",
   "category": "ai-tools",
-  "emoji": "\ud83e\udd99",
+  "emoji": "🦙",
   "license": "MIT",
   "stars": 94000,
   "alternatives": [
@@ -19,5 +19,10 @@
     "Support for custom Modelfiles to tune behavior",
     "Cross-platform support (macOS, Windows, Linux)"
   ],
-  "ogImage": "/og/ollama.png"
+  "ogImage": "/og/ollama.png",
+  "migrationStatus": "migrated",
+  "lastVerified": "2026-07-24T12:42:58.321Z",
+  "primaryEvidence": {
+    "documentation": "https://github.com/terms4/ollama"
+  }
 }

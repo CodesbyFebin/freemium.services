@@ -22,7 +22,7 @@
     "@astrojs/mdx": "^6.0.3",
     "@astrojs/react": "^6.0.1",
     "@faker-js/faker": "^10.5.0",
-    "astro": "^6.4.8",
+    "astro": "6.4.8",
     "marked": "^12.0.0",
     "sharp": "^0.35.3",
     "zod": "^4.3.6",

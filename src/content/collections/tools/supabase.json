@@ -3,7 +3,7 @@
   "name": "Supabase - Open Source Firebase Alternative",
   "description": "Supabase is a comprehensive open-source Backend-as-a-Service (BaaS) platform that provides every tool needed to build and scale applications. Built on top of enterprise-grade open-source tools like PostgreSQL, GoTrue, and PostgREST, Supabase offers a database, authentication, file storage, and edge functions out of the box. In 2026, it is the premier choice for developers who want the convenience of Firebase without the proprietary lock-in. By self-hosting Supabase via Docker, teams gain full control over their Postgres database, allowing for complex joins, migrations, and direct SQL access that are impossible in NoSQL alternatives. It is the gold standard for modern, scalable, and sovereign application infrastructure.",
   "category": "open-source",
-  "emoji": "\u26a1",
+  "emoji": "⚡",
   "license": "Apache 2.0",
   "stars": 68000,
   "alternatives": [
@@ -18,5 +18,10 @@
     "Auto-generated REST and GraphQL APIs",
     "Edge functions for custom server-side logic"
   ],
-  "ogImage": "/og/supabase.png"
+  "ogImage": "/og/supabase.png",
+  "migrationStatus": "migrated",
+  "lastVerified": "2026-07-24T12:42:58.321Z",
+  "primaryEvidence": {
+    "documentation": "https://github.com/terms4/supabase"
+  }
 }

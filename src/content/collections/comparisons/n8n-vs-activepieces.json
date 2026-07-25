@@ -1,0 +1,23 @@
+{
+  "id": "n8n-vs-activepieces",
+  "toolA": "n8n",
+  "toolB": "activepieces",
+  "verdict": "n8n wins for technical teams needing self-hosting and unlimited executions. Activepieces wins for teams wanting MIT-licensed, embeddable automation.",
+  "features": [
+    {
+      "name": "Self-Hosting",
+      "valA": true,
+      "valB": true
+    },
+    {
+      "name": "License",
+      "valA": "Fair-code",
+      "valB": "MIT"
+    },
+    {
+      "name": "Visual Builder",
+      "valA": "Node-based",
+      "valB": "Flow-based"
+    }
+  ]
+}

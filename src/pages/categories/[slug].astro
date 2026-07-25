@@ -1,6 +1,6 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
-import { getEntryBySlug, getCollection } from 'astro:content';
+import { getEntry, getCollection } from 'astro:content';
 
 // Required for dynamic routes
 export async function getStaticPaths() {
@@ -11,7 +11,9 @@ export async function getStaticPaths() {
   }));
 }
 
-const category = getEntryBySlug('categories', Astro.params.slug);
+const params = Astro.params as Record<string, string | undefined>;
+const slug = params.slug || Astro.url.pathname.split('/').filter(Boolean).pop() || '';
+const category = await getEntry('categories', slug);
 
 if (!category) {
   throw new Error('Category not found');
@@ -19,8 +21,7 @@ if (!category) {
 
 const tools = await getCollection('tools');
 const categoryTools = tools.filter((t) => 
-  t.data.category === category.id || 
-  t.data.category === category.slug
+  t.data.category === category.id
 );
 ---
 

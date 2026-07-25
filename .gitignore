@@ -23,3 +23,4 @@ site_build.log
 
 # Temporary files
 temp/
+.astro/

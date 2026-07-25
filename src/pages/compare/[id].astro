@@ -1,6 +1,6 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
-import { getEntryBySlug, getCollection } from 'astro:content';
+import { getEntry, getCollection } from 'astro:content';
 
 // Required for dynamic routes
 export async function getStaticPaths() {
@@ -11,27 +11,28 @@ export async function getStaticPaths() {
   }));
 }
 
-const comparison = getEntryBySlug('comparisons', Astro.params.id);
+const params = Astro.params as Record<string, string | undefined>;
+const id = params.id || Astro.url.pathname.split('/').filter(Boolean).pop() || '';
+const comparison = await getEntry('comparisons', id);
 
 if (!comparison) {
   throw new Error('Comparison not found');
 }
 
-const toolA = await getEntryBySlug('tools', comparison.data.toolA);
-const toolB = await getEntryBySlug('tools', comparison.data.toolB);
+const toolA = await getEntry('tools', comparison.data.toolA);
+const toolB = await getEntry('tools', comparison.data.toolB);
 
-if (!toolA || !toolB) {
-  throw new Error('Comparison tool not found');
-}
+const toolAName = toolA?.data.name || comparison.data.toolA;
+const toolBName = toolB?.data.name || comparison.data.toolB;
 ---
 
 <BaseLayout 
-  title={(comparison.data.toolAName ? comparison.data.toolAName : comparison.data.toolA) + ' vs ' + (comparison.data.toolBName ? comparison.data.toolBName : comparison.data.toolB) + ' | Freemium.Services'}
-  description="Detailed comparison of " + (comparison.data.toolAName || comparison.data.toolA) + " and " + (comparison.data.toolBName || comparison.data.toolB)
+  title={toolAName + ' vs ' + toolBName + ' | Freemium.Services'}
+  description={"Detailed comparison of " + toolAName + " and " + toolBName}
 >
   <div class="max-w-4xl mx-auto">
     <h1 class="text-3xl font-bold mb-6">
-      {(comparison.data.toolAName || comparison.data.toolA) + ' vs ' + (comparison.data.toolBName || comparison.data.toolB)}
+      {toolAName + ' vs ' + toolBName}
     </h1>
     
     <div class="bg-blue-50 border border-blue-200 rounded-lg p-4 mb-8">
@@ -44,8 +45,8 @@ if (!toolA || !toolB) {
         <thead class="bg-gray-50">
           <tr>
             <th class="border px-4 py-2 text-left font-medium text-gray-700">Feature</th>
-            <th class="border px-4 py-2 text-center font-medium text-gray-700">{(comparison.data.toolAName || comparison.data.toolA)}</th>
-            <th class="border px-4 py-2 text-center font-medium text-gray-700">{(comparison.data.toolBName || comparison.data.toolB)}</th>
+            <th class="border px-4 py-2 text-center font-medium text-gray-700">{toolAName}</th>
+            <th class="border px-4 py-2 text-center font-medium text-gray-700">{toolBName}</th>
           </tr>
         </thead>
         <tbody>

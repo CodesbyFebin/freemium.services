@@ -3,7 +3,7 @@
   "name": "AutoGPT - Autonomous AI Agents",
   "description": "AutoGPT is an experimental open-source application showcasing the capabilities of the GPT-4 language model. This program, driven by GPT-4, chains together LLM 'thoughts' to autonomously achieve whatever goal you set. As one of the first examples of GPT-4 running fully autonomously, AutoGPT pushes the boundaries of what is possible with AI in 2026. It can browse the web, execute code, and manage its own long-term and short-term memory. By self-hosting AutoGPT, researchers and developers can explore the frontier of agentic workflows, building systems that can perform complex market research, software development tasks, and automated data analysis with minimal human intervention.",
   "category": "ai-agents",
-  "emoji": "\ud83e\udd16",
+  "emoji": "🤖",
   "license": "MIT",
   "stars": 165000,
   "alternatives": [
@@ -18,5 +18,10 @@
     "GPT-4 and GPT-3.5 integration for reasoning",
     "File storage and summarization capabilities"
   ],
-  "ogImage": "/og/auto-gpt.png"
+  "ogImage": "/og/auto-gpt.png",
+  "migrationStatus": "migrated",
+  "lastVerified": "2026-07-24T12:42:58.321Z",
+  "primaryEvidence": {
+    "documentation": "https://github.com/terms4/auto-gpt"
+  }
 }

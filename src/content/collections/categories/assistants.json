@@ -1,0 +1,8 @@
+{
+  "id": "assistants",
+  "name": "assistants",
+  "slug": "assistants",
+  "description": "Category for assistants",
+  "descriptionLong": "Tools in the assistants category.",
+  "toolCount": 5
+}

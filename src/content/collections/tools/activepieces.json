@@ -3,7 +3,7 @@
   "name": "Activepieces - Open Source No-Code",
   "description": "Activepieces is an MIT-licensed, open-source business automation tool designed as a direct, user-friendly alternative to Zapier. Written in TypeScript, it offers a remarkably clean and modern interface that empowers non-technical users to build complex workflows while providing developers the flexibility to write custom code pieces when needed. In the 2026 self-hosting landscape, Activepieces stands out for its high performance, ease of use, and permissive MIT licensing, which makes it highly attractive for embedding into other SaaS applications. It boasts hundreds of pre-built 'pieces' (integrations) for popular apps and natively supports AI components. Its self-hosted version unlocks unlimited tasks, eliminating the prohibitive pricing tiers of cloud automation platforms. Activepieces represents the perfect middle ground: intuitive enough for marketing teams, yet robust enough for engineering deployments.",
   "category": "automation-tools",
-  "emoji": "\ud83e\udde9",
+  "emoji": "🧩",
   "license": "MIT",
   "stars": 118000,
   "alternatives": [
@@ -19,5 +19,10 @@
     "Built-in AI operations and API webhook triggers",
     "Unlimited tasks and executions in self-hosted mode"
   ],
-  "ogImage": "/og/activepieces.png"
+  "ogImage": "/og/activepieces.png",
+  "migrationStatus": "migrated",
+  "lastVerified": "2026-07-24T12:42:58.321Z",
+  "primaryEvidence": {
+    "documentation": "https://github.com/terms4/activepieces"
+  }
 }

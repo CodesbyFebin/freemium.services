@@ -3,7 +3,7 @@
   "name": "n8n - Open Source Workflow Automation",
   "description": "n8n is a powerful, self-hostable workflow automation platform that serves as a direct alternative to Zapier and Make. It allows developers to interconnect APIs, databases, and LLM services without paying per-task execution fees. In 2026, it is the standard for building enterprise-grade, data-sovereign automation logic. Unlike traditional SaaS automation tools, n8n provides a 'fair-code' model that allows free self-hosting for internal usage with unlimited workflows and executions. The platform offers a visual node-based editor that appeals to both technical engineers and operational teams, featuring over 400 native integrations ranging from Stripe and Salesforce to deep OpenAI and local Ollama integrations. Its advanced AI features include built-in agentic nodes, memory management, and RAG capabilities, allowing you to visually construct LangChain-style applications with zero code. By self-hosting n8n on Docker or via Kubernetes, businesses can eliminate tens of thousands of dollars in annual integration costs while keeping all proprietary data completely isolated within their own networks.",
   "category": "automation-tools",
-  "emoji": "\ud83d\udd04",
+  "emoji": "🔄",
   "license": "Fair-code (Apache 2.0)",
   "stars": 42000,
   "alternatives": [
@@ -19,5 +19,10 @@
     "Code nodes for custom JavaScript and Python logic",
     "Visual debugging and execution history tracking"
   ],
-  "ogImage": "/og/n8n.png"
+  "ogImage": "/og/n8n.png",
+  "migrationStatus": "migrated",
+  "lastVerified": "2026-07-24T12:42:58.321Z",
+  "primaryEvidence": {
+    "documentation": "https://github.com/terms4/n8n"
+  }
 }

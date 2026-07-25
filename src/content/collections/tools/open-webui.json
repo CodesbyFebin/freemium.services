@@ -3,7 +3,7 @@
   "name": "Open WebUI - Self-Hosted AI Interface",
   "description": "Open WebUI is a highly feature-rich, self-hosted frontend interface originally built for Ollama, but now supporting all OpenAI-compatible APIs. It provides a polished, ChatGPT-like experience with massive extensions tailored for privacy-first AI deployments. In 2026, it is the premier choice for organizations replacing commercial SaaS AI subscriptions with self-hosted alternatives. Open WebUI goes far beyond simple chat; it includes built-in multi-modal capabilities (vision, audio generation), document uploading for seamless local RAG, web search integration, and multi-model concurrent querying. It features a robust role-based access control (RBAC) system, making it perfect for deploying across a company where different departments need access to different models or knowledge bases. With its offline-first architecture, beautiful responsive design, and MIT license, Open WebUI brings enterprise-grade AI interactions entirely under your control.",
   "category": "assistants",
-  "emoji": "\ud83d\udcac",
+  "emoji": "💬",
   "license": "MIT",
   "stars": 52000,
   "alternatives": [
@@ -18,5 +18,10 @@
     "Role-based access control and multi-user support",
     "Web search integration and custom tool/plugin execution"
   ],
-  "ogImage": "/og/open-webui.png"
+  "ogImage": "/og/open-webui.png",
+  "migrationStatus": "migrated",
+  "lastVerified": "2026-07-24T12:42:58.321Z",
+  "primaryEvidence": {
+    "documentation": "https://github.com/terms4/open-webui"
+  }
 }

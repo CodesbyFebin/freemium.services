@@ -1,0 +1,23 @@
+{
+  "id": "qdrant-vs-supabase",
+  "toolA": "qdrant",
+  "toolB": "supabase",
+  "verdict": "Qdrant for dedicated vector search at scale. Supabase for applications needing a full backend with vector capabilities.",
+  "features": [
+    {
+      "name": "Primary Role",
+      "valA": "Vector Database",
+      "valB": "Backend Platform"
+    },
+    {
+      "name": "Vector Search",
+      "valA": "Native",
+      "valB": "pgvector"
+    },
+    {
+      "name": "Language",
+      "valA": "Rust",
+      "valB": "TypeScript/Elixir"
+    }
+  ]
+}
